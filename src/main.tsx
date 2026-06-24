@@ -855,6 +855,10 @@ function applyParameterConditions(step: ReviewStep, schema: ParameterDef[]): Rev
       next.parameters[parameter.key] = { ...current, value: null, source: 'derived', review_status: 'not_applicable' };
     }
     if (state.status === 'active' && isMissingParameterValue(current.value)) {
+      if (current.review_status === 'needs_expert' || (current.source === 'expert' && current.review_status === 'not_applicable')) {
+        next.parameters[parameter.key] = current;
+        continue;
+      }
       next.parameters[parameter.key] = {
         ...current,
         source: current.source || 'missing',
