@@ -1071,12 +1071,13 @@ function confirmDownloadWithErrors(errors: JsonObject[], targetLabel: string): b
   ));
   const hiddenCount = Math.max(0, errors.length - preview.length);
   const message = [
-    `Validation found ${errors.length} issue${errors.length === 1 ? '' : 's'} in ${targetLabel}.`,
+    `${targetLabel} 仍有 ${errors.length} 个明显问题。`,
+    '这些问题可能导致导出的 gold answer 不完整或无法用于 exact match。',
     '',
     ...preview,
-    hiddenCount ? `... and ${hiddenCount} more.` : '',
+    hiddenCount ? `……还有 ${hiddenCount} 个问题未显示。` : '',
     '',
-    'Download anyway?',
+    '你确定要下载吗？',
   ].filter(Boolean).join('\n');
   return window.confirm(message);
 }
