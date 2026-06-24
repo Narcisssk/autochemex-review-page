@@ -577,6 +577,7 @@ function StepCard(props: {
           const current = step.parameters?.[parameter.key] || parameterValueStub(parameter);
           const parameterStatus = parameterReviewStatus(parameter, current);
           const isNotApplicable = !parameter.required && current.review_status === 'not_applicable';
+          const showUnitInput = shouldShowUnitInput(parameter, current);
           return (
             <div className={`param-row ${parameterStatus.kind}`} key={parameter.key}>
               <div className="param-label">
@@ -594,12 +595,14 @@ function StepCard(props: {
                 value={current.value}
                 onChange={(value) => setParamValue(parameter.key, parameter, value)}
               />
-              <input
-                disabled={isNotApplicable}
-                value={current.unit || ''}
-                placeholder="unit"
-                onChange={(event) => setParam(parameter.key, 'unit', event.target.value)}
-              />
+              {showUnitInput && (
+                <input
+                  disabled={isNotApplicable}
+                  value={current.unit || ''}
+                  placeholder="unit"
+                  onChange={(event) => setParam(parameter.key, 'unit', event.target.value)}
+                />
+              )}
               {!parameter.required && (
                 <label className="na-toggle">
                   <input
@@ -860,6 +863,19 @@ function parameterValueStub(parameter: ParameterDef): ParameterValue {
     required_by_platform: Boolean(parameter.required),
     review_status: parameter.required ? 'needs_expert' : 'not_applicable',
   };
+}
+
+function shouldShowUnitInput(parameter: ParameterDef, current: ParameterValue): boolean {
+  const meta = parameter.meta_data || {};
+  if (typeof meta.unit === 'string' && meta.unit.trim()) return true;
+  if (typeof current.unit === 'string' && current.unit.trim()) return true;
+  const category = String(parameter.category || '').toUpperCase();
+  if (category === 'FLOAT' || category === 'INTEGER') return true;
+  if (category === 'ARRAY') {
+    const childType = String(meta.child_type || '').toUpperCase();
+    return childType === 'FLOAT' || childType === 'INTEGER' || Boolean(meta.quantity_for);
+  }
+  return false;
 }
 
 function parameterStub(registry: RegistryRecord[], platform: string, operation: string): Record<string, ParameterValue> {
