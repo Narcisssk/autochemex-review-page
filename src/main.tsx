@@ -86,8 +86,10 @@ function App() {
   const [jsonDraft, setJsonDraft] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [errors, setErrors] = React.useState<JsonObject[]>([]);
+  const [selectedPacketIds, setSelectedPacketIds] = React.useState<Set<string>>(new Set());
 
   const platforms = React.useMemo(() => platformOptions(registry), [registry]);
+  const selectedPacketCount = selectedPacketIds.size;
 
   React.useEffect(() => {
     loadInitialData();
@@ -104,6 +106,7 @@ function App() {
       fetchJson<RegistryRecord[]>(`${DATA_BASE}/parsed_parameter_registry.json`),
     ]);
     setPackets(index.packets || []);
+    setSelectedPacketIds(new Set(index.packets?.map((item) => item.id) || []));
     setRegistry(Array.isArray(registryPayload) ? registryPayload : []);
     if (index.packets?.length) setSelectedId(index.packets[0].id);
   }
@@ -243,14 +246,33 @@ function App() {
     if (protectedPacket) downloadJson(reviewedFileName(selectedId), protectedPacket);
   }
 
-  function downloadBundle() {
-    const reviewed = packets
-      .map((item) => ({ id: item.id, packet: readStoredPacket(item.id) }))
-      .filter((item): item is { id: string; packet: ReviewPacket } => Boolean(item.packet));
-    downloadJson('reviewed_packets_bundle.json', {
+  async function downloadSelected() {
+    if (selectedPacketIds.size === 0) {
+      setMessage('Please select at least one packet to download.');
+      return;
+    }
+    if (packet && selectedPacketIds.has(selectedId)) saveDraft();
+    const selected = packets.filter((item) => selectedPacketIds.has(item.id));
+    const reviewed = await Promise.all(selected.map(async (item) => {
+      const stored = readStoredPacket(item.id);
+      if (stored) return { id: item.id, packet: stored };
+      const base = await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(item.id)}`);
+      return { id: item.id, packet: base };
+    }));
+    downloadJson('selected_review_packets_bundle.json', {
       exported_at: new Date().toISOString(),
       packet_count: reviewed.length,
       reviewed_packets: reviewed,
+    });
+    setMessage(`Downloaded ${reviewed.length} selected packet${reviewed.length === 1 ? '' : 's'}.`);
+  }
+
+  function togglePacketSelection(packetId: string, checked: boolean) {
+    setSelectedPacketIds((current) => {
+      const next = new Set(current);
+      if (checked) next.add(packetId);
+      else next.delete(packetId);
+      return next;
     });
   }
 
@@ -262,13 +284,25 @@ function App() {
       <aside className="sidebar">
         <div className="sidebar-title">Review Packets</div>
         <div className="sidebar-note">Local edits stay in this browser until downloaded.</div>
+        <div className="packet-select-actions">
+          <button onClick={() => setSelectedPacketIds(new Set(packets.map((item) => item.id)))}>Select all</button>
+          <button onClick={() => setSelectedPacketIds(new Set())}>Clear</button>
+        </div>
         <div className="packet-list">
           {packets.map((item) => (
-            <button key={item.id} className={`packet-item ${selectedId === item.id ? 'active' : ''}`} onClick={() => setSelectedId(item.id)}>
-              <span className="packet-name">{item.reaction_id || item.file_name}</span>
-              {item.target_name && <span className="packet-target">{item.target_name}</span>}
-              <span className="packet-meta">{hasStoredPacket(item.id) ? 'draft saved' : 'not reviewed'}</span>
-            </button>
+            <div key={item.id} className={`packet-row ${selectedId === item.id ? 'active' : ''}`}>
+              <input
+                aria-label={`Select ${item.reaction_id || item.file_name}`}
+                checked={selectedPacketIds.has(item.id)}
+                onChange={(event) => togglePacketSelection(item.id, event.target.checked)}
+                type="checkbox"
+              />
+              <button className="packet-item" onClick={() => setSelectedId(item.id)}>
+                <span className="packet-name">{item.reaction_id || item.file_name}</span>
+                {item.target_name && <span className="packet-target">{item.target_name}</span>}
+                <span className="packet-meta">{hasStoredPacket(item.id) ? 'draft saved' : 'not reviewed'}</span>
+              </button>
+            </div>
           ))}
         </div>
       </aside>
@@ -283,7 +317,7 @@ function App() {
             <button onClick={validateCurrent}>Validate</button>
             <button onClick={saveDraft}><Save size={16} /> Save draft</button>
             <button className="primary" onClick={downloadCurrent}><Download size={16} /> Download JSON</button>
-            <button onClick={downloadBundle}><FileDown size={16} /> Download bundle</button>
+            <button onClick={downloadSelected}><FileDown size={16} /> Download selected ({selectedPacketCount})</button>
           </div>
         </header>
 
@@ -298,7 +332,7 @@ function App() {
           </div>
           <div>
             <strong>Saving</strong>
-            <span>Save draft 只保存在当前浏览器；提交给维护者时请使用 Download JSON 或 Download bundle。</span>
+            <span>Save draft 只保存在当前浏览器；提交给维护者时请使用 Download JSON，或在左侧勾选多个 packets 后使用 Download selected。</span>
           </div>
         </section>
 
