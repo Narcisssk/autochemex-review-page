@@ -123,8 +123,13 @@ function App() {
   }
 
   function updatePacket(next: ReviewPacket) {
-    setPacket(next);
-    setJsonDraft(JSON.stringify(next, null, 2));
+    const protectedPacket = basePacket ? protectImmutableFields(next, basePacket) : next;
+    setPacket(protectedPacket);
+    setJsonDraft(JSON.stringify(protectedPacket, null, 2));
+    if (selectedId) {
+      localStorage.setItem(storageKey(selectedId), JSON.stringify(protectedPacket));
+      setPackets((items) => [...items]);
+    }
   }
 
   function updateReaction(path: 'reaction_smiles' | 'target.name' | 'target.smiles', value: string) {
@@ -207,9 +212,8 @@ function App() {
     try {
       const parsed = JSON.parse(jsonDraft) as ReviewPacket;
       const protectedPacket = basePacket ? protectImmutableFields(parsed, basePacket) : parsed;
-      setPacket(protectedPacket);
-      setJsonDraft(JSON.stringify(protectedPacket, null, 2));
-      setMessage('JSON applied. Reaction ID and original source text were preserved.');
+      updatePacket(protectedPacket);
+      setMessage('JSON applied and saved locally. Reaction ID and original source text were preserved.');
     } catch (error) {
       setMessage(`Invalid JSON: ${String(error)}`);
     }
@@ -283,7 +287,7 @@ function App() {
     <div className="app-shell">
       <aside className="sidebar">
         <div className="sidebar-title">Review Packets</div>
-        <div className="sidebar-note">Local edits stay in this browser until downloaded.</div>
+        <div className="sidebar-note">Edits are autosaved in this browser until downloaded.</div>
         <div className="packet-select-actions">
           <button onClick={() => setSelectedPacketIds(new Set(packets.map((item) => item.id)))}>Select all</button>
           <button onClick={() => setSelectedPacketIds(new Set())}>Clear</button>
@@ -332,7 +336,7 @@ function App() {
           </div>
           <div>
             <strong>Saving</strong>
-            <span>Save draft 只保存在当前浏览器；提交给维护者时请使用 Download JSON，或在左侧勾选多个 packets 后使用 Download selected。</span>
+            <span>字段修改会自动保存在当前浏览器；Save draft 可用于手动校验和确认。提交给维护者时请使用 Download JSON，或在左侧勾选多个 packets 后使用 Download selected。</span>
           </div>
         </section>
 
