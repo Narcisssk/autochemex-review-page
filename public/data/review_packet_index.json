@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-24T10:37:06.439996+00:00",
-  "packet_count": 1,
+  "generated_at": "2026-06-24T10:42:52.718799+00:00",
+  "packet_count": 2,
   "packets": [
     {
       "id": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__001_2fd29a74-2228-52c1-8fc0-e2a08e3dd26d.json",
@@ -13,6 +13,19 @@
         "url": "data/papers/a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
         "source_name": "a0552863-3a8b-579b-a499-57868e6febad_origin.pdf",
         "size_bytes": 182076
+      }
+    },
+    {
+      "id": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_gold_extraction__001_15ab2c6b-11ad-5420-8393-277084badd57.json",
+      "file_name": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_gold_extraction__001_15ab2c6b-11ad-5420-8393-277084badd57.json",
+      "literature_uuid": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf",
+      "reaction_id": "15ab2c6b-11ad-5420-8393-277084badd57",
+      "target_name": "monofluorinated dimethyl carbonate (MFDMC)",
+      "paper": {
+        "file_name": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_origin.pdf",
+        "url": "data/papers/e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_origin.pdf",
+        "source_name": "e033b3d5-0d1b-5486-a6d0-ebdbde6a12bf_origin.pdf",
+        "size_bytes": 163085
       }
     }
   ]
