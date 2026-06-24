@@ -227,7 +227,7 @@ function App() {
     return result;
   }
 
-  function saveDraft(): ReviewPacket | null {
+  function saveDraft(): { packet: ReviewPacket; errors: JsonObject[] } | null {
     if (!packet || !selectedId) return null;
     const cleanPacket = stripStepEvidence(packet);
     const normalizedPacket = normalizeRequiredParameterStatuses(cleanPacket, registry);
@@ -244,7 +244,7 @@ function App() {
     }
     localStorage.setItem(storageKey(selectedId), JSON.stringify(protectedPacket));
     setPackets((items) => [...items]);
-    return protectedPacket;
+    return { packet: protectedPacket, errors: validationErrors };
   }
 
   function resetToOriginal() {
@@ -263,8 +263,10 @@ function App() {
 
   function downloadCurrent() {
     if (!packet || !selectedId) return;
-    const protectedPacket = saveDraft();
-    if (protectedPacket) downloadJson(reviewedFileName(selectedId), protectedPacket);
+    const saved = saveDraft();
+    if (!saved) return;
+    if (!confirmDownloadWithErrors(saved.errors, 'current packet')) return;
+    downloadJson(reviewedFileName(selectedId), saved.packet);
   }
 
   async function downloadSelected() {
@@ -280,6 +282,16 @@ function App() {
       const base = await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(item.id)}`);
       return { id: item.id, packet: normalizeRequiredParameterStatuses(stripStepEvidence(base), registry) };
     }));
+    const validationErrors = reviewed.flatMap((item) =>
+      validatePacket(item.packet, registry).map((error) => ({
+        ...error,
+        path: `${item.id} :: ${String(error.path || '')}`,
+      }))
+    );
+    if (!confirmDownloadWithErrors(validationErrors, `${reviewed.length} selected packet${reviewed.length === 1 ? '' : 's'}`)) {
+      setMessage('Download canceled. Review validation errors before exporting.');
+      return;
+    }
     downloadJson('selected_review_packets_bundle.json', {
       exported_at: new Date().toISOString(),
       packet_count: reviewed.length,
@@ -1050,6 +1062,23 @@ function validateEnumValue(value: JsonValue | undefined, parameter: ParameterDef
       message: `ENUM value must be one of: ${options.map((option) => `${option.value}(${option.label})`).join(', ')}.`,
     });
   }
+}
+
+function confirmDownloadWithErrors(errors: JsonObject[], targetLabel: string): boolean {
+  if (errors.length === 0) return true;
+  const preview = errors.slice(0, 12).map((error, index) => (
+    `${index + 1}. ${String(error.path || '')}: ${String(error.message || '')}`
+  ));
+  const hiddenCount = Math.max(0, errors.length - preview.length);
+  const message = [
+    `Validation found ${errors.length} issue${errors.length === 1 ? '' : 's'} in ${targetLabel}.`,
+    '',
+    ...preview,
+    hiddenCount ? `... and ${hiddenCount} more.` : '',
+    '',
+    'Download anyway?',
+  ].filter(Boolean).join('\n');
+  return window.confirm(message);
 }
 
 function protectImmutableFields(packet: ReviewPacket, base: ReviewPacket): ReviewPacket {
