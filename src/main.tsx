@@ -99,6 +99,11 @@ function App() {
     loadPacket(selectedId);
   }, [selectedId]);
 
+  React.useEffect(() => {
+    if (!packet) return;
+    setJsonDraft(JSON.stringify(packet, null, 2));
+  }, [packet]);
+
   async function loadInitialData() {
     const [index, registryPayload] = await Promise.all([
       fetchJson<{ packets: PacketSummary[] }>(`${DATA_BASE}/review_packet_index.json`),
@@ -116,7 +121,6 @@ function App() {
     const data = stored ? protectImmutableFields(stripStepEvidence(stored), base) : base;
     setBasePacket(base);
     setPacket(data);
-    setJsonDraft(JSON.stringify(data, null, 2));
     setErrors([]);
     setMessage(stored ? 'Loaded local draft.' : '');
   }
@@ -126,7 +130,6 @@ function App() {
     const normalizedPacket = normalizeRequiredParameterStatuses(cleanPacket, registry);
     const protectedPacket = basePacket ? protectImmutableFields(normalizedPacket, basePacket) : normalizedPacket;
     setPacket(protectedPacket);
-    setJsonDraft(JSON.stringify(protectedPacket, null, 2));
     if (selectedId) {
       localStorage.setItem(storageKey(selectedId), JSON.stringify(protectedPacket));
       setPackets((items) => [...items]);
@@ -233,7 +236,6 @@ function App() {
     const normalizedPacket = normalizeRequiredParameterStatuses(cleanPacket, registry);
     const protectedPacket = basePacket ? protectImmutableFields(normalizedPacket, basePacket) : normalizedPacket;
     setPacket(protectedPacket);
-    setJsonDraft(JSON.stringify(protectedPacket, null, 2));
     const validationErrors = validatePacket(protectedPacket, registry);
     setErrors(validationErrors);
     if (validationErrors.length) {
@@ -254,7 +256,6 @@ function App() {
     const original = structuredClone(basePacket);
     localStorage.removeItem(storageKey(selectedId));
     setPacket(original);
-    setJsonDraft(JSON.stringify(original, null, 2));
     setErrors([]);
     setActiveTab('form');
     setMessage('Local draft cleared. Original packet loaded.');
