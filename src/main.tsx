@@ -42,7 +42,6 @@ type ReviewStep = {
   review_step_id: string;
   source_operation_orders?: number[];
   source_text?: string;
-  evidence?: string[];
   platform?: string | null;
   operation?: string | null;
   materials?: JsonObject[];
@@ -537,8 +536,6 @@ function StepCard(props: {
         <span>LLM extracted source hint</span>
         <div className="source-text">{step.source_text || 'No LLM source hint.'}</div>
       </div>
-
-      <EvidenceList title="Step evidence" evidence={step.evidence} />
 
       <div className="materials">
         <div className="mini-heading">LLM extracted material candidates</div>

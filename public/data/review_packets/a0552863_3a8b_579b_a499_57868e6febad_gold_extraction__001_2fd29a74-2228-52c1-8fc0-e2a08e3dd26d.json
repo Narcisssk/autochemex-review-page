@@ -100,10 +100,6 @@
           "question": "请确认该步加液时是否关盖。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure",
-        "PDF page 4 detailed example for 3a"
       ]
     },
     {
@@ -162,10 +158,6 @@
           "question": "请确认该步固体加料时是否关盖。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure",
-        "PDF page 4 detailed example for 3a"
       ]
     },
     {
@@ -187,10 +179,7 @@
           "review_status": "ok"
         }
       },
-      "review_questions": [],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure"
-      ]
+      "review_questions": []
     },
     {
       "review_step_id": "step_4",
@@ -270,9 +259,6 @@
           "question": "请确认滴加过程中搅拌速度。",
           "priority": "recommended"
         }
-      ],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -300,9 +286,6 @@
           "question": "文献为‘用水溶性亚硫酸钠洗涤至无色’，当前注册表中无明确对应洗涤操作，请专家确认应映射到哪个平台操作。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -435,9 +418,6 @@
           "question": "请确认萃取第二阶段加液速度。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -510,9 +490,6 @@
           "question": "请确认干燥实验中的震荡速度。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -600,9 +577,6 @@
           "question": "请确认是否清洗冷凝管路。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -656,9 +630,6 @@
           "question": "请确认过柱进样量。",
           "priority": "recommended"
         }
-      ],
-      "evidence": [
-        "PDF page 4 general BrF3 procedure"
       ]
     }
   ],

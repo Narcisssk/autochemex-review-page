@@ -34,10 +34,7 @@
         }
       ],
       "parameters": {},
-      "review_questions": [],
-      "evidence": [
-        "Experimental section, PDF page 9"
-      ]
+      "review_questions": []
     },
     {
       "review_step_id": "step_2",
@@ -58,10 +55,7 @@
         }
       ],
       "parameters": {},
-      "review_questions": [],
-      "evidence": [
-        "Experimental section, PDF page 9"
-      ]
+      "review_questions": []
     },
     {
       "review_step_id": "step_3",
@@ -148,9 +142,6 @@
           "question": "文献只说明反应过程中有搅拌，未给出搅拌转速；请确认四釜反应平台的搅拌速度。",
           "priority": "recommended"
         }
-      ],
-      "evidence": [
-        "Experimental section, PDF page 9"
       ]
     },
     {
@@ -252,9 +243,6 @@
           "question": "请确认水洗后需要保留的取液层（上层/下层/都需要）。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "Experimental section, PDF page 9"
       ]
     },
     {
@@ -356,9 +344,6 @@
           "question": "请确认碳酸钠水溶液洗涤后需要保留的取液层（上层/下层/都需要）。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "Experimental section, PDF page 9"
       ]
     },
     {
@@ -416,9 +401,6 @@
           "question": "请确认干燥实验的震荡速度（rpm）；文献仅给出干燥时间。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "Experimental section, PDF page 9"
       ]
     },
     {
@@ -446,9 +428,6 @@
           "question": "文献为常压分馏分离产物，请确认应映射到哪个平台注册操作；现有注册表中未提供与该实验步骤直接对应的标准分馏执行操作。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "Experimental section, PDF page 9"
       ]
     },
     {
@@ -498,9 +477,6 @@
           "question": "文献提到GC和NMR检测，请确认平台中对应的检测方案编号。",
           "priority": "required"
         }
-      ],
-      "evidence": [
-        "Experimental section, PDF page 9"
       ]
     }
   ],
