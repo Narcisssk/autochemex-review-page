@@ -544,7 +544,7 @@ function StepCard(props: {
 
       <div className="materials">
         <div className="mini-heading">LLM extracted material candidates</div>
-        <div className="section-note">候选物料仅供核对；最终 gold 以平台参数区填写结果为准。</div>
+        <div className="section-note">候选物料仅供参考；最终 gold 以平台参数区填写结果为准。</div>
         {(step.materials || []).length === 0 ? <div className="empty">No LLM material candidates.</div> : (step.materials || []).map((material, materialIndex) => (
           <div className="material-row" key={materialIndex}>
             <span>{String(material.name || '')}</span>
