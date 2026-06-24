@@ -7,11 +7,107 @@
       "name": "Bis(2-nitrophenoxy)difluoromethane (3a)",
       "smiles": "FC(F)(Oc1ccccc1[N+](=O)[O-])Oc1ccccc1[N+](=O)[O-]"
     },
-    "confidence": 0.93
+    "confidence": 0.93,
+    "evidence": [
+      "PDF page 4: General Procedure for the Preparation of the Difluoro Derivatives with BrF3",
+      "PDF page 4: detailed example 'Bis(2-nitrophenoxy)difluoromethane (3a)... prepared from 2a (980 mg) ... in 80% yield'",
+      "PDF page 2: Scheme 1 and text identify 2a -> 3a transformation"
+    ]
   },
   "platform_review_steps": [
     {
       "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Dissolve the appropriate thiocarbonate in CHCl3 in a glass flask.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "CHCl3",
+          "role": "solvent",
+          "amount_raw": "20–25 mL",
+          "smiles": "ClC(Cl)Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "CHCl3"
+          },
+          "raw": "CHCl3",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": "20–25 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献给出CHCl3用量为20–25 mL范围，平台需要确定单一加液体积，请确认具体取值。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "请确认该步液体加料使用的工装编号（移液枪、针泵或反应区针泵）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "请确认该步CHCl3加液速度。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "请确认该步加液时是否关盖。",
+          "priority": "required"
+        }
+      ],
+      "evidence": [
+        "PDF page 4 general BrF3 procedure",
+        "PDF page 4 detailed example for 3a"
+      ]
+    },
+    {
+      "review_step_id": "step_2",
       "source_operation_orders": [
         1
       ],
@@ -45,9 +141,7 @@
           "value": [
             980
           ],
-          "raw": [
-            "980 mg"
-          ],
+          "raw": "980 mg",
           "unit": "mg",
           "source": "literature",
           "required_by_platform": true,
@@ -65,91 +159,13 @@
       "review_questions": [
         {
           "field": "parameters.lid_status",
-          "question": "固体加料时是否需要关盖？",
+          "question": "请确认该步固体加料时是否关盖。",
           "priority": "required"
-        }
-      ]
-    },
-    {
-      "review_step_id": "step_2",
-      "source_operation_orders": [
-        1
-      ],
-      "source_text": "Dissolve the appropriate thiocarbonate in CHCl3 in a glass flask.",
-      "platform": "高通量反应平台",
-      "operation": "液体加料",
-      "materials": [
-        {
-          "name": "CHCl3",
-          "role": "solvent",
-          "amount_raw": "20–25 mL",
-          "smiles": "ClC(Cl)Cl",
-          "source": "literature",
-          "review_status": "ok"
         }
       ],
-      "parameters": {
-        "material": {
-          "value": {
-            "name": "CHCl3"
-          },
-          "raw": "CHCl3",
-          "unit": null,
-          "source": "literature",
-          "required_by_platform": true,
-          "review_status": "ok"
-        },
-        "dosage": {
-          "value": [
-            20
-          ],
-          "raw": "20–25 mL",
-          "unit": "ml",
-          "source": "literature",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        },
-        "tool_use": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        },
-        "drip_speed": {
-          "value": 0.5,
-          "raw": null,
-          "unit": "ml/s",
-          "source": "derived",
-          "required_by_platform": true,
-          "review_status": "ok"
-        },
-        "lid_status": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        }
-      },
-      "review_questions": [
-        {
-          "field": "parameters.dosage",
-          "question": "CHCl3体积写为20–25 mL，平台应填写哪个确定值？",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.tool_use",
-          "question": "加入CHCl3时使用哪种工装编号？",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.lid_status",
-          "question": "液体加料时是否需要关盖？",
-          "priority": "required"
-        }
+      "evidence": [
+        "PDF page 4 general BrF3 procedure",
+        "PDF page 4 detailed example for 3a"
       ]
     },
     {
@@ -171,7 +187,10 @@
           "review_status": "ok"
         }
       },
-      "review_questions": []
+      "review_questions": [],
+      "evidence": [
+        "PDF page 4 general BrF3 procedure"
+      ]
     },
     {
       "review_step_id": "step_4",
@@ -183,9 +202,9 @@
       "operation": "过程控温滴加",
       "materials": [
         {
-          "name": "BrF3",
-          "role": "reagent",
-          "amount_raw": "1 molar equiv",
+          "name": "BrF3 solution in CFCl3",
+          "role": "reagent_solution",
+          "amount_raw": "BrF3 (1 molar equiv) in a few milliliters of CFCl3",
           "smiles": null,
           "source": "literature",
           "review_status": "ok"
@@ -194,9 +213,9 @@
       "parameters": {
         "quencher": {
           "value": {
-            "name": "BrF3"
+            "name": "BrF3 solution in CFCl3"
           },
-          "raw": "BrF3",
+          "raw": "BrF3 solution",
           "unit": null,
           "source": "literature",
           "required_by_platform": true,
@@ -220,9 +239,9 @@
         },
         "drip_dosage": {
           "value": null,
-          "raw": "1 molar equiv",
+          "raw": "a few milliliters of CFCl3",
           "unit": "ml",
-          "source": "missing",
+          "source": "literature",
           "required_by_platform": false,
           "review_status": "needs_expert"
         },
@@ -238,19 +257,22 @@
       "review_questions": [
         {
           "field": "parameters.drip_dosage",
-          "question": "BrF3仅给出1当量，平台需要填写的滴加体积是多少？",
+          "question": "文献仅写‘几毫升CFCl3中的BrF3溶液’，请确认该滴加液的准确体积。",
           "priority": "required"
         },
         {
           "field": "parameters.drip_speed",
-          "question": "BrF3滴加速度是多少？",
+          "question": "请确认BrF3溶液的滴加速度。",
           "priority": "recommended"
         },
         {
           "field": "parameters.agitation_speed",
-          "question": "滴加过程中搅拌速度是多少？",
+          "question": "请确认滴加过程中搅拌速度。",
           "priority": "recommended"
         }
+      ],
+      "evidence": [
+        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -275,9 +297,12 @@
       "review_questions": [
         {
           "field": "operation",
-          "question": "“用亚硫酸钠水溶液洗涤至无色”应映射到哪个平台注册操作？当前注册表中无明确洗涤操作，请专家确认。",
+          "question": "文献为‘用水溶性亚硫酸钠洗涤至无色’，当前注册表中无明确对应洗涤操作，请专家确认应映射到哪个平台操作。",
           "priority": "required"
         }
+      ],
+      "evidence": [
+        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -327,7 +352,7 @@
           "value": {
             "name": "CH2Cl2"
           },
-          "raw": "CH2Cl2",
+          "raw": "dichloromethane",
           "unit": null,
           "source": "literature",
           "required_by_platform": true,
@@ -342,12 +367,12 @@
           "review_status": "needs_expert"
         },
         "take_layer": {
-          "value": "2",
+          "value": null,
           "raw": "aqueous layer",
           "unit": null,
-          "source": "derived",
+          "source": "literature",
           "required_by_platform": true,
-          "review_status": "ok"
+          "review_status": "needs_expert"
         },
         "ef_ssv": {
           "value": 3,
@@ -376,35 +401,43 @@
       },
       "review_questions": [
         {
+          "field": "parameters.extract_material_dosage",
+          "question": "请确认每次用CH2Cl2萃取的体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献说明‘萃取水层’，平台取液层参数请确认应设置为上层还是下层。",
+          "priority": "required"
+        },
+        {
           "field": "parameters.timespan",
-          "question": "萃取后的静置时间是多少？",
+          "question": "请确认萃取后的静置时间。",
           "priority": "required"
         },
         {
           "field": "parameters.drip_speed",
-          "question": "萃取震荡速度是多少？",
+          "question": "请确认萃取振荡速度。",
           "priority": "required"
         },
         {
           "field": "parameters.drip_timespan",
-          "question": "萃取震荡时间是多少？",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.extract_material_dosage",
-          "question": "每次使用CH2Cl2萃取的体积是多少？",
+          "question": "请确认萃取振荡时间。",
           "priority": "required"
         },
         {
           "field": "parameters.drip_speed_in_first_step",
-          "question": "萃取第一阶段加液速度是多少？",
+          "question": "请确认萃取第一阶段加液速度。",
           "priority": "required"
         },
         {
           "field": "parameters.drip_speed_in_second_step",
-          "question": "萃取第二阶段加液速度是多少？",
+          "question": "请确认萃取第二阶段加液速度。",
           "priority": "required"
         }
+      ],
+      "evidence": [
+        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -464,19 +497,22 @@
       "review_questions": [
         {
           "field": "parameters.desiccant_qty",
-          "question": "MgSO4干燥剂用量是多少？",
+          "question": "请确认MgSO4干燥剂用量。",
           "priority": "required"
         },
         {
           "field": "parameters.timespan",
-          "question": "干燥震荡时间是多少？",
+          "question": "请确认干燥处理时间。",
           "priority": "required"
         },
         {
           "field": "parameters.speed",
-          "question": "干燥震荡速度是多少？",
+          "question": "请确认干燥实验中的震荡速度。",
           "priority": "required"
         }
+      ],
+      "evidence": [
+        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -541,29 +577,32 @@
       "review_questions": [
         {
           "field": "parameters.container_type",
-          "question": "旋蒸瓶尺寸应选择500ml还是1000ml？",
+          "question": "请确认旋蒸瓶尺寸。",
           "priority": "required"
         },
         {
           "field": "parameters.outcome_params",
-          "question": "请补充旋蒸参数：油浴温度、是否阶梯升温、旋蒸时间、冷凝温度、真空度及是否收集冷凝液/取样。",
+          "question": "文献仅写‘蒸去溶剂’，请补充旋蒸所需参数（油浴温度、旋蒸时间、冷凝温度、真空度等）。",
           "priority": "required"
         },
         {
           "field": "parameters.residual_collection",
-          "question": "旋蒸残液是否收集？",
+          "question": "请确认是否收集残液。",
           "priority": "required"
         },
         {
           "field": "parameters.is_residual_sampling",
-          "question": "旋蒸残液是否需要取样检测？",
+          "question": "请确认残液是否取样。",
           "priority": "required"
         },
         {
           "field": "parameters.is_condense_wash",
-          "question": "是否需要清洗冷凝管路？",
+          "question": "请确认是否清洗冷凝管路。",
           "priority": "required"
         }
+      ],
+      "evidence": [
+        "PDF page 4 general BrF3 procedure"
       ]
     },
     {
@@ -596,7 +635,7 @@
           "value": null,
           "raw": "flash chromatography",
           "unit": null,
-          "source": "missing",
+          "source": "literature",
           "required_by_platform": false,
           "review_status": "needs_expert"
         }
@@ -604,25 +643,30 @@
       "review_questions": [
         {
           "field": "parameters.method",
-          "question": "闪式柱色谱应对应平台中的哪个过柱方法？",
+          "question": "文献仅写‘flash chromatography’，请确认平台可用的过柱方法编号。",
           "priority": "required"
         },
         {
           "field": "parameters.speed",
-          "question": "过柱进样流速是多少？",
+          "question": "请确认过柱进样流速。",
           "priority": "recommended"
         },
         {
           "field": "parameters.dosage",
-          "question": "过柱进样量是多少？",
+          "question": "请确认过柱进样量。",
           "priority": "recommended"
         }
+      ],
+      "evidence": [
+        "PDF page 4 general BrF3 procedure"
       ]
     }
   ],
   "notes": [
-    "未为产物分离/收集单独建平台步骤，因为注册表中无与'isolate'直接对应且可无新增事实填写的操作。",
-    "BrF3以CFCl3溶液滴加，但注册表中的滴加操作仅允许一个OBJECT物料槽，无法同时表达BrF3与CFCl3；当前保留BrF3为滴加物，CFCl3溶剂信息体现在source_text中，建议专家确认是否需要另设前置液体加料或改用其他平台。"
+    "仅依据reaction.operations进行映射。",
+    "洗涤步骤在注册表中无直接对应操作，因此保留为null并提出专家确认问题。",
+    "BrF3与CFCl3在文献中以‘BrF3 solution’形式滴加，按单一滴加液对象处理，未创建物料代码。",
+    "产物分离/收率信息未单独映射为平台步骤，因为注册表中无对应‘分离得到产物’操作。"
   ],
   "metadata": {
     "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/a0552863_3a8b_579b_a499_57868e6febad/a0552863_3a8b_579b_a499_57868e6febad_gold_extraction.json",
@@ -631,7 +675,7 @@
       "title": "Constructing the OCF2O Moiety Using BrF3",
       "source_type": "journal_article"
     },
-    "generated_at": "2026-06-24T10:36:47.648355+00:00",
+    "generated_at": "2026-06-24T11:03:40.135394+00:00",
     "model": "openai/gpt-5.4"
   }
 }

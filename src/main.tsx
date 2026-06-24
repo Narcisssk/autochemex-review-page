@@ -42,6 +42,7 @@ type ReviewStep = {
   review_step_id: string;
   source_operation_orders?: number[];
   source_text?: string;
+  evidence?: string[];
   platform?: string | null;
   operation?: string | null;
   materials?: JsonObject[];
@@ -58,6 +59,7 @@ type ReviewPacket = {
     reaction_smiles?: string;
     target?: { name?: string; smiles?: string };
     confidence?: number;
+    evidence?: string[];
   };
   platform_review_steps: ReviewStep[];
   notes?: JsonValue[];
@@ -288,11 +290,11 @@ function App() {
         <section className="review-guide">
           <div>
             <strong>Review flow</strong>
-            <span>先核对反应背景，再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值；请优先填写，若判断当前步骤无需该参数，可勾选“本步骤无需填写”。</span>
+            <span>先核对Reaction SMILES和目标物质的信息，再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值；请优先填写，若判断当前步骤无需该参数，可勾选“本步骤无需填写”。</span>
           </div>
           <div>
             <strong>LLM extracted hints</strong>
-            <span>页面中的 source hint、materials 和参数初值均为 LLM 从文献中提取或推断的候选信息，请以原 PDF 和专业判断为准。</span>
+            <span>页面中的 步骤安排、source hint、materials 和参数初值均为 LLM 从文献中提取或推断的参考信息，请以原 PDF 和专业判断为准。</span>
           </div>
           <div>
             <strong>Saving</strong>
@@ -322,6 +324,7 @@ function App() {
                 <span>Reaction SMILES</span>
                 <textarea value={packet.reaction.reaction_smiles || ''} onChange={(event) => updateReaction('reaction_smiles', event.target.value)} />
               </label>
+              <EvidenceList title="Literature evidence" evidence={packet.reaction.evidence} />
             </section>
 
             <nav className="tabs">
@@ -384,6 +387,19 @@ function Field({ label, value, readOnly, onChange }: { label: string; value: str
       <span>{label}</span>
       <input value={value} readOnly={readOnly} onChange={(event) => onChange?.(event.target.value)} />
     </label>
+  );
+}
+
+function EvidenceList({ title, evidence }: { title: string; evidence?: string[] }) {
+  const items = (evidence || []).map((item) => String(item || '').trim()).filter(Boolean);
+  if (items.length === 0) return null;
+  return (
+    <div className="evidence-list">
+      <div className="mini-heading">{title}</div>
+      <ul>
+        {items.map((item, index) => <li key={index}>{item}</li>)}
+      </ul>
+    </div>
   );
 }
 
@@ -468,6 +484,8 @@ function StepCard(props: {
         <span>LLM extracted source hint</span>
         <div className="source-text">{step.source_text || 'No LLM source hint.'}</div>
       </div>
+
+      <EvidenceList title="Step evidence" evidence={step.evidence} />
 
       <div className="materials">
         <div className="mini-heading">LLM extracted material candidates</div>
