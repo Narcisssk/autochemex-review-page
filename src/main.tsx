@@ -427,7 +427,7 @@ function StepCard(props: {
     const current = next.parameters[key] || parameterValueStub(parameter);
     next.parameters[key] = checked
       ? { ...current, value: null, source: 'expert', review_status: 'not_applicable' }
-      : { ...current, review_status: current.value === null ? (parameter.required ? 'needs_expert' : 'not_applicable') : 'ok' };
+      : { ...current, source: 'expert', review_status: isMissingParameterValue(current.value) ? 'needs_expert' : 'ok' };
     props.onStepChange(applyParameterConditions(next, schema));
   }
 
@@ -602,18 +602,46 @@ function ObjectValueEditor(props: {
   return (
     <div className="object-editor">
       {fields.map((field) => (
-        <label className="mini-field" key={field.key}>
+        <div className="mini-field" key={field.key}>
           <span>{field.name || field.key}</span>
-          <input
-            value={stringifyInputValue(props.value[field.key])}
-            onChange={(event) => {
-              const next = { ...props.value, [field.key]: parseInputValue(event.target.value, field.category || '') };
-              props.onChange(next);
+          <NestedValueEditor
+            parameter={field}
+            value={props.value[field.key]}
+            onChange={(value) => {
+              props.onChange({ ...props.value, [field.key]: value });
             }}
           />
-        </label>
+        </div>
       ))}
     </div>
+  );
+}
+
+function NestedValueEditor(props: {
+  parameter: ParameterDef;
+  value: JsonValue | undefined;
+  onChange: (value: JsonValue) => void;
+}) {
+  const { parameter, value, onChange } = props;
+  if (parameter.category === 'OBJECT') {
+    return <ObjectValueEditor parameter={parameter} value={asObjectValue(value)} onChange={onChange} />;
+  }
+  if (parameter.category === 'ARRAY') {
+    return <ArrayValueEditor parameter={parameter} value={asArrayValue(value)} onChange={onChange} />;
+  }
+  if (parameter.category === 'BOOLEAN') {
+    return (
+      <label className="boolean-toggle">
+        <input type="checkbox" checked={value === true} onChange={(event) => onChange(event.target.checked)} />
+        <span>{value === true ? 'true' : 'false'}</span>
+      </label>
+    );
+  }
+  return (
+    <input
+      value={stringifyInputValue(value)}
+      onChange={(event) => onChange(parseInputValue(event.target.value, parameter.category || ''))}
+    />
   );
 }
 
@@ -774,7 +802,7 @@ function applyParameterConditions(step: ReviewStep, schema: ParameterDef[]): Rev
       next.parameters[parameter.key] = {
         ...current,
         source: current.source || 'missing',
-        review_status: parameter.required ? 'needs_expert' : 'not_applicable',
+        review_status: parameter.meta_data?.display_condition || parameter.required ? 'needs_expert' : 'not_applicable',
       };
     }
   }
@@ -833,15 +861,29 @@ function validatePacket(packet: ReviewPacket, registry: RegistryRecord[]): JsonO
     for (const parameter of Object.values(allowedParams)) {
       const condition = displayConditionState(parameter, step);
       if (condition.status !== 'active') continue;
-      if (!parameter.required) continue;
       const value = step.parameters?.[parameter.key];
       if (value?.review_status === 'not_applicable') continue;
-      if (!value || isMissingParameterValue(value.value)) {
+      if (parameter.required && (!value || isMissingParameterValue(value.value))) {
         errors.push({ path: `${location}.parameters.${parameter.key}.value`, message: 'Required parameter needs a value or not_applicable.' });
       }
+      validateNestedRequiredFields(value?.value, parameter, `${location}.parameters.${parameter.key}.value`, errors);
     }
   });
   return errors;
+}
+
+function validateNestedRequiredFields(value: JsonValue | undefined, parameter: ParameterDef, path: string, errors: JsonObject[]) {
+  const fields = objectFields(parameter);
+  if (fields.length === 0) return;
+  const objectValue = value && typeof value === 'object' && !Array.isArray(value) ? value as JsonObject : {};
+  for (const field of fields) {
+    const childPath = `${path}.${field.key}`;
+    const childValue = objectValue[field.key];
+    if (field.required && isMissingParameterValue(childValue)) {
+      errors.push({ path: childPath, message: 'Required nested parameter needs a value.' });
+    }
+    validateNestedRequiredFields(childValue, field, childPath, errors);
+  }
 }
 
 function protectImmutableFields(packet: ReviewPacket, base: ReviewPacket): ReviewPacket {
@@ -879,13 +921,13 @@ function isMissingParameterValue(value: JsonValue | undefined): boolean {
   return false;
 }
 
-function asObjectValue(value: JsonValue): JsonObject {
+function asObjectValue(value: JsonValue | undefined): JsonObject {
   if (value && typeof value === 'object' && !Array.isArray(value)) return value;
   if (typeof value === 'string') return { name: value };
   return {};
 }
 
-function asArrayValue(value: JsonValue): JsonValue[] {
+function asArrayValue(value: JsonValue | undefined): JsonValue[] {
   if (Array.isArray(value)) return value;
   if (value === null || value === undefined || value === '') return [];
   return [value];
