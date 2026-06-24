@@ -111,9 +111,9 @@ function App() {
   }
 
   async function loadPacket(packetId: string) {
-    const base = await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(packetId)}`);
+    const base = stripStepEvidence(await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(packetId)}`));
     const stored = readStoredPacket(packetId);
-    const data = stored ? protectImmutableFields(stored, base) : base;
+    const data = stored ? protectImmutableFields(stripStepEvidence(stored), base) : base;
     setBasePacket(base);
     setPacket(data);
     setJsonDraft(JSON.stringify(data, null, 2));
@@ -122,7 +122,8 @@ function App() {
   }
 
   function updatePacket(next: ReviewPacket) {
-    const protectedPacket = basePacket ? protectImmutableFields(next, basePacket) : next;
+    const cleanPacket = stripStepEvidence(next);
+    const protectedPacket = basePacket ? protectImmutableFields(cleanPacket, basePacket) : cleanPacket;
     setPacket(protectedPacket);
     setJsonDraft(JSON.stringify(protectedPacket, null, 2));
     if (selectedId) {
@@ -227,7 +228,8 @@ function App() {
 
   function saveDraft(): ReviewPacket | null {
     if (!packet || !selectedId) return null;
-    const protectedPacket = basePacket ? protectImmutableFields(packet, basePacket) : packet;
+    const cleanPacket = stripStepEvidence(packet);
+    const protectedPacket = basePacket ? protectImmutableFields(cleanPacket, basePacket) : cleanPacket;
     setPacket(protectedPacket);
     setJsonDraft(JSON.stringify(protectedPacket, null, 2));
     const validationErrors = validatePacket(protectedPacket, registry);
@@ -272,9 +274,9 @@ function App() {
     const selected = packets.filter((item) => selectedPacketIds.has(item.id));
     const reviewed = await Promise.all(selected.map(async (item) => {
       const stored = readStoredPacket(item.id);
-      if (stored) return { id: item.id, packet: stored };
+      if (stored) return { id: item.id, packet: stripStepEvidence(stored) };
       const base = await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(item.id)}`);
-      return { id: item.id, packet: base };
+      return { id: item.id, packet: stripStepEvidence(base) };
     }));
     downloadJson('selected_review_packets_bundle.json', {
       exported_at: new Date().toISOString(),
@@ -974,6 +976,14 @@ function protectImmutableFields(packet: ReviewPacket, base: ReviewPacket): Revie
       source_text: baseStep.source_text,
     };
   });
+  return next;
+}
+
+function stripStepEvidence(packet: ReviewPacket): ReviewPacket {
+  const next = structuredClone(packet);
+  for (const step of next.platform_review_steps || []) {
+    delete (step as ReviewStep & { evidence?: string[] }).evidence;
+  }
   return next;
 }
 
