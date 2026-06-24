@@ -1,26 +1,13 @@
 {
-  "generated_at": "2026-06-24T08:10:13.824544+00:00",
-  "packet_count": 2,
+  "generated_at": "2026-06-24T10:37:06.439996+00:00",
+  "packet_count": 1,
   "packets": [
     {
-      "id": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__001_eeed13b0-59ad-5f0b-a75a-211047cc90b3.json",
-      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__001_eeed13b0-59ad-5f0b-a75a-211047cc90b3.json",
+      "id": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__001_2fd29a74-2228-52c1-8fc0-e2a08e3dd26d.json",
+      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__001_2fd29a74-2228-52c1-8fc0-e2a08e3dd26d.json",
       "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
-      "reaction_id": "eeed13b0-59ad-5f0b-a75a-211047cc90b3",
-      "target_name": "O,O-Bis(2-nitrophenyl)thiocarbonate",
-      "paper": {
-        "file_name": "a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "url": "data/papers/a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "source_name": "a0552863-3a8b-579b-a499-57868e6febad_origin.pdf",
-        "size_bytes": 182076
-      }
-    },
-    {
-      "id": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__002_07c2aa1c-59b1-56f1-bf0a-ab39feff152a.json",
-      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__002_07c2aa1c-59b1-56f1-bf0a-ab39feff152a.json",
-      "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
-      "reaction_id": "07c2aa1c-59b1-56f1-bf0a-ab39feff152a",
-      "target_name": "Bis(2-nitrophenoxy)difluoromethane",
+      "reaction_id": "2fd29a74-2228-52c1-8fc0-e2a08e3dd26d",
+      "target_name": "Bis(2-nitrophenoxy)difluoromethane (3a)",
       "paper": {
         "file_name": "a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
         "url": "data/papers/a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",

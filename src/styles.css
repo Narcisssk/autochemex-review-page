@@ -347,6 +347,12 @@ textarea {
   background: #f1f5f9;
 }
 
+.param-row.conditional-waiting {
+  background: #f8fafc;
+  border-style: dashed;
+  grid-template-columns: 1fr;
+}
+
 .param-label {
   display: flex;
   flex-direction: column;
@@ -405,6 +411,11 @@ textarea {
 .param-status.skipped {
   background: #e2e8f0;
   color: #475569;
+}
+
+.param-status.waiting {
+  background: #e0f2fe;
+  color: #075985;
 }
 
 .param-help {

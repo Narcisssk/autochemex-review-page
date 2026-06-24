@@ -140,14 +140,16 @@ function App() {
 
   function changeOperation(index: number, platform: string, operation: string) {
     if (!packet) return;
+    const schema = operationParameters(findOperation(registry, platform, operation));
     const params = platform && operation ? parameterStub(registry, platform, operation) : {};
     const next = structuredClone(packet);
-    next.platform_review_steps[index] = {
+    const nextStep = {
       ...next.platform_review_steps[index],
       platform,
       operation,
       parameters: mergeParameters(params, next.platform_review_steps[index].parameters || {}),
     };
+    next.platform_review_steps[index] = applyParameterConditions(nextStep, schema);
     updatePacket(next);
   }
 
@@ -416,7 +418,7 @@ function StepCard(props: {
       source: isMissingParameterValue(value) ? 'missing' : 'expert',
       review_status: isMissingParameterValue(value) ? (parameter.required ? 'needs_expert' : 'not_applicable') : 'ok',
     };
-    props.onStepChange(next);
+    props.onStepChange(applyParameterConditions(next, schema));
   }
 
   function setParamNotApplicable(key: string, parameter: ParameterDef, checked: boolean) {
@@ -426,7 +428,7 @@ function StepCard(props: {
     next.parameters[key] = checked
       ? { ...current, value: null, source: 'expert', review_status: 'not_applicable' }
       : { ...current, review_status: current.value === null ? (parameter.required ? 'needs_expert' : 'not_applicable') : 'ok' };
-    props.onStepChange(next);
+    props.onStepChange(applyParameterConditions(next, schema));
   }
 
   return (
@@ -482,6 +484,23 @@ function StepCard(props: {
       <div className="parameters">
         <div className="mini-heading">Parameters</div>
         {schema.length === 0 ? <div className="empty">Select a platform operation to show parameters.</div> : schema.map((parameter) => {
+          const condition = displayConditionState(parameter, step);
+          if (condition.status === 'inactive') return null;
+          if (condition.status === 'waiting') {
+            return (
+              <div className="param-row conditional-waiting" key={parameter.key}>
+                <div className="param-label">
+                  <div className="param-title">
+                    <strong>{parameter.key}</strong>
+                    <span className={`param-badge ${parameter.required ? 'required' : 'optional'}`}>{parameter.required ? '平台必填' : '平台可选'}</span>
+                  </div>
+                  <span>{parameter.name || parameter.category}</span>
+                  <span className="param-status waiting">等待条件确认</span>
+                  <span className="param-help">{condition.help}</span>
+                </div>
+              </div>
+            );
+          }
           const current = step.parameters?.[parameter.key] || parameterValueStub(parameter);
           const parameterStatus = parameterReviewStatus(parameter, current);
           return (
@@ -725,6 +744,50 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
   };
 }
 
+function displayConditionState(parameter: ParameterDef, step: ReviewStep): { status: 'active' | 'inactive' | 'waiting'; help?: string } {
+  const condition = parameter.meta_data?.display_condition;
+  if (!condition || typeof condition !== 'object' || Array.isArray(condition)) return { status: 'active' };
+  const property = String((condition as JsonObject).property || '');
+  if (!property) return { status: 'active' };
+  const expected = (condition as JsonObject).value;
+  const controller = step.parameters?.[property];
+  if (!controller || isMissingParameterValue(controller.value)) {
+    return {
+      status: 'waiting',
+      help: `该参数只有在 ${property} = ${String(expected)} 时才需要填写；请先确认上方控制参数。`,
+    };
+  }
+  return valuesMatchCondition(controller.value, expected) ? { status: 'active' } : { status: 'inactive' };
+}
+
+function applyParameterConditions(step: ReviewStep, schema: ParameterDef[]): ReviewStep {
+  const next = structuredClone(step);
+  next.parameters = next.parameters || {};
+  for (const parameter of schema) {
+    if (!parameter.meta_data?.display_condition) continue;
+    const current = next.parameters[parameter.key] || parameterValueStub(parameter);
+    const state = displayConditionState(parameter, next);
+    if (state.status === 'inactive') {
+      next.parameters[parameter.key] = { ...current, value: null, source: 'derived', review_status: 'not_applicable' };
+    }
+    if (state.status === 'active' && isMissingParameterValue(current.value)) {
+      next.parameters[parameter.key] = {
+        ...current,
+        source: current.source || 'missing',
+        review_status: parameter.required ? 'needs_expert' : 'not_applicable',
+      };
+    }
+  }
+  return next;
+}
+
+function valuesMatchCondition(actual: JsonValue, expected: JsonValue): boolean {
+  if (actual === expected) return true;
+  if (typeof expected === 'boolean') return actual === expected || String(actual).toLowerCase() === String(expected);
+  if (typeof expected === 'number') return Number(actual) === expected;
+  return String(actual) === String(expected);
+}
+
 function questionPriorityClass(question: JsonObject): string {
   const priority = String(question.priority || '').toLowerCase();
   if (priority.includes('required') || priority.includes('must') || priority.includes('high')) return 'required';
@@ -762,11 +825,14 @@ function validatePacket(packet: ReviewPacket, registry: RegistryRecord[]): JsonO
       errors.push({ path: `${location}.operation`, message: 'Operation is missing or not allowed for platform.' });
       return;
     }
-    const allowedParams = Object.fromEntries(operationParameters(findOperation(registry, platform, operation)).map((item) => [item.key, item]));
+    const schema = operationParameters(findOperation(registry, platform, operation));
+    const allowedParams = Object.fromEntries(schema.map((item) => [item.key, item]));
     for (const key of Object.keys(step.parameters || {})) {
       if (!allowedParams[key]) errors.push({ path: `${location}.parameters.${key}`, message: 'Parameter key is not in operation schema.' });
     }
     for (const parameter of Object.values(allowedParams)) {
+      const condition = displayConditionState(parameter, step);
+      if (condition.status !== 'active') continue;
       if (!parameter.required) continue;
       const value = step.parameters?.[parameter.key];
       if (value?.review_status === 'not_applicable') continue;
