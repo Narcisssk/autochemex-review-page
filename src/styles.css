@@ -140,6 +140,34 @@ button.primary {
   padding: 10px 12px;
 }
 
+.review-guide {
+  background: #ffffff;
+  border: 1px solid #d8e0ea;
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 16px;
+  padding: 12px 14px;
+}
+
+.review-guide div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review-guide strong {
+  color: #1f2a37;
+  font-size: 13px;
+}
+
+.review-guide span {
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .reaction-panel,
 .step-card,
 .json-panel,
@@ -425,6 +453,45 @@ textarea {
   grid-template-columns: 110px 1fr;
 }
 
+.question.required {
+  background: #fff7ed;
+  border-color: #fdba74;
+}
+
+.question.recommended {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.question.optional {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.question > span {
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  height: fit-content;
+  padding: 4px 8px;
+  text-align: center;
+}
+
+.question.required > span {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.question.recommended > span {
+  background: #bfdbfe;
+  color: #1e40af;
+}
+
+.question.optional > span {
+  background: #e2e8f0;
+  color: #475569;
+}
+
 .question p {
   margin: 0;
 }
@@ -453,6 +520,7 @@ textarea {
   }
 
   .reaction-panel,
+  .review-guide,
   .step-grid,
   .param-row {
     grid-template-columns: 1fr;

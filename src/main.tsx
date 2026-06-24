@@ -276,6 +276,17 @@ function App() {
           </div>
         </header>
 
+        <section className="review-guide">
+          <div>
+            <strong>Review flow</strong>
+            <span>先核对反应背景，再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值；只有确认当前步骤不需要该参数时，才勾选“本步骤无需此参数”。</span>
+          </div>
+          <div>
+            <strong>Saving</strong>
+            <span>Save draft 只保存在当前浏览器；提交给维护者时请使用 Download JSON 或 Download bundle。</span>
+          </div>
+        </section>
+
         {message && <div className="message">{message}</div>}
 
         {packet && (
@@ -491,8 +502,8 @@ function StepCard(props: {
         <div className="questions">
           <div className="mini-heading">Review questions</div>
           {(step.review_questions || []).map((question, questionIndex) => (
-            <div className="question" key={questionIndex}>
-              <span>{String(question.priority || '')}</span>
+            <div className={`question ${questionPriorityClass(question)}`} key={questionIndex}>
+              <span>{questionPriorityLabel(question)}</span>
               <p>{String(question.question || '')}</p>
             </div>
           ))}
@@ -690,6 +701,20 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
     label: '可选未填',
     help: '平台可选。有明确信息就填；当前步骤不需要时可跳过。',
   };
+}
+
+function questionPriorityClass(question: JsonObject): string {
+  const priority = String(question.priority || '').toLowerCase();
+  if (priority.includes('required') || priority.includes('must') || priority.includes('high')) return 'required';
+  if (priority.includes('optional') || priority.includes('low')) return 'optional';
+  return 'recommended';
+}
+
+function questionPriorityLabel(question: JsonObject): string {
+  const kind = questionPriorityClass(question);
+  if (kind === 'required') return '必须确认';
+  if (kind === 'optional') return '可选核对';
+  return '建议核对';
 }
 
 function mergeParameters(base: Record<string, ParameterValue>, existing: Record<string, ParameterValue>) {
