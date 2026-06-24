@@ -97,6 +97,15 @@ button.primary {
   white-space: nowrap;
 }
 
+.packet-target {
+  color: #475569;
+  font-size: 12px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .main {
   min-width: 0;
   padding: 18px 22px 40px;
@@ -181,6 +190,16 @@ textarea {
   resize: vertical;
 }
 
+.source-text {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #334155;
+  min-height: 44px;
+  padding: 9px 10px;
+  white-space: pre-wrap;
+}
+
 .json-editor {
   font-family: "Cascadia Code", Consolas, monospace;
   min-height: 68vh;
@@ -244,7 +263,7 @@ textarea {
 
 .param-row {
   align-items: center;
-  grid-template-columns: minmax(180px, 1.1fr) minmax(160px, 1fr) 90px 150px;
+  grid-template-columns: minmax(180px, 1.1fr) minmax(160px, 1fr) 90px 76px;
 }
 
 .param-label {
@@ -257,6 +276,23 @@ textarea {
 .param-label span {
   color: #64748b;
   font-size: 12px;
+}
+
+.na-toggle {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.na-toggle input {
+  min-height: auto;
+  width: auto;
+}
+
+.na-toggle span {
+  color: #334155;
+  font-size: 13px;
 }
 
 .question {

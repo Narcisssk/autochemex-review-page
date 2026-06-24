@@ -72,6 +72,7 @@ function App() {
   const [packets, setPackets] = React.useState<PacketSummary[]>([]);
   const [selectedId, setSelectedId] = React.useState('');
   const [packet, setPacket] = React.useState<ReviewPacket | null>(null);
+  const [basePacket, setBasePacket] = React.useState<ReviewPacket | null>(null);
   const [registry, setRegistry] = React.useState<RegistryRecord[]>([]);
   const [activeTab, setActiveTab] = React.useState<'form' | 'json' | 'errors'>('form');
   const [jsonDraft, setJsonDraft] = React.useState('');
@@ -100,8 +101,10 @@ function App() {
   }
 
   async function loadPacket(packetId: string) {
+    const base = await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(packetId)}`);
     const stored = readStoredPacket(packetId);
-    const data = stored || await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(packetId)}`);
+    const data = stored ? protectImmutableFields(stored, base) : base;
+    setBasePacket(base);
     setPacket(data);
     setJsonDraft(JSON.stringify(data, null, 2));
     setErrors([]);
@@ -190,8 +193,10 @@ function App() {
   function applyJsonDraft() {
     try {
       const parsed = JSON.parse(jsonDraft) as ReviewPacket;
-      setPacket(parsed);
-      setMessage('JSON applied.');
+      const protectedPacket = basePacket ? protectImmutableFields(parsed, basePacket) : parsed;
+      setPacket(protectedPacket);
+      setJsonDraft(JSON.stringify(protectedPacket, null, 2));
+      setMessage('JSON applied. Reaction ID and original source text were preserved.');
     } catch (error) {
       setMessage(`Invalid JSON: ${String(error)}`);
     }
@@ -204,23 +209,28 @@ function App() {
     return result;
   }
 
-  function saveDraft() {
-    if (!packet || !selectedId) return;
-    const validationErrors = validateCurrent();
+  function saveDraft(): ReviewPacket | null {
+    if (!packet || !selectedId) return null;
+    const protectedPacket = basePacket ? protectImmutableFields(packet, basePacket) : packet;
+    setPacket(protectedPacket);
+    setJsonDraft(JSON.stringify(protectedPacket, null, 2));
+    const validationErrors = validatePacket(protectedPacket, registry);
+    setErrors(validationErrors);
     if (validationErrors.length) {
       setActiveTab('errors');
       setMessage('Validation found issues. You can still export after reviewing them.');
     } else {
       setMessage('Draft saved in this browser.');
     }
-    localStorage.setItem(storageKey(selectedId), JSON.stringify(packet));
+    localStorage.setItem(storageKey(selectedId), JSON.stringify(protectedPacket));
     setPackets((items) => [...items]);
+    return protectedPacket;
   }
 
   function downloadCurrent() {
     if (!packet || !selectedId) return;
-    saveDraft();
-    downloadJson(reviewedFileName(selectedId), packet);
+    const protectedPacket = saveDraft();
+    if (protectedPacket) downloadJson(reviewedFileName(selectedId), protectedPacket);
   }
 
   function downloadBundle() {
@@ -244,7 +254,8 @@ function App() {
         <div className="packet-list">
           {packets.map((item) => (
             <button key={item.id} className={`packet-item ${selectedId === item.id ? 'active' : ''}`} onClick={() => setSelectedId(item.id)}>
-              <span className="packet-name">{item.target_name || item.reaction_id || item.file_name}</span>
+              <span className="packet-name">{item.reaction_id || item.file_name}</span>
+              {item.target_name && <span className="packet-target">{item.target_name}</span>}
               <span className="packet-meta">{hasStoredPacket(item.id) ? 'draft saved' : 'not reviewed'}</span>
             </button>
           ))}
@@ -357,14 +368,33 @@ function StepCard(props: {
   const { index, step, platforms, schema } = props;
   const operations = step.platform ? platforms[step.platform] || [] : [];
 
-  function setStepField(key: keyof ReviewStep, value: JsonValue) {
-    props.onStepChange({ ...step, [key]: value });
-  }
-
   function setParam(key: string, field: keyof ParameterValue, value: JsonValue) {
     const next = structuredClone(step);
     next.parameters = next.parameters || {};
     next.parameters[key] = { ...(next.parameters[key] || { value: null }), [field]: value };
+    props.onStepChange(next);
+  }
+
+  function setParamValue(key: string, parameter: ParameterDef, rawValue: string) {
+    const value = parseInputValue(rawValue, parameter.category || '');
+    const next = structuredClone(step);
+    next.parameters = next.parameters || {};
+    next.parameters[key] = {
+      ...(next.parameters[key] || parameterValueStub(parameter)),
+      value,
+      source: value === null ? 'missing' : 'expert',
+      review_status: value === null ? (parameter.required ? 'needs_expert' : 'not_applicable') : 'ok',
+    };
+    props.onStepChange(next);
+  }
+
+  function setParamNotApplicable(key: string, parameter: ParameterDef, checked: boolean) {
+    const next = structuredClone(step);
+    next.parameters = next.parameters || {};
+    const current = next.parameters[key] || parameterValueStub(parameter);
+    next.parameters[key] = checked
+      ? { ...current, value: null, source: 'expert', review_status: 'not_applicable' }
+      : { ...current, review_status: current.value === null ? (parameter.required ? 'needs_expert' : 'not_applicable') : 'ok' };
     props.onStepChange(next);
   }
 
@@ -399,20 +429,12 @@ function StepCard(props: {
             {operations.map((operation) => <option key={operation} value={operation}>{operation}</option>)}
           </select>
         </label>
-        <label className="field">
-          <span>Review status</span>
-          <select value={step.review_status || 'needs_review'} onChange={(event) => setStepField('review_status', event.target.value)}>
-            <option value="needs_review">needs_review</option>
-            <option value="reviewed">reviewed</option>
-            <option value="rejected">rejected</option>
-          </select>
-        </label>
       </div>
 
-      <label className="field wide">
+      <div className="field wide">
         <span>Source text</span>
-        <textarea value={step.source_text || ''} onChange={(event) => setStepField('source_text', event.target.value)} />
-      </label>
+        <div className="source-text">{step.source_text || 'No source text.'}</div>
+      </div>
 
       <div className="materials">
         <div className="mini-heading">Materials</div>
@@ -435,13 +457,25 @@ function StepCard(props: {
                 <strong>{parameter.key}</strong>
                 <span>{parameter.name || parameter.category}{parameter.required ? ' required' : ''}</span>
               </div>
-              <input value={stringifyInputValue(current.value)} onChange={(event) => setParam(parameter.key, 'value', parseInputValue(event.target.value, parameter.category || ''))} />
-              <input value={current.unit || ''} placeholder="unit" onChange={(event) => setParam(parameter.key, 'unit', event.target.value)} />
-              <select value={current.review_status || ''} onChange={(event) => setParam(parameter.key, 'review_status', event.target.value)}>
-                <option value="ok">ok</option>
-                <option value="needs_expert">needs_expert</option>
-                <option value="not_applicable">not_applicable</option>
-              </select>
+              <input
+                disabled={current.review_status === 'not_applicable'}
+                value={stringifyInputValue(current.value)}
+                onChange={(event) => setParamValue(parameter.key, parameter, event.target.value)}
+              />
+              <input
+                disabled={current.review_status === 'not_applicable'}
+                value={current.unit || ''}
+                placeholder="unit"
+                onChange={(event) => setParam(parameter.key, 'unit', event.target.value)}
+              />
+              <label className="na-toggle">
+                <input
+                  type="checkbox"
+                  checked={current.review_status === 'not_applicable'}
+                  onChange={(event) => setParamNotApplicable(parameter.key, parameter, event.target.checked)}
+                />
+                <span>N/A</span>
+              </label>
             </div>
           );
         })}
@@ -548,6 +582,25 @@ function validatePacket(packet: ReviewPacket, registry: RegistryRecord[]): JsonO
     }
   });
   return errors;
+}
+
+function protectImmutableFields(packet: ReviewPacket, base: ReviewPacket): ReviewPacket {
+  const next = structuredClone(packet);
+  next.reaction = {
+    ...(next.reaction || {}),
+    reaction_id: base.reaction?.reaction_id,
+  };
+
+  const baseSteps = new Map((base.platform_review_steps || []).map((step) => [step.review_step_id, step]));
+  next.platform_review_steps = (next.platform_review_steps || []).map((step, index) => {
+    const baseStep = baseSteps.get(step.review_step_id) || base.platform_review_steps[index];
+    if (!baseStep) return step;
+    return {
+      ...step,
+      source_text: baseStep.source_text,
+    };
+  });
+  return next;
 }
 
 function stringifyInputValue(value: JsonValue | undefined): string {
