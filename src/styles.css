@@ -146,7 +146,7 @@ button.primary {
   border-radius: 8px;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   margin-top: 16px;
   padding: 12px 14px;
 }
@@ -309,6 +309,12 @@ textarea {
   font-size: 13px;
   font-weight: 800;
   margin-top: 12px;
+}
+
+.section-note {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .material-row,

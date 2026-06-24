@@ -289,6 +289,10 @@ function App() {
             <span>先核对反应背景，再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值；请优先填写，若判断当前步骤无需该参数，可勾选“本步骤无需填写”。</span>
           </div>
           <div>
+            <strong>LLM extracted hints</strong>
+            <span>页面中的 source hint、materials 和参数初值均为 LLM 从文献中提取或推断的候选信息，请以原 PDF 和专业判断为准。</span>
+          </div>
+          <div>
             <strong>Saving</strong>
             <span>Save draft 只保存在当前浏览器；提交给维护者时请使用 Download JSON 或 Download bundle。</span>
           </div>
@@ -459,13 +463,14 @@ function StepCard(props: {
       </div>
 
       <div className="field wide">
-        <span>Source text</span>
-        <div className="source-text">{step.source_text || 'No source text.'}</div>
+        <span>LLM extracted source hint</span>
+        <div className="source-text">{step.source_text || 'No LLM source hint.'}</div>
       </div>
 
       <div className="materials">
-        <div className="mini-heading">Materials</div>
-        {(step.materials || []).length === 0 ? <div className="empty">No materials.</div> : (step.materials || []).map((material, materialIndex) => (
+        <div className="mini-heading">LLM extracted material candidates</div>
+        <div className="section-note">候选物料仅供核对；最终 gold 以平台参数区填写结果为准。</div>
+        {(step.materials || []).length === 0 ? <div className="empty">No LLM material candidates.</div> : (step.materials || []).map((material, materialIndex) => (
           <div className="material-row" key={materialIndex}>
             <span>{String(material.name || '')}</span>
             <span>{String(material.role || '')}</span>
@@ -517,7 +522,7 @@ function StepCard(props: {
 
       {(step.review_questions || []).length > 0 && (
         <div className="questions">
-          <div className="mini-heading">Review questions</div>
+          <div className="mini-heading">LLM review questions</div>
           {(step.review_questions || []).map((question, questionIndex) => (
             <div className={`question ${questionPriorityClass(question)}`} key={questionIndex}>
               <span>{questionPriorityLabel(question)}</span>
@@ -702,8 +707,8 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
   if (!isMissingParameterValue(current.value)) {
     return {
       kind: 'filled',
-      label: current.source === 'literature' ? '文献已有' : current.source === 'expert' ? '专家已填' : '已有值',
-      help: '请核对数值和单位；不正确时直接修改。',
+      label: current.source === 'literature' ? 'LLM文献提取' : current.source === 'expert' ? '专家已填' : '已有候选值',
+      help: current.source === 'literature' ? 'LLM 从文献中提取的候选值，请核对；不正确时直接修改。' : '请核对数值和单位；不正确时直接修改。',
     };
   }
   if (parameter.required) {
