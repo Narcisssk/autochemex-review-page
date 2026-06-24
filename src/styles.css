@@ -263,14 +263,30 @@ textarea {
 
 .param-row {
   align-items: start;
-  grid-template-columns: minmax(180px, 1.1fr) minmax(160px, 1fr) 90px 76px;
+  grid-template-columns: minmax(220px, 1.2fr) minmax(180px, 1fr) 90px minmax(150px, 0.7fr);
+}
+
+.param-row.missing-required {
+  border-color: #f6c76b;
+  box-shadow: inset 3px 0 0 #d97706;
+}
+
+.param-row.skipped {
+  background: #f1f5f9;
 }
 
 .param-label {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   min-width: 0;
+}
+
+.param-title {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .param-label span {
@@ -278,12 +294,58 @@ textarea {
   font-size: 12px;
 }
 
+.param-badge,
+.param-status {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 4px 7px;
+  width: fit-content;
+}
+
+.param-badge.required {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.param-badge.optional {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.param-status.filled {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.param-status.missing-required {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.param-status.missing-optional {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.param-status.skipped {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.param-help {
+  line-height: 1.4;
+}
+
 .na-toggle {
-  align-items: center;
+  align-items: start;
   display: inline-flex;
   gap: 6px;
-  justify-content: center;
+  justify-content: start;
   min-height: 34px;
+  padding-top: 8px;
 }
 
 .na-toggle input {
@@ -294,6 +356,7 @@ textarea {
 .na-toggle span {
   color: #334155;
   font-size: 13px;
+  line-height: 1.35;
 }
 
 .boolean-toggle {

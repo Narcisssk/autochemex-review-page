@@ -450,11 +450,17 @@ function StepCard(props: {
         <div className="mini-heading">Parameters</div>
         {schema.length === 0 ? <div className="empty">Select a platform operation to show parameters.</div> : schema.map((parameter) => {
           const current = step.parameters?.[parameter.key] || parameterValueStub(parameter);
+          const parameterStatus = parameterReviewStatus(parameter, current);
           return (
-            <div className="param-row" key={parameter.key}>
+            <div className={`param-row ${parameterStatus.kind}`} key={parameter.key}>
               <div className="param-label">
-                <strong>{parameter.key}</strong>
-                <span>{parameter.name || parameter.category}{parameter.required ? ' required' : ''}</span>
+                <div className="param-title">
+                  <strong>{parameter.key}</strong>
+                  <span className={`param-badge ${parameter.required ? 'required' : 'optional'}`}>{parameter.required ? '平台必填' : '平台可选'}</span>
+                </div>
+                <span>{parameter.name || parameter.category}</span>
+                <span className={`param-status ${parameterStatus.kind}`}>{parameterStatus.label}</span>
+                <span className="param-help">{parameterStatus.help}</span>
               </div>
               <ParameterValueEditor
                 parameter={parameter}
@@ -474,7 +480,7 @@ function StepCard(props: {
                   checked={current.review_status === 'not_applicable'}
                   onChange={(event) => setParamNotApplicable(parameter.key, parameter, event.target.checked)}
                 />
-                <span>不适用</span>
+                <span>本步骤无需此参数</span>
               </label>
             </div>
           );
@@ -655,6 +661,35 @@ function parameterValueStub(parameter: ParameterDef): ParameterValue {
 function parameterStub(registry: RegistryRecord[], platform: string, operation: string): Record<string, ParameterValue> {
   const params = operationParameters(findOperation(registry, platform, operation));
   return Object.fromEntries(params.map((item) => [item.key, parameterValueStub(item)]));
+}
+
+function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue): { kind: string; label: string; help: string } {
+  if (current.review_status === 'not_applicable') {
+    return {
+      kind: 'skipped',
+      label: '已跳过',
+      help: '专家确认：当前步骤不需要这个平台参数。',
+    };
+  }
+  if (!isMissingParameterValue(current.value)) {
+    return {
+      kind: 'filled',
+      label: current.source === 'literature' ? '文献已有' : current.source === 'expert' ? '专家已填' : '已有值',
+      help: '请核对数值和单位；不正确时直接修改。',
+    };
+  }
+  if (parameter.required) {
+    return {
+      kind: 'missing-required',
+      label: '待补充',
+      help: '平台必填。请填写；只有确认本步骤确实不需要时，才勾选“本步骤无需此参数”。',
+    };
+  }
+  return {
+    kind: 'missing-optional',
+    label: '可选未填',
+    help: '平台可选。有明确信息就填；当前步骤不需要时可跳过。',
+  };
 }
 
 function mergeParameters(base: Record<string, ParameterValue>, existing: Record<string, ParameterValue>) {
