@@ -123,7 +123,8 @@ function App() {
 
   function updatePacket(next: ReviewPacket) {
     const cleanPacket = stripStepEvidence(next);
-    const protectedPacket = basePacket ? protectImmutableFields(cleanPacket, basePacket) : cleanPacket;
+    const normalizedPacket = normalizeRequiredParameterStatuses(cleanPacket, registry);
+    const protectedPacket = basePacket ? protectImmutableFields(normalizedPacket, basePacket) : normalizedPacket;
     setPacket(protectedPacket);
     setJsonDraft(JSON.stringify(protectedPacket, null, 2));
     if (selectedId) {
@@ -229,7 +230,8 @@ function App() {
   function saveDraft(): ReviewPacket | null {
     if (!packet || !selectedId) return null;
     const cleanPacket = stripStepEvidence(packet);
-    const protectedPacket = basePacket ? protectImmutableFields(cleanPacket, basePacket) : cleanPacket;
+    const normalizedPacket = normalizeRequiredParameterStatuses(cleanPacket, registry);
+    const protectedPacket = basePacket ? protectImmutableFields(normalizedPacket, basePacket) : normalizedPacket;
     setPacket(protectedPacket);
     setJsonDraft(JSON.stringify(protectedPacket, null, 2));
     const validationErrors = validatePacket(protectedPacket, registry);
@@ -274,9 +276,9 @@ function App() {
     const selected = packets.filter((item) => selectedPacketIds.has(item.id));
     const reviewed = await Promise.all(selected.map(async (item) => {
       const stored = readStoredPacket(item.id);
-      if (stored) return { id: item.id, packet: stripStepEvidence(stored) };
+      if (stored) return { id: item.id, packet: normalizeRequiredParameterStatuses(stripStepEvidence(stored), registry) };
       const base = await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(item.id)}`);
-      return { id: item.id, packet: stripStepEvidence(base) };
+      return { id: item.id, packet: normalizeRequiredParameterStatuses(stripStepEvidence(base), registry) };
     }));
     downloadJson('selected_review_packets_bundle.json', {
       exported_at: new Date().toISOString(),
@@ -344,7 +346,7 @@ function App() {
         <section className="review-guide">
           <div>
             <strong>Review flow</strong>
-            <span>先核对Reaction SMILES和目标物质的信息，再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值；请优先填写，若判断当前步骤无需该参数，可勾选“本步骤无需填写”。</span>
+            <span>先核对Reaction SMILES和目标物质的信息，再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值，必须填写或通过调整平台步骤解决；“本步骤无需填写”只用于平台可选参数。</span>
           </div>
           <div>
             <strong>LLM extracted hints</strong>
@@ -492,6 +494,7 @@ function StepCard(props: {
   }
 
   function setParamNotApplicable(key: string, parameter: ParameterDef, checked: boolean) {
+    if (parameter.required) return;
     const next = structuredClone(step);
     next.parameters = next.parameters || {};
     const current = next.parameters[key] || parameterValueStub(parameter);
@@ -573,6 +576,7 @@ function StepCard(props: {
           }
           const current = step.parameters?.[parameter.key] || parameterValueStub(parameter);
           const parameterStatus = parameterReviewStatus(parameter, current);
+          const isNotApplicable = !parameter.required && current.review_status === 'not_applicable';
           return (
             <div className={`param-row ${parameterStatus.kind}`} key={parameter.key}>
               <div className="param-label">
@@ -586,24 +590,26 @@ function StepCard(props: {
               </div>
               <ParameterValueEditor
                 parameter={parameter}
-                disabled={current.review_status === 'not_applicable'}
+                disabled={isNotApplicable}
                 value={current.value}
                 onChange={(value) => setParamValue(parameter.key, parameter, value)}
               />
               <input
-                disabled={current.review_status === 'not_applicable'}
+                disabled={isNotApplicable}
                 value={current.unit || ''}
                 placeholder="unit"
                 onChange={(event) => setParam(parameter.key, 'unit', event.target.value)}
               />
-              <label className="na-toggle">
-                <input
-                  type="checkbox"
-                  checked={current.review_status === 'not_applicable'}
-                  onChange={(event) => setParamNotApplicable(parameter.key, parameter, event.target.checked)}
-                />
-                <span>本步骤无需填写</span>
-              </label>
+              {!parameter.required && (
+                <label className="na-toggle">
+                  <input
+                    type="checkbox"
+                    checked={isNotApplicable}
+                    onChange={(event) => setParamNotApplicable(parameter.key, parameter, event.target.checked)}
+                  />
+                  <span>本步骤无需填写</span>
+                </label>
+              )}
             </div>
           );
         })}
@@ -814,7 +820,7 @@ function parameterStub(registry: RegistryRecord[], platform: string, operation: 
 }
 
 function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue): { kind: string; label: string; help: string } {
-  if (current.review_status === 'not_applicable') {
+  if (!parameter.required && current.review_status === 'not_applicable') {
     return {
       kind: 'skipped',
       label: '已跳过',
@@ -832,7 +838,7 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
     return {
       kind: 'missing-required',
       label: '待补充',
-      help: '平台必填。请根据文献或实验常识补充；若判断本步骤无需该参数，可勾选“本步骤无需填写”。',
+      help: '平台必填。请根据文献或实验常识补充；若这个参数确实不适用于当前实验，请调整平台步骤或操作类型。',
     };
   }
   return {
@@ -869,7 +875,7 @@ function applyParameterConditions(step: ReviewStep, schema: ParameterDef[]): Rev
       next.parameters[parameter.key] = { ...current, value: null, source: 'derived', review_status: 'not_applicable' };
     }
     if (state.status === 'active' && isMissingParameterValue(current.value)) {
-      if (current.review_status === 'needs_expert' || (current.source === 'expert' && current.review_status === 'not_applicable')) {
+      if (current.review_status === 'needs_expert' || (!parameter.required && current.source === 'expert' && current.review_status === 'not_applicable')) {
         next.parameters[parameter.key] = current;
         continue;
       }
@@ -936,9 +942,9 @@ function validatePacket(packet: ReviewPacket, registry: RegistryRecord[]): JsonO
       const condition = displayConditionState(parameter, step);
       if (condition.status !== 'active') continue;
       const value = step.parameters?.[parameter.key];
-      if (value?.review_status === 'not_applicable') continue;
+      if (!parameter.required && value?.review_status === 'not_applicable') continue;
       if (parameter.required && (!value || isMissingParameterValue(value.value))) {
-        errors.push({ path: `${location}.parameters.${parameter.key}.value`, message: 'Required parameter needs a value or not_applicable.' });
+        errors.push({ path: `${location}.parameters.${parameter.key}.value`, message: 'Required platform parameter needs a value.' });
       }
       validateNestedRequiredFields(value?.value, parameter, `${location}.parameters.${parameter.key}.value`, errors);
     }
@@ -983,6 +989,21 @@ function stripStepEvidence(packet: ReviewPacket): ReviewPacket {
   const next = structuredClone(packet);
   for (const step of next.platform_review_steps || []) {
     delete (step as ReviewStep & { evidence?: string[] }).evidence;
+  }
+  return next;
+}
+
+function normalizeRequiredParameterStatuses(packet: ReviewPacket, registry: RegistryRecord[]): ReviewPacket {
+  const next = structuredClone(packet);
+  for (const step of next.platform_review_steps || []) {
+    const schema = operationParameters(findOperation(registry, step.platform || '', step.operation || ''));
+    for (const parameter of schema) {
+      if (!parameter.required || displayConditionState(parameter, step).status !== 'active') continue;
+      const current = step.parameters?.[parameter.key];
+      if (!current || current.review_status !== 'not_applicable') continue;
+      current.source = isMissingParameterValue(current.value) ? 'missing' : current.source || 'expert';
+      current.review_status = isMissingParameterValue(current.value) ? 'needs_expert' : 'ok';
+    }
   }
   return next;
 }
