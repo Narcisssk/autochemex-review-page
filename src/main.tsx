@@ -359,7 +359,7 @@ function App() {
         <section className="review-guide">
           <div>
             <strong>Review flow</strong>
-            <span>先检查Reaction SMILES和目标物质的信息是否正确（尤其是涉及SMILES的地方），再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值，必须填写或通过调整平台步骤解决；“本步骤无需填写”只用于平台可选参数。</span>
+            <span>先检查Reaction SMILES和目标物质的信息是否正确（尤其是涉及SMILES的地方），再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值，必须填写或通过调整平台步骤解决</span>
           </div>
           <div>
             <strong>LLM extracted hints</strong>
