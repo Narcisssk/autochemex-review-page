@@ -286,7 +286,7 @@ function App() {
         <section className="review-guide">
           <div>
             <strong>Review flow</strong>
-            <span>先核对反应背景，再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值；只有确认当前步骤不需要该参数时，才勾选“本步骤无需此参数”。</span>
+            <span>先核对反应背景，再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值；请优先填写，若判断当前步骤无需该参数，可勾选“本步骤无需填写”。</span>
           </div>
           <div>
             <strong>Saving</strong>
@@ -508,7 +508,7 @@ function StepCard(props: {
                   checked={current.review_status === 'not_applicable'}
                   onChange={(event) => setParamNotApplicable(parameter.key, parameter, event.target.checked)}
                 />
-                <span>本步骤无需此参数</span>
+                <span>本步骤无需填写</span>
               </label>
             </div>
           );
@@ -696,7 +696,7 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
     return {
       kind: 'skipped',
       label: '已跳过',
-      help: '专家确认：当前步骤不需要这个平台参数。',
+      help: '已标记为本步骤无需填写。若该参数其实需要，请取消勾选并补充数值。',
     };
   }
   if (!isMissingParameterValue(current.value)) {
@@ -710,13 +710,13 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
     return {
       kind: 'missing-required',
       label: '待补充',
-      help: '平台必填。请填写；只有确认本步骤确实不需要时，才勾选“本步骤无需此参数”。',
+      help: '平台必填。请根据文献或实验常识补充；若判断本步骤无需该参数，可勾选“本步骤无需填写”。',
     };
   }
   return {
     kind: 'missing-optional',
     label: '可选未填',
-    help: '平台可选。有明确信息就填；当前步骤不需要时可跳过。',
+    help: '平台可选。有明确信息时请填写；若本步骤不需要，可以保持跳过。',
   };
 }
 
