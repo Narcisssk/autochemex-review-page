@@ -1,0 +1,298 @@
+:root {
+  color: #1c2430;
+  background: #f5f7fa;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #cad3df;
+  border-radius: 6px;
+  color: #1f2a37;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 6px;
+  min-height: 34px;
+  padding: 6px 10px;
+}
+
+button.primary {
+  background: #1f6feb;
+  border-color: #1f6feb;
+  color: white;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #d8e0ea;
+  min-width: 0;
+  padding: 16px;
+}
+
+.sidebar-title,
+.title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sidebar-note,
+.packet-meta,
+.subtle {
+  color: #687386;
+  font-size: 12px;
+}
+
+.sidebar-note {
+  margin-top: 4px;
+}
+
+.packet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.packet-item {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 58px;
+  text-align: left;
+  width: 100%;
+}
+
+.packet-item.active {
+  border-color: #1f6feb;
+  box-shadow: inset 3px 0 0 #1f6feb;
+}
+
+.packet-name {
+  font-weight: 600;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main {
+  min-width: 0;
+  padding: 18px 22px 40px;
+}
+
+.toolbar,
+.section-heading,
+.step-header,
+.toolbar-actions,
+.icon-actions {
+  align-items: center;
+  display: flex;
+}
+
+.toolbar,
+.section-heading,
+.step-header {
+  justify-content: space-between;
+}
+
+.toolbar-actions,
+.icon-actions {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.message {
+  background: #edf5ff;
+  border: 1px solid #bdd7ff;
+  border-radius: 6px;
+  margin: 14px 0;
+  padding: 10px 12px;
+}
+
+.reaction-panel,
+.step-card,
+.json-panel,
+.errors {
+  background: #ffffff;
+  border: 1px solid #d8e0ea;
+  border-radius: 8px;
+  margin-top: 16px;
+  padding: 16px;
+}
+
+.reaction-panel {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.field.wide {
+  grid-column: 1 / -1;
+}
+
+.field span {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  min-height: 34px;
+  padding: 7px 9px;
+  width: 100%;
+}
+
+textarea {
+  min-height: 76px;
+  resize: vertical;
+}
+
+.json-editor {
+  font-family: "Cascadia Code", Consolas, monospace;
+  min-height: 68vh;
+  white-space: pre;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tabs button.active {
+  background: #253244;
+  border-color: #253244;
+  color: white;
+}
+
+.steps {
+  margin-top: 16px;
+}
+
+.steps,
+.parameters,
+.materials,
+.questions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 14px;
+}
+
+.mini-heading {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.material-row,
+.param-row,
+.question,
+.error-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.material-row {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.param-row {
+  align-items: center;
+  grid-template-columns: minmax(180px, 1.1fr) minmax(160px, 1fr) 90px 150px;
+}
+
+.param-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.param-label span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.question {
+  grid-template-columns: 110px 1fr;
+}
+
+.question p {
+  margin: 0;
+}
+
+.empty {
+  color: #64748b;
+  padding: 10px 0;
+}
+
+.json-panel button {
+  margin-top: 12px;
+}
+
+.error-item {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-bottom: 1px solid #d8e0ea;
+    border-right: 0;
+  }
+
+  .reaction-panel,
+  .step-grid,
+  .param-row {
+    grid-template-columns: 1fr;
+  }
+}
