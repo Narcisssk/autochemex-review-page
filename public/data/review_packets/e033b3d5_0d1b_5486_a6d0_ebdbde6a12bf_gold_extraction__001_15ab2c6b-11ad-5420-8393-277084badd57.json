@@ -33,8 +33,39 @@
           "review_status": "ok"
         }
       ],
-      "parameters": {},
-      "review_questions": []
+      "parameters": {
+        "dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出DMC的质量和物质的量，四釜液体加料需要体积时，是否请专家补充或确认按密度换算的加料体积？",
+          "priority": "recommended"
+        }
+      ]
     },
     {
       "review_step_id": "step_2",
@@ -47,15 +78,30 @@
       "materials": [
         {
           "name": "nitrogen",
-          "role": "unknown",
+          "role": "atmosphere",
           "amount_raw": null,
           "smiles": "N#N",
           "source": "literature",
           "review_status": "ok"
         }
       ],
-      "parameters": {},
-      "review_questions": []
+      "parameters": {
+        "times": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.times",
+          "question": "氮气置换的次数文献未说明，是否需要专家补充？",
+          "priority": "recommended"
+        }
+      ]
     },
     {
       "review_step_id": "step_3",
@@ -71,7 +117,7 @@
       "materials": [
         {
           "name": "fluorine",
-          "role": "reagent",
+          "role": "reagent_gas",
           "amount_raw": "15 vol.% F2/N2; 22.4 mL min^-1 (6.00 × 10^-2 mol hr^-1)",
           "smiles": "[F][F]",
           "source": "literature",
@@ -79,7 +125,7 @@
         },
         {
           "name": "nitrogen",
-          "role": "unknown",
+          "role": "diluent_gas",
           "amount_raw": "diluent in 15 vol.% F2/N2",
           "smiles": "N#N",
           "source": "literature",
@@ -114,18 +160,34 @@
         "gas_flow_rate": {
           "value": 22.4,
           "raw": "22.4 mL min^-1",
-          "unit": "mL/min",
+          "unit": "ml/min",
           "source": "literature",
           "required_by_platform": false,
           "review_status": "ok"
         },
         "stir_speed": {
           "value": null,
-          "raw": null,
+          "raw": "The DMC solution was stirred during fluorination.",
           "unit": "rpm",
           "source": "missing",
           "required_by_platform": false,
           "review_status": "needs_expert"
+        },
+        "start_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "end_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
         },
         "is_sampling": {
           "value": false,
@@ -134,12 +196,28 @@
           "source": "derived",
           "required_by_platform": true,
           "review_status": "ok"
+        },
+        "process_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "is_reflux_condensation": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
         }
       },
       "review_questions": [
         {
           "field": "parameters.stir_speed",
-          "question": "文献只说明反应过程中有搅拌，未给出搅拌转速；请确认四釜反应平台的搅拌速度。",
+          "question": "氟化反应过程中提到持续搅拌，但未给出搅拌转速，是否请专家补充rpm值？",
           "priority": "recommended"
         }
       ]
@@ -215,32 +293,32 @@
       "review_questions": [
         {
           "field": "parameters.extract_material_dosage",
-          "question": "请确认水洗步骤的用水体积（ml）。",
+          "question": "水洗步骤的加水体积文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.standing_time_span",
-          "question": "请确认水洗后的静置分层时间（min）。",
+          "question": "水洗后的静置分层时间文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.stir_speed",
-          "question": "请确认水洗步骤的搅拌速度（rpm）。",
+          "question": "水洗步骤对应的搅拌速度文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.stir_timespan",
-          "question": "请确认水洗步骤的搅拌时间（min）。",
+          "question": "水洗步骤对应的搅拌时间文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.intput_liquid_speed",
-          "question": "请确认水洗步骤的加液速度（ml/s）。",
+          "question": "水洗步骤的平台加液速度文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.take_layer",
-          "question": "请确认水洗后需要保留的取液层（上层/下层/都需要）。",
+          "question": "水洗分层后需要保留上层、下层还是两层，文献未明确，是否请专家确认？",
           "priority": "required"
         }
       ]
@@ -316,32 +394,32 @@
       "review_questions": [
         {
           "field": "parameters.extract_material_dosage",
-          "question": "请确认碳酸钠水溶液洗涤步骤的用量（ml）。",
+          "question": "碳酸钠水溶液洗涤步骤的用量文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.standing_time_span",
-          "question": "请确认碳酸钠水溶液洗涤后的静置分层时间（min）。",
+          "question": "碳酸钠水溶液洗涤后的静置分层时间文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.stir_speed",
-          "question": "请确认碳酸钠水溶液洗涤步骤的搅拌速度（rpm）。",
+          "question": "碳酸钠水溶液洗涤步骤对应的搅拌速度文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.stir_timespan",
-          "question": "请确认碳酸钠水溶液洗涤步骤的搅拌时间（min）。",
+          "question": "碳酸钠水溶液洗涤步骤对应的搅拌时间文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.intput_liquid_speed",
-          "question": "请确认碳酸钠水溶液洗涤步骤的加液速度（ml/s）。",
+          "question": "碳酸钠水溶液洗涤步骤的平台加液速度文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.take_layer",
-          "question": "请确认碳酸钠水溶液洗涤后需要保留的取液层（上层/下层/都需要）。",
+          "question": "碳酸钠水溶液洗涤分层后需要保留上层、下层还是两层，文献未明确，是否请专家确认？",
           "priority": "required"
         }
       ]
@@ -393,12 +471,12 @@
       "review_questions": [
         {
           "field": "parameters.desiccant_qty",
-          "question": "请确认4A分子筛的用量（mg）。",
+          "question": "4A分子筛的加入量文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.speed",
-          "question": "请确认干燥实验的震荡速度（rpm）；文献仅给出干燥时间。",
+          "question": "干燥实验模板需要震荡速度，但文献仅说明静置脱水约24小时，是否请专家确认该步骤是否需要设定速度；若需要，请补充rpm值？",
           "priority": "required"
         }
       ]
@@ -425,7 +503,7 @@
       "review_questions": [
         {
           "field": "operation",
-          "question": "文献为常压分馏分离产物，请确认应映射到哪个平台注册操作；现有注册表中未提供与该实验步骤直接对应的标准分馏执行操作。",
+          "question": "文献描述为常压分馏分离产物，但现有注册表没有与该文献步骤直接对应的标准分馏执行模板，是否请专家指定应映射到精馏平台的哪一步或确认暂不平台化？",
           "priority": "required"
         }
       ]
@@ -441,7 +519,7 @@
       "materials": [
         {
           "name": "monofluorinated dimethyl carbonate (MFDMC)",
-          "role": "product",
+          "role": "product_sample",
           "amount_raw": "purity 99.7%",
           "smiles": "COC(=O)OCF",
           "source": "literature",
@@ -459,7 +537,7 @@
         },
         "inspection_scheme": {
           "value": null,
-          "raw": "GC and NMR",
+          "raw": null,
           "unit": null,
           "source": "missing",
           "required_by_platform": true,
@@ -469,21 +547,20 @@
       "review_questions": [
         {
           "field": "parameters.sampling_dosage",
-          "question": "请确认分析检测的取样量（ml）。",
+          "question": "GC/NMR检测的取样量文献未说明，是否请专家补充？",
           "priority": "required"
         },
         {
           "field": "parameters.inspection_scheme",
-          "question": "文献提到GC和NMR检测，请确认平台中对应的检测方案编号。",
+          "question": "GC与NMR对应的平台检测方案编号文献未说明，是否请专家指定？",
           "priority": "required"
         }
       ]
     }
   ],
   "notes": [
-    "液体加料步骤中DMC仅给出质量和摩尔数，未提供可直接映射到平台的体积参数，故保留在materials.amount_raw中。",
-    "氟气/氮气混合气的15 vol.%组成和6.00 × 10^-2 mol h^-1投料信息在所选四釜反应平台“反应”模板中无直接参数位，未强行映射。",
-    "两次“wash”按单一萃取剂OBJECT容量拆分为两个独立平台审核步骤。"
+    "步骤3将通入15 vol.% F2/N2并在5 ℃搅拌10 h的氟化过程整体映射为“四釜反应平台-反应”；该模板可承载气体通入、温度和时长，但不能显式记录气体物料身份，故气体名称保留在materials中供专家复核。",
+    "步骤7的分馏分离在当前注册表中缺少与文献‘常压分馏’直接一一对应的标准执行步骤，因此暂设platform和operation为null并请求专家确认。"
   ],
   "metadata": {
     "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf/e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_gold_extraction.json",
@@ -492,7 +569,7 @@
       "title": "Synthesis of Fluorinated Dimethyl Carbonates by Direct Fluorination",
       "source_type": "journal_article"
     },
-    "generated_at": "2026-06-24T11:05:45.174177+00:00",
+    "generated_at": "2026-06-24T11:52:27.729310+00:00",
     "model": "openai/gpt-5.4"
   }
 }

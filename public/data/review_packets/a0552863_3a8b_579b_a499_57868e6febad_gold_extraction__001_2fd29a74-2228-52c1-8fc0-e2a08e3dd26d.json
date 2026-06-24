@@ -21,7 +21,111 @@
         1
       ],
       "source_text": "Dissolve the appropriate thiocarbonate in CHCl3 in a glass flask.",
-      "platform": "高通量反应平台",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "O,O-Bis(2-nitrophenyl)thiocarbonate (2a)",
+          "role": "substrate",
+          "amount_raw": "980 mg",
+          "smiles": "S=C(Oc1ccccc1[N+](=O)[O-])Oc1ccccc1[N+](=O)[O-]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "O,O-Bis(2-nitrophenyl)thiocarbonate (2a)"
+          },
+          "raw": "O,O-Bis(2-nitrophenyl)thiocarbonate (2a)",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 980.0,
+          "raw": "980 mg",
+          "unit": "mg",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": "not mentioned",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_stirring_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_cleaning_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_drying_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Dissolve the appropriate thiocarbonate in CHCl3 in a glass flask.",
+      "platform": "四釜反应平台",
       "operation": "液体加料",
       "materials": [
         {
@@ -45,118 +149,35 @@
           "review_status": "ok"
         },
         "dosage": {
-          "value": [
-            null
-          ],
+          "value": null,
           "raw": "20–25 mL",
           "unit": "ml",
           "source": "literature",
-          "required_by_platform": true,
+          "required_by_platform": false,
           "review_status": "needs_expert"
         },
-        "tool_use": {
+        "pumping_rate": {
           "value": null,
           "raw": null,
-          "unit": null,
+          "unit": "ml/min",
           "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
+          "required_by_platform": false,
+          "review_status": "not_applicable"
         },
-        "drip_speed": {
+        "temperature": {
           "value": null,
           "raw": null,
-          "unit": "ml/s",
+          "unit": "℃",
           "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        },
-        "lid_status": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
+          "required_by_platform": false,
+          "review_status": "not_applicable"
         }
       },
       "review_questions": [
         {
           "field": "parameters.dosage",
-          "question": "文献给出CHCl3用量为20–25 mL范围，平台需要确定单一加液体积，请确认具体取值。",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.tool_use",
-          "question": "请确认该步液体加料使用的工装编号（移液枪、针泵或反应区针泵）。",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.drip_speed",
-          "question": "请确认该步CHCl3加液速度。",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.lid_status",
-          "question": "请确认该步加液时是否关盖。",
-          "priority": "required"
-        }
-      ]
-    },
-    {
-      "review_step_id": "step_2",
-      "source_operation_orders": [
-        1
-      ],
-      "source_text": "Dissolve the appropriate thiocarbonate in CHCl3 in a glass flask.",
-      "platform": "高通量反应平台",
-      "operation": "固体加料",
-      "materials": [
-        {
-          "name": "O,O-Bis(2-nitrophenyl)thiocarbonate (2a)",
-          "role": "substrate",
-          "amount_raw": "980 mg",
-          "smiles": "S=C(Oc1ccccc1[N+](=O)[O-])Oc1ccccc1[N+](=O)[O-]",
-          "source": "literature",
-          "review_status": "ok"
-        }
-      ],
-      "parameters": {
-        "material": {
-          "value": [
-            {
-              "name": "O,O-Bis(2-nitrophenyl)thiocarbonate (2a)"
-            }
-          ],
-          "raw": "O,O-Bis(2-nitrophenyl)thiocarbonate (2a)",
-          "unit": null,
-          "source": "literature",
-          "required_by_platform": true,
-          "review_status": "ok"
-        },
-        "qty": {
-          "value": [
-            980
-          ],
-          "raw": "980 mg",
-          "unit": "mg",
-          "source": "literature",
-          "required_by_platform": true,
-          "review_status": "ok"
-        },
-        "lid_status": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        }
-      },
-      "review_questions": [
-        {
-          "field": "parameters.lid_status",
-          "question": "请确认该步固体加料时是否关盖。",
-          "priority": "required"
+          "question": "CHCl3 体积给出为 20–25 mL，平台是否接受范围值，还是需要专家指定单一加料体积？",
+          "priority": "recommended"
         }
       ]
     },
@@ -171,7 +192,7 @@
       "materials": [],
       "parameters": {
         "temperature": {
-          "value": 0,
+          "value": 0.0,
           "raw": "0 °C",
           "unit": "℃",
           "source": "literature",
@@ -191,9 +212,9 @@
       "operation": "过程控温滴加",
       "materials": [
         {
-          "name": "BrF3 solution in CFCl3",
-          "role": "reagent_solution",
-          "amount_raw": "BrF3 (1 molar equiv) in a few milliliters of CFCl3",
+          "name": "BrF3",
+          "role": "reagent",
+          "amount_raw": "1 molar equiv",
           "smiles": null,
           "source": "literature",
           "review_status": "ok"
@@ -202,9 +223,9 @@
       "parameters": {
         "quencher": {
           "value": {
-            "name": "BrF3 solution in CFCl3"
+            "name": "BrF3"
           },
-          "raw": "BrF3 solution",
+          "raw": "BrF3",
           "unit": null,
           "source": "literature",
           "required_by_platform": true,
@@ -219,7 +240,7 @@
           "review_status": "needs_expert"
         },
         "target_temperature": {
-          "value": 0,
+          "value": 0.0,
           "raw": "0 °C",
           "unit": "℃",
           "source": "literature",
@@ -228,7 +249,7 @@
         },
         "drip_dosage": {
           "value": null,
-          "raw": "a few milliliters of CFCl3",
+          "raw": "1 molar equiv",
           "unit": "ml",
           "source": "literature",
           "required_by_platform": false,
@@ -246,23 +267,90 @@
       "review_questions": [
         {
           "field": "parameters.drip_dosage",
-          "question": "文献仅写‘几毫升CFCl3中的BrF3溶液’，请确认该滴加液的准确体积。",
+          "question": "文献仅给出 BrF3 为 1 当量，平台滴加量需要体积值；请专家确认 BrF3 溶液体积或浓度换算。",
           "priority": "required"
         },
         {
           "field": "parameters.drip_speed",
-          "question": "请确认BrF3溶液的滴加速度。",
+          "question": "请专家确认 BrF3 滴加速度（ml/s）。",
           "priority": "recommended"
         },
         {
           "field": "parameters.agitation_speed",
-          "question": "请确认滴加过程中搅拌速度。",
+          "question": "请专家确认滴加时搅拌速度（rpm）。",
           "priority": "recommended"
         }
       ]
     },
     {
       "review_step_id": "step_5",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Add BrF3 solution dropwise at 0 °C.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "CFCl3",
+          "role": "solvent",
+          "amount_raw": "a few milliliters",
+          "smiles": "FC(Cl)(Cl)Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "CFCl3"
+          },
+          "raw": "CFCl3",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "a few milliliters",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "temperature": {
+          "value": 0.0,
+          "raw": "0 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "CFCl3 仅描述为 a few milliliters，请专家确认确切体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.material",
+          "question": "请专家确认 CFCl3 是否作为独立液体加料步骤录入，还是应与 BrF3 合并为同一滴加溶液。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
       "source_operation_orders": [
         4
       ],
@@ -283,13 +371,18 @@
       "review_questions": [
         {
           "field": "operation",
-          "question": "文献为‘用水溶性亚硫酸钠洗涤至无色’，当前注册表中无明确对应洗涤操作，请专家确认应映射到哪个平台操作。",
+          "question": "文献为“用水合亚硫酸钠洗涤至无色”，现有注册表中无明确对应操作；请专家确认应映射为哪一平台操作。",
           "priority": "required"
+        },
+        {
+          "field": "parameters",
+          "question": "请专家补充洗涤次数、每次体积及是否需要分液/萃取层信息。",
+          "priority": "recommended"
         }
       ]
     },
     {
-      "review_step_id": "step_6",
+      "review_step_id": "step_7",
       "source_operation_orders": [
         5
       ],
@@ -351,7 +444,7 @@
         },
         "take_layer": {
           "value": null,
-          "raw": "aqueous layer",
+          "raw": "aqueous layer extracted with dichloromethane",
           "unit": null,
           "source": "literature",
           "required_by_platform": true,
@@ -385,43 +478,43 @@
       "review_questions": [
         {
           "field": "parameters.extract_material_dosage",
-          "question": "请确认每次用CH2Cl2萃取的体积。",
+          "question": "请专家确认每次二氯甲烷萃取用量（ml）。",
           "priority": "required"
         },
         {
           "field": "parameters.take_layer",
-          "question": "文献说明‘萃取水层’，平台取液层参数请确认应设置为上层还是下层。",
+          "question": "请专家确认平台取液层参数应选择哪一层。",
           "priority": "required"
         },
         {
           "field": "parameters.timespan",
-          "question": "请确认萃取后的静置时间。",
-          "priority": "required"
+          "question": "请专家确认静置时间（min）。",
+          "priority": "recommended"
         },
         {
           "field": "parameters.drip_speed",
-          "question": "请确认萃取振荡速度。",
-          "priority": "required"
+          "question": "请专家确认震荡速度（rpm）。",
+          "priority": "recommended"
         },
         {
           "field": "parameters.drip_timespan",
-          "question": "请确认萃取振荡时间。",
-          "priority": "required"
+          "question": "请专家确认震荡时间（min）。",
+          "priority": "recommended"
         },
         {
           "field": "parameters.drip_speed_in_first_step",
-          "question": "请确认萃取第一阶段加液速度。",
-          "priority": "required"
+          "question": "请专家确认第一阶段加液速度（ml/s）。",
+          "priority": "recommended"
         },
         {
           "field": "parameters.drip_speed_in_second_step",
-          "question": "请确认萃取第二阶段加液速度。",
-          "priority": "required"
+          "question": "请专家确认第二阶段加液速度（ml/s）。",
+          "priority": "recommended"
         }
       ]
     },
     {
-      "review_step_id": "step_7",
+      "review_step_id": "step_8",
       "source_operation_orders": [
         6
       ],
@@ -477,110 +570,46 @@
       "review_questions": [
         {
           "field": "parameters.desiccant_qty",
-          "question": "请确认MgSO4干燥剂用量。",
+          "question": "请专家确认 MgSO4 干燥剂用量（mg）。",
           "priority": "required"
         },
         {
           "field": "parameters.timespan",
-          "question": "请确认干燥处理时间。",
+          "question": "请专家确认干燥/震荡时间（min）。",
           "priority": "required"
         },
         {
           "field": "parameters.speed",
-          "question": "请确认干燥实验中的震荡速度。",
-          "priority": "required"
-        }
-      ]
-    },
-    {
-      "review_step_id": "step_8",
-      "source_operation_orders": [
-        7
-      ],
-      "source_text": "Evaporate the solvent.",
-      "platform": "旋蒸预留平台",
-      "operation": "旋蒸任务",
-      "materials": [],
-      "parameters": {
-        "container_type": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        },
-        "outcome_params": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        },
-        "residual_collection": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        },
-        "is_residual_sampling": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        },
-        "is_rotary_wash": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": false,
-          "review_status": "needs_expert"
-        },
-        "is_condense_wash": {
-          "value": null,
-          "raw": null,
-          "unit": null,
-          "source": "missing",
-          "required_by_platform": true,
-          "review_status": "needs_expert"
-        }
-      },
-      "review_questions": [
-        {
-          "field": "parameters.container_type",
-          "question": "请确认旋蒸瓶尺寸。",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.outcome_params",
-          "question": "文献仅写‘蒸去溶剂’，请补充旋蒸所需参数（油浴温度、旋蒸时间、冷凝温度、真空度等）。",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.residual_collection",
-          "question": "请确认是否收集残液。",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.is_residual_sampling",
-          "question": "请确认残液是否取样。",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.is_condense_wash",
-          "question": "请确认是否清洗冷凝管路。",
-          "priority": "required"
+          "question": "请专家确认干燥实验震荡速度（rpm）。",
+          "priority": "recommended"
         }
       ]
     },
     {
       "review_step_id": "step_9",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Evaporate the solvent.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献仅写“蒸去溶剂”，请专家确认应映射为旋蒸任务、液体回收，还是其他平台操作。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters",
+          "question": "若需映射到具体平台，请补充蒸发容器规格、温度、时间、真空度等关键参数。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
       "source_operation_orders": [
         8
       ],
@@ -588,56 +617,57 @@
       "platform": "过柱纯化平台",
       "operation": "过柱",
       "materials": [],
-      "parameters": {
-        "speed": {
-          "value": null,
-          "raw": null,
-          "unit": "ml/min",
-          "source": "missing",
-          "required_by_platform": false,
-          "review_status": "needs_expert"
-        },
-        "dosage": {
-          "value": null,
-          "raw": null,
-          "unit": "ml",
-          "source": "missing",
-          "required_by_platform": false,
-          "review_status": "needs_expert"
-        },
-        "method": {
-          "value": null,
-          "raw": "flash chromatography",
-          "unit": null,
-          "source": "literature",
-          "required_by_platform": false,
-          "review_status": "needs_expert"
-        }
-      },
+      "parameters": {},
       "review_questions": [
         {
           "field": "parameters.method",
-          "question": "文献仅写‘flash chromatography’，请确认平台可用的过柱方法编号。",
-          "priority": "required"
-        },
-        {
-          "field": "parameters.speed",
-          "question": "请确认过柱进样流速。",
+          "question": "请专家确认过柱方法编号；文献未提供 flash chromatography 的平台方法。",
           "priority": "recommended"
         },
         {
+          "field": "parameters.speed",
+          "question": "请专家确认进样流速（ml/min）是否需要指定。",
+          "priority": "optional"
+        },
+        {
           "field": "parameters.dosage",
-          "question": "请确认过柱进样量。",
+          "question": "请专家确认进样量（ml）是否需要指定。",
+          "priority": "optional"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "Isolate bis(2-nitrophenoxy)difluoromethane as yellow crystals.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "Bis(2-nitrophenoxy)difluoromethane (3a)",
+          "role": "product",
+          "amount_raw": "1.2 g",
+          "smiles": "FC(F)(Oc1ccccc1[N+](=O)[O-])Oc1ccccc1[N+](=O)[O-]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "产物分离结果无对应注册平台操作；请专家确认是否仅作为结果记录，不需平台执行步骤。",
           "priority": "recommended"
         }
       ]
     }
   ],
   "notes": [
-    "仅依据reaction.operations进行映射。",
-    "洗涤步骤在注册表中无直接对应操作，因此保留为null并提出专家确认问题。",
-    "BrF3与CFCl3在文献中以‘BrF3 solution’形式滴加，按单一滴加液对象处理，未创建物料代码。",
-    "产物分离/收率信息未单独映射为平台步骤，因为注册表中无对应‘分离得到产物’操作。"
+    "仅依据 reaction.operations 进行映射，未使用 reaction.conditions 或 outcome 作为步骤参数来源。",
+    "文献中多处仅给出范围值或模糊量词（如 20–25 mL、a few milliliters），需要专家确认是否可被平台接受。",
+    "洗涤、蒸发、最终分离在当前注册表中缺少明确一一对应操作，因此以 null 映射并提出复核问题。"
   ],
   "metadata": {
     "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/a0552863_3a8b_579b_a499_57868e6febad/a0552863_3a8b_579b_a499_57868e6febad_gold_extraction.json",
@@ -646,7 +676,7 @@
       "title": "Constructing the OCF2O Moiety Using BrF3",
       "source_type": "journal_article"
     },
-    "generated_at": "2026-06-24T11:03:40.135394+00:00",
+    "generated_at": "2026-06-24T11:50:58.568945+00:00",
     "model": "openai/gpt-5.4"
   }
 }
