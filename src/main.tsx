@@ -12,6 +12,12 @@ type PacketSummary = {
   literature_uuid?: string;
   reaction_id?: string;
   target_name?: string;
+  paper?: {
+    file_name: string;
+    url: string;
+    source_name?: string;
+    size_bytes?: number;
+  } | null;
 };
 
 type ParameterDef = {
@@ -245,6 +251,7 @@ function App() {
   }
 
   const selectedSummary = packets.find((item) => item.id === selectedId);
+  const selectedPaper = selectedSummary?.paper;
 
   return (
     <div className="app-shell">
@@ -286,6 +293,16 @@ function App() {
             <span>Save draft 只保存在当前浏览器；提交给维护者时请使用 Download JSON 或 Download bundle。</span>
           </div>
         </section>
+
+        {selectedPaper && (
+          <section className="paper-panel">
+            <div>
+              <strong>Source PDF</strong>
+              <span>{selectedSummary?.literature_uuid}</span>
+            </div>
+            <a href={selectedPaper.url} target="_blank" rel="noreferrer">Open source PDF</a>
+          </section>
+        )}
 
         {message && <div className="message">{message}</div>}
 

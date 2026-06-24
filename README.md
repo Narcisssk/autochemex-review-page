@@ -30,7 +30,11 @@ This writes:
 public/data/parsed_parameter_registry.json
 public/data/review_packet_index.json
 public/data/review_packets/*.json
+public/data/papers/<literature_uuid>_origin.pdf
 ```
+
+Only PDFs referenced by the packaged review packets are copied. The app links
+each packet to its source PDF by `literature_uuid`.
 
 Run locally:
 
@@ -50,10 +54,10 @@ npm run build
 Push this repository to GitHub and enable Pages with **GitHub Actions** as the
 source. The included workflow builds the Vite app and deploys `dist`.
 
-If the review packets contain unpublished chemistry or paper-derived data, do
-not publish them in a public repository unless that disclosure is acceptable.
-For sensitive reviews, use a private distribution path or a private Pages setup
-available through your GitHub plan.
+If the review packets or source PDFs contain unpublished, copyrighted, or
+otherwise sensitive material, do not publish them in a public repository unless
+that disclosure is acceptable. For sensitive reviews, use a private
+distribution path or a private Pages setup available through your GitHub plan.
 
 ## Data Contract
 

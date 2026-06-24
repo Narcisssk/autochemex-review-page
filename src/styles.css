@@ -168,6 +168,44 @@ button.primary {
   line-height: 1.45;
 }
 
+.paper-panel {
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding: 12px 14px;
+}
+
+.paper-panel div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.paper-panel strong {
+  color: #1f2a37;
+  font-size: 13px;
+}
+
+.paper-panel span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.paper-panel a {
+  background: #ffffff;
+  border: 1px solid #1f6feb;
+  border-radius: 6px;
+  color: #1f6feb;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 10px;
+  text-decoration: none;
+}
+
 .reaction-panel,
 .step-card,
 .json-panel,
@@ -521,8 +559,15 @@ textarea {
 
   .reaction-panel,
   .review-guide,
+  .paper-panel,
   .step-grid,
   .param-row {
     grid-template-columns: 1fr;
+  }
+
+  .paper-panel {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
   }
 }
