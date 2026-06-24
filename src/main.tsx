@@ -644,6 +644,9 @@ function ParameterValueEditor(props: {
   if (parameter.category === 'ARRAY') {
     return <ArrayValueEditor parameter={parameter} value={asArrayValue(value)} onChange={onChange} />;
   }
+  if (parameter.category === 'ENUM') {
+    return <EnumValueEditor parameter={parameter} value={value} onChange={onChange} />;
+  }
   if (parameter.category === 'BOOLEAN') {
     return (
       <label className="boolean-toggle">
@@ -705,6 +708,9 @@ function NestedValueEditor(props: {
   if (parameter.category === 'ARRAY') {
     return <ArrayValueEditor parameter={parameter} value={asArrayValue(value)} onChange={onChange} />;
   }
+  if (parameter.category === 'ENUM') {
+    return <EnumValueEditor parameter={parameter} value={value} onChange={onChange} />;
+  }
   if (parameter.category === 'BOOLEAN') {
     return (
       <label className="boolean-toggle">
@@ -718,6 +724,33 @@ function NestedValueEditor(props: {
       value={stringifyInputValue(value)}
       onChange={(event) => onChange(parseInputValue(event.target.value, parameter.category || ''))}
     />
+  );
+}
+
+function EnumValueEditor(props: {
+  parameter: ParameterDef;
+  value: JsonValue | undefined;
+  onChange: (value: JsonValue) => void;
+}) {
+  const options = enumOptions(props.parameter);
+  const normalizedValue = normalizeEnumValue(props.value, options);
+  if (options.length === 0) {
+    return (
+      <input
+        value={stringifyInputValue(props.value)}
+        onChange={(event) => props.onChange(event.target.value || null)}
+      />
+    );
+  }
+  return (
+    <select value={normalizedValue} onChange={(event) => props.onChange(event.target.value || null)}>
+      <option value="">Select value</option>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.value} - {option.label}
+        </option>
+      ))}
+    </select>
   );
 }
 
@@ -953,6 +986,7 @@ function validatePacket(packet: ReviewPacket, registry: RegistryRecord[]): JsonO
 }
 
 function validateNestedRequiredFields(value: JsonValue | undefined, parameter: ParameterDef, path: string, errors: JsonObject[]) {
+  validateEnumValue(value, parameter, path, errors);
   const fields = objectFields(parameter);
   if (fields.length === 0) return;
   const objectValue = value && typeof value === 'object' && !Array.isArray(value) ? value as JsonObject : {};
@@ -963,6 +997,19 @@ function validateNestedRequiredFields(value: JsonValue | undefined, parameter: P
       errors.push({ path: childPath, message: 'Required nested parameter needs a value.' });
     }
     validateNestedRequiredFields(childValue, field, childPath, errors);
+  }
+}
+
+function validateEnumValue(value: JsonValue | undefined, parameter: ParameterDef, path: string, errors: JsonObject[]) {
+  if (parameter.category !== 'ENUM' || isMissingParameterValue(value)) return;
+  const options = enumOptions(parameter);
+  if (options.length === 0) return;
+  const normalized = normalizeEnumValue(value, options);
+  if (!options.some((option) => option.value === normalized)) {
+    errors.push({
+      path,
+      message: `ENUM value must be one of: ${options.map((option) => `${option.value}(${option.label})`).join(', ')}.`,
+    });
   }
 }
 
@@ -998,8 +1045,9 @@ function normalizeRequiredParameterStatuses(packet: ReviewPacket, registry: Regi
   for (const step of next.platform_review_steps || []) {
     const schema = operationParameters(findOperation(registry, step.platform || '', step.operation || ''));
     for (const parameter of schema) {
-      if (!parameter.required || displayConditionState(parameter, step).status !== 'active') continue;
       const current = step.parameters?.[parameter.key];
+      if (current) current.value = normalizeParameterValue(current.value, parameter);
+      if (!parameter.required || displayConditionState(parameter, step).status !== 'active') continue;
       if (!current || current.review_status !== 'not_applicable') continue;
       current.source = isMissingParameterValue(current.value) ? 'missing' : current.source || 'expert';
       current.review_status = isMissingParameterValue(current.value) ? 'needs_expert' : 'ok';
@@ -1040,6 +1088,53 @@ function objectFields(parameter: ParameterDef): ParameterDef[] {
   const schema = parameter.meta_data?.schema;
   if (!Array.isArray(schema)) return [];
   return schema.filter((item): item is ParameterDef => Boolean(item && typeof item === 'object' && item.key && item.key !== 'code'));
+}
+
+function enumOptions(parameter: ParameterDef): Array<{ value: string; label: string }> {
+  const options = parameter.meta_data?.options;
+  if (!options) return [];
+  if (Array.isArray(options)) {
+    return options.map((item) => {
+      if (item && typeof item === 'object' && !Array.isArray(item)) {
+        const record = item as JsonObject;
+        const value = String(record.value ?? record.key ?? record.id ?? record.label ?? '');
+        const label = String(record.label ?? record.name ?? record.value ?? value);
+        return { value, label };
+      }
+      return { value: String(item), label: String(item) };
+    }).filter((item) => item.value);
+  }
+  if (typeof options === 'object') {
+    return Object.entries(options).map(([value, label]) => ({ value, label: String(label) }));
+  }
+  return [];
+}
+
+function normalizeEnumValue(value: JsonValue | undefined, options: Array<{ value: string; label: string }>): string {
+  if (value === null || value === undefined) return '';
+  const text = stringifyInputValue(value);
+  const byValue = options.find((option) => option.value === text);
+  if (byValue) return byValue.value;
+  const byLabel = options.find((option) => option.label === text);
+  return byLabel?.value || text;
+}
+
+function normalizeParameterValue(value: JsonValue | undefined, parameter: ParameterDef): JsonValue {
+  if (parameter.category === 'ENUM') {
+    const options = enumOptions(parameter);
+    const normalized = normalizeEnumValue(value, options);
+    return options.some((option) => option.value === normalized) ? normalized : value ?? null;
+  }
+  if (parameter.category === 'OBJECT') {
+    const fields = objectFields(parameter);
+    if (fields.length === 0 || !value || typeof value !== 'object' || Array.isArray(value)) return value ?? null;
+    const next = { ...(value as JsonObject) };
+    for (const field of fields) {
+      next[field.key] = normalizeParameterValue(next[field.key], field);
+    }
+    return next;
+  }
+  return value ?? null;
 }
 
 function parseJsonObject(raw: string): JsonObject {
