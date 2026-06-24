@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowDown, ArrowUp, CopyPlus, Download, FileDown, Plus, Save, Trash2 } from 'lucide-react';
+import { ArrowDown, ArrowUp, CopyPlus, Download, FileDown, Plus, RotateCcw, Save, Trash2 } from 'lucide-react';
 import './styles.css';
 
 type JsonValue = string | number | boolean | null | JsonObject | JsonValue[];
@@ -244,6 +244,20 @@ function App() {
     return protectedPacket;
   }
 
+  function resetToOriginal() {
+    if (!selectedId || !basePacket) return;
+    const confirmed = window.confirm('Clear the local draft for this packet and reload the original review packet?');
+    if (!confirmed) return;
+    const original = structuredClone(basePacket);
+    localStorage.removeItem(storageKey(selectedId));
+    setPacket(original);
+    setJsonDraft(JSON.stringify(original, null, 2));
+    setErrors([]);
+    setActiveTab('form');
+    setMessage('Local draft cleared. Original packet loaded.');
+    setPackets((items) => [...items]);
+  }
+
   function downloadCurrent() {
     if (!packet || !selectedId) return;
     const protectedPacket = saveDraft();
@@ -320,6 +334,7 @@ function App() {
           <div className="toolbar-actions">
             <button onClick={validateCurrent}>Validate</button>
             <button onClick={saveDraft}><Save size={16} /> Save draft</button>
+            <button onClick={resetToOriginal}><RotateCcw size={16} /> Reset to original</button>
             <button className="primary" onClick={downloadCurrent}><Download size={16} /> Download JSON</button>
             <button onClick={downloadSelected}><FileDown size={16} /> Download selected ({selectedPacketCount})</button>
           </div>
