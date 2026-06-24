@@ -262,7 +262,7 @@ textarea {
 }
 
 .param-row {
-  align-items: center;
+  align-items: start;
   grid-template-columns: minmax(180px, 1.1fr) minmax(160px, 1fr) 90px 76px;
 }
 
@@ -283,6 +283,7 @@ textarea {
   display: inline-flex;
   gap: 6px;
   justify-content: center;
+  min-height: 34px;
 }
 
 .na-toggle input {
@@ -293,6 +294,68 @@ textarea {
 .na-toggle span {
   color: #334155;
   font-size: 13px;
+}
+
+.boolean-toggle {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  min-height: 34px;
+}
+
+.boolean-toggle input {
+  min-height: auto;
+  width: auto;
+}
+
+.disabled-value {
+  align-items: center;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #64748b;
+  display: flex;
+  min-height: 34px;
+  padding: 7px 9px;
+}
+
+.object-editor,
+.array-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mini-field {
+  display: grid;
+  gap: 4px;
+}
+
+.mini-field span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.array-row {
+  align-items: start;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr auto;
+}
+
+.small-button {
+  min-height: 30px;
+  padding: 4px 8px;
+}
+
+.compact {
+  padding: 4px 0;
+}
+
+.compact-json {
+  font-family: "Cascadia Code", Consolas, monospace;
+  min-height: 84px;
 }
 
 .question {

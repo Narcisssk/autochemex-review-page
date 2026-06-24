@@ -375,15 +375,14 @@ function StepCard(props: {
     props.onStepChange(next);
   }
 
-  function setParamValue(key: string, parameter: ParameterDef, rawValue: string) {
-    const value = parseInputValue(rawValue, parameter.category || '');
+  function setParamValue(key: string, parameter: ParameterDef, value: JsonValue) {
     const next = structuredClone(step);
     next.parameters = next.parameters || {};
     next.parameters[key] = {
       ...(next.parameters[key] || parameterValueStub(parameter)),
       value,
-      source: value === null ? 'missing' : 'expert',
-      review_status: value === null ? (parameter.required ? 'needs_expert' : 'not_applicable') : 'ok',
+      source: isMissingParameterValue(value) ? 'missing' : 'expert',
+      review_status: isMissingParameterValue(value) ? (parameter.required ? 'needs_expert' : 'not_applicable') : 'ok',
     };
     props.onStepChange(next);
   }
@@ -457,10 +456,11 @@ function StepCard(props: {
                 <strong>{parameter.key}</strong>
                 <span>{parameter.name || parameter.category}{parameter.required ? ' required' : ''}</span>
               </div>
-              <input
+              <ParameterValueEditor
+                parameter={parameter}
                 disabled={current.review_status === 'not_applicable'}
-                value={stringifyInputValue(current.value)}
-                onChange={(event) => setParamValue(parameter.key, parameter, event.target.value)}
+                value={current.value}
+                onChange={(value) => setParamValue(parameter.key, parameter, value)}
               />
               <input
                 disabled={current.review_status === 'not_applicable'}
@@ -474,7 +474,7 @@ function StepCard(props: {
                   checked={current.review_status === 'not_applicable'}
                   onChange={(event) => setParamNotApplicable(parameter.key, parameter, event.target.checked)}
                 />
-                <span>N/A</span>
+                <span>不适用</span>
               </label>
             </div>
           );
@@ -493,6 +493,118 @@ function StepCard(props: {
         </div>
       )}
     </article>
+  );
+}
+
+function ParameterValueEditor(props: {
+  parameter: ParameterDef;
+  value: JsonValue;
+  disabled: boolean;
+  onChange: (value: JsonValue) => void;
+}) {
+  const { parameter, value, disabled, onChange } = props;
+  if (disabled) return <div className="disabled-value">不适用</div>;
+  if (parameter.category === 'OBJECT') {
+    return <ObjectValueEditor parameter={parameter} value={asObjectValue(value)} onChange={onChange} />;
+  }
+  if (parameter.category === 'ARRAY') {
+    return <ArrayValueEditor parameter={parameter} value={asArrayValue(value)} onChange={onChange} />;
+  }
+  if (parameter.category === 'BOOLEAN') {
+    return (
+      <label className="boolean-toggle">
+        <input type="checkbox" checked={value === true} onChange={(event) => onChange(event.target.checked)} />
+        <span>{value === true ? 'true' : 'false'}</span>
+      </label>
+    );
+  }
+  return (
+    <input
+      value={stringifyInputValue(value)}
+      onChange={(event) => onChange(parseInputValue(event.target.value, parameter.category || ''))}
+    />
+  );
+}
+
+function ObjectValueEditor(props: {
+  parameter: ParameterDef;
+  value: JsonObject;
+  onChange: (value: JsonValue) => void;
+}) {
+  const fields = objectFields(props.parameter);
+  if (fields.length === 0) {
+    return (
+      <textarea
+        className="compact-json"
+        value={JSON.stringify(props.value, null, 2)}
+        onChange={(event) => props.onChange(parseJsonObject(event.target.value))}
+      />
+    );
+  }
+  return (
+    <div className="object-editor">
+      {fields.map((field) => (
+        <label className="mini-field" key={field.key}>
+          <span>{field.name || field.key}</span>
+          <input
+            value={stringifyInputValue(props.value[field.key])}
+            onChange={(event) => {
+              const next = { ...props.value, [field.key]: parseInputValue(event.target.value, field.category || '') };
+              props.onChange(next);
+            }}
+          />
+        </label>
+      ))}
+    </div>
+  );
+}
+
+function ArrayValueEditor(props: {
+  parameter: ParameterDef;
+  value: JsonValue[];
+  onChange: (value: JsonValue) => void;
+}) {
+  const meta = props.parameter.meta_data || {};
+  const childType = String(meta.child_type || '');
+  const maxLength = typeof meta.max_length === 'number' && meta.max_length < 100 ? meta.max_length : undefined;
+  const editsObjects = childType === 'OBJECT' || props.value.some((item) => typeof item === 'object' && item !== null && !Array.isArray(item));
+  const canAdd = maxLength === undefined || props.value.length < maxLength;
+
+  function updateItem(index: number, value: JsonValue) {
+    const next = [...props.value];
+    next[index] = value;
+    props.onChange(next);
+  }
+
+  function addItem() {
+    if (!canAdd) return;
+    props.onChange([...props.value, editsObjects ? {} : null]);
+  }
+
+  function removeItem(index: number) {
+    props.onChange(props.value.filter((_, itemIndex) => itemIndex !== index));
+  }
+
+  return (
+    <div className="array-editor">
+      {props.value.length === 0 && <div className="empty compact">No items.</div>}
+      {props.value.map((item, index) => (
+        <div className="array-row" key={index}>
+          {editsObjects ? (
+            <ObjectValueEditor parameter={props.parameter} value={asObjectValue(item)} onChange={(value) => updateItem(index, value)} />
+          ) : (
+            <input
+              value={stringifyInputValue(item)}
+              onChange={(event) => updateItem(index, parseInputValue(event.target.value, childType || props.parameter.category || ''))}
+            />
+          )}
+          <button className="small-button" onClick={() => removeItem(index)}>Remove</button>
+        </div>
+      ))}
+      <button className="small-button" disabled={!canAdd} onClick={addItem}>
+        Add item{maxLength ? ` (${props.value.length}/${maxLength})` : ''}
+      </button>
+    </div>
   );
 }
 
@@ -576,7 +688,7 @@ function validatePacket(packet: ReviewPacket, registry: RegistryRecord[]): JsonO
       if (!parameter.required) continue;
       const value = step.parameters?.[parameter.key];
       if (value?.review_status === 'not_applicable') continue;
-      if (!value || value.value === null || value.value === '' || (Array.isArray(value.value) && value.value.length === 0)) {
+      if (!value || isMissingParameterValue(value.value)) {
         errors.push({ path: `${location}.parameters.${parameter.key}.value`, message: 'Required parameter needs a value or not_applicable.' });
       }
     }
@@ -607,6 +719,43 @@ function stringifyInputValue(value: JsonValue | undefined): string {
   if (value === null || value === undefined) return '';
   if (typeof value === 'object') return JSON.stringify(value);
   return String(value);
+}
+
+function isMissingParameterValue(value: JsonValue | undefined): boolean {
+  if (value === null || value === undefined || value === '') return true;
+  if (Array.isArray(value)) return value.length === 0 || value.every((item) => isMissingParameterValue(item));
+  if (typeof value === 'object') {
+    const entries = Object.entries(value);
+    return entries.length === 0 || entries.every(([key, item]) => key === 'code' || isMissingParameterValue(item));
+  }
+  return false;
+}
+
+function asObjectValue(value: JsonValue): JsonObject {
+  if (value && typeof value === 'object' && !Array.isArray(value)) return value;
+  if (typeof value === 'string') return { name: value };
+  return {};
+}
+
+function asArrayValue(value: JsonValue): JsonValue[] {
+  if (Array.isArray(value)) return value;
+  if (value === null || value === undefined || value === '') return [];
+  return [value];
+}
+
+function objectFields(parameter: ParameterDef): ParameterDef[] {
+  const schema = parameter.meta_data?.schema;
+  if (!Array.isArray(schema)) return [];
+  return schema.filter((item): item is ParameterDef => Boolean(item && typeof item === 'object' && item.key && item.key !== 'code'));
+}
+
+function parseJsonObject(raw: string): JsonObject {
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
 }
 
 function parseInputValue(raw: string, category: string): JsonValue {
