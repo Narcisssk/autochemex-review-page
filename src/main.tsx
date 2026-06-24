@@ -680,18 +680,33 @@ function ObjectValueEditor(props: {
   }
   return (
     <div className="object-editor">
-      {fields.map((field) => (
-        <div className="mini-field" key={field.key}>
-          <span>{field.name || field.key}</span>
-          <NestedValueEditor
-            parameter={field}
-            value={props.value[field.key]}
-            onChange={(value) => {
-              props.onChange({ ...props.value, [field.key]: value });
-            }}
-          />
-        </div>
-      ))}
+      {fields.map((field) => {
+        const condition = displayConditionStateForValues(field, props.value);
+        if (condition.status === 'inactive') return null;
+        if (condition.status === 'waiting') {
+          return (
+            <div className="mini-field conditional-waiting" key={field.key}>
+              <span>{field.name || field.key}</span>
+              <span className={`param-badge ${field.required ? 'required' : 'optional'}`}>{field.required ? '平台必填' : '平台可选'}</span>
+              <span className="param-status waiting">等待条件确认</span>
+              <span className="param-help">{condition.help}</span>
+            </div>
+          );
+        }
+        return (
+          <div className="mini-field" key={field.key}>
+            <span>{field.name || field.key}</span>
+            <span className={`param-badge ${field.required ? 'required' : 'optional'}`}>{field.required ? '平台必填' : '平台可选'}</span>
+            <NestedValueEditor
+              parameter={field}
+              value={props.value[field.key]}
+              onChange={(value) => {
+                props.onChange({ ...props.value, [field.key]: value });
+              }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -877,24 +892,31 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
   return {
     kind: 'missing-optional',
     label: '可选未填',
-    help: '平台可选。有明确信息时请填写；若本步骤不需要，可以保持跳过。',
+    help: '平台可选。有明确信息时请填写；若本参数真的不需要，可以选择跳过。',
   };
 }
 
 function displayConditionState(parameter: ParameterDef, step: ReviewStep): { status: 'active' | 'inactive' | 'waiting'; help?: string } {
+  const values = Object.fromEntries(
+    Object.entries(step.parameters || {}).map(([key, record]) => [key, record?.value])
+  );
+  return displayConditionStateForValues(parameter, values);
+}
+
+function displayConditionStateForValues(parameter: ParameterDef, values: Record<string, JsonValue | undefined>): { status: 'active' | 'inactive' | 'waiting'; help?: string } {
   const condition = parameter.meta_data?.display_condition;
   if (!condition || typeof condition !== 'object' || Array.isArray(condition)) return { status: 'active' };
   const property = String((condition as JsonObject).property || '');
   if (!property) return { status: 'active' };
   const expected = (condition as JsonObject).value;
-  const controller = step.parameters?.[property];
-  if (!controller || isMissingParameterValue(controller.value)) {
+  const controllerValue = values[property];
+  if (isMissingParameterValue(controllerValue)) {
     return {
       status: 'waiting',
       help: `该参数只有在 ${property} = ${String(expected)} 时才需要填写；请先确认上方控制参数。`,
     };
   }
-  return valuesMatchCondition(controller.value, expected) ? { status: 'active' } : { status: 'inactive' };
+  return valuesMatchCondition(controllerValue, expected) ? { status: 'active' } : { status: 'inactive' };
 }
 
 function applyParameterConditions(step: ReviewStep, schema: ParameterDef[]): ReviewStep {
@@ -991,6 +1013,7 @@ function validateNestedRequiredFields(value: JsonValue | undefined, parameter: P
   if (fields.length === 0) return;
   const objectValue = value && typeof value === 'object' && !Array.isArray(value) ? value as JsonObject : {};
   for (const field of fields) {
+    if (displayConditionStateForValues(field, objectValue).status !== 'active') continue;
     const childPath = `${path}.${field.key}`;
     const childValue = objectValue[field.key];
     if (field.required && isMissingParameterValue(childValue)) {
@@ -1130,6 +1153,7 @@ function normalizeParameterValue(value: JsonValue | undefined, parameter: Parame
     if (fields.length === 0 || !value || typeof value !== 'object' || Array.isArray(value)) return value ?? null;
     const next = { ...(value as JsonObject) };
     for (const field of fields) {
+      if (displayConditionStateForValues(field, next).status !== 'active') continue;
       next[field.key] = normalizeParameterValue(next[field.key], field);
     }
     return next;
