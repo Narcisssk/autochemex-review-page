@@ -397,7 +397,7 @@ function App() {
 
             <nav className="tabs">
               <button className={activeTab === 'form' ? 'active' : ''} onClick={() => setActiveTab('form')}>Form</button>
-              <button className={activeTab === 'json' ? 'active' : ''} onClick={() => setActiveTab('json')}>JSON</button>
+              <button className={activeTab === 'json' ? 'active' : ''} onClick={() => setActiveTab('json')}>Current JSON</button>
               <button className={activeTab === 'errors' ? 'active' : ''} onClick={() => setActiveTab('errors')}>Errors {errors.length ? `(${errors.length})` : ''}</button>
             </nav>
 
