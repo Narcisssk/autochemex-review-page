@@ -612,12 +612,9 @@ function StepCard(props: {
                 onChange={(value) => setParamValue(parameter.key, parameter, value)}
               />
               {showUnitInput && (
-                <input
-                  disabled={isNotApplicable}
-                  value={current.unit || ''}
-                  placeholder="unit"
-                  onChange={(event) => setParam(parameter.key, 'unit', event.target.value)}
-                />
+                <span className={`unit-chip ${isNotApplicable ? 'disabled' : ''}`}>
+                  unit: {current.unit || String(parameter.meta_data?.unit || '')}
+                </span>
               )}
               {!parameter.required && (
                 <label className="na-toggle">

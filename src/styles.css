@@ -476,6 +476,22 @@ textarea {
   line-height: 1.4;
 }
 
+.unit-chip {
+  align-self: start;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  color: #475569;
+  display: inline-flex;
+  font-size: 12px;
+  min-height: 34px;
+  padding: 8px 10px;
+}
+
+.unit-chip.disabled {
+  color: #94a3b8;
+}
+
 .na-toggle {
   align-items: start;
   display: inline-flex;
