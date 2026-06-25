@@ -706,7 +706,7 @@ function ObjectValueEditor(props: {
               <span className={`param-badge ${field.required ? 'required' : 'optional'}`}>{field.required ? '平台必填' : '平台可选'}</span>
               <span className="param-status waiting">等待条件确认</span>
               <span className="param-help">{condition.help}</span>
-              {isPlatformInternalIdentifier(field) && (
+              {shouldShowInternalIdentifierHint(field, props.parameter) && (
                 <span className="param-help">涉及平台内部编号；不清楚可以填 unknown。</span>
               )}
             </div>
@@ -716,7 +716,7 @@ function ObjectValueEditor(props: {
           <div className="mini-field" key={field.key}>
             <span>{field.name || field.key}</span>
             <span className={`param-badge ${field.required ? 'required' : 'optional'}`}>{field.required ? '平台必填' : '平台可选'}</span>
-            {isPlatformInternalIdentifier(field) && (
+            {shouldShowInternalIdentifierHint(field, props.parameter) && (
               <span className="param-help">涉及平台内部编号；不清楚可以填 unknown。</span>
             )}
             <NestedValueEditor
@@ -911,6 +911,13 @@ function isPlatformInternalIdentifier(parameter: ParameterDef): boolean {
     name.includes('编号') ||
     name.includes('工装')
   );
+}
+
+function shouldShowInternalIdentifierHint(parameter: ParameterDef, parent?: ParameterDef): boolean {
+  const key = parameter.key.toLowerCase();
+  const parentKey = String(parent?.key || '').toLowerCase();
+  if (parentKey === 'filter_material' && key === 'name') return true;
+  return isPlatformInternalIdentifier(parameter);
 }
 
 function parameterStub(registry: RegistryRecord[], platform: string, operation: string): Record<string, ParameterValue> {
