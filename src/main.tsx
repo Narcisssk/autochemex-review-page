@@ -709,6 +709,9 @@ function ObjectValueEditor(props: {
               <span className={`param-badge ${field.required ? 'required' : 'optional'}`}>{field.required ? '平台必填' : '平台可选'}</span>
               <span className="param-status waiting">等待条件确认</span>
               <span className="param-help">{condition.help}</span>
+              {isPlatformInternalIdentifier(field) && (
+                <span className="param-help">涉及平台内部编号；不清楚可以填 unknown。</span>
+              )}
             </div>
           );
         }
@@ -716,6 +719,9 @@ function ObjectValueEditor(props: {
           <div className="mini-field" key={field.key}>
             <span>{field.name || field.key}</span>
             <span className={`param-badge ${field.required ? 'required' : 'optional'}`}>{field.required ? '平台必填' : '平台可选'}</span>
+            {isPlatformInternalIdentifier(field) && (
+              <span className="param-help">涉及平台内部编号；不清楚可以填 unknown。</span>
+            )}
             <NestedValueEditor
               parameter={field}
               value={props.value[field.key]}
