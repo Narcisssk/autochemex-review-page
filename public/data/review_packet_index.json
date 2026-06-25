@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-25T12:28:19.883629+00:00",
-  "packet_count": 24,
+  "generated_at": "2026-06-25T12:58:37.685034+00:00",
+  "packet_count": 22,
   "packets": [
     {
       "id": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__001_17194eea-9884-5ead-b86e-9770e8f804c9.json",
@@ -73,19 +73,6 @@
       "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
       "reaction_id": "45a4950d-cead-562d-9863-fa47876e20e9",
       "target_name": "1,1,1-trifluoro-4-(2-bromo-4-fluorophenyl)-4-methyl-2-pentanone",
-      "paper": {
-        "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
-        "url": "data/papers/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
-        "source_name": "223fb6ff-6eeb-5dc4-aedc-a29cd5bb2535_origin.pdf",
-        "size_bytes": 750618
-      }
-    },
-    {
-      "id": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction__004_23ed2c40-7aa9-53e0-9a90-867af39f694a.json",
-      "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction__004_23ed2c40-7aa9-53e0-9a90-867af39f694a.json",
-      "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
-      "reaction_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a",
-      "target_name": "1,1,1-trifluoro-4-(2-carboxy-4-fluorophenyl)-4-methyl-2-pentanone",
       "paper": {
         "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
         "url": "data/papers/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
@@ -299,19 +286,6 @@
         "url": "data/papers/e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
         "source_name": "e4876910-34f2-5c86-9b56-cd8b93264e8a_origin.pdf",
         "size_bytes": 424023
-      }
-    },
-    {
-      "id": "fb213f29_8f24_5aa4_b7af_dfe0bc2c4cf5_gold_extraction__001_d0d712b5-3113-5801-83a5-fe8bf7e79c6c.json",
-      "file_name": "fb213f29_8f24_5aa4_b7af_dfe0bc2c4cf5_gold_extraction__001_d0d712b5-3113-5801-83a5-fe8bf7e79c6c.json",
-      "literature_uuid": "fb213f29_8f24_5aa4_b7af_dfe0bc2c4cf5",
-      "reaction_id": "d0d712b5-3113-5801-83a5-fe8bf7e79c6c",
-      "target_name": "dimethyl carbonate",
-      "paper": {
-        "file_name": "fb213f29_8f24_5aa4_b7af_dfe0bc2c4cf5_origin.pdf",
-        "url": "data/papers/fb213f29_8f24_5aa4_b7af_dfe0bc2c4cf5_origin.pdf",
-        "source_name": "fb213f29-8f24-5aa4-b7af-dfe0bc2c4cf5_origin.pdf",
-        "size_bytes": 367620
       }
     }
   ]
