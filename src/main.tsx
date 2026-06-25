@@ -1176,7 +1176,7 @@ function asArrayValue(value: JsonValue | undefined): JsonValue[] {
 function objectFields(parameter: ParameterDef): ParameterDef[] {
   const schema = parameter.meta_data?.schema;
   if (!Array.isArray(schema)) return [];
-  return schema.filter((item): item is ParameterDef => Boolean(item && typeof item === 'object' && item.key && item.key !== 'code'));
+  return schema.filter((item): item is ParameterDef => Boolean(item && typeof item === 'object' && item.key));
 }
 
 function enumOptions(parameter: ParameterDef): Array<{ value: string; label: string }> {
