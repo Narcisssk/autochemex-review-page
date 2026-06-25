@@ -358,16 +358,16 @@ function App() {
 
         <section className="review-guide">
           <div>
-            <strong>Review flow</strong>
-            <span>先检查Reaction SMILES和目标物质的信息是否正确（尤其是涉及SMILES的地方），再逐步检查平台步骤和参数。黄色的“待补充”表示平台必填但尚缺值，必须填写或通过调整平台步骤解决</span>
+            <strong>专家审核任务</strong>
+            <span>请以原文 PDF 为准，核对当前反应的目标产物、Reaction SMILES、实验步骤和平台参数；页面中的初始内容来自模型提取与映射，供审核参考。</span>
           </div>
           <div>
-            <strong>LLM extracted hints</strong>
-            <span>页面中的 步骤安排、source hint、materials 和参数初值均为 LLM 从文献中提取或推断的参考信息，请以原 PDF 和专业判断为准。</span>
+            <strong>审核步骤</strong>
+            <span>建议先打开 Source PDF 定位证据，再检查实验设置是否合理；随后逐步修改或补填平台实验表单中的步骤、物料、温度、时间、速度、取层等参数。</span>
           </div>
           <div>
-            <strong>Saving</strong>
-            <span>字段修改会自动保存在当前浏览器；Save draft 可用于手动校验和确认。提交给维护者时请使用 Download JSON，或在左侧勾选多个 packets 后使用 Download selected。</span>
+            <strong>保存与导出</strong>
+            <span>修改会自动保存在当前浏览器。完成审核后请使用 Download JSON 导出当前反应，或在左侧勾选多个反应后使用 Download selected 批量导出。</span>
           </div>
         </section>
 
