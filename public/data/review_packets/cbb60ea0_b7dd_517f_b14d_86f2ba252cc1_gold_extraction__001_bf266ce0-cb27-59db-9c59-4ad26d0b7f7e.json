@@ -1,0 +1,461 @@
+{
+  "literature_uuid": "cbb60ea0_b7dd_517f_b14d_86f2ba252cc1",
+  "reaction": {
+    "reaction_id": "bf266ce0-cb27-59db-9c59-4ad26d0b7f7e",
+    "reaction_smiles": "COc1ccc2cc([C@H](C)C(=O)O)ccc2c1.C(F)I>[Cs+].[Cs+].[O-]C([O-])=O.CC#N>COC(=O)[C@@H](C)c1ccc2cc(OC)ccc2c1",
+    "target": {
+      "name": "(S)-2",
+      "smiles": "COC(=O)[C@@H](C)c1ccc2cc(OC)ccc2c1"
+    },
+    "confidence": 0.83,
+    "evidence": [
+      "Table 1 model reaction and footnote on page 2",
+      "Optimization prose on page 2 describing completion in 6 h and ether extraction workup",
+      "Page 2 molecule recognition of the model reaction structures for (S)-1 and (S)-2"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge (S)-Naproxen, fluoroiodomethane, cesium carbonate, and acetonitrile for the fluoromethylation reaction.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "(S)-Naproxen ((S)-1)",
+          "role": "substrate",
+          "amount_raw": "1 equiv",
+          "smiles": "COc1ccc2cc([C@H](C)C(=O)O)ccc2c1",
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "cesium carbonate",
+          "role": "base",
+          "amount_raw": "1.2 equiv",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "(S)-Naproxen ((S)-1)"
+            },
+            {
+              "name": "cesium carbonate"
+            }
+          ],
+          "raw": [
+            "(S)-Naproxen ((S)-1)",
+            "cesium carbonate"
+          ],
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            null,
+            null
+          ],
+          "raw": [
+            "1 equiv",
+            "1.2 equiv"
+          ],
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.qty",
+          "question": "文献仅给出当量，未给出(S)-Naproxen与碳酸铯的mg加量；请补充平台所需的固体实际加料质量。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "固体加料时平台是否需要关盖？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge (S)-Naproxen, fluoroiodomethane, cesium carbonate, and acetonitrile for the fluoromethylation reaction.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "fluoroiodomethane (ICH2F)",
+          "role": "reagent",
+          "amount_raw": "1.2 equiv",
+          "smiles": "C(F)I",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "fluoroiodomethane (ICH2F)"
+          },
+          "raw": "fluoroiodomethane (ICH2F)",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": [
+            "1.2 equiv"
+          ],
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出氟碘甲烷当量，未给出平台所需的mL加量；请补充实际体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "氟碘甲烷液体加料应使用哪种工装编号（移液枪/针泵/反应区针泵）？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "氟碘甲烷加料时平台是否需要关盖？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge (S)-Naproxen, fluoroiodomethane, cesium carbonate, and acetonitrile for the fluoromethylation reaction.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "acetonitrile",
+          "role": "solvent",
+          "amount_raw": null,
+          "smiles": "CC#N",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "acetonitrile"
+          },
+          "raw": "acetonitrile",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": [
+            null
+          ],
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献未给出乙腈用量，请补充平台所需的mL加量。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "乙腈加料应使用哪种工装编号（移液枪/针泵/反应区针泵）？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "乙腈加料时平台是否需要关盖？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Stir the reaction mixture at room temperature until completion.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "rt",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 360,
+          "raw": "6 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未给出搅拌速度，请补充rpm。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "文献仅写rt，未给出对应摄氏温度；请确认平台录入温度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Recover analytically pure product by simple extraction of the water phase with diethyl ether.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "diethyl ether",
+          "role": "extractant",
+          "amount_raw": null,
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "diethyl ether"
+          },
+          "raw": "diethyl ether",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "extract the water phase with diethyl ether",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 1,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.extract_material_dosage",
+          "question": "文献未给出乙醚萃取用量，请补充每次萃取体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "平台需要指定取液层；文献仅说明用乙醚萃取水相，请确认最终取上层、下层或都需要。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献未给出萃取静置时间，请补充。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未给出萃取震荡速度，请补充rpm。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "文献未给出萃取震荡时间，请补充。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "文献未给出萃取第一阶段加液速度，请补充ml/s。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "文献未给出萃取第二阶段加液速度，请补充ml/s。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "未根据isolate步骤单独生成平台步骤，因为注册表中无直接对应的‘分离产物/收率记录’操作，且该步骤主要描述结果而非可执行平台操作。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/cbb60ea0_b7dd_517f_b14d_86f2ba252cc1/cbb60ea0_b7dd_517f_b14d_86f2ba252cc1_gold_extraction.json",
+    "document": {
+      "literature_uuid": "cbb60ea0_b7dd_517f_b14d_86f2ba252cc1",
+      "title": "Direct and Chemoselective Electrophilic Monofluoromethylation of Heteroatoms (O-, S-, N-, P-, Se-) with Fluoroiodomethane",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T12:06:07.190586+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

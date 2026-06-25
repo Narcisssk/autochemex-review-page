@@ -1,0 +1,693 @@
+{
+  "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
+  "reaction": {
+    "reaction_id": "a61c29fe-edcd-54ed-b1f7-c4979ac85752",
+    "reaction_smiles": "O=[N+]([O-])c1ccccc1O.O=[N+]([O-])c1ccccc1O>S=C(Cl)Cl.[Na+].[OH-]>S=C(Oc1ccccc1[N+](=O)[O-])Oc1ccccc1[N+](=O)[O-]",
+    "target": {
+      "name": "O,O-Bis(2-nitrophenyl)thiocarbonate",
+      "smiles": "S=C(Oc1ccccc1[N+](=O)[O-])Oc1ccccc1[N+](=O)[O-]"
+    },
+    "confidence": 0.92,
+    "evidence": [
+      "PDF p.2 Results and Discussion: formation of 2a from 2-nitrophenol and thiophosgene",
+      "Scheme 1 on PDF p.2 identifies 2a as symmetric thiocarbonate precursor",
+      "PDF p.4 Experimental Section gives the applicable general procedure and the specific 2a analytical entry"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Prepare a THF solution of 2-nitrophenol and base.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "2-nitrophenol",
+          "role": "substrate",
+          "amount_raw": "2 g; 2 molar equiv in Results section",
+          "smiles": "O=[N+]([O-])c1ccccc1O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "2-nitrophenol"
+          },
+          "raw": "2-nitrophenol",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 2000.0,
+          "raw": "2 g",
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Prepare a THF solution of 2-nitrophenol and base.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "sodium hydroxide",
+          "role": "base",
+          "amount_raw": null,
+          "smiles": "[Na+].[OH-]",
+          "source": "literature",
+          "review_status": "needs_expert"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "sodium hydroxide"
+          },
+          "raw": "sodium hydroxide",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "请确认氢氧化钠的固体加料量（mg）是多少？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Prepare a THF solution of 2-nitrophenol and base.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "THF",
+          "role": "solvent",
+          "amount_raw": "15 mL in the general procedure",
+          "smiles": "C1CCOC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "THF"
+          },
+          "raw": "THF",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 15.0,
+          "raw": "15 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add the alcohol/base solution dropwise to thiophosgene in THF at 0 °C.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "THF",
+          "role": "solvent",
+          "amount_raw": "15 mL in the general procedure",
+          "smiles": "C1CCOC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "THF"
+          },
+          "raw": "THF",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 15.0,
+          "raw": "15 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "temperature": {
+          "value": 0.0,
+          "raw": "0 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add the alcohol/base solution dropwise to thiophosgene in THF at 0 °C.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "thiophosgene",
+          "role": "reagent",
+          "amount_raw": "1 molar equiv in Results section",
+          "smiles": "S=C(Cl)Cl",
+          "source": "literature",
+          "review_status": "needs_expert"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "thiophosgene"
+          },
+          "raw": "thiophosgene",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "1 molar equiv",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": 0.0,
+          "raw": "0 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "请确认硫代光气在平台上对应的加料体积（ml）或可执行加料形式。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add the alcohol/base solution dropwise to thiophosgene in THF at 0 °C.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "2-nitrophenol/base solution in THF",
+          "role": "addition_solution",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "needs_expert"
+        }
+      ],
+      "parameters": {
+        "quencher": {
+          "value": {
+            "name": "2-nitrophenol/base solution in THF"
+          },
+          "raw": "alcohol/base solution",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": 0.0,
+          "raw": "0 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.quencher",
+          "question": "请确认该滴加液在平台中是否登记为“2-硝基苯酚/NaOH的THF溶液”，还是需要拆分为其他平台步骤？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_dosage",
+          "question": "请确认滴加溶液的总滴加体积（ml）是多少？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "请确认滴加速度（ml/s）是多少？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "请确认滴加期间搅拌速度（rpm）是多少？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Continue stirring the reaction mixture.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 0.0,
+          "raw": "0 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 20.0,
+          "raw": "20 min",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.stir_speed",
+          "question": "请确认反应阶段的搅拌速度（rpm）是多少？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Filter off the precipitated salt.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "请确认过滤时长（min）是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "请确认过滤所用滤膜/过滤介质名称。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Evaporate the filtrate to obtain crude thiocarbonate.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": {
+            "tcu_temperature": {
+              "value": null,
+              "raw": null,
+              "unit": "℃",
+              "source": "missing",
+              "required_by_platform": true,
+              "review_status": "needs_expert"
+            },
+            "is_step_rise": {
+              "value": null,
+              "raw": null,
+              "unit": null,
+              "source": "missing",
+              "required_by_platform": true,
+              "review_status": "needs_expert"
+            },
+            "intelligence_determine": {
+              "value": null,
+              "raw": null,
+              "unit": null,
+              "source": "missing",
+              "required_by_platform": true,
+              "review_status": "needs_expert"
+            },
+            "evaporator_time": {
+              "value": null,
+              "raw": null,
+              "unit": "min",
+              "source": "missing",
+              "required_by_platform": true,
+              "review_status": "needs_expert"
+            },
+            "condensation_temperature": {
+              "value": null,
+              "raw": null,
+              "unit": "℃",
+              "source": "missing",
+              "required_by_platform": true,
+              "review_status": "needs_expert"
+            },
+            "vacuum": {
+              "value": null,
+              "raw": null,
+              "unit": "kPa",
+              "source": "missing",
+              "required_by_platform": true,
+              "review_status": "needs_expert"
+            },
+            "condensation_collection": {
+              "value": null,
+              "raw": null,
+              "unit": null,
+              "source": "missing",
+              "required_by_platform": true,
+              "review_status": "needs_expert"
+            },
+            "is_condensation_sampling": {
+              "value": false,
+              "raw": null,
+              "unit": null,
+              "source": "derived",
+              "required_by_platform": true,
+              "review_status": "ok"
+            }
+          },
+          "raw": "Evaporate the filtrate to obtain crude thiocarbonate.",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": true,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_residual_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "请确认旋蒸瓶尺寸选择为500 ml还是1000 ml。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "请补充旋蒸关键参数：油浴温度、是否阶梯升温、旋蒸时间、冷凝温度、真空度、是否收集冷凝液、是否智能判断。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "请确认该旋蒸任务是否需要清洗冷凝管路。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Purify the crude product by flash chromatography.",
+      "platform": "过柱纯化平台",
+      "operation": "过柱",
+      "materials": [
+        {
+          "name": "flash chromatography eluent",
+          "role": "eluent",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "needs_expert"
+        }
+      ],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "method": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.method",
+          "question": "请确认该闪式色谱在平台上对应的过柱方法编号。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "请确认过柱进样流速（ml/min）是多少？",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.dosage",
+          "question": "请确认过柱进样量（ml）是多少？",
+          "priority": "optional"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Isolate O,O-bis(2-nitrophenyl)thiocarbonate as red oil.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "O,O-Bis(2-nitrophenyl)thiocarbonate",
+          "role": "product",
+          "amount_raw": "1.2 g",
+          "smiles": "S=C(Oc1ccccc1[N+](=O)[O-])Oc1ccccc1[N+](=O)[O-]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "该“分离得到红色油状产物”是否仅作为结果记录，不需要映射到具体平台操作？",
+          "priority": "recommended"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "依据reaction.operations进行映射；未使用其他非操作文本作为程序来源。",
+    "步骤2的滴加对象在文献中表述为'alcohol/base solution'，平台若不支持混合液作为单一物料，需专家确认拆分方案。",
+    "旋蒸与过滤平台参数在文献中缺失较多，已保留为待专家补充。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/a0552863_3a8b_579b_a499_57868e6febad/a0552863_3a8b_579b_a499_57868e6febad_gold_extraction.json",
+    "document": {
+      "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
+      "title": "Constructing the OCF2O Moiety Using BrF3",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T12:01:37.046460+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

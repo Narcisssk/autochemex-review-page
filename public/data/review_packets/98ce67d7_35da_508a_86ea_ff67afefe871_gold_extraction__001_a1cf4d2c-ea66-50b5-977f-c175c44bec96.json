@@ -1,0 +1,646 @@
+{
+  "literature_uuid": "98ce67d7_35da_508a_86ea_ff67afefe871",
+  "reaction": {
+    "reaction_id": "a1cf4d2c-ea66-50b5-977f-c175c44bec96",
+    "reaction_smiles": "CC=O.O=C(Cl)Oc1ccccc1>>CC(Cl)OC(=O)Oc1ccccc1",
+    "target": {
+      "name": "1-Chloroethyl Phenyl Carbonate",
+      "smiles": "CC(Cl)OC(=O)Oc1ccccc1"
+    },
+    "confidence": 0.95,
+    "evidence": [
+      "PDF page 3: '1-Chloroethyl Phenyl Carbonate (1a); Typical Procedure'",
+      "PDF page 2 Table 1 row 1a matches catalyst, solvent, temperature, time, yield",
+      "Name-to-SMILES tool used for phenyl carbonochloridate; product SMILES corrected from textual chemistry because tool output was implausible"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge phenyl carbonochloridate and acetaldehyde in 1,2-dichloroethane.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "phenyl carbonochloridate",
+          "role": "substrate",
+          "amount_raw": "8.0 g, 50 mmol",
+          "smiles": "O=C(Cl)Oc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": null,
+          "raw": "8.0 g, 50 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "请确认 phenyl carbonochloridate 在加料平台上应录入的体积（ml）；文献仅给出质量和物质的量。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge phenyl carbonochloridate and acetaldehyde in 1,2-dichloroethane.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "acetaldehyde",
+          "role": "reagent",
+          "amount_raw": "3.2 g, 70 mmol",
+          "smiles": "CC=O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": null,
+          "raw": "3.2 g, 70 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "请确认 acetaldehyde 在加料平台上应录入的体积（ml）；文献仅给出质量和物质的量。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge phenyl carbonochloridate and acetaldehyde in 1,2-dichloroethane.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "1,2-dichloroethane",
+          "role": "solvent",
+          "amount_raw": "30 mL",
+          "smiles": "ClCCCl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 30.0,
+          "raw": "30 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add pyridine to the stirred solution.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "pyridine",
+          "role": "catalyst",
+          "amount_raw": "0.20 g, 2.5 mmol",
+          "smiles": "n1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": null,
+          "raw": "0.20 g, 2.5 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "请确认 pyridine 在加料平台上应录入的体积（ml）；文献仅给出质量和物质的量。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Heat the solution at 80°C.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 80.0,
+          "raw": "80°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 300.0,
+          "raw": "5 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_introduce_gas": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": "stirred solution",
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "process_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "is_reflux_condensation": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.stir_speed",
+          "question": "文献仅说明为 stirred solution，请确认该反应步骤的搅拌转速（rpm）。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.is_introduce_gas",
+          "question": "请确认该反应步骤是否需要通入气体。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.is_reflux_condensation",
+          "question": "请确认该 80℃ 反应是否需要按冷凝回流模式执行。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Cool to room temperature.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "room temperature",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "请确认“冷却至室温”在平台中应填写的目标温度（℃）。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Wash with water.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": "50 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material_dosage": {
+          "value": 50.0,
+          "raw": "50 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.standing_time_span",
+          "question": "请确认水洗步骤的静置分层时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "请确认水洗步骤的搅拌速度（rpm）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_timespan",
+          "question": "请确认水洗步骤的搅拌时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "请确认水洗步骤的加液速度（ml/s）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "水洗后平台需要指定取液层，请确认应取上层、下层还是都需要。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Back-extract the aqueous phase with dichloromethane.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "dichloromethane",
+          "role": "extractant",
+          "amount_raw": "50 mL",
+          "smiles": "ClCCl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material_dosage": {
+          "value": 50.0,
+          "raw": "50 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.standing_time_span",
+          "question": "请确认二氯甲烷反萃步骤的静置分层时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "请确认二氯甲烷反萃步骤的搅拌速度（rpm）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_timespan",
+          "question": "请确认二氯甲烷反萃步骤的搅拌时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "请确认二氯甲烷反萃步骤的加液速度（ml/s）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "反萃后平台需要指定取液层，请确认应保留哪一层。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Combine organic phases and dry over magnesium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "magnesium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": "[Mg+2].[O-]S([O-])(=O)=O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "请确认无水硫酸镁的加入量（mg）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "请确认干燥步骤的震荡时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "请确认干燥步骤的震荡速度（rpm）。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Concentrate the dried organic phases.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "“浓缩干燥后的有机相”应映射到哪个平台操作？若使用旋蒸，请补充旋蒸参数。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "Isolate the product by vacuum distillation.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "1-Chloroethyl Phenyl Carbonate",
+          "role": "product",
+          "amount_raw": "7.3 g",
+          "smiles": "CC(Cl)OC(=O)Oc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "“真空蒸馏分离产物（bp 67–68°C/0.15 Torr）”当前注册表中无明显匹配操作，请确认应映射的平台与操作。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅依据 reaction.operations 进行映射，未使用 reaction.conditions 作为独立程序来源。",
+    "加料步骤因平台模板的物料参数为单个 OBJECT，已将一次多物料投料拆分为多个 platform_review_steps。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/98ce67d7_35da_508a_86ea_ff67afefe871/98ce67d7_35da_508a_86ea_ff67afefe871_gold_extraction.json",
+    "document": {
+      "literature_uuid": "98ce67d7_35da_508a_86ea_ff67afefe871",
+      "title": "A Convenient New Route to 1-Haloalkyl Carbonates",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T11:56:47.517110+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

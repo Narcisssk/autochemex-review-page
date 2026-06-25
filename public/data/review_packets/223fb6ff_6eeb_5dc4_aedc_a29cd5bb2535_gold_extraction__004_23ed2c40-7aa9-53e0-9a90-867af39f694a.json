@@ -1,0 +1,1191 @@
+{
+  "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
+  "reaction": {
+    "reaction_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a",
+    "reaction_smiles": "CC(C)(CC(=O)C(F)(F)F)c1ccc(F)cc1Br.O=C=O>>CC(C)(CC(=O)C(F)(F)F)c1ccc(F)cc1C(=O)O",
+    "target": {
+      "name": "1,1,1-trifluoro-4-(2-carboxy-4-fluorophenyl)-4-methyl-2-pentanone",
+      "smiles": "CC(C)(CC(=O)C(F)(F)F)c1ccc(F)cc1C(=O)O"
+    },
+    "confidence": 0.9,
+    "evidence": [
+      "Full procedure on PDF page 17 / MinerU page 16",
+      "Page 15 scheme and MolScribe page 15 identified the carboxylated product as CC(C)(CC(=O)C(F)(F)F)c1ccc(F)cc1C(=O)O"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Add sodium hydride to the reactor under nitrogen atmosphere.",
+      "platform": "四釜反应平台",
+      "operation": "气体置换",
+      "materials": [],
+      "parameters": {
+        "times": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.times",
+          "question": "文献仅说明在氮气氛下操作，四釜平台“气体置换”的置换次数是多少？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Add sodium hydride to the reactor under nitrogen atmosphere.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "sodium hydride",
+          "role": "base",
+          "amount_raw": "8.80 g, 60 wt.% dispersion in mineral oil",
+          "smiles": "[Na+].[H-]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 8800,
+          "raw": "8.80 g",
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": "under nitrogen atmosphere",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_stirring_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_cleaning_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_drying_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add THF containing a small amount of water.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "THF",
+          "role": "solvent",
+          "amount_raw": "150.0 mL containing 300 to 500 ppm water",
+          "smiles": "C1CCOC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 150.0,
+          "raw": "150.0 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Cool the slurry before substrate addition.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "0°C-5°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "文献给出降温范围为0-5℃，四釜平台温度控制应填写哪个目标温度？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Add a solution of the trifluoromethyl ketone in THF.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "1,1,1-trifluoro-4-(2-bromo-4-fluorophenyl)-4-methyl-2-pentanone",
+          "role": "substrate",
+          "amount_raw": "109.0 g, 55.0 wt.%",
+          "smiles": "CC(C)(CC(=O)C(F)(F)F)c1ccc(F)cc1Br",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": "internal temperature does not exceed 10°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_dosage": {
+          "value": null,
+          "raw": "109.0 g, 55.0 wt.%",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_dosage",
+          "question": "底物以质量和浓度给出，四釜“过程控温滴加”需填写mL，请确认对应滴加体积或是否以预配溶液形式录入。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.target_temperature",
+          "question": "文献仅说明内温不超过10℃，四釜平台“稳定温度”应填写哪个设定值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "该底物溶液滴加速度文献未给出，四釜平台应填写多少？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_6",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Add a solution of the trifluoromethyl ketone in THF.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "THF",
+          "role": "solvent",
+          "amount_raw": "70.0 mL",
+          "smiles": "C1CCOC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 70.0,
+          "raw": "70.0 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "materials",
+          "question": "该70.0 mL THF是用于预配底物溶液还是作为单独加料步骤录入？请专家确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_7",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Warm the batch to room temperature and hold.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "20°C-25°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 30,
+          "raw": "over 30 minutes",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "文献仅给出室温20-25℃范围，四釜“反应温度”应填写哪个设定值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "该升温保温步骤的搅拌速度文献未给出，是否需要指定？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_8",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Set aside the batch at room temperature.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "20°C-25°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 1080,
+          "raw": "18 hours",
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "该18小时放置步骤的平台温度设定在20-25℃范围内取哪个值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "该18小时放置步骤是否持续搅拌？若搅拌，请提供转速。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_9",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Cool the batch before magnesium reagent addition.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "0°C-5°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "镁试剂加料前降温范围为0-5℃，四釜平台应填写哪个目标温度？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_10",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Add isopropylmagnesium chloride lithium chloride complex.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "isopropylmagnesium chloride lithium chloride complex",
+          "role": "reagent",
+          "amount_raw": "162.12 mL, 1.30 M in THF",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": "internal temperature does not exceed 20°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_dosage": {
+          "value": 162.12,
+          "raw": "162.12 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.target_temperature",
+          "question": "文献仅说明内温不超过20℃，四釜“稳定温度”应填写哪个设定值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "异丙基氯化镁-氯化锂络合物的滴加速度文献未给出，请确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_11",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "Add 1,4-dioxane.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "1,4-dioxane",
+          "role": "reagent",
+          "amount_raw": "40.0 mL",
+          "smiles": "O1CCOCC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 40.0,
+          "raw": "40.0 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_12",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "Raise the internal temperature and set aside the reaction mixture.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "20°C-25°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": "2 to 3 hours",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "该反应阶段温度范围为20-25℃，平台应填写哪个设定值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献给出反应时间为2-3小时区间，四釜平台需要单一时长，请确认填写值。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "该反应阶段的搅拌速度文献未给出，请确认是否需要指定。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_13",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "Cool the batch for carbon dioxide addition.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "-15°C to -10°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "通入二氧化碳前降温范围为-15至-10℃，四釜平台应填写哪个目标温度？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_14",
+      "source_operation_orders": [
+        12
+      ],
+      "source_text": "Bubble carbon dioxide into the reaction mixture until at least 1.5 equivalents have been added.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [
+        {
+          "name": "carbon dioxide",
+          "role": "reagent",
+          "amount_raw": "at least 1.5 equivalents",
+          "smiles": "O=C=O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "internal temperature does not exceed 20°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_introduce_gas": {
+          "value": true,
+          "raw": "Bubble carbon dioxide into the reaction mixture",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "gas_flow_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "start_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "end_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "文献仅说明通入二氧化碳时内温不超过20℃，四釜“反应温度”应填写哪个设定值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.gas_flow_rate",
+          "question": "二氧化碳鼓泡流速文献未给出，请确认四釜平台填写值。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献只给出至少加入1.5当量二氧化碳，未给出通气时长，请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.start_time",
+          "question": "若使用四釜“反应-加气”，请确认二氧化碳开始时间。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.end_time",
+          "question": "若使用四釜“反应-加气”，请确认二氧化碳结束时间。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "二氧化碳鼓泡阶段是否搅拌？若搅拌请提供转速。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_15",
+      "source_operation_orders": [
+        13
+      ],
+      "source_text": "Set aside briefly after carbon dioxide addition, then cool again.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "5°C-15°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 30,
+          "raw": "30 minutes",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "二氧化碳加入后放置30分钟的温度范围为5-15℃，平台应填写哪个设定值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "该30分钟放置阶段是否继续搅拌？若需要，请提供转速。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_16",
+      "source_operation_orders": [
+        14
+      ],
+      "source_text": "Slowly add aqueous concentrated hydrochloric acid while controlling gas evolution.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "concentrated HCl",
+          "role": "quench",
+          "amount_raw": "62.5 mL",
+          "smiles": "Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_speed": {
+          "value": null,
+          "raw": "Slowly add",
+          "unit": "ml/s",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": "internal temperature does not exceed 30°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_dosage": {
+          "value": 62.5,
+          "raw": "62.5 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "materials",
+          "question": "文献表述为缓慢加入含水浓盐酸，当前拆分为HCl与水两步录入；请确认是否应视为预混淬灭液。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.target_temperature",
+          "question": "文献仅说明淬灭时内温不超过30℃，四釜“稳定温度”应填写哪个设定值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "淬灭酸的缓慢滴加速度文献未给出，请确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_17",
+      "source_operation_orders": [
+        14
+      ],
+      "source_text": "Slowly add aqueous concentrated hydrochloric acid while controlling gas evolution.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "water",
+          "role": "quench",
+          "amount_raw": "187.5 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 187.5,
+          "raw": "187.5 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "materials",
+          "question": "该187.5 mL水是否预先与浓盐酸配成淬灭液后整体滴加？请专家确认录入方式。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_18",
+      "source_operation_orders": [
+        15
+      ],
+      "source_text": "Distill out THF and isopropyl bromide at reduced pressure.",
+      "platform": "四釜反应平台",
+      "operation": "液体回收",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献为减压蒸出THF和异丙基溴，当前暂映射为“四釜-液体回收”；请确认该平台操作是否合适。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "减压蒸出步骤文献未给出时长，请确认四釜“液体回收时间”。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_19",
+      "source_operation_orders": [
+        16
+      ],
+      "source_text": "Add water and decrease the temperature.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "water",
+          "role": "reagent",
+          "amount_raw": "150 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 150.0,
+          "raw": "150 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_20",
+      "source_operation_orders": [
+        16
+      ],
+      "source_text": "Add water and decrease the temperature.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "0°C-5°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "加水后降温范围为0-5℃，四釜平台应填写哪个目标温度？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_21",
+      "source_operation_orders": [
+        17
+      ],
+      "source_text": "Hold the batch cold before filtration.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "0°C-5°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 120,
+          "raw": "2 hours",
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "过滤前冷保持温范围为0-5℃，平台应填写哪个设定值？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "过滤前冷保持2小时是否继续搅拌？若需要，请提供转速。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_22",
+      "source_operation_orders": [
+        18
+      ],
+      "source_text": "Filter the solid and wash the cake with water.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": "200 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "过滤步骤文献未给出过滤时长，请确认固液提纯平台参数。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "过滤所用滤膜/过滤介质文献未给出，请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "materials",
+          "question": "滤饼水洗200 mL如何在当前平台流程中表示？请确认是否需要单独平台步骤。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "23ed2c40-7aa9-53e0-9a90-867af39f694a_step_23",
+      "source_operation_orders": [
+        19
+      ],
+      "source_text": "Dry the solid under vacuum.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献为20-25℃、25-100 mmHg下真空干燥8-12小时，注册表中无明确匹配操作；请确认应映射到哪个平台操作。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "已严格仅依据reaction.operations进行映射。",
+    "对温度范围、时间范围、滴加速度、搅拌速度、过滤介质等文献未唯一确定的信息，均保留为needs_expert并提出中文问题。",
+    "涉及单OBJECT物料槽的多物料文献操作已拆分为多个platform_review_steps。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction.json",
+    "document": {
+      "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
+      "title": "SYNTHESIS OF CERTAIN TRIFLUOROMETHYL KETONES",
+      "source_type": "patent"
+    },
+    "generated_at": "2026-06-25T11:37:44.262270+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

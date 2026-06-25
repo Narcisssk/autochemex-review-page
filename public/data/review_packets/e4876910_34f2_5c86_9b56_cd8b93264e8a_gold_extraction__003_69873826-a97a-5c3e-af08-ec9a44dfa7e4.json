@@ -1,0 +1,352 @@
+{
+  "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
+  "reaction": {
+    "reaction_id": "69873826-a97a-5c3e-af08-ec9a44dfa7e4",
+    "reaction_smiles": "O=C(Br)C(Cl)Cl.C1=CCCC=CCC1>>O=C1C(Cl)(Cl)C2CCC=CCCC12",
+    "target": {
+      "name": "10,10-Dichlorobicyclo[6.2.0]dec-4-en-9-one",
+      "smiles": "O=C1C(Cl)(Cl)C2CCC=CCCC12"
+    },
+    "confidence": 0.83,
+    "evidence": [
+      "Experimental Section for compound 4 on page 3",
+      "Scheme image for product 4 on page 1",
+      "Product name and scheme support fused cyclobutanone assignment"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_1a",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged dry hexane, triethylamine, and 1,5-cyclooctadiene as a stirred refluxing solution.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dry hexane",
+          "role": "solvent",
+          "amount_raw": "200 ml",
+          "smiles": "CCCCCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 200,
+          "raw": "200 ml",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_1b",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged dry hexane, triethylamine, and 1,5-cyclooctadiene as a stirred refluxing solution.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "triethylamine",
+          "role": "base",
+          "amount_raw": "45.7 ml (0.33 mole)",
+          "smiles": "CCN(CC)CC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 45.7,
+          "raw": "45.7 ml (0.33 mole)",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_1c",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged dry hexane, triethylamine, and 1,5-cyclooctadiene as a stirred refluxing solution.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "1,5-cyclooctadiene",
+          "role": "substrate",
+          "amount_raw": "127 ml (1.04 moles)",
+          "smiles": "C1=CCCC=CCC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 127,
+          "raw": "127 ml (1.04 moles)",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_2a",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Added a solution of freshly distilled dichloroacetyl bromide in dry hexane dropwise to the refluxing mixture.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dichloroacetyl bromide",
+          "role": "reagent",
+          "amount_raw": "50 g (0.26 mole)",
+          "smiles": "O=C(Br)C(Cl)Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": []
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_2b",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Added a solution of freshly distilled dichloroacetyl bromide in dry hexane dropwise to the refluxing mixture.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dry hexane",
+          "role": "solvent",
+          "amount_raw": "50 ml",
+          "smiles": "CCCCCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 50,
+          "raw": "50 ml",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_3",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Refluxed the reaction mixture.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": 240,
+          "raw": "4 hr",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": true,
+          "raw": "reflux",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_4",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Removed the amine salt by filtration.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.filter_material",
+          "question": "请确认过滤使用的滤膜类型/规格？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "请确认过滤时长？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_5",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Washed the filtrate with water.",
+      "platform": "四釜反应平台",
+      "operation": "清洗",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": null,
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": []
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_6",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Dried the organic phase over anhydrous magnesium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "anhydrous magnesium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": "O=[Mg]O[S](=O)(=O)O[Mg]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "请确认无水硫酸镁用量？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "请确认干燥时间？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "请确认干燥时的振荡速度？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_7",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Removed solvent and excess olefin by distillation, then distilled the residue to obtain product.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "请确认此步应映射到哪一种平台蒸馏/浓缩操作？",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "第7步“distillation”未找到完全匹配的注册平台操作，因此保留为待专家确认。",
+    "过滤与干燥步骤的关键工艺条件在原文中未给出。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/e4876910_34f2_5c86_9b56_cd8b93264e8a/e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction.json",
+    "document": {
+      "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
+      "title": "Halogenated Ketenes. V. Cycloadditions of Dichloroketene to Olefins",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T12:16:57.385403+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

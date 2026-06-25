@@ -1,0 +1,673 @@
+{
+  "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
+  "reaction": {
+    "reaction_id": "031d4de1-0339-52f9-bae1-b6c3c151b586",
+    "reaction_smiles": "O=C(Br)C(Cl)Cl.C=Cc1ccccc1>>O=C1C(c2ccccc2)C(Cl)(Cl)C1",
+    "target": {
+      "name": "2,2-Dichloro-3-phenylcyclobutanone",
+      "smiles": "O=C1C(c2ccccc2)C(Cl)(Cl)C1"
+    },
+    "confidence": 0.91,
+    "evidence": [
+      "Experimental Section for compound 2 on page 2",
+      "Scheme image for product 2 on page 1",
+      "Product name converted with iupac_to_smiles and cross-checked against scheme/text"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged dry hexane as a stirred refluxing solution.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dry hexane",
+          "role": "solvent",
+          "amount_raw": "200 ml",
+          "smiles": "CCCCCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "dry hexane"
+          },
+          "raw": "dry hexane",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            200.0
+          ],
+          "raw": "200 ml",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明加入干己烷时使用的工装编号，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加入干己烷时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged triethylamine as a stirred refluxing solution.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "triethylamine",
+          "role": "base",
+          "amount_raw": "61 ml (45 g, 0.45 mole)",
+          "smiles": "CCN(CC)CC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "triethylamine"
+          },
+          "raw": "triethylamine",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            61.0
+          ],
+          "raw": "61 ml (45 g, 0.45 mole)",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明加入三乙胺时使用的工装编号，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加入三乙胺时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged styrene as a stirred refluxing solution.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "styrene",
+          "role": "substrate",
+          "amount_raw": "140 ml (125 g, 1.2 mole)",
+          "smiles": "C=Cc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "styrene"
+          },
+          "raw": "styrene",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            140.0
+          ],
+          "raw": "140 ml (125 g, 1.2 mole)",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明加入苯乙烯时使用的工装编号，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加入苯乙烯时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        1,
+        3
+      ],
+      "source_text": "Charged dry hexane, triethylamine, and styrene as a stirred refluxing solution. Refluxed the reaction mixture.",
+      "platform": "高通量反应平台",
+      "operation": "冷凝回流反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "refluxing",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "condense_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 360.0,
+          "raw": "6 hr",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明回流时的搅拌速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "文献仅说明为回流，平台需要具体反应温度，请专家确认应填写的回流温度。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.condense_temperature",
+          "question": "文献未说明冷凝温度，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Added a solution of dichloroacetyl bromide in dry hexane to the refluxing mixture.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dry hexane solution of dichloroacetyl bromide",
+          "role": "reagent_solution",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "needs_expert"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "dry hexane solution of dichloroacetyl bromide"
+          },
+          "raw": "a solution of dichloroacetyl bromide in dry hexane",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "77 g dichloroacetyl bromide in 50 ml dry hexane",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "materials[0].name",
+          "question": "该步为“二氯乙酰溴的干己烷溶液”加料，平台物料名称是否按混合溶液登记，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.dosage",
+          "question": "文献给出二氯乙酰溴77 g与干己烷50 ml，但未明确最终加料体积；平台需要ml加量，请专家确认应填写50 ml还是溶液实际总体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明该溶液加料时使用的工装编号，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明该溶液加料时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Allowed the mixture to stand overnight at room temperature.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": "stand",
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "room temperature",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": "overnight",
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献写为室温静置，平台“普通反应”需要搅拌速度；请专家确认该步是否应按0 rpm填写或改用其他平台操作。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "文献仅说明室温，平台若需具体温度请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献仅说明overnight，平台需要具体时长(min)，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Filtered the mixture.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明过滤时长，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "文献未说明使用何种滤膜或过滤介质，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Washed the filtrate with water until the washings were neutral.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": null,
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": "until the washings were neutral",
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "water"
+          },
+          "raw": "water",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "washed the filtrate with water",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 1,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献仅说明洗至中性，未说明静置时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明洗涤/震荡速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "文献未说明洗涤/震荡时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.extract_material_dosage",
+          "question": "文献未说明每次水洗用量，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献未明确保留上层还是下层，请专家确认取液层。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "文献未说明第一阶段加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "文献未说明第二阶段加液速度，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Evaporated the solvent by a stream of nitrogen.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献描述为氮气流下蒸发除溶剂，现有注册表中无明确对应操作，请专家确认应映射到哪个平台操作。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Distilled the residue under reduced pressure to obtain product.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献描述为减压蒸馏，现有注册表中无明确对应操作，请专家确认应映射到哪个平台操作。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅依据reaction.operations进行了映射，未使用其他段落补充程序细节。",
+    "由于高通量反应平台“液体加料”仅允许单一OBJECT物料参数，charge步骤中的3种液体已拆分为3个platform_review_steps。",
+    "操作2的文献是将二氯乙酰溴配成干己烷溶液后加入；注册表无同时容纳溶质与溶剂作为两个独立物料的单步液体加料模板，因此暂按单一溶液物料处理并请专家确认。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/e4876910_34f2_5c86_9b56_cd8b93264e8a/e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction.json",
+    "document": {
+      "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
+      "title": "Halogenated Ketenes. V. Cycloadditions of Dichloroketene to Olefins",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T12:13:39.686508+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

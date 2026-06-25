@@ -1,0 +1,779 @@
+{
+  "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
+  "reaction": {
+    "reaction_id": "ecf56c22-96d1-5ea1-a599-e439ddb9b71b",
+    "reaction_smiles": "CC1(C)OC(=O)CC(=O)O1.CC(=O)C>>CC(C)=C1C(=O)OC(C)(C)OC1=O",
+    "target": {
+      "name": "5-Isopropylidene-2,2-dimethyl-1,3-dioxinane-4,6-dione",
+      "smiles": "CC(C)=C1C(=O)OC(C)(C)OC1=O"
+    },
+    "confidence": 0.94,
+    "evidence": [
+      "Example scheme and full procedure on PDF page 15",
+      "MolScribe page 15 identified product as CC(C)=C1C(=O)OC(C)(C)OC1=O"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge a dry, nitrogen-flushed reactor with Meldrum's acid and 4 Å molecular sieves.",
+      "platform": "四釜反应平台",
+      "operation": "气体置换",
+      "materials": [],
+      "parameters": {
+        "times": {
+          "value": null,
+          "raw": "dry, nitrogen flushed reactor",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.times",
+          "question": "文献仅说明反应器经氮气置换，但未给出置换次数；请专家确认四釜平台气体置换次数。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge a dry, nitrogen-flushed reactor with Meldrum's acid and 4 Å molecular sieves.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "2,2-dimethyl-1,3-dioxane-4,6-dione (Meldrum's acid)",
+          "role": "substrate",
+          "amount_raw": "250.0 g",
+          "smiles": "CC1(C)OC(=O)CC(=O)O1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "2,2-dimethyl-1,3-dioxane-4,6-dione (Meldrum's acid)"
+          },
+          "raw": "2,2-dimethyl-1,3-dioxane-4,6-dione (Meldrum's acid)",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 250000,
+          "raw": "250.0 g",
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge a dry, nitrogen-flushed reactor with Meldrum's acid and 4 Å molecular sieves.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "4 Å molecular sieves",
+          "role": "reagent",
+          "amount_raw": "375.0 g",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "4 Å molecular sieves"
+          },
+          "raw": "4 Å molecular sieves",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 375000,
+          "raw": "375.0 g",
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add acetone and agitate the slurry.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "acetone",
+          "role": "reagent",
+          "amount_raw": "1.250 L, water content ≤ 0.2%",
+          "smiles": "CC(=O)C",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "acetone"
+          },
+          "raw": "acetone",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 1250,
+          "raw": "1.250 L",
+          "unit": "ml",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": 22.5,
+          "raw": "20°C-25°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.pumping_rate",
+          "question": "文献未给出丙酮加料泵速；请专家确认四釜平台液体加料速度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add acetone and agitate the slurry.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 22.5,
+          "raw": "20°C-25°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 10,
+          "raw": "about 10 minutes",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": "agitate the slurry",
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "process_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.stir_speed",
+          "question": "文献仅说明搅拌浆液约10分钟，未给出搅拌转速；请专家确认四釜平台反应搅拌速度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Add acetic acid followed by piperidine.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "acetic acid",
+          "role": "acid",
+          "amount_raw": "0.50 mL",
+          "smiles": "CC(=O)O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "acetic acid"
+          },
+          "raw": "acetic acid",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 0.5,
+          "raw": "0.50 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.pumping_rate",
+          "question": "文献未给出乙酸加料速度；请专家确认四釜平台液体加料泵速。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.temperature",
+          "question": "文献未单独说明乙酸加料时温度；请专家确认该步是否沿用前一步室温条件。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Add acetic acid followed by piperidine.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "piperidine",
+          "role": "base",
+          "amount_raw": "2.50 mL",
+          "smiles": "N1CCCCC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "piperidine"
+          },
+          "raw": "piperidine",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 2.5,
+          "raw": "2.50 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.pumping_rate",
+          "question": "文献未给出哌啶加料速度；请专家确认四釜平台液体加料泵速。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.temperature",
+          "question": "文献未单独说明哌啶加料时温度；请专家确认该步是否沿用前一步室温条件。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Agitate the slurry to form the alkylidene-dione.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 22.5,
+          "raw": "20°C-25°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 1080,
+          "raw": "about 18 hours",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": "Agitate the slurry",
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "process_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.stir_speed",
+          "question": "文献未给出18小时反应阶段的搅拌转速；请专家确认四釜平台反应搅拌速度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Filter the batch to remove the molecular sieves and wash the cake with toluene.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [
+        {
+          "name": "toluene",
+          "role": "wash",
+          "amount_raw": "250 mL",
+          "smiles": "Cc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未给出首次过滤时长；请专家确认固液提纯平台过滤时间。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "文献未说明用于去除分子筛的滤膜/过滤介质；请专家确认固液提纯平台过滤耗材。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Distill the filtrate to remove acetone.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "该步为减压蒸馏除去丙酮，文献仅给出30°C-35°C和100-150 mmHg；请专家确认应映射到旋蒸预留平台“旋蒸任务”还是其他平台/操作。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Add heptane; solid precipitates during the addition.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "heptane",
+          "role": "reagent",
+          "amount_raw": "1.0 L",
+          "smiles": "CCCCCCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "heptane"
+          },
+          "raw": "heptane",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 1000,
+          "raw": "1.0 L",
+          "unit": "ml",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": 35,
+          "raw": "At 35°C, maintaining the internal temperature at about 35°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.pumping_rate",
+          "question": "文献未给出庚烷加料速度；请专家确认四釜平台液体加料泵速。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_12",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Cool the slurry and hold before isolation.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 7.5,
+          "raw": "5°C-10°C",
+          "unit": "℃",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 30,
+          "raw": "at least 30 minutes",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "process_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "文献给出冷却范围5°C-10°C；当前取中值7.5°C用于平台参数，请专家确认是否接受或需指定具体设定温度。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "文献未说明冷却保温阶段是否继续搅拌及其转速；请专家确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_13",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "Filter the slurry and wash the cake with heptane.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [
+        {
+          "name": "heptane",
+          "role": "wash",
+          "amount_raw": "500 mL",
+          "smiles": "CCCCCCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未给出最终过滤时长；请专家确认固液提纯平台过滤时间。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "文献未说明最终过滤所用滤膜/过滤介质；请专家确认固液提纯平台过滤耗材。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_14",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "Dry the isolated solid product under reduced pressure.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "该步为减压干燥固体产物，文献仅说明20°C-25°C、25-50 mmHg；当前注册表中无直接匹配操作，请专家确认应映射到哪个平台/操作。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "按平台容量要求，order 1 的两种固体已拆分为两个“四釜反应平台-固体加料”步骤。",
+    "体积/质量换算采用：1.250 L=1250 ml，1.0 L=1000 ml，250.0 g=250000 mg，375.0 g=375000 mg。",
+    "order 8 的冷却温度以区间中值7.5℃暂存，需专家确认是否可直接用于平台设定。",
+    "过滤步骤中的洗涤溶剂保留在materials中，但注册表“过滤”操作本身不含洗涤参数。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction.json",
+    "document": {
+      "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
+      "title": "SYNTHESIS OF CERTAIN TRIFLUOROMETHYL KETONES",
+      "source_type": "patent"
+    },
+    "generated_at": "2026-06-25T11:23:04.601034+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

@@ -1,0 +1,799 @@
+{
+  "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
+  "reaction": {
+    "reaction_id": "45a4950d-cead-562d-9863-fa47876e20e9",
+    "reaction_smiles": "CC(C)(CC(=O)O)c1ccc(F)cc1Br.FC(F)(F)C(=O)OC(=O)C(F)(F)F>>CC(C)(CC(=O)C(F)(F)F)c1ccc(F)cc1Br",
+    "target": {
+      "name": "1,1,1-trifluoro-4-(2-bromo-4-fluorophenyl)-4-methyl-2-pentanone",
+      "smiles": "CC(C)(CC(=O)C(F)(F)F)c1ccc(F)cc1Br"
+    },
+    "confidence": 0.93,
+    "evidence": [
+      "Full procedure on PDF page 16",
+      "Page 15 scheme and MolScribe page 15 identified product as CC(C)(CC(=O)C(F)(F)F)c1ccc(F)cc1Br"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Add the bromo-fluoro butyric acid and toluene to the reactor.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "3-(2-bromo-4-fluorophenyl)-3-methylbutyric acid",
+          "role": "substrate",
+          "amount_raw": "100.0 g",
+          "smiles": "CC(C)(CC(=O)O)c1ccc(F)cc1Br",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 100000.0,
+          "raw": "100.0 g",
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.is_washing",
+          "question": "文献未说明固体加料后是否需要清洗加料通道，四釜平台这里是否确认设为不清洗？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Add the bromo-fluoro butyric acid and toluene to the reactor.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "toluene",
+          "role": "solvent",
+          "amount_raw": "400 mL",
+          "smiles": "Cc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 400.0,
+          "raw": "400 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add trifluoroacetic anhydride at ambient temperature.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "trifluoroacetic anhydride (TFAA)",
+          "role": "reagent",
+          "amount_raw": "151.6 mL",
+          "smiles": "FC(F)(F)C(=O)OC(=O)C(F)(F)F",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 151.6,
+          "raw": "151.6 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "temperature": {
+          "value": 25.0,
+          "raw": "at 25°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Cool the batch before base addition.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "0°C-5°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "降温步骤给出的是0-5℃范围，平台温控参数需要单一设定值，请专家确认目标温度。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Add pyridine while controlling the exotherm.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "pyridine",
+          "role": "base",
+          "amount_raw": "132.3 mL",
+          "smiles": "n1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_dosage": {
+          "value": 132.3,
+          "raw": "132.3 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": "temperature does not exceed 35°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.target_temperature",
+          "question": "文献给的是“温度不超过35℃”的限温，不是明确稳定温度；四釜滴加步骤这里应设定为多少℃？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未给出吡啶滴加速度，请专家确认四釜平台滴加速度。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "文献未给出吡啶滴加时搅拌速度，请专家确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Heat the batch to effect trifluoroacetylative conversion.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "60°C-65°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": "12 to 16 hours",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "process_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "is_reflux_condensation": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "主反应给出的是60-65℃范围，四釜反应温度请专家确认单一设定值。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "主反应给出的是12-16小时范围，四釜反应时间请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "文献未给出主反应搅拌速度，请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.is_reflux_condensation",
+          "question": "该加热步骤是否需要在四釜平台上勾选冷凝回流？文献未明确说明。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_7",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Cool and quench with water.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "water",
+          "role": "quench",
+          "amount_raw": "400 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_dosage": {
+          "value": 400.0,
+          "raw": "400 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": "0°C-5°C; temperature does not exceed 50°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.target_temperature",
+          "question": "淬灭步骤同时出现“先冷却到0-5℃”与“加水时不超过50℃”，四釜滴加稳定温度应设为多少℃请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未给出加水淬灭速度，请专家确认四釜平台滴加速度。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "文献未给出淬灭时搅拌速度，请专家确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_8",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Heat briefly after quench.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 55.0,
+          "raw": "55°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": null,
+          "raw": "1 to 2 hours",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "process_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "后处理加热给出的是1-2小时范围，四釜反应时间请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_9",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Cool, dilute with heptane, agitate, settle, and separate the layers.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "heptane",
+          "role": "extractant",
+          "amount_raw": "400 mL",
+          "smiles": "CCCCCCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material_dosage": {
+          "value": 400.0,
+          "raw": "400 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "standing_time_span": {
+          "value": 10.0,
+          "raw": "allow layers to settle 10 minutes",
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": 5.0,
+          "raw": "agitate 5 minutes",
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "separate the layers",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.stir_speed",
+          "question": "萃取步骤文献未给出搅拌/震荡速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "文献未给出加入庚烷的加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "分层后平台需要明确取哪一层，请专家确认该步保留上层、下层还是都需要。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_10",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "Treat the batch with water, agitate, settle, and separate the layers.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": "400 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material_dosage": {
+          "value": 400.0,
+          "raw": "400 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "standing_time_span": {
+          "value": 10.0,
+          "raw": "allow layers to settle 10 minutes",
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": 5.0,
+          "raw": "agitate 5 minutes",
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "separate the layers",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.stir_speed",
+          "question": "水洗步骤文献未给出搅拌/震荡速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "文献未给出加水洗涤的加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "水洗分层后平台需要明确取哪一层，请专家确认保留上层、下层还是都需要。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_11",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "Distill the organic phase to the minimum stirrable volume under vacuum.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献为减压蒸馏/浓缩至最小可搅拌体积，但注册表中缺少明确对应操作；请专家确认应映射到哪个平台注册操作。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_12",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "Add heptane and filter the dark product solution through a silica gel pad, then rinse the pad with heptane.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "heptane",
+          "role": "eluent",
+          "amount_raw": "600 mL",
+          "smiles": "CCCCCCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 600.0,
+          "raw": "600 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_13",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "Add heptane and filter the dark product solution through a silica gel pad, then rinse the pad with heptane.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [
+        {
+          "name": "silica gel",
+          "role": "unknown",
+          "amount_raw": "100 g of SiO2",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "needs_expert"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "materials[0]",
+          "question": "文献为“silica gel pad”过滤，固液提纯平台这里是否可用过滤操作承接，并将硅胶垫作为对应滤材，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献未给出过滤时长，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_14",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "Add heptane and filter the dark product solution through a silica gel pad, then rinse the pad with heptane.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "heptane",
+          "role": "eluent",
+          "amount_raw": "600 mL rinse",
+          "smiles": "CCCCCCC",
+          "source": "literature",
+          "review_status": "needs_expert"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 600.0,
+          "raw": "600 mL rinse",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "该600 mL庚烷用于冲洗硅胶垫而非反应釜内加料，当前暂映射为液体加料，请专家确认此平台映射是否接受。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "45a4950d-cead-562d-9863-fa47876e20e9_step_15",
+      "source_operation_orders": [
+        12
+      ],
+      "source_text": "Distill the filtrate under vacuum to the minimum stirrable volume.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献为滤液减压蒸馏/浓缩至最小可搅拌体积，但注册表中缺少明确对应操作；请专家确认应映射到哪个平台注册操作。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅依据reaction.operations进行映射。",
+    "温度范围、时间范围及若干平台必填控制参数在文献中未给出单一值时，已标记为needs_expert。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction.json",
+    "document": {
+      "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
+      "title": "SYNTHESIS OF CERTAIN TRIFLUOROMETHYL KETONES",
+      "source_type": "patent"
+    },
+    "generated_at": "2026-06-25T11:33:35.876014+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

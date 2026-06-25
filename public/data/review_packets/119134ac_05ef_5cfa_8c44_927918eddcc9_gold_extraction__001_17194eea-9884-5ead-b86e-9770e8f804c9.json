@@ -1,0 +1,454 @@
+{
+  "literature_uuid": "119134ac_05ef_5cfa_8c44_927918eddcc9",
+  "reaction": {
+    "reaction_id": "17194eea-9884-5ead-b86e-9770e8f804c9",
+    "reaction_smiles": "ClC(=O)C(Cl)CC(Cl)(Cl)Cl.C=C(C)C>>O=C1C(Cl)(CC(Cl)(Cl)Cl)C(C)(C)C1",
+    "target": {
+      "name": "2-Chlor-2-(2',2',2'-trichloräthyl)-3,3-dimethylcyclobutanon",
+      "smiles": "O=C1C(Cl)(CC(Cl)(Cl)Cl)C(C)(C)C1"
+    },
+    "confidence": 0.96,
+    "evidence": [
+      "Scheme 2 image on page 3",
+      "Experimental section for 10 on page 12"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Autoclave charge and pressurization setup.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "platform",
+          "question": "文献仅说明为高压釜装置准备与加压设置，平台库中无明确对应操作；请专家确认应映射到哪个平台操作。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Charge 7 in cyclohexane and pressurize with isobutene.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "2,4,4,4-Tetrachlorbuttersäurechlorid (7)",
+          "role": "substrate",
+          "amount_raw": "122 g (0,5 mol)",
+          "smiles": "ClC(=O)C(Cl)CC(Cl)(Cl)Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "底物7在文献中仅给出质量122 g，四釜液体加料模板的加量单位为ml；请专家确认是否需要补充体积或改用其他平台操作。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Charge 7 in cyclohexane and pressurize with isobutene.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "Cyclohexane",
+          "role": "solvent",
+          "amount_raw": "600 ml",
+          "smiles": "C1CCCCC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 600.0,
+          "raw": "600 ml",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Charge 7 in cyclohexane and pressurize with isobutene.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "Isobutene",
+          "role": "reagent",
+          "amount_raw": "280 g (5 mol)",
+          "smiles": "C=C(C)C",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "platform",
+          "question": "文献为异丁烯加压入釜，但注册表中缺少明确的加压投气/加压充装操作；请专家确认应映射到哪个平台操作。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Pump in triethylamine solution over 4 h at 65°.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "Triethylamine",
+          "role": "base",
+          "amount_raw": "51 g (0,5 mol)",
+          "smiles": "CCN(CC)CC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": 65.0,
+          "raw": "65°",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "drip_dosage": {
+          "value": null,
+          "raw": "51 g (0,5 mol)",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_dosage",
+          "question": "三乙胺仅给出质量51 g，过程控温滴加模板的滴加量单位为ml；请专家确认是否补充体积、溶液总体积，或改为其他映射方式。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献仅给出4小时滴加完成，未给出滴加速度；请专家确认滴加速度。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "文献未给出滴加过程搅拌速度；请专家确认搅拌速度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Pump in triethylamine solution over 4 h at 65°.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "Cyclohexane",
+          "role": "solvent",
+          "amount_raw": "500 ml",
+          "smiles": "C1CCCCC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": 65.0,
+          "raw": "65°",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "drip_dosage": {
+          "value": 500.0,
+          "raw": "500 ml",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献仅给出4小时滴加完成，未给出环己烷溶液的滴加速度；请专家确认滴加速度。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "文献未给出滴加过程搅拌速度；请专家确认搅拌速度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Maintain the mixture at 65° for 3 h.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 65.0,
+          "raw": "65°",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 180.0,
+          "raw": "3 Std.",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "process_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Filter off triethylamine hydrochloride.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [
+        {
+          "name": "Triethylamine hydrochloride",
+          "role": "unknown",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未给出过滤时长；请专家确认过滤时间。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "文献未说明所用滤膜/过滤介质；请专家确认过滤材料。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Evaporate the filtrate.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "platform",
+          "question": "文献仅说明蒸除滤液，但注册表中无可直接承接该常规浓缩步骤且参数完整度不足；请专家确认是否映射到旋蒸任务或其他平台操作。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Recrystallize the residue from hexane.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "Hexane",
+          "role": "solvent",
+          "amount_raw": null,
+          "smiles": "CCCCCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "platform",
+          "question": "文献为己烷重结晶，注册表中无明确重结晶操作；请专家确认应如何映射。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Isolated crystalline 10; spectroscopic data referenced to Table 1.",
+      "platform": "固液提纯平台",
+      "operation": "分析检测",
+      "materials": [
+        {
+          "name": "2-Chlor-2-(2',2',2'-trichloräthyl)-3,3-dimethylcyclobutanon",
+          "role": "product",
+          "amount_raw": "79,4 g (60%)",
+          "smiles": "O=C1C(Cl)(CC(Cl)(Cl)Cl)C(C)(C)C1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "sampling_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "inspection_scheme": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.sampling_dosage",
+          "question": "文献仅说明获得产物及谱图数据，未给出送检取样量；请专家确认取样量。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.inspection_scheme",
+          "question": "文献未给出平台注册所需检测方案编号；请专家确认检测方案。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/119134ac_05ef_5cfa_8c44_927918eddcc9/119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction.json",
+    "document": {
+      "literature_uuid": "119134ac_05ef_5cfa_8c44_927918eddcc9",
+      "title": "Halogenated Cyclobutanones as Highly Versatile Precursors of Pyrethroids: Syntheses via [2+2]-Cycloadditions of Haloketenes to 1,1-Disubstituted Ethylenes",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T11:10:46.603766+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

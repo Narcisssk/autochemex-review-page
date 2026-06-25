@@ -1,0 +1,569 @@
+{
+  "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
+  "reaction": {
+    "reaction_id": "53d6ef8b-95bd-524e-b7f8-a4cfc0061e08",
+    "reaction_smiles": "O=C(Br)C(Cl)Cl.C=COCC>>O=C1C(OCC)C(Cl)(Cl)C1",
+    "target": {
+      "name": "2,2-Dichloro-3-ethoxycyclobutanone",
+      "smiles": "O=C1C(OCC)C(Cl)(Cl)C1"
+    },
+    "confidence": 0.89,
+    "evidence": [
+      "Experimental Section for compound 5 on page 3",
+      "Scheme image for product 5 on page 2",
+      "Product name converted with iupac_to_smiles and cross-checked against scheme/text"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged dry ether, ethyl vinyl ether, and triethylamine as a stirred solution at 0–5°.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dry ether",
+          "role": "solvent",
+          "amount_raw": "200 ml",
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 200.0,
+          "raw": "200 ml",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": 2.5,
+          "raw": "0–5°",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_1_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged dry ether, ethyl vinyl ether, and triethylamine as a stirred solution at 0–5°.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "ethyl vinyl ether",
+          "role": "substrate",
+          "amount_raw": "70 ml (0.74 mole)",
+          "smiles": "C=COCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 70.0,
+          "raw": "70 ml (0.74 mole)",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": 2.5,
+          "raw": "0–5°",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_1_3",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charged dry ether, ethyl vinyl ether, and triethylamine as a stirred solution at 0–5°.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "triethylamine",
+          "role": "base",
+          "amount_raw": "41 ml (0.3 mole)",
+          "smiles": "CCN(CC)CC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": 41.0,
+          "raw": "41 ml (0.3 mole)",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": 2.5,
+          "raw": "0–5°",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_2_1",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Added a solution of freshly distilled dichloroacetyl bromide in dry ether dropwise.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "dichloroacetyl bromide",
+          "role": "reagent",
+          "amount_raw": "54 g (0.28 mole)",
+          "smiles": "O=C(Br)C(Cl)Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_dosage": {
+          "value": null,
+          "raw": "54 g (0.28 mole)",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_dosage",
+          "question": "文献仅给出二氯乙酰溴的质量，平台滴加量需要ml，是否请专家提供对应体积或密度换算？",
+          "priority": "required"
+        },
+        {
+          "field": "operation",
+          "question": "该步为“二氯乙酰溴/乙醚溶液滴加”，当前因平台单物料限制拆成多个步骤，是否确认用“过程控温滴加”表示该滴加液主试剂？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2_2",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Added a solution of freshly distilled dichloroacetyl bromide in dry ether dropwise.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "dry ether",
+          "role": "solvent",
+          "amount_raw": "50 ml",
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_dosage": {
+          "value": 50.0,
+          "raw": "50 ml",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "该步为“二氯乙酰溴/乙醚溶液滴加”，当前因平台单物料限制拆成多个步骤，是否确认将乙醚部分单独映射为一条“过程控温滴加”步骤？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3_1",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Stirred the reaction mixture.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 180.0,
+          "raw": "3 hr",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "请确认该搅拌步骤的搅拌速度（rpm）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "该3小时搅拌是否持续维持在同一温度范围？如是，请提供平台记录温度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4_1",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Removed triethylammonium bromide by filtration.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "请确认过滤步骤时长。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "请确认过滤所用滤膜或过滤介质名称。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5_1",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Washed the filtrate with water.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": null,
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "“用水洗涤滤液”当前映射为萃取实验，请确认是否接受该平台映射。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.extract_material_dosage",
+          "question": "请确认水洗用水体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "水洗后平台应保留上层、下层还是两层都需要？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6_1",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Dried the filtrate over anhydrous magnesium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "anhydrous magnesium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": "O=[Mg]O[S](=O)(=O)O[Mg]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "请确认无水硫酸镁的用量（mg）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "请确认干燥步骤时长。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "请确认干燥步骤的震荡/混合速度（rpm）。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7_1",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Evaporated the solvent.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "该“蒸除溶剂”是否需要映射为旋蒸任务？若需要，请提供旋蒸关键参数；若不适用，请确认留空。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8_1",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Distilled the residue to obtain product.",
+      "platform": null,
+      "operation": null,
+      "materials": [],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "该步为减压蒸馏纯化，当前注册表中无明确匹配的蒸馏执行模板，是否需要按其他平台流程补录？",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅依据 reaction.operations 进行映射，未使用顶层 conditions 作为独立证据来源。",
+    "对“滴加溶液”类多组分动作，因平台模板单物料限制已拆分为多个 review step，并保留同一 source_text 供专家确认。",
+    "未创建任何 material_code。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/e4876910_34f2_5c86_9b56_cd8b93264e8a/e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction.json",
+    "document": {
+      "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
+      "title": "Halogenated Ketenes. V. Cycloadditions of Dichloroketene to Olefins",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T12:18:51.405283+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}
