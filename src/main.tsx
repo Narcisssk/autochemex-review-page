@@ -363,7 +363,7 @@ function App() {
           </div>
           <div>
             <strong>审核步骤</strong>
-            <span>建议先打开 Source PDF 定位证据，再检查实验设置是否合理；随后逐步修改或补填平台实验表单中的步骤、物料、温度、时间、速度、取层等参数。</span>
+            <span>建议先打开 Source PDF 定位证据，再检查实验设置是否合理；随后逐步修改或补填平台实验表单中的步骤、物料、温度、时间、速度、取层等参数。核心任务是根据文献描述，在平台允许的范围内尽可能安排合理的实验流程和参数，所以有些LLM review questions提示可以忽略。</span>
           </div>
           <div>
             <strong>保存与导出</strong>
