@@ -601,6 +601,9 @@ function StepCard(props: {
                 <span>{parameter.name || parameter.category}</span>
                 <span className={`param-status ${parameterStatus.kind}`}>{parameterStatus.label}</span>
                 <span className="param-help">{parameterStatus.help}</span>
+                {isPlatformInternalIdentifier(parameter) && (
+                  <span className="param-help">涉及平台内部编号；不清楚可以填 unknown。</span>
+                )}
               </div>
               <ParameterValueEditor
                 parameter={parameter}
@@ -889,6 +892,22 @@ function shouldShowUnitInput(parameter: ParameterDef, current: ParameterValue): 
     return childType === 'FLOAT' || childType === 'INTEGER' || Boolean(meta.quantity_for);
   }
   return false;
+}
+
+function isPlatformInternalIdentifier(parameter: ParameterDef): boolean {
+  const key = parameter.key.toLowerCase();
+  const name = String(parameter.name || '');
+  return (
+    key.includes('scheme') ||
+    key.includes('method') ||
+    key.endsWith('_id') ||
+    key.includes('code') ||
+    key.includes('tool_use') ||
+    name.includes('方案') ||
+    name.includes('方法') ||
+    name.includes('编号') ||
+    name.includes('工装')
+  );
 }
 
 function parameterStub(registry: RegistryRecord[], platform: string, operation: string): Record<string, ParameterValue> {
