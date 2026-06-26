@@ -358,7 +358,7 @@ function App() {
 
         <section className="review-guide">
           <div>
-            <strong>专家审核任务</strong>
+            <strong>专家审核任务（单步反应）</strong>
             <span>请以原文 PDF 为准，核对当前反应的目标产物、Reaction SMILES、实验步骤和平台参数（SMILES结构很容易出错）；页面中的所有初始内容来自模型提取与映射，供审核参考。</span>
           </div>
           <div>
