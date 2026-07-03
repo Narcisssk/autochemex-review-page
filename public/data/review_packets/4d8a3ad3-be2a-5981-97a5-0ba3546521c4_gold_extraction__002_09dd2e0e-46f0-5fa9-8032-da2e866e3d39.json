@@ -1,0 +1,727 @@
+{
+  "literature_uuid": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4",
+  "reaction": {
+    "reaction_id": "09dd2e0e-46f0-5fa9-8032-da2e866e3d39",
+    "reaction_smiles": "O=[N+]([O-])c1ccccc1Cl.[Na+].[O-]CC(F)(F)F>>O=[N+]([O-])c1ccccc1OCC(F)(F)F",
+    "target": {
+      "name": "o-(2,2,2-Trifluoroethoxy)nitrobenzene",
+      "smiles": "O=[N+]([O-])c1ccccc1OCC(F)(F)F"
+    },
+    "confidence": 0.84,
+    "evidence": [
+      "Table I entry 7 on PDF page 2",
+      "Typical applicable experimental procedure on PDF pages 2-3",
+      "Product characterization for 1g on PDF page 3"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge sodium hydride in HMPA as in the typical procedure.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "sodium hydride",
+          "role": "base",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "sodium hydride"
+            }
+          ],
+          "raw": null,
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            null
+          ],
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.qty",
+          "question": "请确认氢化钠的加料质量（mg）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "请确认固体加料时是否关盖。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge sodium hydride in HMPA as in the typical procedure.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "HMPA",
+          "role": "solvent",
+          "amount_raw": null,
+          "smiles": "CN(P(=O)(N(C)C)N(C)C)C",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "HMPA"
+          },
+          "raw": null,
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "请确认HMPA的加液体积（mL）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "请确认HMPA加液使用的工装编号。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "请确认HMPA的加液速度（mL/s）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "请确认液体加料时是否关盖。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add 2,2,2-trifluoroethanol to generate sodium 2,2,2-trifluoroethoxide in situ.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "2,2,2-trifluoroethanol",
+          "role": "reagent",
+          "amount_raw": null,
+          "smiles": "OCC(F)(F)F",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "2,2,2-trifluoroethanol"
+          },
+          "raw": null,
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "请确认2,2,2-三氟乙醇的加液体积（mL）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "请确认2,2,2-三氟乙醇加液使用的工装编号。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "请确认2,2,2-三氟乙醇的加液速度（mL/s）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "请确认该步是否关盖。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Stir before substrate addition as in the typical procedure.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 20,
+          "raw": "20 min",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "请确认预搅拌步骤的搅拌速度（rpm）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "请确认预搅拌步骤的温度（℃）；文献仅给出搅拌20 min，未明确该步温度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Add 2-nitrochlorobenzene as substrate.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "2-nitrochlorobenzene",
+          "role": "substrate",
+          "amount_raw": null,
+          "smiles": "O=[N+]([O-])c1ccccc1Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "2-nitrochlorobenzene"
+            }
+          ],
+          "raw": null,
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            null
+          ],
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.qty",
+          "question": "请确认2-硝基氯苯的加料质量（mg）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "请确认底物加料时是否关盖。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Heat the reaction mixture under the Table I entry 7 conditions.",
+      "platform": "高通量反应平台",
+      "operation": "温度与搅拌",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 120,
+          "raw": "2 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "temperature": {
+          "value": 150,
+          "raw": "150 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "请确认150℃反应阶段的搅拌速度（rpm）。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Pour into 5% aqueous hydrochloric acid.",
+      "platform": "固液提纯平台",
+      "operation": "淬灭实验",
+      "materials": [
+        {
+          "name": "5% aqueous hydrochloric acid",
+          "role": "quench",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "quencher": {
+          "value": {
+            "name": "5% aqueous hydrochloric acid"
+          },
+          "raw": null,
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "quencher_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_order": {
+          "value": true,
+          "raw": "Pour into 5% aqueous hydrochloric acid.",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "quencher_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "quencher_before_temp": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "quencher_limit_temp": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "bottle_cap": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "bottle_count": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.quencher_qty",
+          "question": "请确认5%盐酸水溶液的淬灭用量（mL）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.quencher_timespan",
+          "question": "请确认淬灭时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.quencher_before_temp",
+          "question": "请确认淬灭初始温度（℃）；前一步仅说明冷却至室温，未给出数值。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.quencher_limit_temp",
+          "question": "请确认淬灭期间温度限制（℃）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.bottle_cap",
+          "question": "请确认淬灭分瓶容量（mL）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.bottle_count",
+          "question": "请确认淬灭分瓶数量。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Extract with ether if the product does not crystallize immediately.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "ether",
+          "role": "extractant",
+          "amount_raw": "3 × 70 mL",
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material": {
+          "value": {
+            "name": "ether"
+          },
+          "raw": null,
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 70,
+          "raw": "3 × 70 mL",
+          "unit": "ml",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.extract_material_dosage",
+          "question": "文献写为3 × 70 mL；请确认平台参数中萃取剂用量应填写单次70 mL还是总量210 mL。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.standing_time_span",
+          "question": "请确认每次萃取后的静置时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "请确认萃取搅拌速度（rpm）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_timespan",
+          "question": "请确认萃取搅拌时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "请确认乙醚加液速度（mL/s）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "请确认萃取后取液层；文献未明确说明上层、下层或都需要。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "Dry the organic phase over anhydrous magnesium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "anhydrous magnesium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": "[Mg+2].[O-]S([O-])(=O)=O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "anhydrous magnesium sulfate"
+          },
+          "raw": null,
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "请确认无水硫酸镁的用量（mg）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "请确认干燥/震荡时间（min）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "请确认干燥步骤的震荡速度（rpm）。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅依据reaction.operations进行映射，未使用conditions或其他字段补充缺失步骤参数。",
+    "操作6“cool to room temperature”、操作9“wash with aqueous hydrochloric acid”、操作11“concentrate in vacuo”、操作12“distill”、操作13“isolate”在给定注册表中缺少明确且参数可直填的对应操作，故未纳入平台步骤。",
+    "操作8含条件语句“if the product does not crystallize immediately”，是否执行该萃取步骤需专家确认。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/4d8a3ad3-be2a-5981-97a5-0ba3546521c4/4d8a3ad3-be2a-5981-97a5-0ba3546521c4_gold_extraction.json",
+    "document": {
+      "literature_uuid": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4",
+      "title": "Aromatic Fluoroalkoxylation via Direct Aromatic Nucleophilic Substitution",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:08:27.039295+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

@@ -1,0 +1,970 @@
+{
+  "literature_uuid": "8ca88bd5-4836-51ee-a026-390677477d91",
+  "reaction": {
+    "reaction_id": "ff254a76-e539-55a5-b594-32fe465f66ee",
+    "reaction_smiles": "CC(C)CC(CC(C)C)OC(=O)n1ccnc1.CC(O)CCCO>>CC(C)CC(CC(C)C)OC(=O)OCCCC(C)O",
+    "target": {
+      "name": "13",
+      "smiles": "CC(C)CC(CC(C)C)OC(=O)OCCCC(C)O"
+    },
+    "confidence": 0.94,
+    "evidence": [
+      "Typical Experimental Procedure for synthesis of 13, page 2 footnote 8",
+      "Table 2 on page 2 reports product from 4 in 97% isolated yield",
+      "Scheme 2 on page 3 and molecule recognition confirm 4, 2a, and 13 structures"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Dry toluene was added to a 250 mL round-bottom flask fitted with a dry N2 inlet and magnetic stirrer.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dry toluene",
+          "role": "solvent",
+          "amount_raw": "150 mL",
+          "smiles": "Cc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "dry toluene"
+          },
+          "raw": "dry toluene",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 150.0,
+          "raw": "150 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.pumping_rate",
+          "question": "文献未说明甲苯加液泵速，是否需要专家指定？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.temperature",
+          "question": "文献未说明加甲苯时的平台控温温度，是否需要专家指定？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "2a was added to the solvent followed by KOH.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "2a",
+          "role": "substrate",
+          "amount_raw": "40 mmol",
+          "smiles": "CC(C)CC(CC(C)C)OC(=O)n1ccnc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "2a"
+          },
+          "raw": "2a",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "40 mmol",
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_stirring_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_cleaning_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_drying_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出2a为40 mmol，四釜固体加料需要mg用量；请专家补充或换算质量。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "2a was added to the solvent followed by KOH.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "KOH",
+          "role": "base",
+          "amount_raw": "1 mmol",
+          "smiles": "[K+].[OH-]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "KOH"
+          },
+          "raw": "KOH",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "1 mmol",
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "not_applicable"
+        },
+        "wash_stirring_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_cleaning_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "wash_drying_time": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出KOH为1 mmol，四釜固体加料需要mg用量；请专家补充或换算质量。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "The reaction was heated to 60 °C with stirring.",
+      "platform": "高通量反应平台",
+      "operation": "温度与搅拌",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": 60.0,
+          "raw": "60 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献仅说明with stirring，未给出搅拌转速；请专家确认rpm。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "该步仅说明升温至60 ℃，未说明达到该温度所需时长；请专家确认此步时长或是否并入后续反应步。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Polyol 4 was added dropwise.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "4",
+          "role": "reagent",
+          "amount_raw": "36.4 mmol",
+          "smiles": "CC(O)CCCO",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "quencher": {
+          "value": {
+            "name": "4"
+          },
+          "raw": "4",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": 60.0,
+          "raw": "60 °C",
+          "unit": "℃",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "drip_dosage": {
+          "value": null,
+          "raw": "36.4 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献仅说明滴加，未给出滴加速度；请专家确认ml/s。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.drip_dosage",
+          "question": "文献给出4为36.4 mmol，但该模板滴加量需要ml；请专家补充体积或确认是否改用其他平台操作。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "文献未给出滴加时搅拌转速；请专家确认rpm。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "The solution was left to stir at 60 °C for 4 h.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": 60.0,
+          "raw": "60 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 240.0,
+          "raw": "4 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未给出60 ℃反应4 h时的搅拌转速；请专家确认rpm。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "The clear mixture was left to cool.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "文献仅说明冷却，未说明冷却目标温度；请专家确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "The reaction was concentrated in vacuo.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "concentrated in vacuo",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": true,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_residual_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "wash_dosages_rotary": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_rotary_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_rotary_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "文献仅说明减压浓缩，未说明旋蒸瓶规格；请专家确认500 ml或1000 ml。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "文献未提供旋蒸油浴温度、冷凝温度、真空度、时间等关键参数；请专家补充整组旋蒸参数。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_rotary_wash",
+          "question": "文献未说明是否需要旋蒸管路清洗；请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "文献未说明是否清洗冷凝管路；请专家确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "The residue was dissolved in dichloromethane.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "CH2Cl2",
+          "role": "unknown",
+          "amount_raw": "100 mL",
+          "smiles": "ClCCl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "CH2Cl2"
+          },
+          "raw": "CH2Cl2",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 100.0,
+          "raw": "100 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "pumping_rate": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.pumping_rate",
+          "question": "文献未说明二氯甲烷加液泵速，是否需要专家指定？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.temperature",
+          "question": "文献未说明溶解时温度，是否需要专家指定？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "The solution was washed three times with water.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": "3 × 50 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献为有机相用水洗涤三次（3×50 mL），现有注册表缺少直接液液洗涤操作；请专家确认应映射为哪个平台操作。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "The solution was dried with anhydrous sodium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "anhydrous Na2SO4",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": "O=S(=O)([O-])[O-].[Na+].[Na+]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "anhydrous Na2SO4"
+          },
+          "raw": "anhydrous Na2SO4",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "文献未给出无水硫酸钠用量，平台需要mg；请专家补充。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献未给出干燥接触时间；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "文献未给出干燥时震荡/搅拌速度；请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_12",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "The solution was concentrated in vacuo to give a clear liquid.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [
+        {
+          "name": "13",
+          "role": "product",
+          "amount_raw": null,
+          "smiles": "CC(C)CC(CC(C)C)OC(=O)OCCCC(C)O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "concentrated in vacuo to give a clear liquid",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": true,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_residual_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "wash_dosages_rotary": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_rotary_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_rotary_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "文献仅说明最终减压浓缩，未说明旋蒸瓶规格；请专家确认500 ml或1000 ml。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "文献未提供最终旋蒸的油浴温度、冷凝温度、真空度、时间等关键参数；请专家补充整组参数。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_rotary_wash",
+          "question": "文献未说明最终旋蒸后是否进行旋蒸管路清洗；请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "文献未说明最终旋蒸后是否清洗冷凝管路；请专家确认。",
+          "priority": "recommended"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅依据reaction.operations进行映射，未使用其他文献信息扩展步骤。",
+    "文献中的氮气条件出现在setup文本中，但现有注册表中未找到与该setup直接匹配且可完整承载该信息的必选操作，因此未单独输出气体置换步。",
+    "多物料加料步骤“2a was added to the solvent followed by KOH.”已按OBJECT容量拆分为两个平台步骤。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/8ca88bd5-4836-51ee-a026-390677477d91/8ca88bd5-4836-51ee-a026-390677477d91_gold_extraction.json",
+    "document": {
+      "literature_uuid": "8ca88bd5-4836-51ee-a026-390677477d91",
+      "title": "Controlled Synthesis of Asymmetric Dialkyl and Cyclic Carbonates Using the Highly Selective Reactions of Imidazole Carboxylic Esters",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:19:31.276163+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

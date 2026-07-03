@@ -1,0 +1,720 @@
+{
+  "literature_uuid": "f0969109-ccdd-51c3-9355-d8a22bd66b90",
+  "reaction": {
+    "reaction_id": "b72ade79-3053-58c2-88f4-5dffb8d32bf8",
+    "reaction_smiles": "Brc1ccc(S)cc1.FCI>>FCSc1ccc(Br)cc1",
+    "target": {
+      "name": "1-bromo-4-[(fluoromethyl)sulfanyl]benzene (35)",
+      "smiles": "FCSc1ccc(Br)cc1"
+    },
+    "confidence": 0.93,
+    "evidence": [
+      "General procedure, PDF page 2 (S2)",
+      "Compound 35 entry with explicit starting materials and yield, PDF page 40 (S40)",
+      "Exact product name converted to SMILES by name-to-SMILES tool"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge 4-bromothiophenol, cesium carbonate, and dry acetonitrile.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "4-bromothiophenol",
+          "role": "substrate",
+          "amount_raw": "0.189 g, 1.0 mmol, 1.0 equiv",
+          "smiles": "Brc1ccc(S)cc1",
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "Cs2CO3",
+          "role": "base",
+          "amount_raw": "0.391 g, 1.2 mmol, 1.2 equiv",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "4-bromothiophenol"
+            },
+            {
+              "name": "Cs2CO3"
+            }
+          ],
+          "raw": "4-bromothiophenol; cesium carbonate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            [
+              189.0
+            ],
+            [
+              391.0
+            ]
+          ],
+          "raw": [
+            "0.189 g",
+            "0.391 g"
+          ],
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.lid_status",
+          "question": "固体加料时平台是否需要关盖？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge 4-bromothiophenol, cesium carbonate, and dry acetonitrile.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dry acetonitrile",
+          "role": "solvent",
+          "amount_raw": "2 mL",
+          "smiles": "CC#N",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "dry acetonitrile"
+          },
+          "raw": "dry acetonitrile",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            2.0
+          ],
+          "raw": "2 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "乙腈加料使用哪种工装编号？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "液体加料时平台是否需要关盖？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add fluoroiodomethane slowly at room temperature.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "fluoroiodomethane",
+          "role": "reagent",
+          "amount_raw": "0.192 g, 1.2 mmol, 1.2 equiv",
+          "smiles": "FCI",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "fluoroiodomethane"
+          },
+          "raw": "fluoroiodomethane",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "0.192 g, 1.2 mmol, 1.2 equiv",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": "slowly",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": "slowly",
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "氟碘甲烷在平台上应按多少 mL 加入？文献仅给出质量和物质的量，请专家确认换算体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "氟碘甲烷缓慢加入使用哪种工装编号？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献仅说明缓慢加入，具体加液速度（ml/s）是多少？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "加入氟碘甲烷时平台是否需要关盖？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Stir the reaction mixture at room temperature.",
+      "platform": "高通量反应平台",
+      "operation": "温度与搅拌",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 360.0,
+          "raw": "6 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "temperature": {
+          "value": 25.0,
+          "raw": "rt",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "室温搅拌的具体转速（rpm）是多少？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Quench with water.",
+      "platform": "固液提纯平台",
+      "operation": "淬灭实验",
+      "materials": [
+        {
+          "name": "water",
+          "role": "quench",
+          "amount_raw": null,
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "quencher": {
+          "value": {
+            "name": "water"
+          },
+          "raw": "water",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "quencher_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_order": {
+          "value": true,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "quencher_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "quencher_before_temp": {
+          "value": 25.0,
+          "raw": "room temperature",
+          "unit": "℃",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "quencher_limit_temp": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "bottle_cap": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "bottle_count": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.quencher_qty",
+          "question": "水淬灭用量是多少 mL？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.quencher_timespan",
+          "question": "淬灭时间是多少 min？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.quencher_limit_temp",
+          "question": "淬灭过程的限温是多少 ℃？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.bottle_cap",
+          "question": "淬灭分瓶容量应设置为多少 mL？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.bottle_count",
+          "question": "淬灭分瓶数量是多少？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Extract the reaction mixture with diethyl ether three times.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "diethyl ether",
+          "role": "extractant",
+          "amount_raw": null,
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "diethyl ether"
+          },
+          "raw": "diethyl ether",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 3,
+          "raw": "three times",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "萃取静置时间是多少 min？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "萃取震荡速度是多少 rpm？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "萃取震荡时间是多少 min？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.extract_material_dosage",
+          "question": "每次乙醚萃取用量是多少 mL？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "萃取后平台应取哪一层？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "萃取第一阶段加液速度是多少 ml/s？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "萃取第二阶段加液速度是多少 ml/s？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Dry the organic layer over anhydrous sodium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "Na2SO4",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": "[Na+].[Na+].[O-]S(=O)(=O)[O-]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "Na2SO4"
+          },
+          "raw": "anhydrous sodium sulfate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "无水硫酸钠干燥剂用量是多少 mg？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "干燥震荡时间是多少 min？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "干燥震荡速度是多少 rpm？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "Remove solvent under reduced pressure.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "Remove solvent under reduced pressure.",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "旋蒸瓶尺寸应选择 500ml 还是 1000ml？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "文献仅说明减压除溶剂，旋蒸任务的油浴温度、旋蒸时间、冷凝温度、真空度等完整参数请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.residual_collection",
+          "question": "旋蒸残液是否收集？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_residual_sampling",
+          "question": "旋蒸残液是否需要取样？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "是否清洗冷凝管路？请专家确认。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "操作6和操作7为洗涤步骤，但给定注册表中无直接对应的洗涤/液液洗涤模板，未强行映射，建议专家确认是否并入萃取工作流或改用其他平台步骤。",
+    "操作10为产物分离结果描述，不是明确的平台操作，未单独映射。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/f0969109-ccdd-51c3-9355-d8a22bd66b90/f0969109-ccdd-51c3-9355-d8a22bd66b90_gold_extraction.json",
+    "document": {
+      "literature_uuid": "f0969109-ccdd-51c3-9355-d8a22bd66b90",
+      "title": "Direct and Chemoselective Electrophilic Monofluoromethylation of Heteroatoms (O-, S-, N-, P-, Se-) with Fluoroiodomethane",
+      "source_type": "supporting_information"
+    },
+    "generated_at": "2026-07-03T16:33:17.081399+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

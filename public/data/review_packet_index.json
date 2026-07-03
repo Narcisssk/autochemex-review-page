@@ -1,43 +1,23 @@
 {
-  "generated_at": "2026-06-25T12:58:37.685034+00:00",
-  "packet_count": 22,
+  "generated_at": "2026-07-03T16:38:08.998210+00:00",
+  "packet_count": 24,
+  "selection": {
+    "legacy_kept_count": 9,
+    "new_selected_count": 15,
+    "backup_path": "data/backup_review_packets/legacy_20260704/backup_index.json"
+  },
   "packets": [
-    {
-      "id": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__001_17194eea-9884-5ead-b86e-9770e8f804c9.json",
-      "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__001_17194eea-9884-5ead-b86e-9770e8f804c9.json",
-      "literature_uuid": "119134ac_05ef_5cfa_8c44_927918eddcc9",
-      "reaction_id": "17194eea-9884-5ead-b86e-9770e8f804c9",
-      "target_name": "2-Chlor-2-(2',2',2'-trichloräthyl)-3,3-dimethylcyclobutanon",
-      "paper": {
-        "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
-        "url": "data/papers/119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
-        "source_name": "119134ac-05ef-5cfa-8c44-927918eddcc9_origin.pdf",
-        "size_bytes": 902254
-      }
-    },
-    {
-      "id": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__002_b6e88c6c-08f9-52b6-a1e1-0dc0a9da7de7.json",
-      "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__002_b6e88c6c-08f9-52b6-a1e1-0dc0a9da7de7.json",
-      "literature_uuid": "119134ac_05ef_5cfa_8c44_927918eddcc9",
-      "reaction_id": "b6e88c6c-08f9-52b6-a1e1-0dc0a9da7de7",
-      "target_name": "2-Chlor-2-(2',2',2'-trichloräthyl)-3-methyl-cyclobutanon",
-      "paper": {
-        "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
-        "url": "data/papers/119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
-        "source_name": "119134ac-05ef-5cfa-8c44-927918eddcc9_origin.pdf",
-        "size_bytes": 902254
-      }
-    },
     {
       "id": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__003_effbf9eb-acff-5236-a974-f6ad3a969816.json",
       "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__003_effbf9eb-acff-5236-a974-f6ad3a969816.json",
       "literature_uuid": "119134ac_05ef_5cfa_8c44_927918eddcc9",
       "reaction_id": "effbf9eb-acff-5236-a974-f6ad3a969816",
       "target_name": "2-Methoxy-5,7,7,7-tetrachlor-2-hepten-4-on",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
         "url": "data/papers/119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
-        "source_name": "119134ac-05ef-5cfa-8c44-927918eddcc9_origin.pdf",
+        "source_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
         "size_bytes": 902254
       }
     },
@@ -47,23 +27,11 @@
       "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
       "reaction_id": "ecf56c22-96d1-5ea1-a599-e439ddb9b71b",
       "target_name": "5-Isopropylidene-2,2-dimethyl-1,3-dioxinane-4,6-dione",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
         "url": "data/papers/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
-        "source_name": "223fb6ff-6eeb-5dc4-aedc-a29cd5bb2535_origin.pdf",
-        "size_bytes": 750618
-      }
-    },
-    {
-      "id": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction__002_55a9f90c-c860-547c-9507-76c80c51cbf1.json",
-      "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction__002_55a9f90c-c860-547c-9507-76c80c51cbf1.json",
-      "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
-      "reaction_id": "55a9f90c-c860-547c-9507-76c80c51cbf1",
-      "target_name": "3-(2-Bromo-4-fluorophenyl)-3-methylbutyric acid",
-      "paper": {
-        "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
-        "url": "data/papers/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
-        "source_name": "223fb6ff-6eeb-5dc4-aedc-a29cd5bb2535_origin.pdf",
+        "source_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
         "size_bytes": 750618
       }
     },
@@ -73,11 +41,68 @@
       "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
       "reaction_id": "45a4950d-cead-562d-9863-fa47876e20e9",
       "target_name": "1,1,1-trifluoro-4-(2-bromo-4-fluorophenyl)-4-methyl-2-pentanone",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
         "url": "data/papers/223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
-        "source_name": "223fb6ff-6eeb-5dc4-aedc-a29cd5bb2535_origin.pdf",
+        "source_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_origin.pdf",
         "size_bytes": 750618
+      }
+    },
+    {
+      "id": "39f9f526-0825-5b97-8c73-d997bf0ffa15_gold_extraction__001_d6829fd6-69bd-55ad-adaf-794e8ea572dd.json",
+      "file_name": "39f9f526-0825-5b97-8c73-d997bf0ffa15_gold_extraction__001_d6829fd6-69bd-55ad-adaf-794e8ea572dd.json",
+      "literature_uuid": "39f9f526-0825-5b97-8c73-d997bf0ffa15",
+      "reaction_id": "d6829fd6-69bd-55ad-adaf-794e8ea572dd",
+      "target_name": "2,2,2-Trifluoro-1-(p-tolyl)ethanol",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "39f9f526-0825-5b97-8c73-d997bf0ffa15_origin.pdf",
+        "url": "data/papers/39f9f526-0825-5b97-8c73-d997bf0ffa15_origin.pdf",
+        "source_name": "39f9f526-0825-5b97-8c73-d997bf0ffa15_origin.pdf",
+        "size_bytes": 433813
+      }
+    },
+    {
+      "id": "39f9f526-0825-5b97-8c73-d997bf0ffa15_gold_extraction__002_a40714c5-0acf-5a62-99c0-4adfd2924faa.json",
+      "file_name": "39f9f526-0825-5b97-8c73-d997bf0ffa15_gold_extraction__002_a40714c5-0acf-5a62-99c0-4adfd2924faa.json",
+      "literature_uuid": "39f9f526-0825-5b97-8c73-d997bf0ffa15",
+      "reaction_id": "a40714c5-0acf-5a62-99c0-4adfd2924faa",
+      "target_name": "4-(2,2,2-Trifluoro-1-hydroxyethyl)benzaldehyde",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "39f9f526-0825-5b97-8c73-d997bf0ffa15_origin.pdf",
+        "url": "data/papers/39f9f526-0825-5b97-8c73-d997bf0ffa15_origin.pdf",
+        "source_name": "39f9f526-0825-5b97-8c73-d997bf0ffa15_origin.pdf",
+        "size_bytes": 433813
+      }
+    },
+    {
+      "id": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4_gold_extraction__001_a452fc02-1f07-5809-bfbc-bc45b3ba29a0.json",
+      "file_name": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4_gold_extraction__001_a452fc02-1f07-5809-bfbc-bc45b3ba29a0.json",
+      "literature_uuid": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4",
+      "reaction_id": "a452fc02-1f07-5809-bfbc-bc45b3ba29a0",
+      "target_name": "o-(2,2,2-Trifluoroethoxy)benzonitrile",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4_origin.pdf",
+        "url": "data/papers/4d8a3ad3-be2a-5981-97a5-0ba3546521c4_origin.pdf",
+        "source_name": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4_origin.pdf",
+        "size_bytes": 364528
+      }
+    },
+    {
+      "id": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4_gold_extraction__002_09dd2e0e-46f0-5fa9-8032-da2e866e3d39.json",
+      "file_name": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4_gold_extraction__002_09dd2e0e-46f0-5fa9-8032-da2e866e3d39.json",
+      "literature_uuid": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4",
+      "reaction_id": "09dd2e0e-46f0-5fa9-8032-da2e866e3d39",
+      "target_name": "o-(2,2,2-Trifluoroethoxy)nitrobenzene",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4_origin.pdf",
+        "url": "data/papers/4d8a3ad3-be2a-5981-97a5-0ba3546521c4_origin.pdf",
+        "source_name": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4_origin.pdf",
+        "size_bytes": 364528
       }
     },
     {
@@ -86,50 +111,68 @@
       "literature_uuid": "5b39be75_78e2_5ed3_a005_f3e941556165",
       "reaction_id": "75dda561-6f02-56ae-8ad8-3f78a60744d2",
       "target_name": "2-fluoro-1-hydroxy-1-phenylethane",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "5b39be75_78e2_5ed3_a005_f3e941556165_origin.pdf",
         "url": "data/papers/5b39be75_78e2_5ed3_a005_f3e941556165_origin.pdf",
-        "source_name": "5b39be75-78e2-5ed3-a005-f3e941556165_origin.pdf",
+        "source_name": "5b39be75_78e2_5ed3_a005_f3e941556165_origin.pdf",
         "size_bytes": 698201
       }
     },
     {
-      "id": "5b39be75_78e2_5ed3_a005_f3e941556165_gold_extraction__002_34812590-a735-5d76-a542-612b8cf67c88.json",
-      "file_name": "5b39be75_78e2_5ed3_a005_f3e941556165_gold_extraction__002_34812590-a735-5d76-a542-612b8cf67c88.json",
-      "literature_uuid": "5b39be75_78e2_5ed3_a005_f3e941556165",
-      "reaction_id": "34812590-a735-5d76-a542-612b8cf67c88",
-      "target_name": "1-fluoro-2-methoxy-2-phenylpropane",
+      "id": "8ca88bd5-4836-51ee-a026-390677477d91_gold_extraction__001_b7ae2758-28f3-5d4f-bc72-964e79a360ed.json",
+      "file_name": "8ca88bd5-4836-51ee-a026-390677477d91_gold_extraction__001_b7ae2758-28f3-5d4f-bc72-964e79a360ed.json",
+      "literature_uuid": "8ca88bd5-4836-51ee-a026-390677477d91",
+      "reaction_id": "b7ae2758-28f3-5d4f-bc72-964e79a360ed",
+      "target_name": "3a",
+      "source_group": "new_selected",
       "paper": {
-        "file_name": "5b39be75_78e2_5ed3_a005_f3e941556165_origin.pdf",
-        "url": "data/papers/5b39be75_78e2_5ed3_a005_f3e941556165_origin.pdf",
-        "source_name": "5b39be75-78e2-5ed3-a005-f3e941556165_origin.pdf",
-        "size_bytes": 698201
+        "file_name": "8ca88bd5-4836-51ee-a026-390677477d91_origin.pdf",
+        "url": "data/papers/8ca88bd5-4836-51ee-a026-390677477d91_origin.pdf",
+        "source_name": "8ca88bd5-4836-51ee-a026-390677477d91_origin.pdf",
+        "size_bytes": 79223
       }
     },
     {
-      "id": "5b39be75_78e2_5ed3_a005_f3e941556165_gold_extraction__003_b9b4c29d-d705-5966-a01a-aacf3bc9a5b0.json",
-      "file_name": "5b39be75_78e2_5ed3_a005_f3e941556165_gold_extraction__003_b9b4c29d-d705-5966-a01a-aacf3bc9a5b0.json",
-      "literature_uuid": "5b39be75_78e2_5ed3_a005_f3e941556165",
-      "reaction_id": "b9b4c29d-d705-5966-a01a-aacf3bc9a5b0",
-      "target_name": "1,2-diphenyl-2-fluoro-1-methoxyethane",
+      "id": "8ca88bd5-4836-51ee-a026-390677477d91_gold_extraction__002_ff254a76-e539-55a5-b594-32fe465f66ee.json",
+      "file_name": "8ca88bd5-4836-51ee-a026-390677477d91_gold_extraction__002_ff254a76-e539-55a5-b594-32fe465f66ee.json",
+      "literature_uuid": "8ca88bd5-4836-51ee-a026-390677477d91",
+      "reaction_id": "ff254a76-e539-55a5-b594-32fe465f66ee",
+      "target_name": "13",
+      "source_group": "new_selected",
       "paper": {
-        "file_name": "5b39be75_78e2_5ed3_a005_f3e941556165_origin.pdf",
-        "url": "data/papers/5b39be75_78e2_5ed3_a005_f3e941556165_origin.pdf",
-        "source_name": "5b39be75-78e2-5ed3-a005-f3e941556165_origin.pdf",
-        "size_bytes": 698201
+        "file_name": "8ca88bd5-4836-51ee-a026-390677477d91_origin.pdf",
+        "url": "data/papers/8ca88bd5-4836-51ee-a026-390677477d91_origin.pdf",
+        "source_name": "8ca88bd5-4836-51ee-a026-390677477d91_origin.pdf",
+        "size_bytes": 79223
       }
     },
     {
-      "id": "91b19f75_99a4_5a3f_a38a_81f195f88401_gold_extraction__001_5fae28c1-8e37-548b-8fd3-997b19f7b545.json",
-      "file_name": "91b19f75_99a4_5a3f_a38a_81f195f88401_gold_extraction__001_5fae28c1-8e37-548b-8fd3-997b19f7b545.json",
-      "literature_uuid": "91b19f75_99a4_5a3f_a38a_81f195f88401",
-      "reaction_id": "5fae28c1-8e37-548b-8fd3-997b19f7b545",
-      "target_name": "monofluorinated dimethyl carbonate (MFDMC)",
+      "id": "975817ff-7a66-5feb-9a2e-ad88efb3add3_gold_extraction__001_b7902d28-4d95-58a0-afb9-48443d0a3882.json",
+      "file_name": "975817ff-7a66-5feb-9a2e-ad88efb3add3_gold_extraction__001_b7902d28-4d95-58a0-afb9-48443d0a3882.json",
+      "literature_uuid": "975817ff-7a66-5feb-9a2e-ad88efb3add3",
+      "reaction_id": "b7902d28-4d95-58a0-afb9-48443d0a3882",
+      "target_name": "Vinyl benzoate (3a)",
+      "source_group": "new_selected",
       "paper": {
-        "file_name": "91b19f75_99a4_5a3f_a38a_81f195f88401_origin.pdf",
-        "url": "data/papers/91b19f75_99a4_5a3f_a38a_81f195f88401_origin.pdf",
-        "source_name": "91b19f75-99a4-5a3f-a38a-81f195f88401_origin.pdf",
-        "size_bytes": 163085
+        "file_name": "975817ff-7a66-5feb-9a2e-ad88efb3add3_origin.pdf",
+        "url": "data/papers/975817ff-7a66-5feb-9a2e-ad88efb3add3_origin.pdf",
+        "source_name": "975817ff-7a66-5feb-9a2e-ad88efb3add3_origin.pdf",
+        "size_bytes": 1806580
+      }
+    },
+    {
+      "id": "975817ff-7a66-5feb-9a2e-ad88efb3add3_gold_extraction__002_96959f66-ff45-5728-9e72-2745f8c62e71.json",
+      "file_name": "975817ff-7a66-5feb-9a2e-ad88efb3add3_gold_extraction__002_96959f66-ff45-5728-9e72-2745f8c62e71.json",
+      "literature_uuid": "975817ff-7a66-5feb-9a2e-ad88efb3add3",
+      "reaction_id": "96959f66-ff45-5728-9e72-2745f8c62e71",
+      "target_name": "Divinyl terephthalate (6i)",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "975817ff-7a66-5feb-9a2e-ad88efb3add3_origin.pdf",
+        "url": "data/papers/975817ff-7a66-5feb-9a2e-ad88efb3add3_origin.pdf",
+        "source_name": "975817ff-7a66-5feb-9a2e-ad88efb3add3_origin.pdf",
+        "size_bytes": 1806580
       }
     },
     {
@@ -138,23 +181,11 @@
       "literature_uuid": "98ce67d7_35da_508a_86ea_ff67afefe871",
       "reaction_id": "a1cf4d2c-ea66-50b5-977f-c175c44bec96",
       "target_name": "1-Chloroethyl Phenyl Carbonate",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "98ce67d7_35da_508a_86ea_ff67afefe871_origin.pdf",
         "url": "data/papers/98ce67d7_35da_508a_86ea_ff67afefe871_origin.pdf",
-        "source_name": "98ce67d7-35da-508a-86ea-ff67afefe871_origin.pdf",
-        "size_bytes": 244795
-      }
-    },
-    {
-      "id": "98ce67d7_35da_508a_86ea_ff67afefe871_gold_extraction__002_736315eb-f09c-5a82-a631-691d9f99bb78.json",
-      "file_name": "98ce67d7_35da_508a_86ea_ff67afefe871_gold_extraction__002_736315eb-f09c-5a82-a631-691d9f99bb78.json",
-      "literature_uuid": "98ce67d7_35da_508a_86ea_ff67afefe871",
-      "reaction_id": "736315eb-f09c-5a82-a631-691d9f99bb78",
-      "target_name": "1-Fluoromethyl Octyl Carbonate",
-      "paper": {
-        "file_name": "98ce67d7_35da_508a_86ea_ff67afefe871_origin.pdf",
-        "url": "data/papers/98ce67d7_35da_508a_86ea_ff67afefe871_origin.pdf",
-        "source_name": "98ce67d7-35da-508a-86ea-ff67afefe871_origin.pdf",
+        "source_name": "98ce67d7_35da_508a_86ea_ff67afefe871_origin.pdf",
         "size_bytes": 244795
       }
     },
@@ -164,49 +195,11 @@
       "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
       "reaction_id": "a61c29fe-edcd-54ed-b1f7-c4979ac85752",
       "target_name": "O,O-Bis(2-nitrophenyl)thiocarbonate",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
         "url": "data/papers/a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "source_name": "a0552863-3a8b-579b-a499-57868e6febad_origin.pdf",
-        "size_bytes": 182076
-      }
-    },
-    {
-      "id": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__002_c93e1f72-99ba-53b3-b2fb-f42905663653.json",
-      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__002_c93e1f72-99ba-53b3-b2fb-f42905663653.json",
-      "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
-      "reaction_id": "c93e1f72-99ba-53b3-b2fb-f42905663653",
-      "target_name": "O-methyl-O-octylthiocarbonate",
-      "paper": {
-        "file_name": "a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "url": "data/papers/a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "source_name": "a0552863-3a8b-579b-a499-57868e6febad_origin.pdf",
-        "size_bytes": 182076
-      }
-    },
-    {
-      "id": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__003_c79f6790-4ee4-520a-b12a-987fb60bc16e.json",
-      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__003_c79f6790-4ee4-520a-b12a-987fb60bc16e.json",
-      "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
-      "reaction_id": "c79f6790-4ee4-520a-b12a-987fb60bc16e",
-      "target_name": "O-methyl-O-2,2,2-trichloroethylthiocarbonate",
-      "paper": {
-        "file_name": "a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "url": "data/papers/a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "source_name": "a0552863-3a8b-579b-a499-57868e6febad_origin.pdf",
-        "size_bytes": 182076
-      }
-    },
-    {
-      "id": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__004_54ff5688-6bac-558c-8d73-105ec0e17d18.json",
-      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__004_54ff5688-6bac-558c-8d73-105ec0e17d18.json",
-      "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
-      "reaction_id": "54ff5688-6bac-558c-8d73-105ec0e17d18",
-      "target_name": "O-methyl-O-3-nitrophenylthiocarbonate",
-      "paper": {
-        "file_name": "a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "url": "data/papers/a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
-        "source_name": "a0552863-3a8b-579b-a499-57868e6febad_origin.pdf",
+        "source_name": "a0552863_3a8b_579b_a499_57868e6febad_origin.pdf",
         "size_bytes": 182076
       }
     },
@@ -216,37 +209,40 @@
       "literature_uuid": "cbb60ea0_b7dd_517f_b14d_86f2ba252cc1",
       "reaction_id": "bf266ce0-cb27-59db-9c59-4ad26d0b7f7e",
       "target_name": "(S)-2",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "cbb60ea0_b7dd_517f_b14d_86f2ba252cc1_origin.pdf",
         "url": "data/papers/cbb60ea0_b7dd_517f_b14d_86f2ba252cc1_origin.pdf",
-        "source_name": "cbb60ea0-b7dd-517f-b14d-86f2ba252cc1_origin.pdf",
+        "source_name": "cbb60ea0_b7dd_517f_b14d_86f2ba252cc1_origin.pdf",
         "size_bytes": 1354712
       }
     },
     {
-      "id": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_gold_extraction__001_f377c480-e25e-519b-981e-516b94ce2b58.json",
-      "file_name": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_gold_extraction__001_f377c480-e25e-519b-981e-516b94ce2b58.json",
-      "literature_uuid": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf",
-      "reaction_id": "f377c480-e25e-519b-981e-516b94ce2b58",
-      "target_name": "monofluorinated dimethyl carbonate (MFDMC)",
+      "id": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_gold_extraction__001_ceb24d3d-7501-5cd8-b38a-7ac57c3ca4be.json",
+      "file_name": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_gold_extraction__001_ceb24d3d-7501-5cd8-b38a-7ac57c3ca4be.json",
+      "literature_uuid": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c",
+      "reaction_id": "ceb24d3d-7501-5cd8-b38a-7ac57c3ca4be",
+      "target_name": "1-Fluoro-3-(methoxy)propan-2-ol (5a)",
+      "source_group": "new_selected",
       "paper": {
-        "file_name": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_origin.pdf",
-        "url": "data/papers/e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_origin.pdf",
-        "source_name": "e033b3d5-0d1b-5486-a6d0-ebdbde6a12bf_origin.pdf",
-        "size_bytes": 163085
+        "file_name": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_origin.pdf",
+        "url": "data/papers/cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_origin.pdf",
+        "source_name": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_origin.pdf",
+        "size_bytes": 475374
       }
     },
     {
-      "id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction__001_ce43b7dd-40d1-50eb-97b1-1f54d7d8dbee.json",
-      "file_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction__001_ce43b7dd-40d1-50eb-97b1-1f54d7d8dbee.json",
-      "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
-      "reaction_id": "ce43b7dd-40d1-50eb-97b1-1f54d7d8dbee",
-      "target_name": "8,8-Dichlorobicyclo[4.2.0]octan-7-one",
+      "id": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_gold_extraction__002_2f879447-6951-519a-88cc-12ca78e121cb.json",
+      "file_name": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_gold_extraction__002_2f879447-6951-519a-88cc-12ca78e121cb.json",
+      "literature_uuid": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c",
+      "reaction_id": "2f879447-6951-519a-88cc-12ca78e121cb",
+      "target_name": "1-Fluoro-3-(triphenylmethoxy)propan-2-ol (5c)",
+      "source_group": "new_selected",
       "paper": {
-        "file_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
-        "url": "data/papers/e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
-        "source_name": "e4876910-34f2-5c86-9b56-cd8b93264e8a_origin.pdf",
-        "size_bytes": 424023
+        "file_name": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_origin.pdf",
+        "url": "data/papers/cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_origin.pdf",
+        "source_name": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_origin.pdf",
+        "size_bytes": 475374
       }
     },
     {
@@ -255,23 +251,11 @@
       "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
       "reaction_id": "031d4de1-0339-52f9-bae1-b6c3c151b586",
       "target_name": "2,2-Dichloro-3-phenylcyclobutanone",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
         "url": "data/papers/e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
-        "source_name": "e4876910-34f2-5c86-9b56-cd8b93264e8a_origin.pdf",
-        "size_bytes": 424023
-      }
-    },
-    {
-      "id": "e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction__003_69873826-a97a-5c3e-af08-ec9a44dfa7e4.json",
-      "file_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction__003_69873826-a97a-5c3e-af08-ec9a44dfa7e4.json",
-      "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
-      "reaction_id": "69873826-a97a-5c3e-af08-ec9a44dfa7e4",
-      "target_name": "10,10-Dichlorobicyclo[6.2.0]dec-4-en-9-one",
-      "paper": {
-        "file_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
-        "url": "data/papers/e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
-        "source_name": "e4876910-34f2-5c86-9b56-cd8b93264e8a_origin.pdf",
+        "source_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
         "size_bytes": 424023
       }
     },
@@ -281,11 +265,82 @@
       "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
       "reaction_id": "53d6ef8b-95bd-524e-b7f8-a4cfc0061e08",
       "target_name": "2,2-Dichloro-3-ethoxycyclobutanone",
+      "source_group": "legacy_kept",
       "paper": {
         "file_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
         "url": "data/papers/e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
-        "source_name": "e4876910-34f2-5c86-9b56-cd8b93264e8a_origin.pdf",
+        "source_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_origin.pdf",
         "size_bytes": 424023
+      }
+    },
+    {
+      "id": "f0969109-ccdd-51c3-9355-d8a22bd66b90_gold_extraction__001_f87188a1-78c1-5c82-9873-c2f4def317e2.json",
+      "file_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_gold_extraction__001_f87188a1-78c1-5c82-9873-c2f4def317e2.json",
+      "literature_uuid": "f0969109-ccdd-51c3-9355-d8a22bd66b90",
+      "reaction_id": "f87188a1-78c1-5c82-9873-c2f4def317e2",
+      "target_name": "4-(fluoromethoxy)benzaldehyde (17)",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "url": "data/papers/f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "source_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "size_bytes": 11512028
+      }
+    },
+    {
+      "id": "f0969109-ccdd-51c3-9355-d8a22bd66b90_gold_extraction__002_b72ade79-3053-58c2-88f4-5dffb8d32bf8.json",
+      "file_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_gold_extraction__002_b72ade79-3053-58c2-88f4-5dffb8d32bf8.json",
+      "literature_uuid": "f0969109-ccdd-51c3-9355-d8a22bd66b90",
+      "reaction_id": "b72ade79-3053-58c2-88f4-5dffb8d32bf8",
+      "target_name": "1-bromo-4-[(fluoromethyl)sulfanyl]benzene (35)",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "url": "data/papers/f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "source_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "size_bytes": 11512028
+      }
+    },
+    {
+      "id": "f0969109-ccdd-51c3-9355-d8a22bd66b90_gold_extraction__003_87444b35-1a5d-5770-9c4a-b0a058637379.json",
+      "file_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_gold_extraction__003_87444b35-1a5d-5770-9c4a-b0a058637379.json",
+      "literature_uuid": "f0969109-ccdd-51c3-9355-d8a22bd66b90",
+      "reaction_id": "87444b35-1a5d-5770-9c4a-b0a058637379",
+      "target_name": "3-(fluoromethyl)-5,5-diphenyl-2,4-imidazolidinedione (49)",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "url": "data/papers/f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "source_name": "f0969109-ccdd-51c3-9355-d8a22bd66b90_origin.pdf",
+        "size_bytes": 11512028
+      }
+    },
+    {
+      "id": "f1446c13-40d5-5505-b09a-26cd0fcb0976_gold_extraction__001_164d6e87-382c-57da-a0b1-e5e2ed141d03.json",
+      "file_name": "f1446c13-40d5-5505-b09a-26cd0fcb0976_gold_extraction__001_164d6e87-382c-57da-a0b1-e5e2ed141d03.json",
+      "literature_uuid": "f1446c13-40d5-5505-b09a-26cd0fcb0976",
+      "reaction_id": "164d6e87-382c-57da-a0b1-e5e2ed141d03",
+      "target_name": "difluoromethyl benzoate (5e)",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "f1446c13-40d5-5505-b09a-26cd0fcb0976_origin.pdf",
+        "url": "data/papers/f1446c13-40d5-5505-b09a-26cd0fcb0976_origin.pdf",
+        "source_name": "f1446c13-40d5-5505-b09a-26cd0fcb0976_origin.pdf",
+        "size_bytes": 650701
+      }
+    },
+    {
+      "id": "f31a8b16-a087-52f6-b098-348c3b3ec767_gold_extraction__001_e740a8b4-5edb-5cd8-85a1-deca58a5ed8d.json",
+      "file_name": "f31a8b16-a087-52f6-b098-348c3b3ec767_gold_extraction__001_e740a8b4-5edb-5cd8-85a1-deca58a5ed8d.json",
+      "literature_uuid": "f31a8b16-a087-52f6-b098-348c3b3ec767",
+      "reaction_id": "e740a8b4-5edb-5cd8-85a1-deca58a5ed8d",
+      "target_name": "1,1,1-trifluoroacetophenone",
+      "source_group": "new_selected",
+      "paper": {
+        "file_name": "f31a8b16-a087-52f6-b098-348c3b3ec767_origin.pdf",
+        "url": "data/papers/f31a8b16-a087-52f6-b098-348c3b3ec767_origin.pdf",
+        "source_name": "f31a8b16-a087-52f6-b098-348c3b3ec767_origin.pdf",
+        "size_bytes": 73173
       }
     }
   ]

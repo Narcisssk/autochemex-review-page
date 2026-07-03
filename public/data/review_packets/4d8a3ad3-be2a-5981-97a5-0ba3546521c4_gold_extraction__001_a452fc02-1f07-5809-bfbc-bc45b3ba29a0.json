@@ -1,0 +1,803 @@
+{
+  "literature_uuid": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4",
+  "reaction": {
+    "reaction_id": "a452fc02-1f07-5809-bfbc-bc45b3ba29a0",
+    "reaction_smiles": "N#Cc1ccccc1Cl.[Na+].[O-]CC(F)(F)F>>N#Cc1ccccc1OCC(F)(F)F",
+    "target": {
+      "name": "o-(2,2,2-Trifluoroethoxy)benzonitrile",
+      "smiles": "N#Cc1ccccc1OCC(F)(F)F"
+    },
+    "confidence": 0.96,
+    "evidence": [
+      "Explicit experimental procedure for 1a on PDF pages 2-3",
+      "Table I entry 1 on PDF page 2",
+      "Product characterization for 1a on PDF page 3"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge sodium hydride and HMPA to form the reaction mixture.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "sodium hydride",
+          "role": "base",
+          "amount_raw": "2.6 g (0.055 mol), hexane washed",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "sodium hydride"
+            }
+          ],
+          "raw": "sodium hydride",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            2600
+          ],
+          "raw": [
+            "2.6 g"
+          ],
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.lid_status",
+          "question": "固体加料时平台是否需要关盖？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge sodium hydride and HMPA to form the reaction mixture.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "HMPA",
+          "role": "solvent",
+          "amount_raw": "50 mL",
+          "smiles": "CN(P(=O)(N(C)C)N(C)C)C",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "HMPA"
+          },
+          "raw": "HMPA",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            50
+          ],
+          "raw": [
+            "50 mL"
+          ],
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "加入HMPA时应选择哪种工装编号？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "加入HMPA的加液速度是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "液体加料时平台是否需要关盖？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add 2,2,2-trifluoroethanol to generate the alkoxide in situ.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "2,2,2-trifluoroethanol",
+          "role": "reagent",
+          "amount_raw": "10.0 g (0.10 mol)",
+          "smiles": "OCC(F)(F)F",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "2,2,2-trifluoroethanol"
+          },
+          "raw": "2,2,2-trifluoroethanol",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "10.0 g (0.10 mol)",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出2,2,2-三氟乙醇的质量和物质的量，平台按体积加料时对应体积是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "加入2,2,2-三氟乙醇时应选择哪种工装编号？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "加入2,2,2-三氟乙醇的加液速度是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "液体加料时平台是否需要关盖？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Stir the mixture before substrate addition.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 20,
+          "raw": "20 min",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "预搅拌阶段的搅拌速度是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "预搅拌阶段是否有明确温度设定？如有，请确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Add 2-chlorobenzonitrile in one portion.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "2-chlorobenzonitrile",
+          "role": "substrate",
+          "amount_raw": "6.9 g (0.05 mol)",
+          "smiles": "N#Cc1ccccc1Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "2-chlorobenzonitrile"
+            }
+          ],
+          "raw": "2-chlorobenzonitrile",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            6900
+          ],
+          "raw": [
+            "6.9 g"
+          ],
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.lid_status",
+          "question": "加入2-氯苯甲腈时平台是否需要关盖？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Heat the resulting mixture to effect nucleophilic substitution.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "90–150 °C",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": "overnight",
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "加热反应温度文献给出范围90–150 ℃，该反应在平台上应设定为哪个具体温度？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "加热反应时间文献写为overnight，平台上应换算为多少分钟？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "加热反应阶段的搅拌速度是多少？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Pour the reaction mixture into aqueous hydrochloric acid.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "5% aqueous hydrochloric acid",
+          "role": "quench",
+          "amount_raw": "100 mL",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "5% aqueous hydrochloric acid"
+          },
+          "raw": "5% aqueous hydrochloric acid",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            100
+          ],
+          "raw": [
+            "100 mL"
+          ],
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "将反应液倒入5%盐酸水溶液淬灭时，平台应选择哪种工装编号？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "淬灭加液速度是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "淬灭加液时平台是否需要关盖？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "If needed, extract the mixture with ether.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "ether",
+          "role": "extractant",
+          "amount_raw": "3 × 70 mL",
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "ether"
+          },
+          "raw": "ether",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 70,
+          "raw": "3 × 70 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 3,
+          "raw": "3 × 70 mL",
+          "unit": "times",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "萃取后的静置时间是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "萃取时的震荡速度是多少rpm？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "萃取时的震荡时间是多少分钟？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "萃取后平台应取上层还是下层？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "萃取第一阶段加液速度是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "萃取第二阶段加液速度是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "operation",
+          "question": "文献写明“如有需要”再用乙醚萃取，该萃取步骤在该平台流程中是否必须执行？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "Dry the organic phase over anhydrous magnesium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "anhydrous magnesium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": "[Mg+2].[O-]S([O-])(=O)=O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "anhydrous magnesium sulfate"
+          },
+          "raw": "anhydrous magnesium sulfate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "无水硫酸镁的加入量是多少？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "干燥操作持续多少分钟？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "干燥实验的震荡速度是多少rpm？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "Concentrate the organic phase in vacuo.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "in vacuo",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "旋蒸应使用500 ml还是1000 ml旋蒸瓶？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "文献仅说明减压浓缩，请补充旋蒸所需参数：油浴温度、是否阶梯升温、旋蒸时间、冷凝温度、真空度、是否收集冷凝液及是否冷凝液取样。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.residual_collection",
+          "question": "旋蒸残液是否需要收集？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_residual_sampling",
+          "question": "旋蒸残液是否需要取样？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_rotary_wash",
+          "question": "旋蒸管路是否需要清洗？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "冷凝管路是否需要清洗？",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "未将operation 6（冷却至室温）、operation 9（盐酸洗涤）、operation 12（分离得到产物）和operation 13（可选重结晶）映射到平台步骤，因为注册表中缺少明确且可直接填参的对应操作。",
+    "所有映射仅依据reaction.operations；未使用其他反应字段扩展实验事实。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/4d8a3ad3-be2a-5981-97a5-0ba3546521c4/4d8a3ad3-be2a-5981-97a5-0ba3546521c4_gold_extraction.json",
+    "document": {
+      "literature_uuid": "4d8a3ad3-be2a-5981-97a5-0ba3546521c4",
+      "title": "Aromatic Fluoroalkoxylation via Direct Aromatic Nucleophilic Substitution",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:07:53.734565+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

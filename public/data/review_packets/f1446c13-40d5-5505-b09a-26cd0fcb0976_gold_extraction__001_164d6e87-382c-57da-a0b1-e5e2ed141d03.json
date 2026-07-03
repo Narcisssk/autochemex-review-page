@@ -1,0 +1,479 @@
+{
+  "literature_uuid": "f1446c13-40d5-5505-b09a-26cd0fcb0976",
+  "reaction": {
+    "reaction_id": "164d6e87-382c-57da-a0b1-e5e2ed141d03",
+    "reaction_smiles": "[Na+].[O-]C(=O)c1ccccc1.O=S(=O)(F)C(F)(F)C(=O)O>>O=C(OC(F)F)c1ccccc1",
+    "target": {
+      "name": "difluoromethyl benzoate (5e)",
+      "smiles": "O=C(OC(F)F)c1ccccc1"
+    },
+    "confidence": 0.94,
+    "evidence": [
+      "Experimental Section: Typical Procedure for Synthesis of a Difluoromethyl Alkanoate, PDF page 4",
+      "Table II entry 4e/5e supports the same substrate-product pair and yield on PDF page 3",
+      "Article title and Results/Discussion identify compound 3 as fluorosulfonyldifluoroacetic acid and product class RCO2CF2H"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Sodium benzoate and acetonitrile were placed in the flask.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "sodium benzoate",
+          "role": "substrate",
+          "amount_raw": "7.2 g, 50 mmol",
+          "smiles": "[Na+].[O-]C(=O)c1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "sodium benzoate"
+            }
+          ],
+          "raw": "sodium benzoate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            7200
+          ],
+          "raw": "7.2 g",
+          "unit": "mg",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明固体加料时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Sodium benzoate and acetonitrile were placed in the flask.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "acetonitrile",
+          "role": "solvent",
+          "amount_raw": "30 mL",
+          "smiles": "CC#N",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "acetonitrile"
+          },
+          "raw": "acetonitrile",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            30
+          ],
+          "raw": "30 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明乙腈加料使用的工装编号，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明乙腈加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明液体加料时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Compound 3 was added with stirring at 20 °C.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "fluorosulfonyldifluoroacetic acid (3)",
+          "role": "reagent",
+          "amount_raw": "3.6 g, 20 mmol",
+          "smiles": "O=S(=O)(F)C(F)(F)C(=O)O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "fluorosulfonyldifluoroacetic acid (3)"
+            }
+          ],
+          "raw": "fluorosulfonyldifluoroacetic acid (3)",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            3600
+          ],
+          "raw": "3.6 g",
+          "unit": "mg",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加入化合物3时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "The mixture was stirred for 1 h at 20 °C.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": 20,
+          "raw": "20 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 60,
+          "raw": "1 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献仅说明搅拌，未给出搅拌速度，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "The aqueous layer was extracted three times with ether.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "ether",
+          "role": "extractant",
+          "amount_raw": null,
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "ether"
+          },
+          "raw": "ether",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "The aqueous layer was extracted three times with ether.",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 3,
+          "raw": "three times",
+          "unit": "times",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明萃取后的静置时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明萃取震荡速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "文献未说明萃取震荡时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.extract_material_dosage",
+          "question": "文献未说明每次使用乙醚的萃取剂体积，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献说明对水层进行乙醚萃取，但平台需要选择取液层（上层/下层），请专家结合体系密度确认取哪一层。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "文献未说明萃取第一阶段加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "文献未说明萃取第二阶段加液速度，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "The combined extracts were dried over sodium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "sodium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": "[Na+].[Na+].[O-]S(=O)(=O)[O-]",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "sodium sulfate"
+          },
+          "raw": "dried over Na2SO4",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "文献未说明无水硫酸钠用量，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明干燥处理时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明干燥时的震荡速度，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "文献中的setup、quench、wash、distill、isolate操作无法仅依据reaction.operations精确映射到注册表中的合法平台操作，故未输出对应平台步骤。",
+    "加料形态存在不确定性：化合物3按名称可能为酸性固体或液体，且文献仅写added；此处暂按固体加料映射，建议专家确认是否应改为液体加料。",
+    "分析步骤仅说明19F NMR判断反应完成，注册表中的结果检测/分析检测均要求取样量和检测方案，文献未提供足够参数，因此未单独生成步骤。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/f1446c13-40d5-5505-b09a-26cd0fcb0976/f1446c13-40d5-5505-b09a-26cd0fcb0976_gold_extraction.json",
+    "document": {
+      "literature_uuid": "f1446c13-40d5-5505-b09a-26cd0fcb0976",
+      "title": "Perfluoro- and Polyfluorosulfonic Acids. 21. Synthesis of Difluoromethyl Esters Using Fluorosulfonyldifluoroacetic Acid as a Difluorocarbene Precursor",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:35:02.252287+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

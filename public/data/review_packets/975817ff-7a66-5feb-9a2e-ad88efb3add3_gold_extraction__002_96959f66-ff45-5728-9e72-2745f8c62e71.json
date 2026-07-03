@@ -1,0 +1,1184 @@
+{
+  "literature_uuid": "975817ff-7a66-5feb-9a2e-ad88efb3add3",
+  "reaction": {
+    "reaction_id": "96959f66-ff45-5728-9e72-2745f8c62e71",
+    "reaction_smiles": "CC=O.CC=O.O=C(Cl)c1ccc(C(=O)Cl)cc1>>C=COC(=O)c1ccc(C(=O)OC=C)cc1",
+    "target": {
+      "name": "Divinyl terephthalate (6i)",
+      "smiles": "C=COC(=O)c1ccc(C(=O)OC=C)cc1"
+    },
+    "confidence": 0.93,
+    "evidence": [
+      "General procedure for compounds 6a-k, page 11",
+      "6i-specific text with stoichiometry, purification, and isolated yield, page 8",
+      "Table 3 context for pathway 2, page 7"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "The reaction was carried out under argon in a sealed glass vial.",
+      "platform": "四釜反应平台",
+      "operation": "气体置换",
+      "materials": [],
+      "parameters": {
+        "times": {
+          "value": null,
+          "raw": "The reaction was carried out under argon in a sealed glass vial.",
+          "unit": "times",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.times",
+          "question": "文献仅说明在氩气下进行，未说明置换次数；是否需要设定气体置换次数？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Terephthaloyl chloride and triethylamine were charged in dry acetonitrile.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "acetonitrile",
+          "role": "solvent",
+          "amount_raw": "5 mL dry acetonitrile",
+          "smiles": "CC#N",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "acetonitrile"
+          },
+          "raw": "acetonitrile",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            5.0
+          ],
+          "raw": "5 mL dry acetonitrile",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": "sealed glass vial",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "加入乙腈时应使用哪种工装编号（移液枪、针泵或反应区针泵）？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "该步加液时平台是否需要设为关盖？文献仅说明反应在密封玻璃瓶中进行。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Terephthaloyl chloride and triethylamine were charged in dry acetonitrile.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "terephthaloyl chloride",
+          "role": "substrate",
+          "amount_raw": "2 mmol",
+          "smiles": "O=C(Cl)c1ccc(C(=O)Cl)cc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "terephthaloyl chloride"
+            }
+          ],
+          "raw": "terephthaloyl chloride",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            null
+          ],
+          "raw": "2 mmol",
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": "sealed glass vial",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.qty",
+          "question": "对苯二甲酰氯文献仅给出2 mmol，平台固体加料需要mg；请确认换算质量。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "该步固体加料时平台是否需要设为关盖？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Terephthaloyl chloride and triethylamine were charged in dry acetonitrile.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "triethylamine",
+          "role": "base",
+          "amount_raw": "20 mmol",
+          "smiles": "CCN(CC)CC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "triethylamine"
+          },
+          "raw": "triethylamine",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": "20 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": "sealed glass vial",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "三乙胺文献仅给出20 mmol，平台液体加料需要mL；请确认加入体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "加入三乙胺时应使用哪种工装编号（移液枪、针泵或反应区针泵）？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "该步液体加料时平台是否需要设为关盖？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "The reaction mixture was cooled with an ice bath before acetaldehyde addition.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "cooled with an ice bath",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "冰浴降温对应的平台目标温度是多少℃？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Dry acetaldehyde was slowly dropped into the cooled mixture.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "acetaldehyde",
+          "role": "reagent",
+          "amount_raw": "8 mmol",
+          "smiles": "CC=O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "quencher": {
+          "value": {
+            "name": "acetaldehyde"
+          },
+          "raw": "acetaldehyde",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": "slowly dropped",
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": "cooled mixture; ice bath",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_dosage": {
+          "value": null,
+          "raw": "8 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_speed",
+          "question": "乙醛为缓慢滴加，但文献未给出滴加速度；请确认ml/s。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.target_temperature",
+          "question": "滴加时维持的稳定温度是多少℃？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.drip_dosage",
+          "question": "乙醛文献仅给出8 mmol，平台需要滴加体积mL；请确认体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "滴加过程中搅拌速度是多少rpm？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        6,
+        7
+      ],
+      "source_text": "The mixture was heated for the reaction stage. The reaction mixture was stirred for one day.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": "stirred",
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "40–50°C",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 1440.0,
+          "raw": "24 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "反应搅拌速度是多少rpm？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "反应温度文献给出40–50℃范围，平台需确认设定值；请确认具体温度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "The mixture was diluted with ethyl acetate.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "ethyl acetate",
+          "role": "extractant",
+          "amount_raw": "20 mL",
+          "smiles": "CCOC(=O)C",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "ethyl acetate"
+          },
+          "raw": "ethyl acetate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            20.0
+          ],
+          "raw": "20 mL ethyl acetate",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "加入乙酸乙酯稀释时应使用哪种工装编号？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "该步加液时平台是否需要设为关盖？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "Residual triethylamine was neutralized with saturated ammonium chloride.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "saturated ammonium chloride",
+          "role": "quench",
+          "amount_raw": "2 × 20 mL",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "saturated ammonium chloride"
+          },
+          "raw": "saturated ammonium chloride",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 20.0,
+          "raw": "20 mL each",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "The organic phase was washed with water.",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 2,
+          "raw": "2 × 20 mL",
+          "unit": "times",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "用饱和氯化铵处理后的静置分层时间是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "萃取/洗涤过程的震荡速度是多少rpm？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "萃取/洗涤过程的震荡时间是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "该步分层后平台应取哪一层继续操作？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "该步第一阶段加液速度是多少ml/s？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "该步第二阶段加液速度是多少ml/s？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "The organic phase was washed with water.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": "2 × 40 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "water"
+          },
+          "raw": "water",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 40.0,
+          "raw": "40 mL each",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "organic phase",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 2,
+          "raw": "2 × 40 mL",
+          "unit": "times",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "水洗后的静置分层时间是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "水洗过程的震荡速度是多少rpm？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "水洗过程的震荡时间是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献说明保留有机相，平台该步应取上层还是下层？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "该步第一阶段加液速度是多少ml/s？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "该步第二阶段加液速度是多少ml/s？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        12
+      ],
+      "source_text": "The organic phase was washed with brine.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "brine",
+          "role": "wash",
+          "amount_raw": "2 × 40 mL",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "brine"
+          },
+          "raw": "brine",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 40.0,
+          "raw": "40 mL each",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "organic phase",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 2,
+          "raw": "2 × 40 mL",
+          "unit": "times",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "盐水洗后的静置分层时间是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "盐水洗过程的震荡速度是多少rpm？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "盐水洗过程的震荡时间是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献说明保留有机相，平台该步应取上层还是下层？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "该步第一阶段加液速度是多少ml/s？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "该步第二阶段加液速度是多少ml/s？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_12",
+      "source_operation_orders": [
+        13
+      ],
+      "source_text": "The organic layer was dried over sodium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "sodium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "sodium sulfate"
+          },
+          "raw": "sodium sulfate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "无水硫酸钠的加入量是多少mg？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "干燥处理时长是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "干燥实验需要震荡速度，文献未提供；请确认rpm。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_13",
+      "source_operation_orders": [
+        14
+      ],
+      "source_text": "The organic phase was filtered.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "过滤时长是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "过滤所用滤膜类型/名称是什么？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_14",
+      "source_operation_orders": [
+        15
+      ],
+      "source_text": "The filtrate was concentrated under reduced pressure.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": {
+            "tcu_temperature": null,
+            "is_step_rise": false,
+            "intelligence_determine": null,
+            "evaporator_time": null,
+            "condensation_temperature": null,
+            "vacuum": null,
+            "condensation_collection": null,
+            "is_condensation_sampling": false
+          },
+          "raw": "concentrated under reduced pressure",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": true,
+          "raw": "The crude product was purified by column chromatography.",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_residual_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "旋蒸瓶尺寸请选择500ml或1000ml。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params.tcu_temperature",
+          "question": "旋蒸油浴温度是多少℃？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params.intelligence_determine",
+          "question": "旋蒸是否启用智能判断？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params.evaporator_time",
+          "question": "旋蒸时间是多少min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params.condensation_temperature",
+          "question": "旋蒸冷凝温度是多少℃？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params.vacuum",
+          "question": "文献仅说明减压浓缩，请确认旋蒸真空度kPa。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params.condensation_collection",
+          "question": "是否收集冷凝液？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_rotary_wash",
+          "question": "是否需要旋蒸管路清洗？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "是否需要清洗冷凝管路？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_15",
+      "source_operation_orders": [
+        16
+      ],
+      "source_text": "The crude product was purified by column chromatography.",
+      "platform": "过柱纯化平台",
+      "operation": "过柱",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "method": {
+          "value": null,
+          "raw": "column chromatography",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "过柱进样流速是多少ml/min？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.dosage",
+          "question": "过柱进样量是多少ml？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.method",
+          "question": "平台可选过柱方法未见文献说明，请确认应使用哪一个预设方法。",
+          "priority": "recommended"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅根据reaction.operations进行映射，未使用其他文字补充未在操作中明确给出的实验参数。",
+    "操作8为TLC监测，注册表中无直接对应的TLC/监测操作，未单独输出平台步骤。",
+    "操作10-12本质为液液洗涤/分层，按注册表最接近映射为“高通量反应平台-萃取”，多项平台必需参数缺失，需专家补充。",
+    "操作1“玻璃器皿干燥”在注册表中无明确对应操作，未单独输出平台步骤。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/975817ff-7a66-5feb-9a2e-ad88efb3add3/975817ff-7a66-5feb-9a2e-ad88efb3add3_gold_extraction.json",
+    "document": {
+      "literature_uuid": "975817ff-7a66-5feb-9a2e-ad88efb3add3",
+      "title": "Novel synthesis routes for the preparation of low toxic vinyl ester and vinyl carbonate monomers",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:31:02.058378+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

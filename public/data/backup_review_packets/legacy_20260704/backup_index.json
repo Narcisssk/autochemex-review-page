@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-07-03T16:38:08.597805+00:00",
+  "legacy_packet_count": 22,
+  "kept_legacy_count": 9,
+  "discarded_count": 13,
+  "discarded_packets": [
+    {
+      "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__001_17194eea-9884-5ead-b86e-9770e8f804c9.json",
+      "literature_uuid": "119134ac_05ef_5cfa_8c44_927918eddcc9",
+      "reaction_id": "17194eea-9884-5ead-b86e-9770e8f804c9",
+      "target_name": "2-Chlor-2-(2',2',2'-trichloräthyl)-3,3-dimethylcyclobutanon",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__002_b6e88c6c-08f9-52b6-a1e1-0dc0a9da7de7.json",
+      "literature_uuid": "119134ac_05ef_5cfa_8c44_927918eddcc9",
+      "reaction_id": "b6e88c6c-08f9-52b6-a1e1-0dc0a9da7de7",
+      "target_name": "2-Chlor-2-(2',2',2'-trichloräthyl)-3-methyl-cyclobutanon",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction__002_55a9f90c-c860-547c-9507-76c80c51cbf1.json",
+      "literature_uuid": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535",
+      "reaction_id": "55a9f90c-c860-547c-9507-76c80c51cbf1",
+      "target_name": "3-(2-Bromo-4-fluorophenyl)-3-methylbutyric acid",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "5b39be75_78e2_5ed3_a005_f3e941556165_gold_extraction__002_34812590-a735-5d76-a542-612b8cf67c88.json",
+      "literature_uuid": "5b39be75_78e2_5ed3_a005_f3e941556165",
+      "reaction_id": "34812590-a735-5d76-a542-612b8cf67c88",
+      "target_name": "1-fluoro-2-methoxy-2-phenylpropane",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "5b39be75_78e2_5ed3_a005_f3e941556165_gold_extraction__003_b9b4c29d-d705-5966-a01a-aacf3bc9a5b0.json",
+      "literature_uuid": "5b39be75_78e2_5ed3_a005_f3e941556165",
+      "reaction_id": "b9b4c29d-d705-5966-a01a-aacf3bc9a5b0",
+      "target_name": "1,2-diphenyl-2-fluoro-1-methoxyethane",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "91b19f75_99a4_5a3f_a38a_81f195f88401_gold_extraction__001_5fae28c1-8e37-548b-8fd3-997b19f7b545.json",
+      "literature_uuid": "91b19f75_99a4_5a3f_a38a_81f195f88401",
+      "reaction_id": "5fae28c1-8e37-548b-8fd3-997b19f7b545",
+      "target_name": "monofluorinated dimethyl carbonate (MFDMC)",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "98ce67d7_35da_508a_86ea_ff67afefe871_gold_extraction__002_736315eb-f09c-5a82-a631-691d9f99bb78.json",
+      "literature_uuid": "98ce67d7_35da_508a_86ea_ff67afefe871",
+      "reaction_id": "736315eb-f09c-5a82-a631-691d9f99bb78",
+      "target_name": "1-Fluoromethyl Octyl Carbonate",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__002_c93e1f72-99ba-53b3-b2fb-f42905663653.json",
+      "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
+      "reaction_id": "c93e1f72-99ba-53b3-b2fb-f42905663653",
+      "target_name": "O-methyl-O-octylthiocarbonate",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__003_c79f6790-4ee4-520a-b12a-987fb60bc16e.json",
+      "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
+      "reaction_id": "c79f6790-4ee4-520a-b12a-987fb60bc16e",
+      "target_name": "O-methyl-O-2,2,2-trichloroethylthiocarbonate",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "a0552863_3a8b_579b_a499_57868e6febad_gold_extraction__004_54ff5688-6bac-558c-8d73-105ec0e17d18.json",
+      "literature_uuid": "a0552863_3a8b_579b_a499_57868e6febad",
+      "reaction_id": "54ff5688-6bac-558c-8d73-105ec0e17d18",
+      "target_name": "O-methyl-O-3-nitrophenylthiocarbonate",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_gold_extraction__001_f377c480-e25e-519b-981e-516b94ce2b58.json",
+      "literature_uuid": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf",
+      "reaction_id": "f377c480-e25e-519b-981e-516b94ce2b58",
+      "target_name": "monofluorinated dimethyl carbonate (MFDMC)",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction__001_ce43b7dd-40d1-50eb-97b1-1f54d7d8dbee.json",
+      "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
+      "reaction_id": "ce43b7dd-40d1-50eb-97b1-1f54d7d8dbee",
+      "target_name": "8,8-Dichlorobicyclo[4.2.0]octan-7-one",
+      "reason": "not selected for the active expert-review benchmark batch"
+    },
+    {
+      "file_name": "e4876910_34f2_5c86_9b56_cd8b93264e8a_gold_extraction__003_69873826-a97a-5c3e-af08-ec9a44dfa7e4.json",
+      "literature_uuid": "e4876910_34f2_5c86_9b56_cd8b93264e8a",
+      "reaction_id": "69873826-a97a-5c3e-af08-ec9a44dfa7e4",
+      "target_name": "10,10-Dichlorobicyclo[6.2.0]dec-4-en-9-one",
+      "reason": "not selected for the active expert-review benchmark batch"
+    }
+  ]
+}

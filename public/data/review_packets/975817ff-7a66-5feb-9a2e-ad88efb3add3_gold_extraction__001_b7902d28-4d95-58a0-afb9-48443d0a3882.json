@@ -1,0 +1,1138 @@
+{
+  "literature_uuid": "975817ff-7a66-5feb-9a2e-ad88efb3add3",
+  "reaction": {
+    "reaction_id": "b7902d28-4d95-58a0-afb9-48443d0a3882",
+    "reaction_smiles": "C=CO[Si](C)(C)C.O=C(Cl)c1ccccc1>>C=COC(=O)c1ccccc1",
+    "target": {
+      "name": "Vinyl benzoate (3a)",
+      "smiles": "C=COC(=O)c1ccccc1"
+    },
+    "confidence": 0.95,
+    "evidence": [
+      "General procedure for compounds 3a-c, pages 10-11",
+      "Vinyl benzoate (3a) isolated yield, page 11",
+      "Scheme 1/Table 1 context for pathway 1, pages 4-5"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "The reaction setup was flushed and the mixture bubbled with argon.",
+      "platform": "四釜反应平台",
+      "operation": "气体置换",
+      "materials": [],
+      "parameters": {
+        "times": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.times",
+          "question": "文献仅说明用氩气置换/鼓泡，未说明置换次数；请专家确认四釜平台“气体置换”的置换次数。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "A solution of benzoyl chloride in dry DMF was charged with dry KF and dry 18-crown-6 ether in a sealed vial.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "DMF",
+          "role": "solvent",
+          "amount_raw": "5 mL dry DMF",
+          "smiles": "CN(C)C=O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "DMF"
+          },
+          "raw": "DMF",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            5.0
+          ],
+          "raw": "5 mL dry DMF",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": true,
+          "raw": "in a sealed vial",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明DMF加料所用工装（移液枪/针泵/反应区针泵）；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明DMF加液速度；请专家确认高通量平台液体加料速度。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "A solution of benzoyl chloride in dry DMF was charged with dry KF and dry 18-crown-6 ether in a sealed vial.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "benzoyl chloride",
+          "role": "substrate",
+          "amount_raw": "2 mmol",
+          "smiles": "O=C(Cl)c1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "benzoyl chloride"
+          },
+          "raw": "benzoyl chloride",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": "2 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": true,
+          "raw": "in a sealed vial",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出苯甲酰氯的物质的量(2 mmol)，未给出高通量液体加料所需体积；请专家根据实际配液确认体积。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明苯甲酰氯加料所用工装；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明苯甲酰氯加液速度；请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "A solution of benzoyl chloride in dry DMF was charged with dry KF and dry 18-crown-6 ether in a sealed vial.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "potassium fluoride",
+          "role": "reagent",
+          "amount_raw": "10 mmol",
+          "smiles": "[K+].[F-]",
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "18-crown-6 ether",
+          "role": "reagent",
+          "amount_raw": "0.2 mmol",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "potassium fluoride"
+            },
+            {
+              "name": "18-crown-6 ether"
+            }
+          ],
+          "raw": "dry KF and dry 18-crown-6 ether",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            [
+              null
+            ],
+            [
+              null
+            ]
+          ],
+          "raw": "10 mmol; 0.2 mmol",
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": true,
+          "raw": "in a sealed vial",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.qty",
+          "question": "文献仅给出KF和18-crown-6 ether的物质的量，未给出高通量固体加料所需mg数；请专家确认各自称量质量。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "The mixture was heated before addition of vinyloxy trimethylsilane.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "heated to 40–50°C",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "文献给出升温范围40–50℃，四釜平台温度控制通常需要单一设定值；请专家确认具体控温值。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Vinyloxy trimethylsilane was slowly added to the heated mixture.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "vinyloxy trimethylsilane",
+          "role": "reagent",
+          "amount_raw": "3 mmol",
+          "smiles": "C=CO[Si](C)(C)C",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "quencher": {
+          "value": {
+            "name": "vinyloxy trimethylsilane"
+          },
+          "raw": "vinyloxy trimethylsilane",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": "slowly added",
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": null,
+          "raw": "heated mixture; 40–50°C",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "drip_dosage": {
+          "value": null,
+          "raw": "3 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献仅说明缓慢滴加乙烯氧基三甲基硅烷，未给出滴加速度；请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.target_temperature",
+          "question": "文献给出滴加时体系为40–50℃加热状态，平台通常需要单一稳定温度；请专家确认滴加控温值。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.drip_dosage",
+          "question": "文献仅给出乙烯氧基三甲基硅烷为3 mmol，未给出滴加体积；请专家确认平台所需体积。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "文献未说明滴加阶段搅拌速度；请专家确认。",
+          "priority": "optional"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "The reaction mixture was stirred while the solution turned red-brownish.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "40–50°C",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 1200.0,
+          "raw": "stirred for 20 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明反应搅拌速度；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "文献给出反应温度范围40–50℃，平台建议填写单一反应温度；请专家确认具体设定值。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "The mixture was diluted with ethyl acetate for aqueous workup.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "ethyl acetate",
+          "role": "extractant",
+          "amount_raw": "20 mL",
+          "smiles": "CCOC(=O)C",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "ethyl acetate"
+          },
+          "raw": "ethyl acetate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 20.0,
+          "raw": "20 mL ethyl acetate",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "for aqueous workup",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 1,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明乙酸乙酯加入后的静置时间；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明萃取/震荡速度；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "文献未说明震荡时间；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献仅说明用于水洗后处理，未明确平台取液层；请专家确认应取上层、下层或不取。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "文献未说明萃取第一阶段加液速度；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "文献未说明萃取第二阶段加液速度；请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "The organic phase was washed with water.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": "2 × 40 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "water"
+          },
+          "raw": "water",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 40.0,
+          "raw": "40 mL each",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "The organic phase was washed with water.",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 2,
+          "raw": "2 × 40 mL",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明水洗静置时间；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明水洗震荡速度；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "文献未说明水洗震荡时间；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献说明保留有机相，但平台需明确取液层；请专家确认水洗后应取上层还是下层。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "文献未说明水洗第一阶段加液速度；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "文献未说明水洗第二阶段加液速度；请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "The organic phase was washed with brine.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "brine",
+          "role": "wash",
+          "amount_raw": "2 × 40 mL",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "brine"
+          },
+          "raw": "brine",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 40.0,
+          "raw": "40 mL each",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "The organic phase was washed with brine.",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 2,
+          "raw": "2 × 40 mL",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明盐水洗静置时间；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明盐水洗震荡速度；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "文献未说明盐水洗震荡时间；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献说明保留有机相，但平台需明确取液层；请专家确认盐水洗后应取上层还是下层。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "文献未说明盐水洗第一阶段加液速度；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "文献未说明盐水洗第二阶段加液速度；请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "The organic phase was dried over sodium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "sodium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "sodium sulfate"
+          },
+          "raw": "sodium sulfate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "文献未说明无水硫酸钠用量；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明干燥处理时长；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明干燥实验震荡速度；请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_12",
+      "source_operation_orders": [
+        12
+      ],
+      "source_text": "The dried organic phase was filtered.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明过滤时长；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "文献未说明所用滤膜/过滤材料；请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_13",
+      "source_operation_orders": [
+        13
+      ],
+      "source_text": "The solvent was removed under reduced pressure.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "under reduced pressure",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": true,
+          "raw": "crude product remained after solvent removal",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_residual_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "not_applicable"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "wash_dosages_rotary": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_rotary_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_rotary_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_dosages": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "wash_condense_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "文献未说明旋蒸瓶规格；请专家确认500 ml或1000 ml。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "文献仅说明减压除溶剂，未提供旋蒸油浴温度、时间、冷凝温度、真空度及是否取样等完整参数；请专家补充旋蒸任务参数。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_rotary_wash",
+          "question": "文献未说明是否需要旋蒸管路清洗；请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "文献未说明是否清洗冷凝管路；请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_14",
+      "source_operation_orders": [
+        14
+      ],
+      "source_text": "The crude product was purified by column chromatography.",
+      "platform": "过柱纯化平台",
+      "operation": "过柱",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "method": {
+          "value": null,
+          "raw": "column chromatography",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.method",
+          "question": "文献仅说明柱色谱纯化，未给出平台可选方法编码；请专家确认应选哪一过柱方法。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明过柱进样流速；请专家确认。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.dosage",
+          "question": "文献未说明过柱进样量；请专家确认。",
+          "priority": "optional"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "未将setup、analyze、isolate单独映射为平台步骤，因为注册表中无明确对应操作或不构成可直接下发的平台执行动作。",
+    "charge步骤中的液体/固体已按平台物料容量限制拆分。",
+    "涉及物质的量但平台要求体积或质量时，未做未经文献支持的换算，均保留为需专家确认。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/975817ff-7a66-5feb-9a2e-ad88efb3add3/975817ff-7a66-5feb-9a2e-ad88efb3add3_gold_extraction.json",
+    "document": {
+      "literature_uuid": "975817ff-7a66-5feb-9a2e-ad88efb3add3",
+      "title": "Novel synthesis routes for the preparation of low toxic vinyl ester and vinyl carbonate monomers",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:30:20.302154+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

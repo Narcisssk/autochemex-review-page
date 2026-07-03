@@ -1,0 +1,1165 @@
+{
+  "literature_uuid": "39f9f526-0825-5b97-8c73-d997bf0ffa15",
+  "reaction": {
+    "reaction_id": "d6829fd6-69bd-55ad-adaf-794e8ea572dd",
+    "reaction_smiles": "Cc1ccc(C=O)cc1.C[Si](C)(C)C(F)(F)F>>Cc1ccc(C(O)C(F)(F)F)cc1",
+    "target": {
+      "name": "2,2,2-Trifluoro-1-(p-tolyl)ethanol",
+      "smiles": "Cc1ccc(C(O)C(F)(F)F)cc1"
+    },
+    "confidence": 0.95,
+    "evidence": [
+      "Experimental section page 4: representative procedure for preparation of α-CF3 alcohols",
+      "Experimental section page 4: compound-specific entry for 2a",
+      "Name-to-SMILES tool used for p-tolualdehyde, TMSCF3, and 2a"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "THF, p-tolualdehyde, and (trifluoromethyl)trimethylsilane were charged to the flask.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "THF",
+          "role": "solvent",
+          "amount_raw": "24 mL",
+          "smiles": "C1CCOC1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "THF"
+          },
+          "raw": "THF",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            24.0
+          ],
+          "raw": "24 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明THF加料使用哪种工装编号，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明THF加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明THF加料时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "THF, p-tolualdehyde, and (trifluoromethyl)trimethylsilane were charged to the flask.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "p-tolualdehyde",
+          "role": "substrate",
+          "amount_raw": "2.723 g, 0.020 mol, 0.83 M, 1 equiv",
+          "smiles": "Cc1ccc(C=O)cc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "p-tolualdehyde"
+            }
+          ],
+          "raw": "p-tolualdehyde",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            2723.0
+          ],
+          "raw": "2.723 g",
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加入p-tolualdehyde时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "THF, p-tolualdehyde, and (trifluoromethyl)trimethylsilane were charged to the flask.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "(trifluoromethyl)trimethylsilane",
+          "role": "reagent",
+          "amount_raw": "3.12 g, 0.022 mol, 1.3 equiv",
+          "smiles": "C[Si](C)(C)C(F)(F)F",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "(trifluoromethyl)trimethylsilane"
+          },
+          "raw": "(trifluoromethyl)trimethylsilane",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "3.12 g, 0.022 mol, 1.3 equiv",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出TMSCF3的质量和物质的量，未给出可直接映射的平台加液体积，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明TMSCF3加料使用哪种工装编号，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明TMSCF3加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加入TMSCF3时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "The flask was sealed and placed under a nitrogen atmosphere.",
+      "platform": "四釜反应平台",
+      "operation": "气体置换",
+      "materials": [],
+      "parameters": {
+        "times": {
+          "value": null,
+          "raw": "under a N2 atmosphere",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.times",
+          "question": "文献仅说明置于氮气氛围下，未说明氮气置换次数；若需映射为气体置换，请专家确认次数。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "The reaction mixture was cooled in an ice-water bath.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 0.0,
+          "raw": "0 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "TBAF solution was added dropwise by syringe.",
+      "platform": "四釜反应平台",
+      "operation": "过程控温滴加",
+      "materials": [
+        {
+          "name": "TBAF (1 M in THF)",
+          "role": "reagent",
+          "amount_raw": "0.2 mL, 0.0002 mol, 0.01 equiv",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "quencher": {
+          "value": {
+            "name": "TBAF (1 M in THF)"
+          },
+          "raw": "TBAF (1 M in THF)",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": "added dropwise by syringe",
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "target_temperature": {
+          "value": 0.0,
+          "raw": "0 °C",
+          "unit": "℃",
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "drip_dosage": {
+          "value": 0.2,
+          "raw": "0.2 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "agitation_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献仅说明TBAF溶液滴加，未给出滴加速度，请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.agitation_speed",
+          "question": "文献未说明滴加时搅拌速度，请专家确认。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "After removal of the ice bath, the mixture was stirred at room temperature.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "room temperature",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 360.0,
+          "raw": "approximately 6 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明室温搅拌阶段的搅拌速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "文献仅写室温，平台需要数值温度时请专家确认具体温度。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "The reaction mixture was recooled in an ice bath for cleavage of the silyl ether intermediate.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": 0.0,
+          "raw": "0 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Water was added by syringe.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "water",
+          "role": "reagent",
+          "amount_raw": "2 mL, 0.110 mol, 5.5 equiv",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "water"
+          },
+          "raw": "water",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            2.0
+          ],
+          "raw": "2 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": "0",
+          "raw": "by syringe",
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明加水速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加水时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "Additional TBAF solution was added to effect cleavage.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "TBAF (1 M in THF)",
+          "role": "reagent",
+          "amount_raw": "2 mL, 0.002 mol, 0.1 equiv",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "TBAF (1 M in THF)"
+          },
+          "raw": "TBAF (1 M in THF)",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            2.0
+          ],
+          "raw": "2 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明第二次加入TBAF所用工装编号，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明第二次加入TBAF的加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明第二次加入TBAF时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "The ice bath was removed and the reaction mixture was stirred at room temperature until cleavage was complete, as judged by GC-MS or NMR.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "room temperature",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": "when the cleavage was judged to be complete (determined by GC-MS or NMR)",
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明裂解完成前室温搅拌的搅拌速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "文献仅写室温，平台若需数值温度请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献仅说明搅拌至裂解完成，未给出具体时长，请专家确认平台应填写的反应时间。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_12",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "The mixture was transferred to a separatory funnel, diluted with brine and diethyl ether, partitioned, and the aqueous layer was back-extracted three times with diethyl ether.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "diethyl ether",
+          "role": "extractant",
+          "amount_raw": "~150 mL",
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material": {
+          "value": {
+            "name": "diethyl ether"
+          },
+          "raw": "diethyl ether",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 150.0,
+          "raw": "~150 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "partitioned; aqueous layer was back-extracted",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.standing_time_span",
+          "question": "文献未说明首次乙醚分液静置时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "文献未说明首次乙醚萃取的搅拌/震荡速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_timespan",
+          "question": "文献未说明首次乙醚萃取的搅拌/震荡时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "文献未说明首次乙醚加入速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献未明确平台取液层应如何填写，请专家确认首次分液后需要保留上层、下层还是都需要。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_13",
+      "source_operation_orders": [
+        11
+      ],
+      "source_text": "The mixture was transferred to a separatory funnel, diluted with brine and diethyl ether, partitioned, and the aqueous layer was back-extracted three times with diethyl ether.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "diethyl ether",
+          "role": "extractant",
+          "amount_raw": "3 × ~50 mL",
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material": {
+          "value": {
+            "name": "diethyl ether"
+          },
+          "raw": "diethyl ether",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 50.0,
+          "raw": "~50 mL each, 3 times",
+          "unit": "ml",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": "aqueous layer was back-extracted three times with diethyl ether",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.standing_time_span",
+          "question": "文献未说明返萃每次静置时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "文献未说明返萃每次搅拌/震荡速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_timespan",
+          "question": "文献未说明返萃每次搅拌/震荡时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "文献未说明返萃乙醚加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "文献描述为对水层返萃并合并醚层，平台取液层应如何填写，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_14",
+      "source_operation_orders": [
+        12
+      ],
+      "source_text": "The combined ether layers were dried with sodium sulfate.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "Na2SO4",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "Na2SO4"
+          },
+          "raw": "sodium sulfate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "文献未说明无水硫酸钠用量，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明干燥处理时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明干燥处理时的震荡速度，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_15",
+      "source_operation_orders": [
+        13
+      ],
+      "source_text": "The solvent was removed in vacuo to afford crude product.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "removed in vacuo",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "文献未说明旋蒸瓶规格，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "文献仅说明减压除去溶剂，未提供旋蒸油浴温度、旋蒸时间、冷凝温度、真空度等核心参数，请专家确认完整旋蒸参数。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.residual_collection",
+          "question": "文献未说明旋蒸残液是否收集，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_residual_sampling",
+          "question": "文献未说明旋蒸残液是否取样，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_rotary_wash",
+          "question": "文献未说明是否进行旋蒸管路清洗，请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "文献未说明是否清洗冷凝管路，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_16",
+      "source_operation_orders": [
+        14
+      ],
+      "source_text": "The crude product was purified by vacuum distillation.",
+      "platform": "精馏平台",
+      "operation": "1、待精馏物料及用户数据（关联待精馏物料的实验）",
+      "materials": [],
+      "parameters": {
+        "action_38_property_3": {
+          "value": "crude product",
+          "raw": "The crude product",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "action_38_property_4": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_5": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_6": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_7": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_8": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_9": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_10": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_11": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.action_38_property_4",
+          "question": "文献未说明待精馏物料组成，请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.action_38_property_5",
+          "question": "文献未说明待精馏物料体积，请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.action_38_property_6",
+          "question": "文献未说明待精馏物料质量，请专家确认。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.action_38_property_7",
+          "question": "文献未说明塔顶产物目标组成，请专家确认。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.action_38_property_8",
+          "question": "文献未说明塔釜产物目标组成，请专家确认。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.action_38_property_9",
+          "question": "文献未说明精馏操作人员，请专家确认。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.action_38_property_10",
+          "question": "文献未说明精馏工艺ID，请专家确认。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.action_38_property_11",
+          "question": "文献未说明精馏开始时间，请专家确认。",
+          "priority": "optional"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅依据reaction.operations进行映射；setup、brine稀释以及最终isolate未找到可直接承载且信息充分的独立平台步骤，未单独展开。",
+    "文献中的室温、滴加速度、搅拌速度、萃取细节及旋蒸/精馏详细参数普遍缺失，已标记为needs_expert。",
+    "对于起始加料，因平台模板限制，按单物料步骤拆分；p-tolualdehyde按固体加料处理是基于文献仅提供质量而非体积的近似映射，需专家确认。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/39f9f526-0825-5b97-8c73-d997bf0ffa15/39f9f526-0825-5b97-8c73-d997bf0ffa15_gold_extraction.json",
+    "document": {
+      "literature_uuid": "39f9f526-0825-5b97-8c73-d997bf0ffa15",
+      "title": "Oxidation of α-Trifluoromethyl Alcohols Using a Recyclable Oxoammonium Salt",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T15:57:06.669657+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "literature_uuid": "39f9f526-0825-5b97-8c73-d997bf0ffa15",
+  "reaction": {
+    "reaction_id": "a40714c5-0acf-5a62-99c0-4adfd2924faa",
+    "reaction_smiles": "OCc1ccc(C(O)C(F)(F)F)cc1>>O=Cc1ccc(C(O)C(F)(F)F)cc1",
+    "target": {
+      "name": "4-(2,2,2-Trifluoro-1-hydroxyethyl)benzaldehyde",
+      "smiles": "O=Cc1ccc(C(O)C(F)(F)F)cc1"
+    },
+    "confidence": 0.96,
+    "evidence": [
+      "Results and Discussion page 3 / Figure 2 describes chemoselective oxidation of 2t under weakly acidic conditions",
+      "Experimental section page 9: Selective Oxidation of 2,2,2-Trifluoro-1-(4-(hydroxymethyl)-phenyl)ethanol (2t)",
+      "Name-to-SMILES tool used for 2t and 2t'"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "DCM and substrate 2t were added to the flask.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dichloromethane",
+          "role": "solvent",
+          "amount_raw": "20 mL",
+          "smiles": "ClCCl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "dichloromethane"
+          },
+          "raw": "dichloromethane",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            20.0
+          ],
+          "raw": "20 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明二氯甲烷加料使用哪种工装（移液枪、针泵或反应区针泵），请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明二氯甲烷加液速度，请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加二氯甲烷时是否关盖，请确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Oxoammonium salt 1 and silica were added.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "4-Acetamido-2,2,6,6-tetramethyl-1-oxopiperidin-1-ium tetrafluoroborate (1)",
+          "role": "reagent",
+          "amount_raw": "3.150 g, 0.0105 mol, 1.05 equiv",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "SiO2",
+          "role": "reagent",
+          "amount_raw": "2.060 g, 1 mass equiv to substrate",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "4-Acetamido-2,2,6,6-tetramethyl-1-oxopiperidin-1-ium tetrafluoroborate (1)"
+            },
+            {
+              "name": "SiO2"
+            }
+          ],
+          "raw": "Oxoammonium salt 1 and silica",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            3150.0,
+            2060.0
+          ],
+          "raw": "3.150 g; 2.060 g",
+          "unit": "mg",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明固体加料时是否关盖，请确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "The mixture was stirred at room temperature until reaction completion confirmed by TLC.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "room temperature",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 1440.0,
+          "raw": "24 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明反应搅拌速度，请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "文献仅写室温，平台需具体温度值（℃）时请确认室温按多少度录入。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "The crude residue was filtered through a medium-porosity fritted funnel filled halfway with silica gel.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [
+        {
+          "name": "silica gel fritted funnel",
+          "role": "filter_material",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": {
+            "name": "silica gel fritted funnel"
+          },
+          "raw": "medium-porosity fritted funnel filled halfway with silica gel",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献未说明过滤时长，请确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "The solvent was removed in vacuo by rotary evaporation.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "The solvent was removed in vacuo by rotary evaporation.",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "文献未说明旋蒸瓶尺寸（500 ml或1000 ml），请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "文献仅说明减压旋蒸，未提供油浴温度、是否阶梯升温、旋蒸时间、冷凝温度、真空度、冷凝液收集/取样等参数，请确认整组旋蒸参数。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.residual_collection",
+          "question": "文献未说明旋蒸残液是否收集，请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_residual_sampling",
+          "question": "文献未说明旋蒸残液是否取样，请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "文献未说明是否清洗冷凝管路，请确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_rotary_wash",
+          "question": "文献未说明是否进行旋蒸管路清洗，请确认。",
+          "priority": "recommended"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "操作1仅为装置准备，注册表中无直接对应操作，未单独映射。",
+    "操作2中底物2t给出质量和摩尔数，但所选“高通量反应平台-液体加料”要求体积单位ml；文献未提供底物加料体积，因此未将底物直接映射到该平台步骤。请专家决定是否补充底物溶液体积或改用其他平台记录方式。",
+    "操作5“in vacuo除溶剂”与操作8“rotary evaporation”均为除溶剂描述，为避免重复，仅将更明确的操作8映射为旋蒸任务。",
+    "操作7洗涤硅胶塞使用乙醚，但注册表中无与该文献语义直接匹配且参数充分支持的洗涤/冲洗硅胶塞步骤，故未映射；如需平台执行，请专家指定采用何平台及如何记录洗涤次数/体积。",
+    "产物分离与收率记录（操作9）在注册表中无直接对应操作，未单独映射。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/39f9f526-0825-5b97-8c73-d997bf0ffa15/39f9f526-0825-5b97-8c73-d997bf0ffa15_gold_extraction.json",
+    "document": {
+      "literature_uuid": "39f9f526-0825-5b97-8c73-d997bf0ffa15",
+      "title": "Oxidation of α-Trifluoromethyl Alcohols Using a Recyclable Oxoammonium Salt",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:07:24.628984+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

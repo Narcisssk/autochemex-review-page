@@ -1,0 +1,421 @@
+{
+  "literature_uuid": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c",
+  "reaction": {
+    "reaction_id": "2f879447-6951-519a-88cc-12ca78e121cb",
+    "reaction_smiles": "c1ccccc1C(c2ccccc2)(c3ccccc3)OCC1CO1>>c1ccccc1C(c2ccccc2)(c3ccccc3)OCC(O)CF",
+    "target": {
+      "name": "1-Fluoro-3-(triphenylmethoxy)propan-2-ol (5c)",
+      "smiles": "c1ccccc1C(c2ccccc2)(c3ccccc3)OCC(O)CF"
+    },
+    "confidence": 0.94,
+    "evidence": [
+      "General Method for the Preparation of Fluorohydrins 4,5,7, PDF p.5",
+      "1-Fluoro-3-(triphenylmethoxy)propan-2-ol (5c), PDF p.6",
+      "Table 1 entry 6, PDF p.3"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge epoxide 3c, KHF2, tetrabutylammonium dihydrogentrifluoride, and chlorobenzene.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "[(Triphenylmethoxy)methyl]oxirane (3c)",
+          "role": "substrate",
+          "amount_raw": "10 mmol",
+          "smiles": "c1ccccc1C(c2ccccc2)(c3ccccc3)OCC1CO1",
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "KHF2",
+          "role": "reagent",
+          "amount_raw": "20 mmol",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "tetrabutylammonium dihydrogentrifluoride (1)",
+          "role": "catalyst",
+          "amount_raw": "1 mmol",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "[(Triphenylmethoxy)methyl]oxirane (3c)"
+            },
+            {
+              "name": "KHF2"
+            },
+            {
+              "name": "tetrabutylammonium dihydrogentrifluoride (1)"
+            }
+          ],
+          "raw": "epoxide 3c, KHF2, tetrabutylammonium dihydrogentrifluoride",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.qty",
+          "question": "文献仅给出了mmol，未给出三种固体/底物对应的mg加料量。请确认平台所需的各物料mg用量，并按物料顺序一一对应填写。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "固体加料后平台是否需要关盖？请确认lid_status。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge epoxide 3c, KHF2, tetrabutylammonium dihydrogentrifluoride, and chlorobenzene.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "PhCl",
+          "role": "solvent",
+          "amount_raw": "2 mL/10 mmol",
+          "smiles": "Clc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "PhCl"
+          },
+          "raw": "PhCl",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            2.0
+          ],
+          "raw": "2 mL/10 mmol",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "氯苯加料应使用哪种工装编号（移液枪、针泵或反应区针泵）？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "液体加料时平台是否关盖？请确认lid_status。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Stir the reaction at 120°C until the starting material is no longer detectable.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": 120.0,
+          "raw": "120°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "timespan": {
+          "value": 3600.0,
+          "raw": "60h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献只说明搅拌反应，未给出搅拌转速。请确认普通反应步骤的搅拌速度rpm。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Dilute the crude mixture with dichloromethane.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "CH2Cl2",
+          "role": "unknown",
+          "amount_raw": "30 mL",
+          "smiles": "ClCCl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "CH2Cl2"
+          },
+          "raw": "CH2Cl2",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            30.0
+          ],
+          "raw": "30 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": 0.5,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "二氯甲烷稀释加料应使用哪种工装编号（移液枪、针泵或反应区针泵）？请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "加入二氯甲烷稀释时平台是否关盖？请确认lid_status。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Filter the mixture through Celite.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [
+        {
+          "name": "Celite",
+          "role": "unknown",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": {
+            "name": "Celite"
+          },
+          "raw": "filtered on celite",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献仅说明经Celite过滤，未给出过滤时长。请确认过滤步骤timespan（min）。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Purify the residue by silica gel chromatography using Et2O and petroleum ether (1:5).",
+      "platform": "过柱纯化平台",
+      "operation": "过柱",
+      "materials": [
+        {
+          "name": "Et2O and petroleum ether",
+          "role": "eluent",
+          "amount_raw": "1:5",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "method": {
+          "value": null,
+          "raw": "Et2O/PE 1:5",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.method",
+          "question": "文献给出的是硅胶柱洗脱剂Et2O/PE=1:5，但平台仅支持预设过柱方法。请确认应选择哪个平台method，或该步是否无法直接映射。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "文献未给出过柱进样流速。若平台需要，请确认speed（ml/min）。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.dosage",
+          "question": "文献未给出过柱进样量。若平台需要，请确认dosage（ml）。",
+          "priority": "recommended"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "未将analyze、cool、concentrate、isolate单独映射为平台步骤，因为注册表中无明确对应且文献未提供可直接填写的受支持操作参数。",
+    "步骤2采用“普通反应”而非“温度与搅拌”，因为文献描述的是持续反应过程；但搅拌速度缺失，需专家补充。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c/cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_gold_extraction.json",
+    "document": {
+      "literature_uuid": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c",
+      "title": "Regioselective Conversion of O-Protected Glycidols to Fluorohydrins Catalyzed by Tetrabutylammonium Dihydrogentrifluoride Under Solid-Liquid PTC Conditions",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:31:44.254386+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

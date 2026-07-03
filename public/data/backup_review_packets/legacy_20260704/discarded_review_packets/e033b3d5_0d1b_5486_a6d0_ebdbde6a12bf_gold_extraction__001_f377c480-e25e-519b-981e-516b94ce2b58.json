@@ -1,0 +1,568 @@
+{
+  "literature_uuid": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf",
+  "reaction": {
+    "reaction_id": "f377c480-e25e-519b-981e-516b94ce2b58",
+    "reaction_smiles": "COC(=O)OC.FF>>COC(=O)OCF",
+    "target": {
+      "name": "monofluorinated dimethyl carbonate (MFDMC)",
+      "smiles": "COC(=O)OCF"
+    },
+    "confidence": 0.94,
+    "evidence": [
+      "Experimental section, PDF page 9",
+      "Figure/scheme context on fluorination of DMC",
+      "Isolated MFDMC purification and yield statement"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Prepare a 500 mL PFA vessel with gas inlet and outlet.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "PFA vessel",
+          "role": "unknown",
+          "amount_raw": "500 mL",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "该文献的PFA反应器准备步骤应映射到哪个平台操作？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Charge dimethyl carbonate to the reactor.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "dimethyl carbonate (DMC)",
+          "role": "substrate",
+          "amount_raw": "50.0 g (0.556 mol)",
+          "smiles": "COC(=O)OC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "dosage": {
+          "value": null,
+          "raw": "50.0 g (0.556 mol)",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "DMC加料平台参数需要体积（ml），是否有可用于上机的加料体积或密度换算信息？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Replace the reactor atmosphere with nitrogen.",
+      "platform": "四釜反应平台",
+      "operation": "气体置换",
+      "materials": [
+        {
+          "name": "nitrogen",
+          "role": "unknown",
+          "amount_raw": null,
+          "smiles": "N#N",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "times": {
+          "value": null,
+          "raw": "the atmosphere in the reactor was replaced with N2 gas",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.times",
+          "question": "氮气置换进行了几次？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Introduce diluted fluorine gas over the surface of DMC.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [
+        {
+          "name": "fluorine",
+          "role": "reagent",
+          "amount_raw": "15 vol.% F2/N2",
+          "smiles": "FF",
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "nitrogen",
+          "role": "unknown",
+          "amount_raw": null,
+          "smiles": "N#N",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "is_introduce_gas": {
+          "value": true,
+          "raw": "Introduce diluted fluorine gas over the surface of DMC.",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "gas_flow_rate": {
+          "value": 22.4,
+          "raw": "22.4 mL min^-1 (6.00 × 10^-2 mol hr^-1)",
+          "unit": "ml/min",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.is_sampling",
+          "question": "该通氟反应过程中是否需要过程取样？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Stir the reaction mixture while maintaining cooling at 5 °C.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [
+        {
+          "name": "dimethyl carbonate (DMC)",
+          "role": "substrate",
+          "amount_raw": null,
+          "smiles": "COC(=O)OC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "temperature": {
+          "value": 5,
+          "raw": "5 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Stir the reaction mixture while maintaining cooling at 5 °C.",
+      "platform": "四釜反应平台",
+      "operation": "搅拌",
+      "materials": [
+        {
+          "name": "dimethyl carbonate (DMC)",
+          "role": "substrate",
+          "amount_raw": null,
+          "smiles": "COC(=O)OC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "stirring_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.stirring_speed",
+          "question": "该搅拌步骤的搅拌转速是多少 rpm？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Wash the fluorinated mixture with water.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": null,
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.extract_material_dosage",
+          "question": "水洗步骤加入水的体积是多少 ml？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.standing_time_span",
+          "question": "水洗后静置分层时间是多少 min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "水洗混合时的搅拌速度是多少 rpm？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_timespan",
+          "question": "水洗混合时长是多少 min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "水洗加液速度是多少 ml/s？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "水洗后平台应取上层、下层还是两层都取？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Wash with aqueous sodium carbonate to remove HF.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "sodium carbonate aqueous solution",
+          "role": "wash",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.extract_material_dosage",
+          "question": "碳酸钠水溶液洗涤步骤的用量是多少 ml？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.standing_time_span",
+          "question": "碳酸钠水溶液洗涤后静置分层时间是多少 min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "碳酸钠水溶液洗涤混合时的搅拌速度是多少 rpm？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_timespan",
+          "question": "碳酸钠水溶液洗涤混合时长是多少 min？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "碳酸钠水溶液洗涤的加液速度是多少 ml/s？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "碳酸钠水溶液洗涤后平台应取上层还是下层？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Dry the fluorinated DMC solution over molecular sieve 4A.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "molecular sieve 4A",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 1440,
+          "raw": "ca. 24 hr",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "4A分子筛的加入量是多少 mg？",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "干燥步骤的震荡速度是多少 rpm？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        9
+      ],
+      "source_text": "Isolate MFDMC by fractional distillation at atmospheric pressure.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "monofluorinated dimethyl carbonate (MFDMC)",
+          "role": "product",
+          "amount_raw": null,
+          "smiles": "COC(=O)OCF",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "常压分馏分离MFDMC应映射到哪个平台操作？",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        10
+      ],
+      "source_text": "Collect purified MFDMC.",
+      "platform": null,
+      "operation": null,
+      "materials": [
+        {
+          "name": "monofluorinated dimethyl carbonate (MFDMC)",
+          "role": "product",
+          "amount_raw": null,
+          "smiles": "COC(=O)OCF",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {},
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "纯化后产物收集步骤应映射到哪个平台操作？",
+          "priority": "recommended"
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf/e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf_gold_extraction.json",
+    "document": {
+      "literature_uuid": "e033b3d5_0d1b_5486_a6d0_ebdbde6a12bf",
+      "title": "Synthesis of Fluorinated Dimethyl Carbonates by Direct Fluorination",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T12:08:28.904197+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

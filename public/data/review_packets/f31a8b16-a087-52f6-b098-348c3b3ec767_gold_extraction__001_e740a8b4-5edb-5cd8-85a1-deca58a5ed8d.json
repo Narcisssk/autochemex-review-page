@@ -1,0 +1,571 @@
+{
+  "literature_uuid": "f31a8b16-a087-52f6-b098-348c3b3ec767",
+  "reaction": {
+    "reaction_id": "e740a8b4-5edb-5cd8-85a1-deca58a5ed8d",
+    "reaction_smiles": "COC(=O)c1ccccc1.C[Si](C)(C)C(F)(F)F>>O=C(c1ccccc1)C(F)(F)F",
+    "target": {
+      "name": "1,1,1-trifluoroacetophenone",
+      "smiles": "O=C(c1ccccc1)C(F)(F)F"
+    },
+    "confidence": 0.84,
+    "evidence": [
+      "PDF page 1 text: reaction of methyl benzoate (1a) with TMS-CF3 in dry toluene gave 1,1,1-trifluoroacetophenone (6a)",
+      "PDF page 1 text: TBAF (2.5 mol% in THF) added at -78 °C, warmed to room temperature, stirred 18 h, then treated with 2 M hydrochloric acid",
+      "PDF page 1 Table 1 row a confirms toluene, 18 h, product 6a, 95% yield",
+      "Rendered PDF page 1 image confirms the example paragraph and Table 1 placement"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Methyl benzoate and TMS-CF3 were combined in dry toluene.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "methyl benzoate",
+          "role": "substrate",
+          "amount_raw": null,
+          "smiles": "COC(=O)c1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "methyl benzoate"
+          },
+          "raw": "methyl benzoate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献未给出 methyl benzoate 的加料体积，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明 methyl benzoate 使用哪种加液工装，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明 methyl benzoate 的加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加 methyl benzoate 时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Methyl benzoate and TMS-CF3 were combined in dry toluene.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "(trifluoromethyl)trimethylsilane",
+          "role": "reagent",
+          "amount_raw": "1.25 equiv",
+          "smiles": "C[Si](C)(C)C(F)(F)F",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "(trifluoromethyl)trimethylsilane"
+          },
+          "raw": "(trifluoromethyl)trimethylsilane",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": "1.25 equiv",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出 TMS-CF3 为 1.25 equiv，未给出可直接执行的加料体积，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明 TMS-CF3 使用哪种加液工装，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明 TMS-CF3 的加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加 TMS-CF3 时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Methyl benzoate and TMS-CF3 were combined in dry toluene.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "toluene",
+          "role": "solvent",
+          "amount_raw": "dry toluene",
+          "smiles": "Cc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "toluene"
+          },
+          "raw": "dry toluene",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": "dry toluene",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅说明使用 dry toluene，未给出甲苯体积，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明甲苯使用哪种加液工装，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明甲苯的加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加甲苯时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "The reaction mixture was cooled to -78 °C before initiator addition.",
+      "platform": "四釜反应平台",
+      "operation": "温度控制",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": -78,
+          "raw": "-78 °C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Anhydrous TBAF initiator was added at -78 °C.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "tetrabutylammonium fluoride",
+          "role": "catalyst",
+          "amount_raw": "2.5 mol% in THF",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "tetrabutylammonium fluoride"
+          },
+          "raw": "tetrabutylammonium fluoride",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            null
+          ],
+          "raw": "2.5 mol% in THF",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "文献仅给出 TBAF 为 2.5 mol% in THF，未给出可直接执行的加料体积，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明 TBAF 使用哪种加液工装，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明 TBAF 的加液速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "文献未说明加 TBAF 时是否关盖，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        4,
+        5
+      ],
+      "source_text": "The reaction mixture was allowed to warm slowly to room temperature. The reaction mixture was stirred for 18 h.",
+      "platform": "高通量反应平台",
+      "operation": "普通反应",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "reaction_temperature": {
+          "value": null,
+          "raw": "allowed to warm slowly to room temperature",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 1080,
+          "raw": "18 h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明反应搅拌速度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.reaction_temperature",
+          "question": "文献仅说明缓慢升至室温，平台需要明确反应温度时请专家确认是否填写室温对应数值。",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "The reaction mixture was finally treated with 2 M hydrochloric acid.",
+      "platform": "固液提纯平台",
+      "operation": "淬灭实验",
+      "materials": [
+        {
+          "name": "hydrochloric acid",
+          "role": "acid",
+          "amount_raw": "2 M hydrochloric acid",
+          "smiles": "Cl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "quencher": {
+          "value": {
+            "name": "hydrochloric acid"
+          },
+          "raw": "2 M hydrochloric acid",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "quencher_qty": {
+          "value": null,
+          "raw": "2 M hydrochloric acid",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_order": {
+          "value": true,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "quencher_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "quencher_before_temp": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "quencher_limit_temp": {
+          "value": null,
+          "raw": null,
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "bottle_cap": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "bottle_count": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.quencher_qty",
+          "question": "文献仅说明用 2 M 盐酸处理，未给出盐酸用量，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.quencher_timespan",
+          "question": "文献未说明淬灭持续时间，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.quencher_before_temp",
+          "question": "文献未说明淬灭初始温度，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.quencher_limit_temp",
+          "question": "文献未说明淬灭期间温度限制，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.bottle_cap",
+          "question": "平台淬灭实验需要分瓶容量，文献未提供，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.bottle_count",
+          "question": "平台淬灭实验需要分瓶数量，文献未提供，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "仅依据 reaction.operations 进行映射；未使用 outcome 或其他非操作信息补全平台参数。",
+    "文献未提供具体反应规模、各液体体积、搅拌转速及淬灭执行细节，因此多项平台必填参数需专家确认。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/f31a8b16-a087-52f6-b098-348c3b3ec767/f31a8b16-a087-52f6-b098-348c3b3ec767_gold_extraction.json",
+    "document": {
+      "literature_uuid": "f31a8b16-a087-52f6-b098-348c3b3ec767",
+      "title": "Direct Preparation of Trifluoromethyl Ketones from Carboxylic Esters: Trifluoromethylation with (Trifluoromethyl)trimethylsilane",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:35:24.779382+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

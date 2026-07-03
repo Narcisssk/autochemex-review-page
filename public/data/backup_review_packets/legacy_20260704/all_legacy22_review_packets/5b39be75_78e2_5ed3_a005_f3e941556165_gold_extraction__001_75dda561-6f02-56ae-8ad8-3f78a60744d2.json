@@ -1,0 +1,942 @@
+{
+  "literature_uuid": "5b39be75_78e2_5ed3_a005_f3e941556165",
+  "reaction": {
+    "reaction_id": "75dda561-6f02-56ae-8ad8-3f78a60744d2",
+    "reaction_smiles": "C=Cc1ccccc1.O>>OCC(F)c1ccccc1",
+    "target": {
+      "name": "2-fluoro-1-hydroxy-1-phenylethane",
+      "smiles": "OCC(F)c1ccccc1"
+    },
+    "confidence": 0.87,
+    "evidence": [
+      "Table II, page 2793",
+      "Experimental Section, Fluorination of Olefins, page 2795"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Prepare a CH3CN solution of the olefin with water under N2.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "styrene",
+          "role": "substrate",
+          "amount_raw": "1 mmol",
+          "smiles": "C=Cc1ccccc1",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "styrene"
+          },
+          "raw": "styrene",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": null,
+          "raw": "1 mmol",
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.dosage",
+          "question": "苯乙烯在平台加液步骤中需要填写体积（ml），文献只给出1 mmol，是否请专家补充对应加液体积？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Prepare a CH3CN solution of the olefin with water under N2.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "acetonitrile",
+          "role": "solvent",
+          "amount_raw": "10 mL",
+          "smiles": "CC#N",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "acetonitrile"
+          },
+          "raw": "acetonitrile",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 10.0,
+          "raw": "10 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Prepare a CH3CN solution of the olefin with water under N2.",
+      "platform": "四釜反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "water",
+          "role": "reagent",
+          "amount_raw": "1.0 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "water"
+          },
+          "raw": "water",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 1.0,
+          "raw": "1.0 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Prepare a CH3CN solution of the olefin with water under N2.",
+      "platform": "四釜反应平台",
+      "operation": "气体置换",
+      "materials": [],
+      "parameters": {
+        "times": {
+          "value": null,
+          "raw": "under N2",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.times",
+          "question": "文献仅说明在氮气下操作，平台“气体置换”需要置换次数，是否请专家确认次数？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Add F-TEDA-BF4 reagent.",
+      "platform": "四釜反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "F-TEDA-BF4",
+          "role": "reagent",
+          "amount_raw": "354 mg",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "F-TEDA-BF4"
+          },
+          "raw": "F-TEDA-BF4",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": 354.0,
+          "raw": "354 mg",
+          "unit": "mg",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_washing": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": []
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Stir at room temperature until completion by GC.",
+      "platform": "四釜反应平台",
+      "operation": "反应",
+      "materials": [],
+      "parameters": {
+        "temperature": {
+          "value": null,
+          "raw": "room temperature",
+          "unit": "℃",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": "until completion by GC",
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_introduce_gas": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        },
+        "is_sampling": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "is_reflux_condensation": {
+          "value": false,
+          "raw": null,
+          "unit": null,
+          "source": "derived",
+          "required_by_platform": false,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.temperature",
+          "question": "“室温”在平台中需要具体温度值（℃），请专家确认应填写多少？",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "反应时间文献仅写“至GC监测反应完成”，请专家确认平台时长如何填写？",
+          "priority": "recommended"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        4
+      ],
+      "source_text": "Monitor completion by gas chromatography.",
+      "platform": "四釜反应平台",
+      "operation": "分析检测",
+      "materials": [],
+      "parameters": {
+        "sampling_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "inspection_scheme": {
+          "value": null,
+          "raw": "gas chromatography",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.sampling_dosage",
+          "question": "GC监测取样量文献未给出，请专家确认分析检测步骤的取样量（ml）。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.inspection_scheme",
+          "question": "文献说明使用GC监测，请专家指定对应的平台检测方案编号。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_8",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Work up by pouring into ether, washing, drying, filtering, evaporating, and chromatographing.",
+      "platform": "固液提纯平台",
+      "operation": "萃取实验",
+      "materials": [
+        {
+          "name": "diethyl ether",
+          "role": "extractant",
+          "amount_raw": "50 mL",
+          "smiles": "CCOCC",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "extract_material": {
+          "value": {
+            "name": "diethyl ether"
+          },
+          "raw": "diethyl ether",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 50.0,
+          "raw": "50 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "standing_time_span": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "stir_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "intput_liquid_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.standing_time_span",
+          "question": "乙醚处理对应萃取步骤的静置时间文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_speed",
+          "question": "乙醚处理对应萃取步骤的搅拌速度文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.stir_timespan",
+          "question": "乙醚处理对应萃取步骤的搅拌时间文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.intput_liquid_speed",
+          "question": "乙醚加入速度文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "乙醚处理后平台需要指定取液层，请专家确认取上层、下层还是都需要。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_9",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Work up by pouring into ether, washing, drying, filtering, evaporating, and chromatographing.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "water",
+          "role": "wash",
+          "amount_raw": "2 × 25 mL",
+          "smiles": "O",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "water"
+          },
+          "raw": "water",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 25.0,
+          "raw": "2 × 25 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 2,
+          "raw": "2 × 25 mL",
+          "unit": "times",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "水洗步骤的静置时间文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "水洗步骤的震荡速度文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "水洗步骤的震荡时间文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "水洗后平台需要指定取液层，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "水洗第一阶段加液速度文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "水洗第二阶段加液速度文献未给出，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_10",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Work up by pouring into ether, washing, drying, filtering, evaporating, and chromatographing.",
+      "platform": "高通量反应平台",
+      "operation": "萃取",
+      "materials": [
+        {
+          "name": "saturated sodium bicarbonate",
+          "role": "wash",
+          "amount_raw": "25 mL",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "extract_material": {
+          "value": {
+            "name": "saturated sodium bicarbonate"
+          },
+          "raw": "saturated sodium bicarbonate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "extract_material_dosage": {
+          "value": 25.0,
+          "raw": "25 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "take_layer": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "ef_ssv": {
+          "value": 1,
+          "raw": null,
+          "unit": "times",
+          "source": "derived",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "drip_speed_in_first_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed_in_second_step": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "饱和碳酸氢钠洗涤步骤的静置时间文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "饱和碳酸氢钠洗涤步骤的震荡速度文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_timespan",
+          "question": "饱和碳酸氢钠洗涤步骤的震荡时间文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.take_layer",
+          "question": "饱和碳酸氢钠洗涤后平台需要指定取液层，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_first_step",
+          "question": "饱和碳酸氢钠洗涤第一阶段加液速度文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed_in_second_step",
+          "question": "饱和碳酸氢钠洗涤第二阶段加液速度文献未给出，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_11",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Work up by pouring into ether, washing, drying, filtering, evaporating, and chromatographing.",
+      "platform": "固液提纯平台",
+      "operation": "干燥实验",
+      "materials": [
+        {
+          "name": "magnesium sulfate",
+          "role": "drying_agent",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "needs_expert"
+        }
+      ],
+      "parameters": {
+        "desiccant": {
+          "value": {
+            "name": "magnesium sulfate"
+          },
+          "raw": "magnesium sulfate",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "desiccant_qty": {
+          "value": null,
+          "raw": null,
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.desiccant_qty",
+          "question": "无水硫酸镁干燥剂用量文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.timespan",
+          "question": "干燥步骤震荡时间文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "干燥步骤震荡速度文献未给出，请专家确认。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_12",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Work up by pouring into ether, washing, drying, filtering, evaporating, and chromatographing.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "过滤时长文献未给出，请专家确认。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.filter_material",
+          "question": "过滤步骤所用滤膜/过滤介质文献未给出，请专家确认平台应填写何种滤材。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_13",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Work up by pouring into ether, washing, drying, filtering, evaporating, and chromatographing.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "evaporating",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "文献仅写“evaporating”，若映射为旋蒸任务，请专家确认旋蒸瓶尺寸。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "若采用旋蒸平台，请专家补充油浴温度、旋蒸时间、冷凝温度、真空度等完整旋蒸参数。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.residual_collection",
+          "question": "请专家确认旋蒸残液是否收集。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_residual_sampling",
+          "question": "请专家确认旋蒸残液是否需要取样。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "请专家确认旋蒸冷凝管路是否需要清洗。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_14",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Work up by pouring into ether, washing, drying, filtering, evaporating, and chromatographing.",
+      "platform": "过柱纯化平台",
+      "operation": "过柱",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/min",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "method": {
+          "value": null,
+          "raw": "silica gel flash chromatography",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.method",
+          "question": "文献仅说明“硅胶快速柱色谱”，平台方法枚举未见直接对应项，请专家确认应选择哪一个过柱方法。",
+          "priority": "recommended"
+        },
+        {
+          "field": "parameters.speed",
+          "question": "过柱进样流速文献未给出，请专家确认。",
+          "priority": "optional"
+        },
+        {
+          "field": "parameters.dosage",
+          "question": "过柱进样量文献未给出，请专家确认。",
+          "priority": "optional"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "反应温度仅记载为room temperature，未转换为具体℃值。",
+    "反应完成时间仅记载为由GC监测至完成，未给出固定时长。",
+    "后处理操作为复合描述，已拆分为萃取/洗涤/干燥/过滤/蒸发/过柱等平台候选步骤。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/pilot11_uuid/5b39be75_78e2_5ed3_a005_f3e941556165/5b39be75_78e2_5ed3_a005_f3e941556165_gold_extraction.json",
+    "document": {
+      "literature_uuid": "5b39be75_78e2_5ed3_a005_f3e941556165",
+      "title": "Site-Selective Fluorination of Organic Compounds Using 1-Alkyl-4-fluoro-1,4-diazabicyclo[2.2.2]octane Salts (Selectfluor Reagents)",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-06-25T11:43:43.741574+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}

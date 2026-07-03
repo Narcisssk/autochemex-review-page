@@ -1,0 +1,513 @@
+{
+  "literature_uuid": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c",
+  "reaction": {
+    "reaction_id": "ceb24d3d-7501-5cd8-b38a-7ac57c3ca4be",
+    "reaction_smiles": "COCC1CO1>>COCC(O)CF",
+    "target": {
+      "name": "1-Fluoro-3-(methoxy)propan-2-ol (5a)",
+      "smiles": "COCC(O)CF"
+    },
+    "confidence": 0.96,
+    "evidence": [
+      "General Method for the Preparation of Fluorohydrins 4,5,7, PDF p.5",
+      "1-Fluoro-3-(methoxy)propan-2-ol (5a), PDF pp.5-6",
+      "Table 1 entry 4, PDF p.3"
+    ]
+  },
+  "platform_review_steps": [
+    {
+      "review_step_id": "step_1",
+      "source_operation_orders": [
+        1
+      ],
+      "source_text": "Charge epoxide 3a, KHF2, and tetrabutylammonium dihydrogentrifluoride.",
+      "platform": "高通量反应平台",
+      "operation": "固体加料",
+      "materials": [
+        {
+          "name": "[(Methoxy)methyl]oxirane (3a)",
+          "role": "substrate",
+          "amount_raw": "10 mmol",
+          "smiles": "COCC1CO1",
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "KHF2",
+          "role": "reagent",
+          "amount_raw": "20 mmol",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        },
+        {
+          "name": "tetrabutylammonium dihydrogentrifluoride (1)",
+          "role": "catalyst",
+          "amount_raw": "1 mmol",
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": [
+            {
+              "name": "[(Methoxy)methyl]oxirane (3a)"
+            },
+            {
+              "name": "KHF2"
+            },
+            {
+              "name": "tetrabutylammonium dihydrogentrifluoride (1)"
+            }
+          ],
+          "raw": "epoxide 3a, KHF2, and tetrabutylammonium dihydrogentrifluoride",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "qty": {
+          "value": [
+            null,
+            null,
+            null
+          ],
+          "raw": [
+            "10 mmol",
+            "20 mmol",
+            "1 mmol"
+          ],
+          "unit": "mg",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.qty",
+          "question": "文献仅给出3种物料的mmol，平台要求固体加料的mg用量；请确认各物料对应的mg加量。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "固体加料后平台要求确认是否关盖；请确认本步是否关盖。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_2",
+      "source_operation_orders": [
+        2
+      ],
+      "source_text": "Stir the mixture at 120°C until the starting material is no longer detectable.",
+      "platform": "高通量反应平台",
+      "operation": "温度与搅拌",
+      "materials": [],
+      "parameters": {
+        "speed": {
+          "value": null,
+          "raw": null,
+          "unit": "rpm",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "timespan": {
+          "value": 180.0,
+          "raw": "3h",
+          "unit": "min",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "temperature": {
+          "value": 120.0,
+          "raw": "120°C",
+          "unit": "℃",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.speed",
+          "question": "文献未说明搅拌转速，平台要求填写rpm；请确认本反应的搅拌速度。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_3",
+      "source_operation_orders": [
+        3
+      ],
+      "source_text": "Monitor reaction progress by GLC, NMR and/or TLC until starting material is absent.",
+      "platform": "高通量反应平台",
+      "operation": "结果检测",
+      "materials": [],
+      "parameters": {
+        "sampling_dosage": {
+          "value": null,
+          "raw": null,
+          "unit": "ml",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "inspection_scheme": {
+          "value": null,
+          "raw": "GLC, NMR and/or TLC",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.sampling_dosage",
+          "question": "文献仅说明用GLC、NMR和/或TLC监测，未给出取样量；请确认结果检测取样量。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.inspection_scheme",
+          "question": "文献提到GLC、NMR和/或TLC监测，但平台需要具体检测方案编号；请确认应使用的检测方案。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_4",
+      "source_operation_orders": [
+        5
+      ],
+      "source_text": "Dilute the crude mixture with dichloromethane.",
+      "platform": "高通量反应平台",
+      "operation": "液体加料",
+      "materials": [
+        {
+          "name": "CH2Cl2",
+          "role": "unknown",
+          "amount_raw": "30 mL",
+          "smiles": "ClCCl",
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "material": {
+          "value": {
+            "name": "CH2Cl2"
+          },
+          "raw": "CH2Cl2",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "dosage": {
+          "value": [
+            30.0
+          ],
+          "raw": "30 mL",
+          "unit": "ml",
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        },
+        "tool_use": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "drip_speed": {
+          "value": null,
+          "raw": null,
+          "unit": "ml/s",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "lid_status": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.tool_use",
+          "question": "文献未说明二氯甲烷稀释时使用的工装编号；请确认使用移液枪、针泵还是反应区针泵。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.drip_speed",
+          "question": "文献未说明二氯甲烷加液速度；请确认平台加液速度。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.lid_status",
+          "question": "液体加料时平台要求确认是否关盖；请确认本步是否关盖。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_5",
+      "source_operation_orders": [
+        6
+      ],
+      "source_text": "Filter the mixture through Celite.",
+      "platform": "固液提纯平台",
+      "operation": "过滤",
+      "materials": [
+        {
+          "name": "Celite",
+          "role": "unknown",
+          "amount_raw": null,
+          "smiles": null,
+          "source": "literature",
+          "review_status": "ok"
+        }
+      ],
+      "parameters": {
+        "timespan": {
+          "value": null,
+          "raw": null,
+          "unit": "min",
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "filter_material": {
+          "value": {
+            "name": "Celite"
+          },
+          "raw": "filtered on celite",
+          "unit": null,
+          "source": "literature",
+          "required_by_platform": true,
+          "review_status": "ok"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.timespan",
+          "question": "文献仅说明经Celite过滤，未给出过滤时长；请确认过滤步骤时长。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_6",
+      "source_operation_orders": [
+        7
+      ],
+      "source_text": "Evaporate the solvent under reduced pressure.",
+      "platform": "旋蒸预留平台",
+      "operation": "旋蒸任务",
+      "materials": [],
+      "parameters": {
+        "container_type": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "outcome_params": {
+          "value": null,
+          "raw": "Evaporate the solvent under reduced pressure",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "residual_collection": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_residual_sampling": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        },
+        "is_rotary_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "is_condense_wash": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": true,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "parameters.container_type",
+          "question": "文献仅说明减压除溶剂，未说明旋蒸瓶规格；请确认容器尺寸。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.outcome_params",
+          "question": "文献未提供旋蒸油浴温度、是否阶梯升温、旋蒸时间、冷凝温度、真空度及取样等参数；请补充完整旋蒸任务参数。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.residual_collection",
+          "question": "平台要求确认是否收集残液；请确认本旋蒸步骤是否收集残液。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_residual_sampling",
+          "question": "平台要求确认残液是否取样；请确认是否进行残液取样。",
+          "priority": "required"
+        },
+        {
+          "field": "parameters.is_condense_wash",
+          "question": "平台要求确认是否清洗冷凝管路；请确认本旋蒸步骤是否进行冷凝管路清洗。",
+          "priority": "required"
+        }
+      ]
+    },
+    {
+      "review_step_id": "step_7",
+      "source_operation_orders": [
+        8
+      ],
+      "source_text": "Purify the residue by distillation; the crude is distilled for 5a.",
+      "platform": "精馏平台",
+      "operation": "1、待精馏物料及用户数据（关联待精馏物料的实验）",
+      "materials": [],
+      "parameters": {
+        "action_38_property_3": {
+          "value": null,
+          "raw": "residue / crude for 5a",
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_4": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_5": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_6": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_7": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_8": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_9": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_10": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        },
+        "action_38_property_11": {
+          "value": null,
+          "raw": null,
+          "unit": null,
+          "source": "missing",
+          "required_by_platform": false,
+          "review_status": "needs_expert"
+        }
+      },
+      "review_questions": [
+        {
+          "field": "operation",
+          "question": "文献仅说明通过蒸馏纯化残渣，精馏平台需要详细蒸馏/精馏任务数据；请确认是否用该平台承接，并补充待精馏物料与用户数据。",
+          "priority": "recommended"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "未将cool单独映射为平台步骤，因为注册表中无明确对应的高通量冷却操作。",
+    "distill步骤与平台匹配存在不确定性；当前选择精馏平台的起始数据记录作为最佳候选，需要专家确认。"
+  ],
+  "metadata": {
+    "literature_gold_path": "src/data/generated/gold_extractions_mineru_agent/candidate_review_20260703_selected/cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c/cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c_gold_extraction.json",
+    "document": {
+      "literature_uuid": "cfba6c8b-e049-5706-ac3f-4ccaf33e9a2c",
+      "title": "Regioselective Conversion of O-Protected Glycidols to Fluorohydrins Catalyzed by Tetrabutylammonium Dihydrogentrifluoride Under Solid-Liquid PTC Conditions",
+      "source_type": "journal_article"
+    },
+    "generated_at": "2026-07-03T16:31:23.092370+00:00",
+    "model": "openai/gpt-5.4"
+  }
+}
