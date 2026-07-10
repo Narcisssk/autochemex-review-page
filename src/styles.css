@@ -320,6 +320,157 @@ textarea {
   padding-left: 18px;
 }
 
+.reaction-visualization {
+  background: #fbfcff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  grid-column: 1 / -1;
+  overflow: hidden;
+}
+
+.reaction-visualization-header {
+  align-items: center;
+  background: #eef4ff;
+  border-bottom: 1px solid #d8e0ea;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 9px 12px;
+}
+
+.reaction-visualization-header span:first-child {
+  color: #1f2a37;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.reaction-visualization-header span:last-child {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.reaction-flow {
+  align-items: stretch;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 12px;
+}
+
+.reaction-section {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  min-width: 220px;
+  overflow: hidden;
+}
+
+.reaction-section-label {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 7px 9px;
+}
+
+.molecule-list {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.molecule-card {
+  background: #ffffff;
+  border: 1px solid #d8e0ea;
+  border-radius: 6px;
+  display: flex;
+  flex: 0 0 214px;
+  flex-direction: column;
+  min-height: 204px;
+  overflow: hidden;
+}
+
+.molecule-card.invalid {
+  border-color: #fecaca;
+}
+
+.molecule-svg {
+  align-items: center;
+  display: flex;
+  height: 160px;
+  justify-content: center;
+  padding: 5px;
+}
+
+.molecule-svg svg {
+  height: auto;
+  max-height: 150px;
+  max-width: 100%;
+  width: auto;
+}
+
+.molecule-smiles {
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.35;
+  max-height: 44px;
+  overflow: hidden;
+  padding: 7px 8px;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.molecule-error,
+.reaction-visualization-empty,
+.reaction-visualization-error {
+  color: #64748b;
+  font-size: 13px;
+  padding: 14px;
+}
+
+.molecule-error {
+  align-items: center;
+  color: #991b1b;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+
+.reaction-visualization-error {
+  color: #991b1b;
+}
+
+.reaction-visualization-empty.compact {
+  padding: 8px;
+}
+
+.reaction-arrow,
+.molecule-plus {
+  align-items: center;
+  color: #334155;
+  display: flex;
+  flex: 0 0 auto;
+  font-weight: 800;
+  justify-content: center;
+}
+
+.reaction-arrow {
+  font-size: 24px;
+  padding-top: 30px;
+}
+
+.molecule-plus {
+  font-size: 20px;
+}
+
 .json-editor {
   font-family: "Cascadia Code", Consolas, monospace;
   min-height: 68vh;

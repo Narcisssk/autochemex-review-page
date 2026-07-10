@@ -1,6 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { ArrowDown, ArrowUp, CopyPlus, Download, FileDown, Plus, RotateCcw, Save, Trash2 } from 'lucide-react';
+import type { JSMol, RDKitModule } from '@rdkit/rdkit';
+import rdkitScriptUrl from '@rdkit/rdkit/dist/RDKit_minimal.js?url';
+import rdkitWasmUrl from '@rdkit/rdkit/dist/RDKit_minimal.wasm?url';
 import './styles.css';
 
 type JsonValue = string | number | boolean | null | JsonObject | JsonValue[];
@@ -70,6 +73,19 @@ type RegistryRecord = {
   name?: string;
   operation?: string;
   properties?: Array<{ properties?: ParameterDef[] }>;
+};
+
+type MoleculeSvg = {
+  smiles: string;
+  svg?: string;
+  error?: string;
+};
+
+type ReactionDiagramData = {
+  reactants: MoleculeSvg[];
+  agents: MoleculeSvg[];
+  products: MoleculeSvg[];
+  mode: 'reaction' | 'target';
 };
 
 const DATA_BASE = './data';
@@ -393,6 +409,10 @@ function App() {
                 <span>Reaction SMILES</span>
                 <textarea value={packet.reaction.reaction_smiles || ''} onChange={(event) => updateReaction('reaction_smiles', event.target.value)} />
               </label>
+              <ReactionDiagram
+                reactionSmiles={packet.reaction.reaction_smiles || ''}
+                targetSmiles={packet.reaction.target?.smiles || ''}
+              />
               <EvidenceList title="Literature evidence" evidence={packet.reaction.evidence} />
             </section>
 
@@ -844,6 +864,174 @@ async function fetchJson<T>(url: string): Promise<T> {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Failed to load ${url}: ${response.status}`);
   return await response.json() as T;
+}
+
+function ReactionDiagram(props: { reactionSmiles: string; targetSmiles: string }) {
+  const [state, setState] = React.useState<{ status: 'idle' | 'loading' | 'ready' | 'error'; message?: string; data?: ReactionDiagramData }>({ status: 'idle' });
+
+  React.useEffect(() => {
+    let cancelled = false;
+    const reactionSmiles = props.reactionSmiles.trim();
+    const targetSmiles = props.targetSmiles.trim();
+    if (!reactionSmiles && !targetSmiles) {
+      setState({ status: 'idle' });
+      return;
+    }
+
+    setState({ status: 'loading', message: 'Loading RDKit renderer...' });
+    loadRdkit()
+      .then((rdkit) => {
+        if (!cancelled) setState({ status: 'ready', data: buildReactionDiagram(rdkit, reactionSmiles, targetSmiles) });
+      })
+      .catch((error) => {
+        if (!cancelled) setState({ status: 'error', message: `Unable to load RDKit renderer: ${String(error)}` });
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [props.reactionSmiles, props.targetSmiles]);
+
+  return (
+    <div className="reaction-visualization">
+      <div className="reaction-visualization-header">
+        <span>Chemical reaction</span>
+        {state.data && <span>{state.data.mode === 'reaction' ? 'Rendered from Reaction SMILES' : 'Target structure fallback'}</span>}
+      </div>
+      {state.status === 'idle' && <div className="reaction-visualization-empty">No SMILES available.</div>}
+      {state.status === 'loading' && <div className="reaction-visualization-empty">{state.message}</div>}
+      {state.status === 'error' && <div className="reaction-visualization-error">{state.message}</div>}
+      {state.status === 'ready' && state.data && <ReactionDiagramRows data={state.data} />}
+    </div>
+  );
+}
+
+function ReactionDiagramRows(props: { data: ReactionDiagramData }) {
+  const sections = props.data.mode === 'reaction'
+    ? [
+        { label: 'Reactants', molecules: props.data.reactants },
+        ...(props.data.agents.length ? [{ label: 'Agents', molecules: props.data.agents }] : []),
+        { label: 'Products', molecules: props.data.products },
+      ]
+    : [{ label: 'Target', molecules: props.data.products }];
+
+  return (
+    <div className="reaction-flow">
+      {sections.map((section, index) => (
+        <React.Fragment key={section.label}>
+          {index > 0 && <div className="reaction-arrow" aria-hidden="true">-&gt;</div>}
+          <div className="reaction-section">
+            <div className="reaction-section-label">{section.label}</div>
+            <div className="molecule-list">
+              {section.molecules.length === 0 ? (
+                <div className="reaction-visualization-empty compact">None</div>
+              ) : section.molecules.map((molecule, moleculeIndex) => (
+                <React.Fragment key={`${molecule.smiles}-${moleculeIndex}`}>
+                  {moleculeIndex > 0 && <div className="molecule-plus" aria-hidden="true">+</div>}
+                  <MoleculeCard molecule={molecule} />
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+function MoleculeCard(props: { molecule: MoleculeSvg }) {
+  return (
+    <div className={`molecule-card ${props.molecule.error ? 'invalid' : ''}`}>
+      {props.molecule.svg ? (
+        <div className="molecule-svg" role="img" aria-label={props.molecule.smiles} dangerouslySetInnerHTML={{ __html: props.molecule.svg }} />
+      ) : (
+        <div className="molecule-error">{props.molecule.error || 'Unable to render molecule.'}</div>
+      )}
+      <div className="molecule-smiles" title={props.molecule.smiles}>{props.molecule.smiles}</div>
+    </div>
+  );
+}
+
+let rdkitModulePromise: Promise<RDKitModule> | null = null;
+let rdkitScriptPromise: Promise<void> | null = null;
+
+function loadRdkit(): Promise<RDKitModule> {
+  if (!rdkitModulePromise) {
+    rdkitModulePromise = loadRdkitScript().then(async () => {
+      const rdkit = await window.initRDKitModule({ locateFile: () => rdkitWasmUrl });
+      rdkit.prefer_coordgen(true);
+      return rdkit;
+    });
+  }
+  return rdkitModulePromise;
+}
+
+function loadRdkitScript(): Promise<void> {
+  if (window.initRDKitModule) return Promise.resolve();
+  if (rdkitScriptPromise) return rdkitScriptPromise;
+
+  rdkitScriptPromise = new Promise((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>('script[data-rdkit-script="true"]');
+    if (existing) {
+      existing.addEventListener('load', () => resolve(), { once: true });
+      existing.addEventListener('error', () => reject(new Error('RDKit script failed to load.')), { once: true });
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = rdkitScriptUrl;
+    script.async = true;
+    script.dataset.rdkitScript = 'true';
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error('RDKit script failed to load.'));
+    document.head.appendChild(script);
+  });
+
+  return rdkitScriptPromise;
+}
+
+function buildReactionDiagram(rdkit: RDKitModule, reactionSmiles: string, targetSmiles: string): ReactionDiagramData {
+  const parsed = parseReactionSmiles(reactionSmiles);
+  if (parsed) {
+    return {
+      reactants: parsed.reactants.map((smiles) => renderMolecule(rdkit, smiles)),
+      agents: parsed.agents.map((smiles) => renderMolecule(rdkit, smiles)),
+      products: parsed.products.map((smiles) => renderMolecule(rdkit, smiles)),
+      mode: 'reaction',
+    };
+  }
+
+  return {
+    reactants: [],
+    agents: [],
+    products: [renderMolecule(rdkit, targetSmiles || reactionSmiles)],
+    mode: 'target',
+  };
+}
+
+function parseReactionSmiles(value: string): { reactants: string[]; agents: string[]; products: string[] } | null {
+  const parts = value.trim().split('>');
+  if (parts.length !== 3) return null;
+  const [reactants, agents, products] = parts.map(splitSmilesGroup);
+  if (reactants.length === 0 && products.length === 0) return null;
+  return { reactants, agents, products };
+}
+
+function splitSmilesGroup(value: string): string[] {
+  return value.split('.').map((item) => item.trim()).filter(Boolean);
+}
+
+function renderMolecule(rdkit: RDKitModule, smiles: string): MoleculeSvg {
+  let molecule: JSMol | null = null;
+  try {
+    molecule = rdkit.get_mol(smiles);
+    if (!molecule) return { smiles, error: 'Invalid SMILES' };
+    return { smiles, svg: molecule.get_svg(190, 150) };
+  } catch (error) {
+    return { smiles, error: String(error) };
+  } finally {
+    molecule?.delete();
+  }
 }
 
 function platformOptions(registry: RegistryRecord[]): Record<string, string[]> {

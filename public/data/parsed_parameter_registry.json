@@ -27,12 +27,20 @@
             "category": "ENUM",
             "description": null,
             "meta_data": {
-              "options": {
-                "1": "反应区1-TCU控温搅拌冷凝",
-                "2": "反应区2-TEC控温搅拌穿刺",
-                "3": "反应区3-TCU控温搅拌穿刺",
-                "4": "反应区4-TEC控温搅拌"
-              },
+              "options": [
+                {
+                  "label": "反应区1-TCU控温搅拌冷凝"
+                },
+                {
+                  "label": "反应区2-TEC控温搅拌穿刺"
+                },
+                {
+                  "label": "反应区3-TCU控温搅拌穿刺"
+                },
+                {
+                  "label": "反应区4-TEC控温搅拌"
+                }
+              ],
               "multi_select": false
             },
             "required": true,
@@ -56,7 +64,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-Start",
+    "operation_code": "ACT-HTRP-Start"
   },
   {
     "id": 6,
@@ -76,8 +86,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -85,8 +95,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -123,11 +133,31 @@
             "category": "ENUM",
             "description": null,
             "meta_data": {
-              "options": {
-                "0": "移液枪",
-                "1": "针泵",
-                "2": "反应区针泵"
-              }
+              "options": [
+                {
+                  "label": "移液枪"
+                },
+                {
+                  "label": "针泵"
+                },
+                {
+                  "label": "反应区针泵"
+                }
+              ]
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 6
+          },
+          {
+            "id": 306,
+            "name": "前1mL加液速度",
+            "key": "init_1mLFlow",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "ml/s",
+              "default": 0
             },
             "required": true,
             "validator": [],
@@ -162,7 +192,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-LiquidInput",
+    "operation_code": "ACT-HTRP-LiquidInput"
   },
   {
     "id": 7,
@@ -182,8 +214,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -191,8 +223,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -238,7 +270,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-SolidInput",
+    "operation_code": "ACT-HTRP-SolidInput"
   },
   {
     "id": 8,
@@ -291,7 +325,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-Stir",
+    "operation_code": "ACT-HTRP-Stir"
   },
   {
     "id": 9,
@@ -331,7 +367,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-Shake",
+    "operation_code": "ACT-HTRP-Shake"
   },
   {
     "id": 10,
@@ -384,7 +422,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-GeneralReactStart",
+    "operation_code": "ACT-HTRP-GeneralReactStart"
   },
   {
     "id": 12,
@@ -450,7 +490,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-RefluxCondensation",
+    "operation_code": "ACT-HTRP-RefluxCondensation"
   },
   {
     "id": 13,
@@ -470,8 +512,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -479,8 +521,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -608,7 +650,6 @@
             "description": null,
             "meta_data": {
               "display_condition": {
-                "value": true,
                 "property": "n2_displacement"
               }
             },
@@ -625,7 +666,6 @@
             "meta_data": {
               "unit": "s",
               "display_condition": {
-                "value": true,
                 "property": "n2_displacement"
               }
             },
@@ -658,7 +698,7 @@
                   "category": "FLOAT",
                   "required": true,
                   "meta_data": {
-                    "max": 8.0,
+                    "max": 8,
                     "unit": "ml"
                   }
                 },
@@ -678,12 +718,58 @@
                   "category": "INTEGER",
                   "required": true,
                   "meta_data": {
-                    "model": "experiment.InspectionSchemeVersion"
+                    "model": "experiment.InspectionSchemeVersion",
+                    "options": [
+                      {
+                        "label": "中和"
+                      },
+                      {
+                        "label": "稀释"
+                      },
+                      {
+                        "label": "压滤"
+                      },
+                      {
+                        "label": "检测"
+                      },
+                      {
+                        "label": "test-all"
+                      },
+                      {
+                        "label": "存在依赖不允许删除"
+                      },
+                      {
+                        "label": "多步骤"
+                      },
+                      {
+                        "label": "test"
+                      },
+                      {
+                        "label": "test111801"
+                      },
+                      {
+                        "label": "test111803"
+                      },
+                      {
+                        "label": "OnlyPH"
+                      },
+                      {
+                        "label": "1.0.0 部署测试"
+                      },
+                      {
+                        "label": "实验四-检测方案"
+                      },
+                      {
+                        "label": "实验三-检测方案"
+                      },
+                      {
+                        "label": "S1-GCMS-过滤"
+                      }
+                    ]
                   }
                 }
               ],
               "display_condition": {
-                "value": true,
                 "property": "is_sampling"
               }
             },
@@ -695,7 +781,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-IPLAR",
+    "operation_code": "ACT-HTRP-IPLAR"
   },
   {
     "id": 14,
@@ -712,7 +800,7 @@
             "category": "FLOAT",
             "description": null,
             "meta_data": {
-              "max": 8.0,
+              "max": 8,
               "unit": "ml"
             },
             "required": true,
@@ -726,7 +814,54 @@
             "category": "INTEGER",
             "description": "每个瓶子的检测方案",
             "meta_data": {
-              "model": "experiment.InspectionSchemeVersion"
+              "model": "experiment.InspectionSchemeVersion",
+              "options": [
+                {
+                  "label": "中和"
+                },
+                {
+                  "label": "稀释"
+                },
+                {
+                  "label": "压滤"
+                },
+                {
+                  "label": "检测"
+                },
+                {
+                  "label": "test-all"
+                },
+                {
+                  "label": "存在依赖不允许删除"
+                },
+                {
+                  "label": "多步骤"
+                },
+                {
+                  "label": "test"
+                },
+                {
+                  "label": "test111801"
+                },
+                {
+                  "label": "test111803"
+                },
+                {
+                  "label": "OnlyPH"
+                },
+                {
+                  "label": "1.0.0 部署测试"
+                },
+                {
+                  "label": "实验四-检测方案"
+                },
+                {
+                  "label": "实验三-检测方案"
+                },
+                {
+                  "label": "S1-GCMS-过滤"
+                }
+              ]
             },
             "required": true,
             "validator": [],
@@ -736,7 +871,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-EndSampling",
+    "operation_code": "ACT-HTRP-EndSampling"
   },
   {
     "id": 15,
@@ -756,8 +893,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -765,8 +902,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -788,12 +925,20 @@
             "category": "ENUM",
             "description": null,
             "meta_data": {
-              "options": {
-                "0": "None",
-                "1": "上层",
-                "2": "下层",
-                "3": "都需要"
-              }
+              "options": [
+                {
+                  "label": "None"
+                },
+                {
+                  "label": "上层"
+                },
+                {
+                  "label": "下层"
+                },
+                {
+                  "label": "都需要"
+                }
+              ]
             },
             "required": true,
             "validator": [],
@@ -825,7 +970,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-Dilute",
+    "operation_code": "ACT-HTRP-Dilute"
   },
   {
     "id": 16,
@@ -884,8 +1031,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -893,8 +1040,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -931,11 +1078,17 @@
             "category": "ENUM",
             "description": null,
             "meta_data": {
-              "options": {
-                "0": "None",
-                "1": "上层",
-                "2": "下层"
-              }
+              "options": [
+                {
+                  "label": "None"
+                },
+                {
+                  "label": "上层"
+                },
+                {
+                  "label": "下层"
+                }
+              ]
             },
             "required": true,
             "validator": [],
@@ -984,7 +1137,743 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "高通量反应平台"
+    "platform": "高通量反应平台",
+    "operation_type": "HTRP-Extract",
+    "operation_code": "ACT-HTRP-Extract"
+  },
+  {
+    "id": 18,
+    "name": "过滤",
+    "object_id": 14,
+    "properties": [
+      {
+        "name": null,
+        "properties": [
+          {
+            "id": 107,
+            "name": "时长",
+            "key": "timespan",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "min"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 18
+          },
+          {
+            "id": 108,
+            "name": "滤膜",
+            "key": "filter_material",
+            "category": "OBJECT",
+            "description": null,
+            "meta_data": {
+              "model": "material.MaterialInfo",
+              "schema": [
+                {
+                  "key": "name",
+                  "name": "物料名称",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                },
+                {
+                  "key": "code",
+                  "name": "物料代码",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                }
+              ],
+              "tag_id": 13,
+              "max_length": 255
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 18
+          },
+          {
+            "id": 301,
+            "name": "清洗剂",
+            "key": "clean_material",
+            "category": "OBJECT",
+            "description": "",
+            "meta_data": {
+              "model": "material.MaterialInfo",
+              "schema": [
+                {
+                  "key": "name",
+                  "name": "物料名称",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                },
+                {
+                  "key": "code",
+                  "name": "物料代码",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                }
+              ],
+              "tag_id": 12,
+              "max_length": 255
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 18
+          }
+        ]
+      }
+    ],
+    "content_type_id": 50,
+    "platform": "固液提纯平台",
+    "operation_type": "SLP-Filter",
+    "operation_code": "ACT-SLP-Filter"
+  },
+  {
+    "id": 19,
+    "name": "离心",
+    "object_id": 15,
+    "properties": [
+      {
+        "name": null,
+        "properties": [
+          {
+            "id": 109,
+            "name": "离心速度",
+            "key": "centrifugal_speed",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "rpm"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 19
+          },
+          {
+            "id": 110,
+            "name": "离心温度",
+            "key": "centrifugal_temperature",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "℃"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 19
+          },
+          {
+            "id": 111,
+            "name": "时长",
+            "key": "timespan",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "min"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 19
+          }
+        ]
+      }
+    ],
+    "content_type_id": 50,
+    "platform": "固液提纯平台",
+    "operation_type": "SLP-Centrifugal",
+    "operation_code": "ACT-SLP-Centrifugal"
+  },
+  {
+    "id": 20,
+    "name": "萃取实验",
+    "object_id": 16,
+    "properties": [
+      {
+        "name": null,
+        "properties": [
+          {
+            "id": 113,
+            "name": "萃取剂",
+            "key": "extract_material",
+            "category": "OBJECT",
+            "description": null,
+            "meta_data": {
+              "model": "material.MaterialInfo",
+              "schema": [
+                {
+                  "key": "name",
+                  "name": "物料名称",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                },
+                {
+                  "key": "code",
+                  "name": "物料代码",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                }
+              ],
+              "tag_id": 56,
+              "max_length": 255
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 20
+          },
+          {
+            "id": 114,
+            "name": "萃取剂用量",
+            "key": "extract_material_dosage",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "ml",
+              "quantity_for": "extract_material"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 20
+          },
+          {
+            "id": 115,
+            "name": "静置时间",
+            "key": "standing_time_span",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "min"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 20
+          },
+          {
+            "id": 116,
+            "name": "搅拌速度",
+            "key": "stir_speed",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "rpm"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 20
+          },
+          {
+            "id": 117,
+            "name": "搅拌时间",
+            "key": "stir_timespan",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "min"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 20
+          },
+          {
+            "id": 118,
+            "name": "加液速度",
+            "key": "intput_liquid_speed",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "ml/s"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 20
+          },
+          {
+            "id": 120,
+            "name": "取液层",
+            "key": "take_layer",
+            "category": "ENUM",
+            "description": null,
+            "meta_data": {
+              "options": [
+                {
+                  "label": "上层"
+                },
+                {
+                  "label": "下层"
+                },
+                {
+                  "label": "都需要"
+                }
+              ]
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 20
+          },
+          {
+            "id": 302,
+            "name": "清洗剂",
+            "key": "clean_material",
+            "category": "OBJECT",
+            "description": null,
+            "meta_data": {
+              "model": "material.MaterialInfo",
+              "schema": [
+                {
+                  "key": "name",
+                  "name": "物料名称",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                },
+                {
+                  "key": "code",
+                  "name": "物料代码",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                }
+              ],
+              "tag_id": 12,
+              "max_length": 255
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 20
+          }
+        ]
+      }
+    ],
+    "content_type_id": 50,
+    "platform": "固液提纯平台",
+    "operation_type": "SLP-Extract",
+    "operation_code": "ACT-SLP-Extract"
+  },
+  {
+    "id": 21,
+    "name": "分析检测",
+    "object_id": 17,
+    "properties": [
+      {
+        "name": null,
+        "properties": [
+          {
+            "id": 121,
+            "name": "取样量",
+            "key": "sampling_dosage",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "max": 8,
+              "unit": "ml"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 21
+          },
+          {
+            "id": 122,
+            "name": "检测方案",
+            "key": "inspection_scheme",
+            "category": "INTEGER",
+            "description": null,
+            "meta_data": {
+              "model": "experiment.InspectionSchemeVersion",
+              "options": [
+                {
+                  "label": "中和"
+                },
+                {
+                  "label": "稀释"
+                },
+                {
+                  "label": "压滤"
+                },
+                {
+                  "label": "检测"
+                },
+                {
+                  "label": "test-all"
+                },
+                {
+                  "label": "存在依赖不允许删除"
+                },
+                {
+                  "label": "多步骤"
+                },
+                {
+                  "label": "test"
+                },
+                {
+                  "label": "test111801"
+                },
+                {
+                  "label": "test111803"
+                },
+                {
+                  "label": "OnlyPH"
+                },
+                {
+                  "label": "1.0.0 部署测试"
+                },
+                {
+                  "label": "实验四-检测方案"
+                },
+                {
+                  "label": "实验三-检测方案"
+                },
+                {
+                  "label": "S1-GCMS-过滤"
+                }
+              ]
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 21
+          },
+          {
+            "id": 305,
+            "name": "是否过程取样",
+            "key": "process_inspection",
+            "category": "BOOLEAN",
+            "description": null,
+            "meta_data": {
+              "default": true
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 21
+          },
+          {
+            "id": 303,
+            "name": "清洗剂",
+            "key": "clean_material",
+            "category": "OBJECT",
+            "description": null,
+            "meta_data": {
+              "model": "material.MaterialInfo",
+              "schema": [
+                {
+                  "key": "name",
+                  "name": "物料名称",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                },
+                {
+                  "key": "code",
+                  "name": "物料代码",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                }
+              ],
+              "tag_id": 12,
+              "max_length": 255
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 21
+          }
+        ]
+      }
+    ],
+    "content_type_id": 50,
+    "platform": "固液提纯平台",
+    "operation_type": "SLP-Sampling",
+    "operation_code": "ACT-SLP-Sampling"
+  },
+  {
+    "id": 22,
+    "name": "淬灭实验",
+    "object_id": 18,
+    "properties": [
+      {
+        "name": null,
+        "properties": [
+          {
+            "id": 124,
+            "name": "淬灭剂",
+            "key": "quencher",
+            "category": "OBJECT",
+            "description": null,
+            "meta_data": {
+              "model": "material.MaterialInfo",
+              "schema": [
+                {
+                  "key": "name",
+                  "name": "物料名称",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                },
+                {
+                  "key": "code",
+                  "name": "物料代码",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                }
+              ],
+              "tag_id": 57,
+              "max_length": 255
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          },
+          {
+            "id": 125,
+            "name": "淬灭剂用量",
+            "key": "quencher_qty",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "ml",
+              "quantity_for": "quencher"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          },
+          {
+            "id": 127,
+            "name": "加液顺序",
+            "key": "intput_liquid_order",
+            "category": "BOOLEAN",
+            "description": "true:先加原液 false:先加萃取剂",
+            "meta_data": {
+              "default": true
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          },
+          {
+            "id": 128,
+            "name": "淬灭时间",
+            "key": "quencher_timespan",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "min"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          },
+          {
+            "id": 274,
+            "name": "淬灭初始温度",
+            "key": "quencher_before_temp",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "℃"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          },
+          {
+            "id": 275,
+            "name": "淬灭期间温度限制",
+            "key": "quencher_limit_temp",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "℃"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          },
+          {
+            "id": 276,
+            "name": "淬灭分瓶容量",
+            "key": "bottle_cap",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "max": 800,
+              "unit": "ml"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          },
+          {
+            "id": 277,
+            "name": "淬灭分瓶数量",
+            "key": "bottle_count",
+            "category": "INTEGER",
+            "description": null,
+            "meta_data": {},
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          },
+          {
+            "id": 304,
+            "name": "清洗剂",
+            "key": "clean_material",
+            "category": "OBJECT",
+            "description": null,
+            "meta_data": {
+              "model": "material.MaterialInfo",
+              "schema": [
+                {
+                  "key": "name",
+                  "name": "物料名称",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                },
+                {
+                  "key": "code",
+                  "name": "物料代码",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                }
+              ],
+              "tag_id": 12,
+              "max_length": 255
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 22
+          }
+        ]
+      }
+    ],
+    "content_type_id": 50,
+    "platform": "固液提纯平台",
+    "operation_type": "SLP-Quenching",
+    "operation_code": "ACT-SLP-Quenching"
+  },
+  {
+    "id": 23,
+    "name": "干燥实验",
+    "object_id": 19,
+    "properties": [
+      {
+        "name": null,
+        "properties": [
+          {
+            "id": 129,
+            "name": "干燥剂",
+            "key": "desiccant",
+            "category": "OBJECT",
+            "description": null,
+            "meta_data": {
+              "model": "material.MaterialInfo",
+              "schema": [
+                {
+                  "key": "name",
+                  "name": "物料名称",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                },
+                {
+                  "key": "code",
+                  "name": "物料代码",
+                  "category": "STRING",
+                  "required": true,
+                  "meta_data": {
+                    "max_length": 255
+                  }
+                }
+              ],
+              "tag_id": 55
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 23
+          },
+          {
+            "id": 130,
+            "name": "干燥剂用量",
+            "key": "desiccant_qty",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "g",
+              "quantity_for": "desiccant"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 23
+          },
+          {
+            "id": 131,
+            "name": "震荡时间",
+            "key": "timespan",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "min"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 23
+          },
+          {
+            "id": 132,
+            "name": "震荡速度",
+            "key": "speed",
+            "category": "FLOAT",
+            "description": null,
+            "meta_data": {
+              "unit": "rpm"
+            },
+            "required": true,
+            "validator": [],
+            "preset_id": 23
+          }
+        ]
+      }
+    ],
+    "content_type_id": 50,
+    "platform": "固液提纯平台",
+    "operation_type": "SLP-Drying",
+    "operation_code": "ACT-SLP-Drying"
   },
   {
     "id": 30,
@@ -1004,8 +1893,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1013,8 +1902,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1052,7 +1941,7 @@
             "meta_data": {},
             "required": true,
             "validator": [],
-            "preset_id": null
+            "preset_id": 30
           },
           {
             "id": 170,
@@ -1063,7 +1952,6 @@
             "meta_data": {
               "unit": "ml",
               "display_condition": {
-                "value": true,
                 "property": "is_washing"
               }
             },
@@ -1081,8 +1969,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1090,8 +1978,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1102,7 +1990,6 @@
               "tag_id": 12,
               "max_length": 255,
               "display_condition": {
-                "value": true,
                 "property": "is_washing"
               }
             },
@@ -1119,7 +2006,6 @@
             "meta_data": {
               "unit": "ml/min",
               "display_condition": {
-                "value": true,
                 "property": "is_washing"
               }
             },
@@ -1136,7 +2022,6 @@
             "meta_data": {
               "unit": "rpm",
               "display_condition": {
-                "value": true,
                 "property": "is_washing"
               }
             },
@@ -1153,7 +2038,6 @@
             "meta_data": {
               "unit": "℃",
               "display_condition": {
-                "value": true,
                 "property": "is_washing"
               }
             },
@@ -1170,7 +2054,6 @@
             "meta_data": {
               "unit": "min",
               "display_condition": {
-                "value": true,
                 "property": "is_washing"
               }
             },
@@ -1187,7 +2070,6 @@
             "meta_data": {
               "unit": "min",
               "display_condition": {
-                "value": true,
                 "property": "is_washing"
               }
             },
@@ -1199,7 +2081,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-SolidInput",
+    "operation_code": "ACT-FRP-SolidInput"
   },
   {
     "id": 31,
@@ -1219,8 +2103,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1228,8 +2112,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1288,7 +2172,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-LiquidInput",
+    "operation_code": "ACT-FRP-LiquidInput"
   },
   {
     "id": 32,
@@ -1344,7 +2230,6 @@
             "meta_data": {
               "unit": "ml/min",
               "display_condition": {
-                "value": true,
                 "property": "is_introduce_gas"
               }
             },
@@ -1374,7 +2259,6 @@
             "meta_data": {
               "unit": "min",
               "display_condition": {
-                "value": true,
                 "property": "is_introduce_gas"
               }
             },
@@ -1391,7 +2275,6 @@
             "meta_data": {
               "unit": "min",
               "display_condition": {
-                "value": true,
                 "property": "is_introduce_gas"
               }
             },
@@ -1424,7 +2307,7 @@
                   "category": "FLOAT",
                   "required": true,
                   "meta_data": {
-                    "max": 8.0,
+                    "max": 8,
                     "unit": "ml"
                   }
                 },
@@ -1444,7 +2327,54 @@
                   "category": "INTEGER",
                   "required": true,
                   "meta_data": {
-                    "model": "experiment.InspectionSchemeVersion"
+                    "model": "experiment.InspectionSchemeVersion",
+                    "options": [
+                      {
+                        "label": "中和"
+                      },
+                      {
+                        "label": "稀释"
+                      },
+                      {
+                        "label": "压滤"
+                      },
+                      {
+                        "label": "检测"
+                      },
+                      {
+                        "label": "test-all"
+                      },
+                      {
+                        "label": "存在依赖不允许删除"
+                      },
+                      {
+                        "label": "多步骤"
+                      },
+                      {
+                        "label": "test"
+                      },
+                      {
+                        "label": "test111801"
+                      },
+                      {
+                        "label": "test111803"
+                      },
+                      {
+                        "label": "OnlyPH"
+                      },
+                      {
+                        "label": "1.0.0 部署测试"
+                      },
+                      {
+                        "label": "实验四-检测方案"
+                      },
+                      {
+                        "label": "实验三-检测方案"
+                      },
+                      {
+                        "label": "S1-GCMS-过滤"
+                      }
+                    ]
                   }
                 },
                 {
@@ -1454,7 +2384,6 @@
                 }
               ],
               "display_condition": {
-                "value": true,
                 "property": "is_sampling"
               }
             },
@@ -1477,7 +2406,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-GeneralReact",
+    "operation_code": "ACT-FRP-GeneralReact"
   },
   {
     "id": 33,
@@ -1497,8 +2428,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1506,8 +2437,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1528,7 +2459,7 @@
             "category": "FLOAT",
             "description": null,
             "meta_data": {
-              "unit": "ml/s"
+              "unit": "ml/min"
             },
             "required": false,
             "validator": [],
@@ -1578,7 +2509,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-TemperatureControlAddLiquid",
+    "operation_code": "ACT-FRP-TemperatureControlAddLiquid"
   },
   {
     "id": 34,
@@ -1595,7 +2528,7 @@
             "category": "FLOAT",
             "description": null,
             "meta_data": {
-              "max": 8.0,
+              "max": 8,
               "unit": "ml"
             },
             "required": true,
@@ -1609,7 +2542,54 @@
             "category": "INTEGER",
             "description": null,
             "meta_data": {
-              "model": "experiment.InspectionSchemeVersion"
+              "model": "experiment.InspectionSchemeVersion",
+              "options": [
+                {
+                  "label": "中和"
+                },
+                {
+                  "label": "稀释"
+                },
+                {
+                  "label": "压滤"
+                },
+                {
+                  "label": "检测"
+                },
+                {
+                  "label": "test-all"
+                },
+                {
+                  "label": "存在依赖不允许删除"
+                },
+                {
+                  "label": "多步骤"
+                },
+                {
+                  "label": "test"
+                },
+                {
+                  "label": "test111801"
+                },
+                {
+                  "label": "test111803"
+                },
+                {
+                  "label": "OnlyPH"
+                },
+                {
+                  "label": "1.0.0 部署测试"
+                },
+                {
+                  "label": "实验四-检测方案"
+                },
+                {
+                  "label": "实验三-检测方案"
+                },
+                {
+                  "label": "S1-GCMS-过滤"
+                }
+              ]
             },
             "required": true,
             "validator": [],
@@ -1619,7 +2599,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-EndSampling",
+    "operation_code": "ACT-FRP-EndSampling"
   },
   {
     "id": 35,
@@ -1639,8 +2621,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1648,8 +2630,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1747,7 +2729,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-Washing",
+    "operation_code": "ACT-FRP-Washing"
   },
   {
     "id": 36,
@@ -1767,8 +2751,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1776,8 +2760,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -1823,7 +2807,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-RinsePipeline",
+    "operation_code": "ACT-FRP-RinsePipeline"
   },
   {
     "id": 37,
@@ -1848,7 +2834,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-GasReplacement",
+    "operation_code": "ACT-FRP-GasReplacement"
   },
   {
     "id": 38,
@@ -1875,7 +2863,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-TemperatureControl",
+    "operation_code": "ACT-FRP-TemperatureControl"
   },
   {
     "id": 39,
@@ -1902,7 +2892,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-Stirring",
+    "operation_code": "ACT-FRP-Stirring"
   },
   {
     "id": 40,
@@ -1929,523 +2921,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "四釜反应平台"
-  },
-  {
-    "id": 18,
-    "name": "过滤",
-    "object_id": 14,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 107,
-            "name": "时长",
-            "key": "timespan",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "min"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 18
-          },
-          {
-            "id": 108,
-            "name": "滤膜",
-            "key": "filter_material",
-            "category": "OBJECT",
-            "description": null,
-            "meta_data": {
-              "model": "material.MaterialInfo",
-              "schema": [
-                {
-                  "key": "code",
-                  "name": "物料代码",
-                  "category": "STRING",
-                  "required": true,
-                  "meta_data": {
-                    "max_length": 255
-                  }
-                },
-                {
-                  "key": "name",
-                  "name": "物料名称",
-                  "category": "STRING",
-                  "required": true,
-                  "meta_data": {
-                    "max_length": 255
-                  }
-                }
-              ],
-              "tag_id": 13,
-              "max_length": 255
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 18
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "固液提纯平台"
-  },
-  {
-    "id": 19,
-    "name": "离心",
-    "object_id": 15,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 109,
-            "name": "离心速度",
-            "key": "centrifugal_speed",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "rpm"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 19
-          },
-          {
-            "id": 110,
-            "name": "离心温度",
-            "key": "centrifugal_temperature",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "℃"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 19
-          },
-          {
-            "id": 111,
-            "name": "时长",
-            "key": "timespan",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "min"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 19
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "固液提纯平台"
-  },
-  {
-    "id": 20,
-    "name": "萃取实验",
-    "object_id": 16,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 113,
-            "name": "萃取剂",
-            "key": "extract_material",
-            "category": "OBJECT",
-            "description": null,
-            "meta_data": {
-              "model": "material.MaterialInfo",
-              "schema": [
-                {
-                  "key": "code",
-                  "name": "物料代码",
-                  "category": "STRING",
-                  "required": true,
-                  "meta_data": {
-                    "max_length": 255
-                  }
-                },
-                {
-                  "key": "name",
-                  "name": "物料名称",
-                  "category": "STRING",
-                  "required": true,
-                  "meta_data": {
-                    "max_length": 255
-                  }
-                }
-              ],
-              "tag_id": 56,
-              "max_length": 255
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 20
-          },
-          {
-            "id": 114,
-            "name": "萃取剂用量",
-            "key": "extract_material_dosage",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "ml",
-              "quantity_for": "extract_material"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 20
-          },
-          {
-            "id": 115,
-            "name": "静置时间",
-            "key": "standing_time_span",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "min"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 20
-          },
-          {
-            "id": 116,
-            "name": "搅拌速度",
-            "key": "stir_speed",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "rpm"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 20
-          },
-          {
-            "id": 117,
-            "name": "搅拌时间",
-            "key": "stir_timespan",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "min"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 20
-          },
-          {
-            "id": 118,
-            "name": "加液速度",
-            "key": "intput_liquid_speed",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "ml/s"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 20
-          },
-          {
-            "id": 120,
-            "name": "取液层",
-            "key": "take_layer",
-            "category": "ENUM",
-            "description": null,
-            "meta_data": {
-              "options": {
-                "1": "上层",
-                "2": "下层",
-                "3": "都需要"
-              }
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 20
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "固液提纯平台"
-  },
-  {
-    "id": 21,
-    "name": "分析检测",
-    "object_id": 17,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 121,
-            "name": "取样量",
-            "key": "sampling_dosage",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "max": 8.0,
-              "unit": "ml"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 21
-          },
-          {
-            "id": 122,
-            "name": "检测方案",
-            "key": "inspection_scheme",
-            "category": "INTEGER",
-            "description": null,
-            "meta_data": {
-              "model": "experiment.InspectionSchemeVersion"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 21
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "固液提纯平台"
-  },
-  {
-    "id": 22,
-    "name": "淬灭实验",
-    "object_id": 18,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 124,
-            "name": "淬灭剂",
-            "key": "quencher",
-            "category": "OBJECT",
-            "description": null,
-            "meta_data": {
-              "model": "material.MaterialInfo",
-              "schema": [
-                {
-                  "key": "code",
-                  "name": "物料代码",
-                  "category": "STRING",
-                  "required": true,
-                  "meta_data": {
-                    "max_length": 255
-                  }
-                },
-                {
-                  "key": "name",
-                  "name": "物料名称",
-                  "category": "STRING",
-                  "required": true,
-                  "meta_data": {
-                    "max_length": 255
-                  }
-                }
-              ],
-              "tag_id": 57,
-              "max_length": 255
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 22
-          },
-          {
-            "id": 125,
-            "name": "淬灭剂用量",
-            "key": "quencher_qty",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "ml",
-              "quantity_for": "quencher"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 22
-          },
-          {
-            "id": 127,
-            "name": "加液顺序",
-            "key": "intput_liquid_order",
-            "category": "BOOLEAN",
-            "description": "true:先加原液 false:先加萃取剂",
-            "meta_data": {
-              "default": true
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 22
-          },
-          {
-            "id": 128,
-            "name": "淬灭时间",
-            "key": "quencher_timespan",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "min"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 22
-          },
-          {
-            "id": 274,
-            "name": "淬灭初始温度",
-            "key": "quencher_before_temp",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "℃"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 22
-          },
-          {
-            "id": 275,
-            "name": "淬灭期间温度限制",
-            "key": "quencher_limit_temp",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "℃"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 22
-          },
-          {
-            "id": 276,
-            "name": "淬灭分瓶容量",
-            "key": "bottle_cap",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "max": 800.0,
-              "unit": "ml"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 22
-          },
-          {
-            "id": 277,
-            "name": "淬灭分瓶数量",
-            "key": "bottle_count",
-            "category": "INTEGER",
-            "description": null,
-            "meta_data": {},
-            "required": true,
-            "validator": [],
-            "preset_id": 22
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "固液提纯平台"
-  },
-  {
-    "id": 23,
-    "name": "干燥实验",
-    "object_id": 19,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 129,
-            "name": "干燥剂",
-            "key": "desiccant",
-            "category": "OBJECT",
-            "description": null,
-            "meta_data": {
-              "model": "material.MaterialInfo",
-              "schema": [
-                {
-                  "key": "code",
-                  "name": "物料代码",
-                  "category": "STRING",
-                  "required": true,
-                  "meta_data": {
-                    "max_length": 255
-                  }
-                },
-                {
-                  "key": "name",
-                  "name": "物料名称",
-                  "category": "STRING",
-                  "required": true,
-                  "meta_data": {
-                    "max_length": 255
-                  }
-                }
-              ],
-              "tag_id": 55
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 23
-          },
-          {
-            "id": 130,
-            "name": "干燥剂用量",
-            "key": "desiccant_qty",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "mg",
-              "quantity_for": "desiccant"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 23
-          },
-          {
-            "id": 131,
-            "name": "震荡时间",
-            "key": "timespan",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "min"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 23
-          },
-          {
-            "id": 132,
-            "name": "震荡速度",
-            "key": "speed",
-            "category": "FLOAT",
-            "description": null,
-            "meta_data": {
-              "unit": "rpm"
-            },
-            "required": true,
-            "validator": [],
-            "preset_id": 23
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "固液提纯平台"
+    "platform": "四釜反应平台",
+    "operation_type": "FRP-LiquidRecovery",
+    "operation_code": "ACT-FRP-LiquidRecovery"
   },
   {
     "id": 24,
@@ -2462,10 +2940,14 @@
             "category": "ENUM",
             "description": null,
             "meta_data": {
-              "options": {
-                "500": "500ml",
-                "1000": "1000ml"
-              }
+              "options": [
+                {
+                  "label": "500ml"
+                },
+                {
+                  "label": "1000ml"
+                }
+              ]
             },
             "required": true,
             "validator": [],
@@ -2503,7 +2985,6 @@
                   "meta_data": {
                     "unit": "℃",
                     "display_condition": {
-                      "value": true,
                       "property": "is_step_rise"
                     }
                   }
@@ -2516,7 +2997,6 @@
                   "meta_data": {
                     "unit": "min",
                     "display_condition": {
-                      "value": true,
                       "property": "is_step_rise"
                     }
                   }
@@ -2574,7 +3054,6 @@
                   "meta_data": {
                     "unit": "ml",
                     "display_condition": {
-                      "value": true,
                       "property": "is_condensation_sampling"
                     }
                   }
@@ -2587,9 +3066,55 @@
                   "meta_data": {
                     "model": "experiment.InspectionSchemeVersion",
                     "display_condition": {
-                      "value": true,
                       "property": "is_condensation_sampling"
-                    }
+                    },
+                    "options": [
+                      {
+                        "label": "中和"
+                      },
+                      {
+                        "label": "稀释"
+                      },
+                      {
+                        "label": "压滤"
+                      },
+                      {
+                        "label": "检测"
+                      },
+                      {
+                        "label": "test-all"
+                      },
+                      {
+                        "label": "存在依赖不允许删除"
+                      },
+                      {
+                        "label": "多步骤"
+                      },
+                      {
+                        "label": "test"
+                      },
+                      {
+                        "label": "test111801"
+                      },
+                      {
+                        "label": "test111803"
+                      },
+                      {
+                        "label": "OnlyPH"
+                      },
+                      {
+                        "label": "1.0.0 部署测试"
+                      },
+                      {
+                        "label": "实验四-检测方案"
+                      },
+                      {
+                        "label": "实验三-检测方案"
+                      },
+                      {
+                        "label": "S1-GCMS-过滤"
+                      }
+                    ]
                   }
                 }
               ]
@@ -2643,12 +3168,58 @@
                   "category": "INTEGER",
                   "required": true,
                   "meta_data": {
-                    "model": "experiment.InspectionSchemeVersion"
+                    "model": "experiment.InspectionSchemeVersion",
+                    "options": [
+                      {
+                        "label": "中和"
+                      },
+                      {
+                        "label": "稀释"
+                      },
+                      {
+                        "label": "压滤"
+                      },
+                      {
+                        "label": "检测"
+                      },
+                      {
+                        "label": "test-all"
+                      },
+                      {
+                        "label": "存在依赖不允许删除"
+                      },
+                      {
+                        "label": "多步骤"
+                      },
+                      {
+                        "label": "test"
+                      },
+                      {
+                        "label": "test111801"
+                      },
+                      {
+                        "label": "test111803"
+                      },
+                      {
+                        "label": "OnlyPH"
+                      },
+                      {
+                        "label": "1.0.0 部署测试"
+                      },
+                      {
+                        "label": "实验四-检测方案"
+                      },
+                      {
+                        "label": "实验三-检测方案"
+                      },
+                      {
+                        "label": "S1-GCMS-过滤"
+                      }
+                    ]
                   }
                 }
               ],
               "display_condition": {
-                "value": true,
                 "property": "is_residual_sampling"
               }
             },
@@ -2676,7 +3247,6 @@
             "meta_data": {
               "unit": "ml",
               "display_condition": {
-                "value": true,
                 "property": "is_rotary_wash"
               }
             },
@@ -2694,8 +3264,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -2703,8 +3273,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -2715,7 +3285,6 @@
               "tag_id": 12,
               "max_length": 255,
               "display_condition": {
-                "value": true,
                 "property": "is_rotary_wash"
               }
             },
@@ -2732,7 +3301,6 @@
             "meta_data": {
               "unit": "ml/min",
               "display_condition": {
-                "value": true,
                 "property": "is_rotary_wash"
               }
             },
@@ -2746,9 +3314,7 @@
             "key": "is_condense_wash",
             "category": "BOOLEAN",
             "description": null,
-            "meta_data": {
-              "value": "TRUE"
-            },
+            "meta_data": {},
             "required": true,
             "validator": [],
             "preset_id": 24
@@ -2763,7 +3329,6 @@
               "unit": "ml",
               "quantity_for": "wash_rotary_material",
               "display_condition": {
-                "value": true,
                 "property": "is_condense_wash"
               }
             },
@@ -2781,8 +3346,8 @@
               "model": "material.MaterialInfo",
               "schema": [
                 {
-                  "key": "code",
-                  "name": "物料代码",
+                  "key": "name",
+                  "name": "物料名称",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -2790,8 +3355,8 @@
                   }
                 },
                 {
-                  "key": "name",
-                  "name": "物料名称",
+                  "key": "code",
+                  "name": "物料代码",
                   "category": "STRING",
                   "required": true,
                   "meta_data": {
@@ -2802,7 +3367,6 @@
               "tag_id": 12,
               "max_length": 255,
               "display_condition": {
-                "value": true,
                 "property": "is_condense_wash"
               }
             },
@@ -2819,7 +3383,6 @@
             "meta_data": {
               "unit": "ml/min",
               "display_condition": {
-                "value": true,
                 "property": "is_condense_wash"
               }
             },
@@ -2831,7 +3394,9 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "旋蒸预留平台"
+    "platform": "旋蒸预留平台",
+    "operation_type": "REP-TASK",
+    "operation_code": "ACT-REP-TASK"
   },
   {
     "id": 41,
@@ -2874,11 +3439,17 @@
             "category": "ENUM",
             "description": null,
             "meta_data": {
-              "options": {
-                "ltc-6688": "ltc-6688",
-                "ADH-GM-23208": "ADH-GM-23208",
-                "Adh-gm-28759": "Adh-gm-28759"
-              }
+              "options": [
+                {
+                  "label": "ltc-6688"
+                },
+                {
+                  "label": "ADH-GM-23208"
+                },
+                {
+                  "label": "Adh-gm-28759"
+                }
+              ]
             },
             "required": false,
             "validator": [],
@@ -2888,780 +3459,8 @@
       }
     ],
     "content_type_id": 50,
-    "platform": "过柱纯化平台"
-  },
-  {
-    "id": 42,
-    "name": "1、待精馏物料及用户数据（关联待精馏物料的实验）",
-    "object_id": 38,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 216,
-            "name": "待精馏物料名称",
-            "key": "action_38_property_3",
-            "category": "STRING",
-            "description": "qqqqq",
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          },
-          {
-            "id": 217,
-            "name": "进料组成（质量分数）",
-            "key": "action_38_property_4",
-            "category": "STRING",
-            "description": "qqqqq",
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          },
-          {
-            "id": 218,
-            "name": "待精馏物料体积",
-            "key": "action_38_property_5",
-            "category": "STRING",
-            "description": "",
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          },
-          {
-            "id": 219,
-            "name": "待精馏物料质量",
-            "key": "action_38_property_6",
-            "category": "STRING",
-            "description": "",
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          },
-          {
-            "id": 220,
-            "name": "塔顶产物目标组成",
-            "key": "action_38_property_7",
-            "category": "STRING",
-            "description": "11",
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          },
-          {
-            "id": 221,
-            "name": "塔釜产物目标组成",
-            "key": "action_38_property_8",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          },
-          {
-            "id": 222,
-            "name": "精馏操作人员",
-            "key": "action_38_property_9",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          },
-          {
-            "id": 223,
-            "name": "精馏工艺 ID",
-            "key": "action_38_property_10",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          },
-          {
-            "id": 224,
-            "name": "精馏开始时间",
-            "key": "action_38_property_11",
-            "category": "DATETIME",
-            "description": null,
-            "meta_data": {},
-            "required": false,
-            "validator": [],
-            "preset_id": 42
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "精馏平台"
-  },
-  {
-    "id": 43,
-    "name": "2、精馏开始时记录数据",
-    "object_id": 39,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 225,
-            "name": "初始记录时间",
-            "key": "action_39_property_1",
-            "category": "DATETIME",
-            "description": null,
-            "meta_data": {},
-            "required": false,
-            "validator": [],
-            "preset_id": 43
-          },
-          {
-            "id": 226,
-            "name": "进料温度",
-            "key": "action_39_property_2",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 43
-          },
-          {
-            "id": 227,
-            "name": "初始塔釜液位",
-            "key": "action_39_property_3",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 43
-          },
-          {
-            "id": 228,
-            "name": "初始塔釜温度",
-            "key": "action_39_property_4",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 43
-          },
-          {
-            "id": 229,
-            "name": "初始塔顶温度",
-            "key": "action_39_property_5",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 43
-          },
-          {
-            "id": 230,
-            "name": "初始压力",
-            "key": "action_39_property_6",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 43
-          },
-          {
-            "id": 231,
-            "name": "初始回流比",
-            "key": "action_39_property_7",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 43
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "精馏平台"
-  },
-  {
-    "id": 44,
-    "name": "3、精馏关键过程数据",
-    "object_id": 40,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 232,
-            "name": "记录 ID",
-            "key": "action_40_property_1",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 233,
-            "name": "关联批号 ID",
-            "key": "action_40_property_2",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 234,
-            "name": "过程记录时间",
-            "key": "action_40_property_3",
-            "category": "DATETIME",
-            "description": null,
-            "meta_data": {},
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 235,
-            "name": "塔釜温度",
-            "key": "action_40_property_4",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 236,
-            "name": "塔节温度",
-            "key": "action_40_property_5",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 237,
-            "name": "塔顶温度",
-            "key": "action_40_property_6",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 238,
-            "name": "塔釜压力",
-            "key": "action_40_property_7",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 239,
-            "name": "塔顶压力",
-            "key": "action_40_property_8",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 240,
-            "name": "产品馏出流量",
-            "key": "action_40_property_9",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 241,
-            "name": "回流比",
-            "key": "action_40_property_10",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          },
-          {
-            "id": 242,
-            "name": "塔釜液位",
-            "key": "action_40_property_11",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 44
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "精馏平台"
-  },
-  {
-    "id": 45,
-    "name": "4、主馏分收集数据",
-    "object_id": 41,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 243,
-            "name": "馏分 ID",
-            "key": "action_41_property_1",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 244,
-            "name": "接收瓶编号",
-            "key": "action_41_property_2",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 245,
-            "name": "收集位置",
-            "key": "action_41_property_3",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 246,
-            "name": "收集开始时间",
-            "key": "action_41_property_4",
-            "category": "DATETIME",
-            "description": null,
-            "meta_data": {},
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 247,
-            "name": "收集结束时间",
-            "key": "action_41_property_5",
-            "category": "DATETIME",
-            "description": null,
-            "meta_data": {},
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 248,
-            "name": "收集时回流比",
-            "key": "action_41_property_6",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 249,
-            "name": "收集开始时塔顶温度",
-            "key": "action_41_property_7",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 250,
-            "name": "收集结束时塔顶温度",
-            "key": "action_41_property_8",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 251,
-            "name": "收集开始时压力（塔顶）",
-            "key": "action_41_property_9",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 252,
-            "name": "收集结束时压力（塔釜）",
-            "key": "action_41_property_10",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 253,
-            "name": "采出量/馏分体积",
-            "key": "action_41_property_11",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          },
-          {
-            "id": 254,
-            "name": "采出量/馏分质量",
-            "key": "action_41_property_12",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 45
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "精馏平台"
-  },
-  {
-    "id": 46,
-    "name": "5、主馏分取样数据",
-    "object_id": 42,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 255,
-            "name": "采样编号",
-            "key": "action_42_property_1",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 46
-          },
-          {
-            "id": 256,
-            "name": "关联馏分 ID",
-            "key": "action_42_property_2",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 46
-          },
-          {
-            "id": 257,
-            "name": "采样体积",
-            "key": "action_42_property_3",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 46
-          },
-          {
-            "id": 258,
-            "name": "操作员",
-            "key": "action_42_property_4",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 46
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "精馏平台"
-  },
-  {
-    "id": 47,
-    "name": "6、主馏分送样检测结果数据（关联GC-MS模块）",
-    "object_id": 43,
-    "properties": [
-      {
-        "name": null,
-        "properties": [
-          {
-            "id": 259,
-            "name": "送样编号",
-            "key": "action_43_property_1",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 260,
-            "name": "送样时间",
-            "key": "action_43_property_2",
-            "category": "DATETIME",
-            "description": null,
-            "meta_data": {},
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 261,
-            "name": "初始 pH 值",
-            "key": "action_43_property_3",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 262,
-            "name": "中和后 pH 值",
-            "key": "action_43_property_4",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 263,
-            "name": "检测器名称",
-            "key": "action_43_property_5",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 264,
-            "name": "乙醇峰面积",
-            "key": "action_43_property_6",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 265,
-            "name": "正丙醇峰面积",
-            "key": "action_43_property_7",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 266,
-            "name": "乙醇保留时间",
-            "key": "action_43_property_8",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 267,
-            "name": "正丙醇保留时间",
-            "key": "action_43_property_9",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 268,
-            "name": "乙醇质量分数",
-            "key": "action_43_property_10",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          },
-          {
-            "id": 269,
-            "name": "正丙醇质量分数",
-            "key": "action_43_property_11",
-            "category": "STRING",
-            "description": null,
-            "meta_data": {
-              "max_length": 255
-            },
-            "required": false,
-            "validator": [],
-            "preset_id": 47
-          }
-        ]
-      }
-    ],
-    "content_type_id": 50,
-    "platform": "精馏平台"
+    "platform": "过柱纯化平台",
+    "operation_type": "CPP-Parameters",
+    "operation_code": "ACT-CPP-Parameters"
   }
 ]
