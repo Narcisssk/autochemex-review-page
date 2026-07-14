@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowDown, ArrowUp, CopyPlus, Download, FileDown, Plus, RotateCcw, Save, Trash2 } from 'lucide-react';
+import { ArrowDown, ArrowUp, CircleHelp, CopyPlus, Download, FileDown, Plus, RotateCcw, Save, Trash2 } from 'lucide-react';
 import type { JSMol, RDKitModule } from '@rdkit/rdkit';
 import rdkitScriptUrl from '@rdkit/rdkit/dist/RDKit_minimal.js?url';
 import rdkitWasmUrl from '@rdkit/rdkit/dist/RDKit_minimal.wasm?url';
@@ -75,6 +75,13 @@ type RegistryRecord = {
   properties?: Array<{ properties?: ParameterDef[] }>;
 };
 
+type PlatformGuide = {
+  purpose: string;
+  chooseWhen: string;
+  notFor: string;
+  registryNote: string;
+};
+
 type MoleculeSvg = {
   smiles: string;
   svg?: string;
@@ -90,6 +97,38 @@ type ReactionDiagramData = {
 
 const DATA_BASE = './data';
 const STORAGE_PREFIX = 'autochemex-review:';
+const PLATFORM_GUIDES: Record<string, PlatformGuide> = {
+  高通量反应平台: {
+    purpose: '用于小体积平行反应筛选和合成路线验证。平台共有 24 个约 30 mL 反应位，分为 4 个温区。支持固体和液体加料、控温搅拌、水平震荡、普通反应、冷凝回流、过程加液、过程取样，以及简单的稀释和萃取。',
+    chooseWhen: '筛选物料配比、试剂当量、催化剂或添加剂用量、溶剂量和反应温区。',
+    notFor: '百毫升级放大或复杂精制。',
+    registryNote: '当前任务模板中，一个任务选择一个反应区，最多设置 6 组反应。',
+  },
+  四釜反应平台: {
+    purpose: '用于较大体积的制备反应和放大验证。支持固体与液体加料、控温、搅拌、气体置换或通气、控温滴加、冷凝回流、过程取样、液体回收和设备清洗。',
+    chooseWhen: '百毫升级反应，或需要较完整过程控制的制备实验。',
+    notFor: '以小体积、多条件筛选为主要目的的实验；此时应优先选择高通量反应平台。',
+    registryNote: '反应节点包含温度、时间、搅拌、通气、过程取样和冷凝回流等设置。',
+  },
+  固液提纯平台: {
+    purpose: '用于反应结束后的粗分离和后处理，包括淬灭、萃取、静置分层、过滤、离心、加入干燥剂和取样检测。',
+    chooseWhen: '文献描述淬灭、萃取、分层、干燥或过滤等后处理操作。连续操作应根据实际动作拆分为多个步骤。',
+    notFor: '旋蒸和柱层析。',
+    registryNote: '当前注册表包含过滤、离心、萃取、淬灭和干燥等操作。',
+  },
+  旋蒸预留平台: {
+    purpose: '用于在减压条件下脱除溶剂、浓缩溶液或获得粗产物。主要参数包括旋蒸瓶尺寸、油浴温度、真空度、冷凝温度、旋蒸时间、是否阶梯升温，以及冷凝液和残液是否收集。',
+    chooseWhen: '文献要求减压蒸除溶剂、浓缩溶液或收集粗产物。',
+    notFor: '精馏或柱层析等高分辨率分离。',
+    registryNote: '支持 500 mL 或 1000 mL 旋蒸瓶，并要求填写油浴温度、时间、冷凝温度和真空度。',
+  },
+  过柱纯化平台: {
+    purpose: '用于通过柱色谱对粗产物进行精细分离和纯化。主要参数包括进样量、进样流速和过柱方法。',
+    chooseWhen: '文献出现 column chromatography、flash chromatography 或“过硅胶柱”等操作。',
+    notFor: '简单过滤、萃取或蒸除溶剂。',
+    registryNote: '当前注册表中的过柱操作提供进样流速、进样量和过柱方法。',
+  },
+};
 
 function App() {
   const [packets, setPackets] = React.useState<PacketSummary[]>([]);
@@ -425,9 +464,13 @@ function App() {
             {activeTab === 'form' && (
               <section className="steps">
                 <div className="section-heading">
-                  <span>Platform Steps</span>
+                  <div className="section-heading-copy">
+                    <span>实验步骤</span>
+                    <p>请按文献中的实际物理操作拆分步骤。平台决定当前步骤可以选择的操作和参数，不能互相代替。</p>
+                  </div>
                   <button onClick={() => addStep()}><Plus size={16} /> Add step</button>
                 </div>
+                <PlatformSelectionGuide />
                 {packet.platform_review_steps.map((step, index) => (
                   <StepCard
                     key={step.review_step_id || index}
@@ -489,6 +532,56 @@ function EvidenceList({ title, evidence }: { title: string; evidence?: string[] 
         {items.map((item, index) => <li key={index}>{item}</li>)}
       </ul>
     </div>
+  );
+}
+
+function PlatformSelectionGuide() {
+  return (
+    <details className="platform-guide">
+      <summary>
+        <CircleHelp size={18} aria-hidden="true" />
+        <span>
+          <strong>平台选择说明</strong>
+          <small>查看每个平台能做什么、什么时候选、不能代替什么</small>
+        </span>
+      </summary>
+      <div className="platform-guide-content">
+        <div className="platform-choice-tips">
+          <p><strong>反应平台怎么选？</strong>小体积、多条件筛选选择高通量反应平台；较大体积制备、放大或需要复杂过程控制时选择四釜反应平台。</p>
+          <p><strong>后处理是否写成一个步骤？</strong>不建议。淬灭、萃取、过滤、干燥、旋蒸和过柱属于不同物理操作，应分别建立步骤。</p>
+        </div>
+        <div className="platform-guide-grid">
+          {Object.entries(PLATFORM_GUIDES).map(([platform, guide]) => (
+            <PlatformGuideCard key={platform} platform={platform} guide={guide} />
+          ))}
+        </div>
+      </div>
+    </details>
+  );
+}
+
+function PlatformGuideCard({ platform, guide, compact = false }: { platform: string; guide: PlatformGuide; compact?: boolean }) {
+  return (
+    <div className={`platform-guide-card ${compact ? 'compact' : ''}`}>
+      <strong>{platform}</strong>
+      <dl>
+        <div><dt>能做什么</dt><dd>{guide.purpose}</dd></div>
+        <div><dt>什么时候选</dt><dd>{guide.chooseWhen}</dd></div>
+        <div><dt>不能代替</dt><dd>{guide.notFor}</dd></div>
+        <div><dt>当前表单</dt><dd>{guide.registryNote}</dd></div>
+      </dl>
+    </div>
+  );
+}
+
+function SelectedPlatformGuide({ platform }: { platform: string }) {
+  const guide = PLATFORM_GUIDES[platform];
+  if (!guide) return null;
+  return (
+    <details className="selected-platform-guide">
+      <summary><CircleHelp size={15} aria-hidden="true" /> 当前平台说明</summary>
+      <PlatformGuideCard platform={platform} guide={guide} compact />
+    </details>
   );
 }
 
@@ -554,13 +647,16 @@ function StepCard(props: {
       </div>
 
       <div className="step-grid">
-        <label className="field">
-          <span>Platform</span>
-          <select value={step.platform || ''} onChange={(event) => props.onOperationChange(event.target.value, '')}>
-            <option value="">Select platform</option>
-            {Object.keys(platforms).map((platform) => <option key={platform} value={platform}>{platform}</option>)}
-          </select>
-        </label>
+        <div className="platform-field">
+          <label className="field">
+            <span>Platform</span>
+            <select value={step.platform || ''} onChange={(event) => props.onOperationChange(event.target.value, '')}>
+              <option value="">Select platform</option>
+              {Object.keys(platforms).map((platform) => <option key={platform} value={platform}>{platform}</option>)}
+            </select>
+          </label>
+          {step.platform && <SelectedPlatformGuide platform={step.platform} />}
+        </div>
         <label className="field">
           <span>Operation</span>
           <select value={step.operation || ''} onChange={(event) => props.onOperationChange(step.platform || '', event.target.value)}>

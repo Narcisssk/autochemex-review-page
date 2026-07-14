@@ -493,6 +493,167 @@ textarea {
   margin-top: 16px;
 }
 
+.section-heading-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.section-heading-copy > span {
+  color: #1f2a37;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.section-heading-copy p {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.platform-guide {
+  background: #f8fbff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+}
+
+.platform-guide > summary,
+.selected-platform-guide > summary {
+  align-items: center;
+  color: #1d4ed8;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.platform-guide > summary {
+  min-height: 48px;
+  padding: 9px 12px;
+}
+
+.platform-guide > summary::-webkit-details-marker,
+.selected-platform-guide > summary::-webkit-details-marker {
+  display: none;
+}
+
+.platform-guide > summary::after,
+.selected-platform-guide > summary::after {
+  content: '展开';
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.platform-guide[open] > summary::after,
+.selected-platform-guide[open] > summary::after {
+  content: '收起';
+}
+
+.platform-guide > summary span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.platform-guide > summary strong {
+  color: #1e3a8a;
+  font-size: 13px;
+}
+
+.platform-guide > summary small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.platform-guide-content {
+  border-top: 1px solid #dbeafe;
+  padding: 12px;
+}
+
+.platform-choice-tips {
+  background: #eff6ff;
+  border-radius: 6px;
+  color: #334155;
+  display: grid;
+  gap: 7px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+}
+
+.platform-choice-tips p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.platform-guide-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.platform-guide-card {
+  background: #ffffff;
+  border: 1px solid #d8e0ea;
+  border-radius: 6px;
+  color: #334155;
+  padding: 11px 12px;
+}
+
+.platform-guide-card > strong {
+  color: #1f2a37;
+  font-size: 13px;
+}
+
+.platform-guide-card dl {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+}
+
+.platform-guide-card dl div {
+  display: grid;
+  gap: 7px;
+  grid-template-columns: 72px 1fr;
+}
+
+.platform-guide-card dt {
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.platform-guide-card dd {
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.platform-field {
+  min-width: 0;
+}
+
+.selected-platform-guide {
+  background: #f8fbff;
+  border: 1px solid #dbeafe;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.selected-platform-guide > summary {
+  font-size: 12px;
+  min-height: 32px;
+  padding: 6px 8px;
+}
+
+.selected-platform-guide .platform-guide-card.compact {
+  border: 0;
+  border-radius: 0 0 6px 6px;
+  border-top: 1px solid #dbeafe;
+}
+
 .steps,
 .parameters,
 .materials,
@@ -798,9 +959,16 @@ textarea {
   .reaction-panel,
   .review-guide,
   .paper-panel,
+  .platform-guide-grid,
   .step-grid,
   .param-row {
     grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .paper-panel {
