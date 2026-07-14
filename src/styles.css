@@ -518,8 +518,7 @@ textarea {
   border-radius: 8px;
 }
 
-.platform-guide > summary,
-.selected-platform-guide > summary {
+.platform-guide > summary {
   align-items: center;
   color: #1d4ed8;
   cursor: pointer;
@@ -533,20 +532,17 @@ textarea {
   padding: 9px 12px;
 }
 
-.platform-guide > summary::-webkit-details-marker,
-.selected-platform-guide > summary::-webkit-details-marker {
+.platform-guide > summary::-webkit-details-marker {
   display: none;
 }
 
-.platform-guide > summary::after,
-.selected-platform-guide > summary::after {
+.platform-guide > summary::after {
   content: '展开';
   font-size: 12px;
   margin-left: auto;
 }
 
-.platform-guide[open] > summary::after,
-.selected-platform-guide[open] > summary::after {
+.platform-guide[open] > summary::after {
   content: '收起';
 }
 
@@ -629,29 +625,6 @@ textarea {
   font-size: 12px;
   line-height: 1.45;
   margin: 0;
-}
-
-.platform-field {
-  min-width: 0;
-}
-
-.selected-platform-guide {
-  background: #f8fbff;
-  border: 1px solid #dbeafe;
-  border-radius: 6px;
-  margin-top: 6px;
-}
-
-.selected-platform-guide > summary {
-  font-size: 12px;
-  min-height: 32px;
-  padding: 6px 8px;
-}
-
-.selected-platform-guide .platform-guide-card.compact {
-  border: 0;
-  border-radius: 0 0 6px 6px;
-  border-top: 1px solid #dbeafe;
 }
 
 .steps,

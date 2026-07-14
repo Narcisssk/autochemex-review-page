@@ -466,7 +466,7 @@ function App() {
                 <div className="section-heading">
                   <div className="section-heading-copy">
                     <span>实验步骤</span>
-                    <p>请按文献中的实际物理操作拆分步骤。平台决定当前步骤可以选择的操作和参数，不能互相代替。</p>
+                    <p>请按您认为合理的物理操作来安排步骤。步骤的选择、数量、顺序皆可调整。虽然已有一些预填信息和提示，但是仅供参考，最终实验计划以人工填写为准。</p>
                   </div>
                   <button onClick={() => addStep()}><Plus size={16} /> Add step</button>
                 </div>
@@ -560,9 +560,9 @@ function PlatformSelectionGuide() {
   );
 }
 
-function PlatformGuideCard({ platform, guide, compact = false }: { platform: string; guide: PlatformGuide; compact?: boolean }) {
+function PlatformGuideCard({ platform, guide }: { platform: string; guide: PlatformGuide }) {
   return (
-    <div className={`platform-guide-card ${compact ? 'compact' : ''}`}>
+    <div className="platform-guide-card">
       <strong>{platform}</strong>
       <dl>
         <div><dt>能做什么</dt><dd>{guide.purpose}</dd></div>
@@ -571,17 +571,6 @@ function PlatformGuideCard({ platform, guide, compact = false }: { platform: str
         <div><dt>当前表单</dt><dd>{guide.registryNote}</dd></div>
       </dl>
     </div>
-  );
-}
-
-function SelectedPlatformGuide({ platform }: { platform: string }) {
-  const guide = PLATFORM_GUIDES[platform];
-  if (!guide) return null;
-  return (
-    <details className="selected-platform-guide">
-      <summary><CircleHelp size={15} aria-hidden="true" /> 当前平台说明</summary>
-      <PlatformGuideCard platform={platform} guide={guide} compact />
-    </details>
   );
 }
 
@@ -647,16 +636,13 @@ function StepCard(props: {
       </div>
 
       <div className="step-grid">
-        <div className="platform-field">
-          <label className="field">
-            <span>Platform</span>
-            <select value={step.platform || ''} onChange={(event) => props.onOperationChange(event.target.value, '')}>
-              <option value="">Select platform</option>
-              {Object.keys(platforms).map((platform) => <option key={platform} value={platform}>{platform}</option>)}
-            </select>
-          </label>
-          {step.platform && <SelectedPlatformGuide platform={step.platform} />}
-        </div>
+        <label className="field">
+          <span>Platform</span>
+          <select value={step.platform || ''} onChange={(event) => props.onOperationChange(event.target.value, '')}>
+            <option value="">Select platform</option>
+            {Object.keys(platforms).map((platform) => <option key={platform} value={platform}>{platform}</option>)}
+          </select>
+        </label>
         <label className="field">
           <span>Operation</span>
           <select value={step.operation || ''} onChange={(event) => props.onOperationChange(step.platform || '', event.target.value)}>
