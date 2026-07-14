@@ -672,7 +672,7 @@ function StepCard(props: {
       <div className="parameters">
         <div className="mini-heading">Parameters</div>
         {schema.length === 0 ? <div className="empty">Select a platform operation to show parameters.</div> : schema.map((parameter) => {
-          const condition = displayConditionState(parameter, step);
+          const condition = displayConditionState(parameter, step, schema);
           if (condition.status === 'inactive') return null;
           if (condition.status === 'waiting') {
             return (
@@ -799,7 +799,7 @@ function ObjectValueEditor(props: {
   return (
     <div className="object-editor">
       {fields.map((field) => {
-        const condition = displayConditionStateForValues(field, props.value);
+        const condition = displayConditionStateForValues(field, props.value, fields);
         if (condition.status === 'inactive') return null;
         if (condition.status === 'waiting') {
           return (
@@ -1224,27 +1224,41 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
   };
 }
 
-function displayConditionState(parameter: ParameterDef, step: ReviewStep): { status: 'active' | 'inactive' | 'waiting'; help?: string } {
+function displayConditionState(parameter: ParameterDef, step: ReviewStep, schema: ParameterDef[]): { status: 'active' | 'inactive' | 'waiting'; help?: string } {
   const values = Object.fromEntries(
     Object.entries(step.parameters || {}).map(([key, record]) => [key, record?.value])
   );
-  return displayConditionStateForValues(parameter, values);
+  return displayConditionStateForValues(parameter, values, schema);
 }
 
-function displayConditionStateForValues(parameter: ParameterDef, values: Record<string, JsonValue | undefined>): { status: 'active' | 'inactive' | 'waiting'; help?: string } {
+function displayConditionStateForValues(
+  parameter: ParameterDef,
+  values: Record<string, JsonValue | undefined>,
+  schema: ParameterDef[],
+): { status: 'active' | 'inactive' | 'waiting'; help?: string } {
   const condition = parameter.meta_data?.display_condition;
   if (!condition || typeof condition !== 'object' || Array.isArray(condition)) return { status: 'active' };
   const property = String((condition as JsonObject).property || '');
   if (!property) return { status: 'active' };
-  const expected = (condition as JsonObject).value;
-  const controllerValue = values[property];
+  const controllerValue = conditionControllerValue(property, values, schema);
   if (isMissingParameterValue(controllerValue)) {
     return {
       status: 'waiting',
-      help: `该参数只有在 ${property} = ${String(expected)} 时才需要填写；请先确认上方控制参数。`,
+      help: `该参数只有在 ${property} = true 时才需要填写；请先确认上方控制参数。`,
     };
   }
-  return valuesMatchCondition(controllerValue, expected) ? { status: 'active' } : { status: 'inactive' };
+  return valuesMatchCondition(controllerValue, true) ? { status: 'active' } : { status: 'inactive' };
+}
+
+function conditionControllerValue(
+  property: string,
+  values: Record<string, JsonValue | undefined>,
+  schema: ParameterDef[],
+): JsonValue | undefined {
+  const current = values[property];
+  if (!isMissingParameterValue(current)) return current;
+  const controller = schema.find((parameter) => parameter.key === property);
+  return controller?.meta_data?.default;
 }
 
 function applyParameterConditions(step: ReviewStep, schema: ParameterDef[]): ReviewStep {
@@ -1253,7 +1267,7 @@ function applyParameterConditions(step: ReviewStep, schema: ParameterDef[]): Rev
   for (const parameter of schema) {
     if (!parameter.meta_data?.display_condition) continue;
     const current = next.parameters[parameter.key] || parameterValueStub(parameter);
-    const state = displayConditionState(parameter, next);
+    const state = displayConditionState(parameter, next, schema);
     if (state.status === 'inactive') {
       next.parameters[parameter.key] = { ...current, value: null, source: 'derived', review_status: 'not_applicable' };
     }
@@ -1322,7 +1336,7 @@ function validatePacket(packet: ReviewPacket, registry: RegistryRecord[]): JsonO
       if (!allowedParams[key]) errors.push({ path: `${location}.parameters.${key}`, message: 'Parameter key is not in operation schema.' });
     }
     for (const parameter of Object.values(allowedParams)) {
-      const condition = displayConditionState(parameter, step);
+      const condition = displayConditionState(parameter, step, schema);
       if (condition.status !== 'active') continue;
       const value = step.parameters?.[parameter.key];
       if (!parameter.required && value?.review_status === 'not_applicable') continue;
@@ -1341,7 +1355,7 @@ function validateNestedRequiredFields(value: JsonValue | undefined, parameter: P
   if (fields.length === 0) return;
   const objectValue = value && typeof value === 'object' && !Array.isArray(value) ? value as JsonObject : {};
   for (const field of fields) {
-    if (displayConditionStateForValues(field, objectValue).status !== 'active') continue;
+    if (displayConditionStateForValues(field, objectValue, fields).status !== 'active') continue;
     const childPath = `${path}.${field.key}`;
     const childValue = objectValue[field.key];
     if (field.required && isMissingParameterValue(childValue)) {
@@ -1416,7 +1430,7 @@ function normalizeRequiredParameterStatuses(packet: ReviewPacket, registry: Regi
     for (const parameter of schema) {
       const current = step.parameters?.[parameter.key];
       if (current) current.value = normalizeParameterValue(current.value, parameter);
-      if (!parameter.required || displayConditionState(parameter, step).status !== 'active') continue;
+      if (!parameter.required || displayConditionState(parameter, step, schema).status !== 'active') continue;
       if (!current || current.review_status !== 'not_applicable') continue;
       current.source = isMissingParameterValue(current.value) ? 'missing' : current.source || 'expert';
       current.review_status = isMissingParameterValue(current.value) ? 'needs_expert' : 'ok';
@@ -1499,7 +1513,7 @@ function normalizeParameterValue(value: JsonValue | undefined, parameter: Parame
     if (fields.length === 0 || !value || typeof value !== 'object' || Array.isArray(value)) return value ?? null;
     const next = { ...(value as JsonObject) };
     for (const field of fields) {
-      if (displayConditionStateForValues(field, next).status !== 'active') continue;
+      if (displayConditionStateForValues(field, next, fields).status !== 'active') continue;
       next[field.key] = normalizeParameterValue(next[field.key], field);
     }
     return next;
