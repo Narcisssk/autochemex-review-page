@@ -97,6 +97,7 @@ type ReactionDiagramData = {
 
 const DATA_BASE = './data';
 const STORAGE_PREFIX = 'autochemex-review:';
+const HIGH_THROUGHPUT_WELL_COUNT = 6;
 const PLATFORM_GUIDES: Record<string, PlatformGuide> = {
   高通量反应平台: {
     purpose: '用于小体积平行反应筛选和合成路线验证。整机共有 24 个约 30 mL 反应位，分为 4 个反应区。单个任务选择 1 个反应区，最多运行 6 组实验。支持固体与液体加料、控温搅拌、水平震荡、普通反应、冷凝回流、过程加液、过程取样，以及简单稀释和萃取。',
@@ -171,9 +172,14 @@ function App() {
   }
 
   async function loadPacket(packetId: string) {
-    const base = stripStepEvidence(await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(packetId)}`));
+    const base = normalizePacketParameterShapes(
+      stripStepEvidence(await fetchJson<ReviewPacket>(`${DATA_BASE}/review_packets/${encodeURIComponent(packetId)}`)),
+      registry,
+    );
     const stored = readStoredPacket(packetId);
-    const data = stored ? protectImmutableFields(stripStepEvidence(stored), base) : base;
+    const data = stored
+      ? protectImmutableFields(normalizePacketParameterShapes(stripStepEvidence(stored), registry), base)
+      : base;
     setBasePacket(base);
     setPacket(data);
     setErrors([]);
@@ -182,7 +188,8 @@ function App() {
 
   function updatePacket(next: ReviewPacket) {
     const cleanPacket = stripStepEvidence(next);
-    const normalizedPacket = normalizeRequiredParameterStatuses(cleanPacket, registry);
+    const shapedPacket = normalizePacketParameterShapes(cleanPacket, registry);
+    const normalizedPacket = normalizeRequiredParameterStatuses(shapedPacket, registry);
     const protectedPacket = basePacket ? protectImmutableFields(normalizedPacket, basePacket) : normalizedPacket;
     setPacket(protectedPacket);
     if (selectedId) {
@@ -760,6 +767,9 @@ function ParameterValueEditor(props: {
     return <ObjectValueEditor parameter={parameter} value={asObjectValue(value)} onChange={onChange} />;
   }
   if (parameter.category === 'ARRAY') {
+    if (parameter.meta_data?.dimensional === 2) {
+      return <DimensionalArrayValueEditor parameter={parameter} value={asArrayValue(value)} onChange={onChange} />;
+    }
     return <ArrayValueEditor parameter={parameter} value={asArrayValue(value)} onChange={onChange} />;
   }
   if (parameter.category === 'ENUM') {
@@ -845,6 +855,9 @@ function NestedValueEditor(props: {
     return <ObjectValueEditor parameter={parameter} value={asObjectValue(value)} onChange={onChange} />;
   }
   if (parameter.category === 'ARRAY') {
+    if (parameter.meta_data?.dimensional === 2) {
+      return <DimensionalArrayValueEditor parameter={parameter} value={asArrayValue(value)} onChange={onChange} />;
+    }
     return <ArrayValueEditor parameter={parameter} value={asArrayValue(value)} onChange={onChange} />;
   }
   if (parameter.category === 'ENUM') {
@@ -938,6 +951,45 @@ function ArrayValueEditor(props: {
       <button className="small-button" disabled={!canAdd} onClick={addItem}>
         Add item{maxLength ? ` (${props.value.length}/${maxLength})` : ''}
       </button>
+    </div>
+  );
+}
+
+function DimensionalArrayValueEditor(props: {
+  parameter: ParameterDef;
+  value: JsonValue[];
+  onChange: (value: JsonValue) => void;
+}) {
+  const groupCount = props.value.some((item) => Array.isArray(item)) ? props.value.length : 1;
+  const groups = normalizeQuantityGroups(props.value, groupCount);
+
+  function updateCell(groupIndex: number, cellIndex: number, raw: string) {
+    const next = groups.map((group) => [...group]);
+    next[groupIndex][cellIndex] = parseInputValue(raw, 'FLOAT');
+    props.onChange(next);
+  }
+
+  return (
+    <div className="quantity-matrix">
+      {groups.length === 0 ? (
+        <div className="empty compact">请先添加固体物料，系统会为每个物料生成一组 6 个反应位数量。</div>
+      ) : groups.map((group, groupIndex) => (
+        <div className="quantity-group" key={groupIndex}>
+          <div className="quantity-group-heading">物料 {groupIndex + 1}：6 个反应位</div>
+          <div className="quantity-cells">
+            {group.map((cell, cellIndex) => (
+              <label className="quantity-cell" key={cellIndex}>
+                <span>位 {cellIndex + 1}</span>
+                <input
+                  value={stringifyInputValue(cell)}
+                  onChange={(event) => updateCell(groupIndex, cellIndex, event.target.value)}
+                />
+              </label>
+            ))}
+          </div>
+        </div>
+      ))}
+      <span className="param-help">每个固体物料对应一组 6 个数量；候选值默认放在该组第 1 个位置。</span>
     </div>
   );
 }
@@ -1206,7 +1258,7 @@ function parameterReviewStatus(parameter: ParameterDef, current: ParameterValue)
   if (!isMissingParameterValue(current.value)) {
     return {
       kind: 'filled',
-      label: current.source === 'literature' ? 'LLM文献提取' : current.source === 'expert' ? '专家已填' : '已有候选值',
+      label: current.source === 'literature' ? '已有候选值' : current.source === 'expert' ? '专家已填' : '已有候选值',
       help: current.source === 'literature' ? 'LLM 从文献中提取的候选值，请核对；不正确时直接修改。' : '请核对数值和单位；不正确时直接修改。',
     };
   }
@@ -1247,7 +1299,7 @@ function displayConditionStateForValues(
       help: `该参数只有在 ${property} = true 时才需要填写；请先确认上方控制参数。`,
     };
   }
-  return valuesMatchCondition(controllerValue, true) ? { status: 'active' } : { status: 'inactive' };
+  return valuesMatchCondition(controllerValue as JsonValue, true) ? { status: 'active' } : { status: 'inactive' };
 }
 
 function conditionControllerValue(
@@ -1421,6 +1473,47 @@ function stripStepEvidence(packet: ReviewPacket): ReviewPacket {
     delete (step as ReviewStep & { evidence?: string[] }).evidence;
   }
   return next;
+}
+
+function normalizePacketParameterShapes(packet: ReviewPacket, registry: RegistryRecord[]): ReviewPacket {
+  const next = structuredClone(packet);
+  for (const step of next.platform_review_steps || []) {
+    const schema = operationParameters(findOperation(registry, step.platform || '', step.operation || ''));
+    normalizeHighThroughputSolidAddition(step, schema);
+  }
+  return next;
+}
+
+function normalizeHighThroughputSolidAddition(step: ReviewStep, schema: ParameterDef[]) {
+  if (step.platform !== '高通量反应平台' || step.operation !== '固体加料') return;
+  const materialParameter = schema.find((parameter) => parameter.key === 'material');
+  const quantityParameter = schema.find((parameter) => parameter.key === 'qty');
+  if (!materialParameter || !quantityParameter) return;
+
+  step.parameters = step.parameters || {};
+  const materialValue = asArrayValue(step.parameters.material?.value);
+  const materialCount = materialValue.length || 1;
+  const quantityRecord = step.parameters.qty || parameterValueStub(quantityParameter);
+  const groups = normalizeQuantityGroups(quantityRecord.value, materialCount);
+  step.parameters.qty = {
+    ...quantityRecord,
+    value: groups,
+  };
+}
+
+function normalizeQuantityGroups(value: JsonValue | undefined, groupCount: number): JsonValue[][] {
+  const rawQuantity = asArrayValue(value);
+  const nestedGroups = rawQuantity.some((item) => Array.isArray(item));
+  const candidateGroups: JsonValue[][] = nestedGroups
+    ? rawQuantity.map((item) => Array.isArray(item) ? item : [item])
+    : groupCount > 1
+      ? rawQuantity.map((item) => [item])
+      : [rawQuantity];
+  return Array.from({ length: Math.max(groupCount, 1) }, (_, groupIndex) => {
+    const group = candidateGroups[groupIndex] || [];
+    const trimmed = group.slice(0, HIGH_THROUGHPUT_WELL_COUNT);
+    return [...trimmed, ...Array.from({ length: HIGH_THROUGHPUT_WELL_COUNT - trimmed.length }, () => null)];
+  });
 }
 
 function normalizeRequiredParameterStatuses(packet: ReviewPacket, registry: RegistryRecord[]): ReviewPacket {
