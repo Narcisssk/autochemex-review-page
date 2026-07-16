@@ -1,26 +1,12 @@
 {
   "generated_at": "2026-07-03T16:38:08.998210+00:00",
-  "packet_count": 24,
+  "packet_count": 23,
   "selection": {
-    "legacy_kept_count": 9,
+    "legacy_kept_count": 8,
     "new_selected_count": 15,
     "backup_path": "data/backup_review_packets/legacy_20260704/backup_index.json"
   },
   "packets": [
-    {
-      "id": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__003_effbf9eb-acff-5236-a974-f6ad3a969816.json",
-      "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_gold_extraction__003_effbf9eb-acff-5236-a974-f6ad3a969816.json",
-      "literature_uuid": "119134ac_05ef_5cfa_8c44_927918eddcc9",
-      "reaction_id": "effbf9eb-acff-5236-a974-f6ad3a969816",
-      "target_name": "2-Methoxy-5,7,7,7-tetrachlor-2-hepten-4-on",
-      "source_group": "legacy_kept",
-      "paper": {
-        "file_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
-        "url": "data/papers/119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
-        "source_name": "119134ac_05ef_5cfa_8c44_927918eddcc9_origin.pdf",
-        "size_bytes": 902254
-      }
-    },
     {
       "id": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction__001_ecf56c22-96d1-5ea1-a599-e439ddb9b71b.json",
       "file_name": "223fb6ff_6eeb_5dc4_aedc_a29cd5bb2535_gold_extraction__001_ecf56c22-96d1-5ea1-a599-e439ddb9b71b.json",
